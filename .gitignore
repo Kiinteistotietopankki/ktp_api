@@ -1,0 +1,21 @@
+# Node modules (installed packages)
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Optional: build or dist folders
+dist/
+build/
+
+# Optional: IDE/editor folders
+.vscode/
+.idea/
