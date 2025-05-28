@@ -1,5 +1,9 @@
 # ktp_api
 
+with nodemon: npm run dev
+regular: npm run start
+
+
 ### Client HTTP Request
       ↓
 ### Route (e.g. /api/users/:id)
