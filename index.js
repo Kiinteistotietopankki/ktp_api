@@ -1,11 +1,22 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const userRoutes = require('./routes/userRoutes');
+const sequelize = require('./config/dbConfig');
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Hello from Express API!'));
+app.use('/api/users', userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Database connected');
+    return sequelize.sync(); // Sync models to DB
+  })
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch(err => {
+    console.error('Unable to connect to DB:', err);
+  });
