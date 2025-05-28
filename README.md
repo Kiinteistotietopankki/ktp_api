@@ -1,13 +1,13 @@
 # ktp_api
 
-Client HTTP Request
+### Client HTTP Request
       ↓
-Route (e.g. /api/users/:id)
+### Route (e.g. /api/users/:id)
       ↓
-Controller (handles request, sends response)
+### Controller (handles request, sends response)
       ↓
-Service (calls model methods)
+### Service (calls model methods)
       ↓
-Model (interacts with database)
+### Model (interacts with database)
       ↓
-Database
+### Database
