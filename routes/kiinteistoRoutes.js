@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const kiinteistotController = require('../controllers/kiinteistoController');
+const authMiddleware = require('../middlewares/authMiddleware');
+const apikeyMiddleware = require('../middlewares/checkApikey')
+
+// router.use(authMiddleware);
+router.use(apikeyMiddleware);
 
 router.get('/', kiinteistotController.getAllKiinteistot);
 router.get('/:id', kiinteistotController.getKiinteistoById);
