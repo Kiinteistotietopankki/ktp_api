@@ -19,6 +19,7 @@ const createKiinteisto = async (data) => {
 const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
   const newKiinteisto = await Kiinteistot.create(kiinteistodata);
 
+  // Create Rakennukset linked to new Kiinteisto
   const newRakennukset = await Promise.all(
     rakennusdataArray.map(data =>
       Rakennukset.create({
@@ -28,7 +29,27 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
     )
   );
 
-  return { newKiinteisto, newRakennukset };
+  // For each new Rakennus, create associated Rakennustiedot_ryhti if any data exists
+  // Assuming each rakennusdata might include 'rakennustiedotArray' with data for Rakennustiedot_ryhti
+  const rakennustiedotPromises = [];
+
+  newRakennukset.forEach((rakennus, index) => {
+    const rakennustiedotArray = rakennusdataArray[index].rakennustiedotArray;
+    if (Array.isArray(rakennustiedotArray)) {
+      rakennustiedotArray.forEach(tieto => {
+        rakennustiedotPromises.push(
+          Rakennustiedot_ryhti.create({
+            ...tieto,
+            id_rakennus: rakennus.id_rakennus, // link to Rakennus
+          })
+        );
+      });
+    }
+  });
+
+  const newRakennustiedot = await Promise.all(rakennustiedotPromises);
+
+  return { newKiinteisto, newRakennukset, newRakennustiedot };
 };
 
 const updateKiinteisto = async (id, data) => {
