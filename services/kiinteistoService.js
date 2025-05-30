@@ -1,24 +1,27 @@
-const { Kiinteisto, Rakennus } = require('../models');
+const sequelize = require('../config/dbConfig'); // import your Sequelize instance
+const initModels = require('../models/init-models');
+
+const { Kiinteistot, Rakennukset } = initModels(sequelize);
 
 
 const getAllKiinteistot = async () => {
-  return await Kiinteisto.findAll();
+  return await Kiinteistot.findAll();
 };
 
 const getKiinteistoById = async (id) => {
-  return await Kiinteisto.findByPk(id);
+  return await Kiinteistot.findByPk(id);
 };
 
 const createKiinteisto = async (data) => {
-  return await Kiinteisto.create(data);
+  return await Kiinteistot.create(data);
 };
 
 const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
-  const newKiinteisto = await Kiinteisto.create(kiinteistodata);
+  const newKiinteisto = await Kiinteistot.create(kiinteistodata);
 
   const newRakennukset = await Promise.all(
     rakennusdataArray.map(data =>
-      Rakennus.create({
+      Rakennukset.create({
         ...data,
         id_kiinteisto: newKiinteisto.id_kiinteisto,
       })
@@ -29,7 +32,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
 };
 
 const updateKiinteisto = async (id, data) => {
-  const kiinteisto = await Kiinteisto.findByPk(id);
+  const kiinteisto = await Kiinteistot.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
@@ -37,7 +40,7 @@ const updateKiinteisto = async (id, data) => {
 };
 
 const deleteKiinteisto = async (id) => {
-  const kiinteisto = await Kiinteisto.findByPk(id);
+  const kiinteisto = await Kiinteistot.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
