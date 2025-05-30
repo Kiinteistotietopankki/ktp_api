@@ -16,7 +16,7 @@ const createKiinteisto = async (data) => {
   return await Kiinteistot.create(data);
 };
 
-const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
+const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray, rakennusluokituksetArray) => {
   const newKiinteisto = await Kiinteistot.create(kiinteistodata);
 
   // Create Rakennukset linked to new Kiinteisto
@@ -29,10 +29,8 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
     )
   );
 
-  // For each new Rakennus, create associated Rakennustiedot_ryhti if any data exists
-  // Assuming each rakennusdata might include 'rakennustiedotArray' with data for Rakennustiedot_ryhti
+  // Create Rakennustiedot_ryhti linked to each Rakennus
   const rakennustiedotPromises = [];
-
   newRakennukset.forEach((rakennus, index) => {
     const rakennustiedotArray = rakennusdataArray[index].rakennustiedotArray;
     if (Array.isArray(rakennustiedotArray)) {
@@ -40,16 +38,37 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
         rakennustiedotPromises.push(
           Rakennustiedot_ryhti.create({
             ...tieto,
-            id_rakennus: rakennus.id_rakennus, // link to Rakennus
+            id_rakennus: rakennus.id_rakennus,
           })
         );
       });
     }
   });
-
   const newRakennustiedot = await Promise.all(rakennustiedotPromises);
 
-  return { newKiinteisto, newRakennukset, newRakennustiedot };
+  // Create Rakennusluokitukset_ryhti linked to each Rakennus
+  const rakennusluokituksetPromises = [];
+  newRakennukset.forEach((rakennus, index) => {
+    const rakennusluokituksetArray = rakennusdataArray[index].rakennusluokituksetArray;
+    if (Array.isArray(rakennusluokituksetArray)) {
+      rakennusluokituksetArray.forEach(luokitus => {
+        rakennusluokituksetPromises.push(
+          Rakennusluokitukset_ryhti.create({
+            ...luokitus,
+            rakennus_id: rakennus.id_rakennus,
+          })
+        );
+      });
+    }
+  });
+  const newRakennusluokitukset = await Promise.all(rakennusluokituksetPromises);
+
+  return { 
+    newKiinteisto, 
+    newRakennukset, 
+    newRakennustiedot, 
+    newRakennusluokitukset 
+  };
 };
 
 const updateKiinteisto = async (id, data) => {

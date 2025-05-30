@@ -31,9 +31,10 @@ const createKiinteisto = async (req, res) => {
 
 const createKiinteistoWhole = async (req, res) => {
   try {
-    const { kiinteistodata, rakennusdata, rakennustiedotArray } = req.body;
-    const { newKiinteisto, newRakennukset, newRakennustiedot } = await kiinteistotService.createKiinteistoWhole(kiinteistodata, rakennusdata, rakennustiedotArray);
-    res.status(201).json({ newKiinteisto, newRakennukset, newRakennustiedot});
+    const { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
+    const { newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset } =
+      await kiinteistotService.createKiinteistoWhole(kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray);
+    res.status(201).json({ newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset});
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
