@@ -10,7 +10,8 @@ function generateModels() {
     MYSQL_PASSWORD,
   } = process.env;
 
-  const command = `npx sequelize-auto -h ${MYSQL_HOST} -d ${MYSQL_DATABASE} -u ${MYSQL_USER} -x ${MYSQL_PASSWORD} -p ${DB_PORT} -e postgres -o ./models`;
+  const command = `npx sequelize-auto -h ${MYSQL_HOST} -d ${MYSQL_DATABASE} -u ${MYSQL_USER} -x ${MYSQL_PASSWORD} -p ${DB_PORT} -e mysql -o ./models`;
+
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
