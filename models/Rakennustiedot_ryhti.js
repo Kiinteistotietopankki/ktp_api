@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     rakennusvuosi: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     kokonaisala: {
