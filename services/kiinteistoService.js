@@ -1,25 +1,24 @@
-const Kiinteistot = require('../models/kiinteistoModel');
-const Rakennukset = require('../models/rakennusModel')
+const { Kiinteisto, Rakennus } = require('../models');
 
 
 const getAllKiinteistot = async () => {
-  return await Kiinteistot.findAll();
+  return await Kiinteisto.findAll();
 };
 
 const getKiinteistoById = async (id) => {
-  return await Kiinteistot.findByPk(id);
+  return await Kiinteisto.findByPk(id);
 };
 
 const createKiinteisto = async (data) => {
-  return await Kiinteistot.create(data);
+  return await Kiinteisto.create(data);
 };
 
 const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
-  const newKiinteisto = await Kiinteistot.create(kiinteistodata);
+  const newKiinteisto = await Kiinteisto.create(kiinteistodata);
 
   const newRakennukset = await Promise.all(
     rakennusdataArray.map(data =>
-      Rakennukset.create({
+      Rakennus.create({
         ...data,
         id_kiinteisto: newKiinteisto.id_kiinteisto,
       })
@@ -30,7 +29,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
 };
 
 const updateKiinteisto = async (id, data) => {
-  const kiinteisto = await Kiinteistot.findByPk(id);
+  const kiinteisto = await Kiinteisto.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
@@ -38,7 +37,7 @@ const updateKiinteisto = async (id, data) => {
 };
 
 const deleteKiinteisto = async (id) => {
-  const kiinteisto = await Kiinteistot.findByPk(id);
+  const kiinteisto = await Kiinteisto.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
