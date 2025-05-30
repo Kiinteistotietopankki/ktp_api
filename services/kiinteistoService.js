@@ -1,4 +1,6 @@
 const Kiinteistot = require('../models/kiinteistoModel');
+const Rakennukset = require('../models/rakennusModel')
+
 
 const getAllKiinteistot = async () => {
   return await Kiinteistot.findAll();
@@ -10,6 +12,21 @@ const getKiinteistoById = async (id) => {
 
 const createKiinteisto = async (data) => {
   return await Kiinteistot.create(data);
+};
+
+const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
+  const newKiinteisto = await Kiinteistot.create(kiinteistodata);
+
+  const newRakennukset = await Promise.all(
+    rakennusdataArray.map(data =>
+      Rakennukset.create({
+        ...data,
+        id_kiinteisto: newKiinteisto.id_kiinteisto,
+      })
+    )
+  );
+
+  return { newKiinteisto, newRakennukset };
 };
 
 const updateKiinteisto = async (id, data) => {
@@ -32,6 +49,7 @@ module.exports = {
   getAllKiinteistot,
   getKiinteistoById,
   createKiinteisto,
+  createKiinteistoWhole,
   updateKiinteisto,
   deleteKiinteisto,
 };
