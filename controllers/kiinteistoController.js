@@ -1,5 +1,6 @@
 const kiinteistotService = require('../services/kiinteistoService');
 
+
 const getAllKiinteistot = async (req, res) => {
   try {
     const kiinteistot = await kiinteistotService.getAllKiinteistot();
@@ -28,6 +29,18 @@ const createKiinteisto = async (req, res) => {
   }
 };
 
+const createKiinteistoWhole = async (req, res) => {
+  try {
+    const { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
+    const { newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset } =
+      await kiinteistotService.createKiinteistoWhole(kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray);
+    res.status(201).json({ newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset});
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+
 const updateKiinteisto = async (req, res) => {
   try {
     const updatedKiinteisto = await kiinteistotService.updateKiinteisto(req.params.id, req.body);
@@ -50,6 +63,7 @@ module.exports = {
   getAllKiinteistot,
   getKiinteistoById,
   createKiinteisto,
+  createKiinteistoWhole,
   updateKiinteisto,
   deleteKiinteisto,
 };

@@ -10,6 +10,7 @@ router.use(apikeyMiddleware);
 router.get('/', kiinteistotController.getAllKiinteistot);
 router.get('/:id', kiinteistotController.getKiinteistoById);
 router.post('/', kiinteistotController.createKiinteisto);
+router.post('/create', kiinteistotController.createKiinteistoWhole);
 router.put('/:id', kiinteistotController.updateKiinteisto);
 router.delete('/:id', kiinteistotController.deleteKiinteisto);
 

@@ -1,5 +1,8 @@
-const Rakennukset = require('../models/rakennusModel');
-const Kiinteistot = require('../models/kiinteistoModel')
+const sequelize = require('../config/dbConfig'); // import your Sequelize instance
+const initModels = require('../models/init-models');
+
+const { Kiinteistot, Rakennukset } = initModels(sequelize);
+
 
 const getAllRakennukset = async () => {
   return await Rakennukset.findAll();
@@ -17,7 +20,6 @@ const createRakennus = async (data) => {
     error.statusCode = 400; // Bad Request
     throw error;
   }
-
   // If exists, create Rakennus
   const newRakennus = await Rakennukset.create(data);
   return newRakennus;
