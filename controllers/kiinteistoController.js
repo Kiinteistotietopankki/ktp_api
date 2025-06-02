@@ -3,12 +3,26 @@ const kiinteistotService = require('../services/kiinteistoService');
 
 const getAllKiinteistot = async (req, res) => {
   try {
-    const kiinteistot = await kiinteistotService.getAllKiinteistot();
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+
+    const kiinteistot = await kiinteistotService.getAllKiinteistot(page, pageSize);
     res.json(kiinteistot);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
+const getKiinteistoWholeById = async (req, res) => {
+  try {
+    const kiinteisto = await kiinteistotService.getKiinteistoWholeById(req.params.id);
+    if (!kiinteisto) return res.status(404).json({ error: 'Kiinteisto not found' });
+    res.json(kiinteisto);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 
 const getKiinteistoById = async (req, res) => {
   try {
@@ -61,6 +75,7 @@ const deleteKiinteisto = async (req, res) => {
 
 module.exports = {
   getAllKiinteistot,
+  getKiinteistoWholeById,
   getKiinteistoById,
   createKiinteisto,
   createKiinteistoWhole,
