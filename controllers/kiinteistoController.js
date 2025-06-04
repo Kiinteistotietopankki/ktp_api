@@ -1,5 +1,13 @@
+const { models } = require('../models');
+const lookup_julkisivumateriaali = require('../models/lookup_julkisivumateriaali');
+const lookup_kayttotilanne = require('../models/lookup_kayttotilanne');
+const lookup_lammitysenergialahde = require('../models/lookup_lammitysenergialahde');
+const lookup_lammitystapa = require('../models/lookup_lammitystapa');
+const lookup_rakennusaine = require('../models/lookup_rakennusaine');
+const lookup_rakennusluokitus = require('../models/lookup_rakennusluokitus');
+const lookup_rakentamistapa = require('../models/lookup_rakentamistapa');
+const { getLookupCode, getLookupName } = require('../scripts/lookupHelper');
 const kiinteistotService = require('../services/kiinteistoService');
-
 
 const getAllKiinteistot = async (req, res) => {
   try {
@@ -45,12 +53,40 @@ const createKiinteisto = async (req, res) => {
 
 const createKiinteistoWhole = async (req, res) => {
   try {
-    const { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
-    const { newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset } =
-      await kiinteistotService.createKiinteistoWhole(kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray);
-    res.status(201).json({ newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset});
+    console.log('Received create request:', JSON.stringify(req.body, null, 2));
+
+    let { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
+
+    // For each rakennusdata item, translate rakennusluokituksetArray fields
+    for (const rakennus of rakennusdata) {
+      if (rakennus.rakennusluokituksetArray) {
+        for (const item of rakennus.rakennusluokituksetArray) {
+          item.rakennusluokitus = await getLookupCode(models.lookup_rakennusluokitus, item.rakennusluokitus);
+          item.runkotapa = await getLookupCode(models.lookup_rakentamistapa, item.runkotapa);
+          // Do the same for other fields using appropriate lookup models
+          item.julkisivumateriaali = await getLookupCode(models.lookup_julkisivumateriaali, item.julkisivumateriaali);
+          item.lammitystapa = await getLookupCode(models.lookup_lammitystapa, item.lammitystapa);
+          item.lammitysenergialahde = await getLookupCode(models.lookup_lammitysenergialahde, item.lammitysenergianlahde);
+          item.rakennusaine = await getLookupCode(models.lookup_rakennusaine, item.rakennusaine);
+          item.kayttotilanne = await getLookupCode(models.lookup_kayttotilanne, item.kayttotilanne)
+        }
+      }
+    }
+
+    const result = await kiinteistotService.createKiinteistoWhole(
+      kiinteistodata,
+      rakennusdata,
+      rakennustiedotArray,
+      rakennusluokituksetArray
+    ); 
+    res.status(201).json(result);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    console.error('Error creating kiinteisto:', err);
+    if (err.details) {
+      res.status(400).json({ error: 'Validation error', details: err.details.map(d => d.message) });
+    } else {
+      res.status(400).json({ error: err.message || 'Unknown error' });
+    }
   }
 };
 
