@@ -2,6 +2,7 @@ var DataTypes = require("sequelize").DataTypes;
 var _Huoneistot = require("./Huoneistot");
 var _Kiinteistot = require("./Kiinteistot");
 var _Lokitus = require("./Lokitus");
+var _Metadata_rakennus = require("./Metadata_rakennus");
 var _Rakennukset = require("./Rakennukset");
 var _Rakennusluokitukset_ryhti = require("./Rakennusluokitukset_ryhti");
 var _Rakennustiedot_ryhti = require("./Rakennustiedot_ryhti");
@@ -17,6 +18,7 @@ function initModels(sequelize) {
   var Huoneistot = _Huoneistot(sequelize, DataTypes);
   var Kiinteistot = _Kiinteistot(sequelize, DataTypes);
   var Lokitus = _Lokitus(sequelize, DataTypes);
+  var Metadata_rakennus = _Metadata_rakennus(sequelize, DataTypes);
   var Rakennukset = _Rakennukset(sequelize, DataTypes);
   var Rakennusluokitukset_ryhti = _Rakennusluokitukset_ryhti(sequelize, DataTypes);
   var Rakennustiedot_ryhti = _Rakennustiedot_ryhti(sequelize, DataTypes);
@@ -36,11 +38,14 @@ function initModels(sequelize) {
   Rakennukset.hasMany(Rakennusluokitukset_ryhti, { as: "Rakennusluokitukset_ryhtis", foreignKey: "rakennus_id"});
   Rakennustiedot_ryhti.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
   Rakennukset.hasMany(Rakennustiedot_ryhti, { as: "Rakennustiedot_ryhtis", foreignKey: "id_rakennus"});
+  Metadata_rakennus.belongsTo(Rakennusluokitukset_ryhti, { as: "id_rakennus_Rakennusluokitukset_ryhti", foreignKey: "id_rakennus"});
+  Rakennusluokitukset_ryhti.hasMany(Metadata_rakennus, { as: "Metadata_rakennus", foreignKey: "id_rakennus"});
 
   return {
     Huoneistot,
     Kiinteistot,
     Lokitus,
+    Metadata_rakennus,
     Rakennukset,
     Rakennusluokitukset_ryhti,
     Rakennustiedot_ryhti,

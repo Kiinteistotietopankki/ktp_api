@@ -47,8 +47,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     sijainti: {
-      type: DataTypes.GEOMETRY('POINT'),
-      allowNull: true,
+      type: "POINT",
+      allowNull: true
     }
   }, {
     sequelize,
