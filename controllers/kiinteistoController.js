@@ -1,11 +1,4 @@
 const { models } = require('../models');
-const lookup_julkisivumateriaali = require('../models/lookup_julkisivumateriaali');
-const lookup_kayttotilanne = require('../models/lookup_kayttotilanne');
-const lookup_lammitysenergialahde = require('../models/lookup_lammitysenergialahde');
-const lookup_lammitystapa = require('../models/lookup_lammitystapa');
-const lookup_rakennusaine = require('../models/lookup_rakennusaine');
-const lookup_rakennusluokitus = require('../models/lookup_rakennusluokitus');
-const lookup_rakentamistapa = require('../models/lookup_rakentamistapa');
 const { getLookupCode, getLookupName } = require('../scripts/lookupHelper');
 const kiinteistotService = require('../services/kiinteistoService');
 

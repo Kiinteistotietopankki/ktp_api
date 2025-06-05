@@ -22,6 +22,7 @@ const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   };
 };
 
+
 const getKiinteistoWholeById = async (id_kiinteisto) => {
   const kiinteisto = await Kiinteistot.findOne({ where: { id_kiinteisto } });
   if (!kiinteisto) return null;
