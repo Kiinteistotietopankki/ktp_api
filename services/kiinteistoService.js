@@ -1,7 +1,9 @@
 const sequelize = require('../config/dbConfig'); // import your Sequelize instance
+// const { sequelize } = require('./models'); // adjust the import as needed
 const initModels = require('../models/init-models');
+const { generateMetadata } = require('../scripts/generateMetadata');
 
-const { Kiinteistot, Rakennukset, Rakennustiedot_ryhti, Rakennusluokitukset_ryhti } = initModels(sequelize);
+const { Kiinteistot, Rakennukset, Rakennustiedot_ryhti, Rakennusluokitukset_ryhti, Metadata_rakennus } = initModels(sequelize);
 
 
 
@@ -62,60 +64,74 @@ const createKiinteisto = async (data) => {
   return await Kiinteistot.create(data);
 };
 
-const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray, rakennusluokituksetArray) => {
 
-    const newKiinteisto = await Kiinteistot.create(kiinteistodata);
+const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
+  const transaction = await sequelize.transaction();
+  
+  try {
+    const newKiinteisto = await Kiinteistot.create(kiinteistodata, { transaction });
 
-    // Create Rakennukset linked to new Kiinteisto
     const newRakennukset = await Promise.all(
       rakennusdataArray.map(data =>
-        Rakennukset.create({
-          ...data,
-          id_kiinteisto: newKiinteisto.id_kiinteisto,
-        })
+        Rakennukset.create(
+          { ...data, id_kiinteisto: newKiinteisto.id_kiinteisto },
+          { transaction }
+        )
       )
     );
 
-    // Create Rakennustiedot_ryhti linked to each Rakennus
     const rakennustiedotPromises = [];
     newRakennukset.forEach((rakennus, index) => {
-      const rakennustiedotArray = rakennusdataArray[index].rakennustiedotArray;
-      if (Array.isArray(rakennustiedotArray)) {
-        rakennustiedotArray.forEach(tieto => {
-          rakennustiedotPromises.push(
-            Rakennustiedot_ryhti.create({
-              ...tieto,
-              id_rakennus: rakennus.id_rakennus,
-            })
-          );
-        });
-      }
+      const rakennustiedotArray = rakennusdataArray[index].rakennustiedotArray || [];
+      rakennustiedotArray.forEach(tieto => {
+        rakennustiedotPromises.push(
+          Rakennustiedot_ryhti.create(
+            { ...tieto, id_rakennus: rakennus.id_rakennus },
+            { transaction }
+          )
+        );
+      });
     });
     const newRakennustiedot = await Promise.all(rakennustiedotPromises);
 
-    // Create Rakennusluokitukset_ryhti linked to each Rakennus
     const rakennusluokituksetPromises = [];
     newRakennukset.forEach((rakennus, index) => {
-      const rakennusluokituksetArray = rakennusdataArray[index].rakennusluokituksetArray;
-      if (Array.isArray(rakennusluokituksetArray)) {
-        rakennusluokituksetArray.forEach(luokitus => {
-          rakennusluokituksetPromises.push(
-            Rakennusluokitukset_ryhti.create({
-              ...luokitus,
-              rakennus_id: rakennus.id_rakennus,
-            })
-          );
-        });
-      }
+      const rakennusluokituksetArray = rakennusdataArray[index].rakennusluokituksetArray || [];
+      rakennusluokituksetArray.forEach(luokitus => {
+        rakennusluokituksetPromises.push(
+          Rakennusluokitukset_ryhti.create(
+            { ...luokitus, rakennus_id: rakennus.id_rakennus },
+            { transaction }
+          )
+        );
+      });
     });
     const newRakennusluokitukset = await Promise.all(rakennusluokituksetPromises);
 
-    return { 
-      newKiinteisto, 
-      newRakennukset, 
-      newRakennustiedot, 
-      newRakennusluokitukset 
+      await Promise.all(newRakennukset.map((rakennus, index) => {
+        const metadata = generateMetadata(rakennusdataArray[index]);
+        if (metadata) {
+          return Metadata_rakennus.create({
+            id_rakennus: rakennus.id_rakennus, // or rakennus_id, depending on your model
+            metadata
+          }, { transaction });
+        }
+        return Promise.resolve(); // no-op
+    }));
+
+    await transaction.commit();
+
+    return {
+      newKiinteisto,
+      newRakennukset,
+      newRakennustiedot,
+      newRakennusluokitukset
     };
+
+  } catch (error) {
+    await transaction.rollback();
+    throw error; // Let your controller or middleware catch and respond
+  }
 };
 
 const updateKiinteisto = async (id, data) => {

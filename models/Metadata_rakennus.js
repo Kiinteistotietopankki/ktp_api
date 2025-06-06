@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'Metadata_rakennus',
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
