@@ -4,6 +4,7 @@ const initModels = require('../models/init-models');
 const { generateMetadata } = require('../scripts/generateMetadata');
 
 const { Kiinteistot, Rakennukset, Rakennustiedot_ryhti, Rakennusluokitukset_ryhti, Metadata_rakennus } = initModels(sequelize);
+const { Op } = require('sequelize');
 
 
 
@@ -24,21 +25,47 @@ const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   };
 };
 
-const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC') => {
+const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', searchTerm='') => {
   const offset = (page - 1) * pageSize;
+  let count, rows;
 
-  const { count, rows } = await Kiinteistot.findAndCountAll({
-    limit: pageSize,
-    offset,
-    order: [['id_kiinteisto', order]],
-    include: [
-      {
-        model: Rakennukset,
-        as: 'rakennukset', // adjust to your alias, if defined
-        required: false,   // LEFT JOIN so Kiinteistot without Rakennukset are included
+  if (searchTerm.includes('-')){
+    ({ count, rows } = await Kiinteistot.findAndCountAll({
+      limit: pageSize,
+      offset,
+      order: [['id_kiinteisto', order]],
+      where:{
+        kiinteistotunnus: searchTerm,
       },
-    ],
-  });
+      include: [
+        {
+          model: Rakennukset,
+          as: 'rakennukset', // use the alias you defined in the association
+        },
+      ],
+    }));
+
+  } else {
+    ({ count, rows } = await Kiinteistot.findAndCountAll({
+      limit: pageSize,
+      offset,
+      order: [['id_kiinteisto', order]],
+      include: [
+        {
+          model: Rakennukset,
+          as: 'rakennukset', // use the alias you defined in the association
+          where: {
+            [Op.or]: [
+              { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
+              { osoite: { [Op.like]: `%${searchTerm}%` } },
+              { postinumero: { [Op.like]: `%${searchTerm}%` } }
+            ]
+          },
+          required: true, // still LEFT JOIN, but the where clause filters only the child rows
+        },
+      ],
+    }));
+  }
 
   const enrichedRows = rows.map((kiinteisto) => {
     const rakennus = kiinteisto.rakennukset?.[0] || null;
