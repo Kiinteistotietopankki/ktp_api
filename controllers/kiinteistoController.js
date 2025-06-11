@@ -14,6 +14,18 @@ const getAllKiinteistot = async (req, res) => {
   }
 };
 
+const getAllKiinteistotWithData = async (req, res) => {
+  try{
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+
+    const kiinteistot = await kiinteistotService.getAllKiinteistotWithData(page, pageSize)
+    res.json(kiinteistot)
+  } catch (err) {
+    res.status(500).json({error : err.message})
+  }
+}
+
 const getKiinteistoWholeById = async (req, res) => {
   try {
     const kiinteisto = await kiinteistotService.getKiinteistoWholeById(req.params.id);
@@ -104,6 +116,7 @@ const deleteKiinteisto = async (req, res) => {
 
 module.exports = {
   getAllKiinteistot,
+  getAllKiinteistotWithData,
   getKiinteistoWholeById,
   getKiinteistoById,
   createKiinteisto,
