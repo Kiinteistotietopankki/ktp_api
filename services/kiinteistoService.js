@@ -33,6 +33,7 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
     ({ count, rows } = await Kiinteistot.findAndCountAll({
       limit: pageSize,
       offset,
+      distinct: true,
       order: [['id_kiinteisto', order]],
       where:{
         kiinteistotunnus: searchTerm,
@@ -49,6 +50,7 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
     ({ count, rows } = await Kiinteistot.findAndCountAll({
       limit: pageSize,
       offset,
+      distinct: true, 
       order: [['id_kiinteisto', order]],
       include: [
         {
