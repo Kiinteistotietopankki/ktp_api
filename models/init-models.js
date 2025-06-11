@@ -31,7 +31,7 @@ function initModels(sequelize) {
   var lookup_rakentamistapa = _lookup_rakentamistapa(sequelize, DataTypes);
 
   Rakennukset.belongsTo(Kiinteistot, { as: "id_kiinteisto_Kiinteistot", foreignKey: "id_kiinteisto"});
-  Kiinteistot.hasMany(Rakennukset, { as: "Rakennuksets", foreignKey: "id_kiinteisto"});
+  Kiinteistot.hasMany(Rakennukset, { as: "rakennukset", foreignKey: "id_kiinteisto"});
   Huoneistot.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
   Rakennukset.hasMany(Huoneistot, { as: "Huoneistots", foreignKey: "id_rakennus"});
   Metadata_rakennus.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});

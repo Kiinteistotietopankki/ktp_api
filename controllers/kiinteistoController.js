@@ -19,8 +19,9 @@ const getAllKiinteistotWithData = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const pageSize = parseInt(req.query.pageSize) || 10;
     const order = req.query.order || 'ASC'
+    const searchTerm = req.query.searchTerm || ''
 
-    const kiinteistot = await kiinteistotService.getAllKiinteistotWithData(page, pageSize, order)
+    const kiinteistot = await kiinteistotService.getAllKiinteistotWithData(page, pageSize, order, searchTerm)
     res.json(kiinteistot)
   } catch (err) {
     res.status(500).json({error : err.message})

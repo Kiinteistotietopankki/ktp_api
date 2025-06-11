@@ -31,23 +31,26 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC') 
     limit: pageSize,
     offset,
     order: [['id_kiinteisto', order]],
+    include: [
+      {
+        model: Rakennukset,
+        as: 'rakennukset', // adjust to your alias, if defined
+        required: false,   // LEFT JOIN so Kiinteistot without Rakennukset are included
+      },
+    ],
   });
 
-  const enrichedRows = await Promise.all(
-    rows.map(async (kiinteisto) => {
-      const oneRakennus = await Rakennukset.findOne({
-        where: { id_kiinteisto: kiinteisto.id_kiinteisto },
-      });
+  const enrichedRows = rows.map((kiinteisto) => {
+    const rakennus = kiinteisto.rakennukset?.[0] || null;
 
-      return {
-        id_kiinteisto: kiinteisto.id_kiinteisto,
-        kiinteistotunnus: kiinteisto.kiinteistotunnus,
-        osoite: oneRakennus?.osoite || null,
-        toimipaikka: oneRakennus?.toimipaikka || null,
-        postinumero : oneRakennus?.postinumero || null
-      };
-    })
-  );
+    return {
+      id_kiinteisto: kiinteisto.id_kiinteisto,
+      kiinteistotunnus: kiinteisto.kiinteistotunnus,
+      osoite: rakennus?.osoite || null,
+      toimipaikka: rakennus?.toimipaikka || null,
+      postinumero: rakennus?.postinumero || null,
+    };
+  });
 
   return {
     totalItems: count,
@@ -56,6 +59,9 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC') 
     items: enrichedRows,
   };
 };
+
+
+
 
 
 const getKiinteistoWholeById = async (id_kiinteisto) => {
