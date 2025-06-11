@@ -24,13 +24,13 @@ const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   };
 };
 
-const getAllKiinteistotWithData = async (page = 1, pageSize = 5) => {
+const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC') => {
   const offset = (page - 1) * pageSize;
 
   const { count, rows } = await Kiinteistot.findAndCountAll({
     limit: pageSize,
     offset,
-    order: [['id_kiinteisto', 'ASC']],
+    order: [['id_kiinteisto', order]],
   });
 
   const enrichedRows = await Promise.all(
