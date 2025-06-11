@@ -16,14 +16,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       comment: "Foreign key",
       references: {
-        model: 'Rakennusluokitukset_ryhti',
-        key: 'rakennus_id'
+        model: 'Rakennukset',
+        key: 'id_rakennus'
       }
     }
   }, {
     sequelize,
     tableName: 'Metadata_rakennus',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",

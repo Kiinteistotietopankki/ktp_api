@@ -34,12 +34,12 @@ function initModels(sequelize) {
   Kiinteistot.hasMany(Rakennukset, { as: "Rakennuksets", foreignKey: "id_kiinteisto"});
   Huoneistot.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
   Rakennukset.hasMany(Huoneistot, { as: "Huoneistots", foreignKey: "id_rakennus"});
+  Metadata_rakennus.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
+  Rakennukset.hasMany(Metadata_rakennus, { as: "Metadata_rakennus", foreignKey: "id_rakennus"});
   Rakennusluokitukset_ryhti.belongsTo(Rakennukset, { as: "rakennu", foreignKey: "rakennus_id"});
   Rakennukset.hasMany(Rakennusluokitukset_ryhti, { as: "Rakennusluokitukset_ryhtis", foreignKey: "rakennus_id"});
   Rakennustiedot_ryhti.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
   Rakennukset.hasMany(Rakennustiedot_ryhti, { as: "Rakennustiedot_ryhtis", foreignKey: "id_rakennus"});
-  Metadata_rakennus.belongsTo(Rakennusluokitukset_ryhti, { as: "id_rakennus_Rakennusluokitukset_ryhti", foreignKey: "id_rakennus"});
-  Rakennusluokitukset_ryhti.hasMany(Metadata_rakennus, { as: "Metadata_rakennus", foreignKey: "id_rakennus"});
 
   return {
     Huoneistot,

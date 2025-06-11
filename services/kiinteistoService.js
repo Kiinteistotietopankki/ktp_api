@@ -41,10 +41,15 @@ const getKiinteistoWholeById = async (id_kiinteisto) => {
         where: { rakennus_id: rakennus.id_rakennus }
       });
 
+      const metadata = await Metadata_rakennus.findAll({
+        where: { id_rakennus: rakennus.id_rakennus}
+      }) 
+
       return {
         ...rakennus.dataValues, // or just rakennus if not using Sequelize
         rakennustiedot,
         rakennusluokitukset,
+        metadata
       };
     })
   );
