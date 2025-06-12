@@ -8,12 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       comment: "Primary Key"
     },
-    create_time: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP'),
-      comment: "Create Time"
-    },
     rakennus_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

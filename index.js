@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 
 //Route files
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes')
@@ -10,6 +10,7 @@ const sequelize = require('./config/dbConfig');
 require('dotenv').config();
 
 app.use(express.json());
+app.use(cors({ origin: 'http://localhost:3000' })); 
 
 
 app.use('/api/kiinteistot', kiinteistoRoutes)
