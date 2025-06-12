@@ -43,4 +43,5 @@ testConnection(); // Call it here
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log({ nodeVersion: process.version });
 });
