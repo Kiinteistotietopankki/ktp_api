@@ -1,14 +1,43 @@
+const { models } = require('../models');
+const { getLookupCode, getLookupName } = require('../scripts/lookupHelper');
 const kiinteistotService = require('../services/kiinteistoService');
-
 
 const getAllKiinteistot = async (req, res) => {
   try {
-    const kiinteistot = await kiinteistotService.getAllKiinteistot();
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+
+    const kiinteistot = await kiinteistotService.getAllKiinteistot(page, pageSize);
     res.json(kiinteistot);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
+const getAllKiinteistotWithData = async (req, res) => {
+  try{
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const order = req.query.order || 'ASC'
+    const searchTerm = req.query.searchTerm || ''
+
+    const kiinteistot = await kiinteistotService.getAllKiinteistotWithData(page, pageSize, order, searchTerm)
+    res.json(kiinteistot)
+  } catch (err) {
+    res.status(500).json({error : err.message})
+  }
+}
+
+const getKiinteistoWholeById = async (req, res) => {
+  try {
+    const kiinteisto = await kiinteistotService.getKiinteistoWholeById(req.params.id);
+    if (!kiinteisto) return res.status(404).json({ error: 'Kiinteisto not found' });
+    res.json(kiinteisto);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 
 const getKiinteistoById = async (req, res) => {
   try {
@@ -31,12 +60,40 @@ const createKiinteisto = async (req, res) => {
 
 const createKiinteistoWhole = async (req, res) => {
   try {
-    const { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
-    const { newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset } =
-      await kiinteistotService.createKiinteistoWhole(kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray);
-    res.status(201).json({ newKiinteisto, newRakennukset, newRakennustiedot, newRakennusluokitukset});
+    console.log('Received create request:', JSON.stringify(req.body, null, 2));
+
+    let { kiinteistodata, rakennusdata, rakennustiedotArray, rakennusluokituksetArray } = req.body;
+
+    // For each rakennusdata item, translate rakennusluokituksetArray fields
+    for (const rakennus of rakennusdata) {
+      if (rakennus.rakennusluokituksetArray) {
+        for (const item of rakennus.rakennusluokituksetArray) {
+          item.rakennusluokitus = await getLookupCode(models.lookup_rakennusluokitus, item.rakennusluokitus);
+          item.runkotapa = await getLookupCode(models.lookup_rakentamistapa, item.runkotapa);
+          // Do the same for other fields using appropriate lookup models
+          item.julkisivumateriaali = await getLookupCode(models.lookup_julkisivumateriaali, item.julkisivumateriaali);
+          item.lammitystapa = await getLookupCode(models.lookup_lammitystapa, item.lammitystapa);
+          item.lammitysenergialahde = await getLookupCode(models.lookup_lammitysenergialahde, item.lammitysenergianlahde);
+          item.rakennusaine = await getLookupCode(models.lookup_rakennusaine, item.rakennusaine);
+          item.kayttotilanne = await getLookupCode(models.lookup_kayttotilanne, item.kayttotilanne)
+        }
+      }
+    }
+
+    const result = await kiinteistotService.createKiinteistoWhole(
+      kiinteistodata,
+      rakennusdata,
+      rakennustiedotArray,
+      rakennusluokituksetArray
+    ); 
+    res.status(201).json(result);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    console.error('Error creating kiinteisto:', err);
+    if (err.details) {
+      res.status(400).json({ error: 'Validation error', details: err.details.map(d => d.message) });
+    } else {
+      res.status(400).json({ error: err.message || 'Unknown error' });
+    }
   }
 };
 
@@ -61,6 +118,8 @@ const deleteKiinteisto = async (req, res) => {
 
 module.exports = {
   getAllKiinteistot,
+  getAllKiinteistotWithData,
+  getKiinteistoWholeById,
   getKiinteistoById,
   createKiinteisto,
   createKiinteistoWhole,

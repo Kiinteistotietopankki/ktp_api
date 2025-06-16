@@ -8,11 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       comment: "Primary Key"
     },
-    create_time: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      comment: "Create Time"
-    },
     id_rakennus: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -47,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     sijainti: {
-      type: "POINT",
+      type: DataTypes.GEOMETRY('POINT'),
       allowNull: true
     }
   }, {

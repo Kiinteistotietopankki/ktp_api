@@ -2,6 +2,7 @@ var DataTypes = require("sequelize").DataTypes;
 var _Huoneistot = require("./Huoneistot");
 var _Kiinteistot = require("./Kiinteistot");
 var _Lokitus = require("./Lokitus");
+var _Metadata_rakennus = require("./Metadata_rakennus");
 var _Rakennukset = require("./Rakennukset");
 var _Rakennusluokitukset_ryhti = require("./Rakennusluokitukset_ryhti");
 var _Rakennustiedot_ryhti = require("./Rakennustiedot_ryhti");
@@ -17,6 +18,7 @@ function initModels(sequelize) {
   var Huoneistot = _Huoneistot(sequelize, DataTypes);
   var Kiinteistot = _Kiinteistot(sequelize, DataTypes);
   var Lokitus = _Lokitus(sequelize, DataTypes);
+  var Metadata_rakennus = _Metadata_rakennus(sequelize, DataTypes);
   var Rakennukset = _Rakennukset(sequelize, DataTypes);
   var Rakennusluokitukset_ryhti = _Rakennusluokitukset_ryhti(sequelize, DataTypes);
   var Rakennustiedot_ryhti = _Rakennustiedot_ryhti(sequelize, DataTypes);
@@ -29,9 +31,11 @@ function initModels(sequelize) {
   var lookup_rakentamistapa = _lookup_rakentamistapa(sequelize, DataTypes);
 
   Rakennukset.belongsTo(Kiinteistot, { as: "id_kiinteisto_Kiinteistot", foreignKey: "id_kiinteisto"});
-  Kiinteistot.hasMany(Rakennukset, { as: "Rakennuksets", foreignKey: "id_kiinteisto"});
+  Kiinteistot.hasMany(Rakennukset, { as: "rakennukset", foreignKey: "id_kiinteisto"});
   Huoneistot.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
   Rakennukset.hasMany(Huoneistot, { as: "Huoneistots", foreignKey: "id_rakennus"});
+  Metadata_rakennus.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
+  Rakennukset.hasMany(Metadata_rakennus, { as: "Metadata_rakennus", foreignKey: "id_rakennus"});
   Rakennusluokitukset_ryhti.belongsTo(Rakennukset, { as: "rakennu", foreignKey: "rakennus_id"});
   Rakennukset.hasMany(Rakennusluokitukset_ryhti, { as: "Rakennusluokitukset_ryhtis", foreignKey: "rakennus_id"});
   Rakennustiedot_ryhti.belongsTo(Rakennukset, { as: "id_rakennus_Rakennukset", foreignKey: "id_rakennus"});
@@ -41,6 +45,7 @@ function initModels(sequelize) {
     Huoneistot,
     Kiinteistot,
     Lokitus,
+    Metadata_rakennus,
     Rakennukset,
     Rakennusluokitukset_ryhti,
     Rakennustiedot_ryhti,
