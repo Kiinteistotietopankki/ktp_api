@@ -10,7 +10,7 @@ const sequelize = require('./config/dbConfig');
 require('dotenv').config();
 
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3000' })); 
+// app.use(cors({ origin: 'http://localhost:3000' })); 
 
 
 app.use('/api/kiinteistot', kiinteistoRoutes)
@@ -43,4 +43,5 @@ testConnection(); // Call it here
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log({ nodeVersion: process.version });
 });

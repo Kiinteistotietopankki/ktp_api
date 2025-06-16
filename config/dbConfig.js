@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
@@ -10,6 +9,20 @@ const sequelize = new Sequelize(
     host: process.env.MYSQL_HOST || 'localhost',
     dialect: 'mysql',
     logging: false,
+    dialectOptions: {
+      ssl: {
+        // Depending on your MySQL SSL config, either:
+        // For Azure MySQL, often just "rejectUnauthorized: true"
+        // Or specify cert/key/ca if you have those files:
+
+        rejectUnauthorized: true
+
+        // OR if you have certificates, something like:
+        // ca: fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem'),
+        // key: fs.readFileSync(__dirname + '/ssl/client-key.pem'),
+        // cert: fs.readFileSync(__dirname + '/ssl/client-cert.pem'),
+      }
+    }
   }
 );
 
