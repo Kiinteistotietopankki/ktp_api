@@ -3,17 +3,23 @@ const router = express.Router();
 const kiinteistotController = require('../controllers/kiinteistoController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const apikeyMiddleware = require('../middlewares/checkApikey')
+const requestLogger = require('../middlewares/loggerMiddleware')
 
 // router.use(authMiddleware);
 router.use(apikeyMiddleware);
 
-router.get('/', kiinteistotController.getAllKiinteistot);
-router.get('/withdata', kiinteistotController.getAllKiinteistotWithData);
-router.get('/full/:id', kiinteistotController.getKiinteistoWholeById);
-router.get('/:id', kiinteistotController.getKiinteistoById);
-router.post('/', kiinteistotController.createKiinteisto);
-router.post('/create', kiinteistotController.createKiinteistoWhole);
-router.put('/:id', kiinteistotController.updateKiinteisto);
-router.delete('/:id', kiinteistotController.deleteKiinteisto);
+router.get('/default', kiinteistotController.getAllKiinteistot);
+router.get('/default/:id', kiinteistotController.getKiinteistoById);
+router.put('/default/:id', kiinteistotController.updateKiinteisto);
+router.delete('/default/:id', kiinteistotController.deleteKiinteisto);
+router.post('/default', kiinteistotController.createKiinteisto);
+
+router.get('/basic-data', kiinteistotController.getAllKiinteistotWithData);
+
+router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeById);
+router.post('/full', kiinteistotController.createKiinteistoWhole);
+
+
+
 
 module.exports = router;
