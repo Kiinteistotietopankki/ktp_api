@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Metadata_rakennus', {
+  return sequelize.define('metadata_rakennus', {
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -12,17 +12,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     id_rakennus: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      comment: "Foreign key",
       references: {
-        model: 'Rakennukset',
+        model: 'rakennukset',
         key: 'id_rakennus'
       }
     }
   }, {
     sequelize,
-    tableName: 'Metadata_rakennus',
+    tableName: 'metadata_rakennus',
     timestamps: true,
     indexes: [
       {
