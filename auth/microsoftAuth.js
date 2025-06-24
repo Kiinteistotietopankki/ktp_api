@@ -32,7 +32,7 @@ router.get('/logout', (req, res) => {
     secure: false, // true in production with HTTPS
     sameSite: 'lax'
   });
-  res.status(200).json({ message: 'Logged out successfully' }); // ✅ no redirect
+  res.status(200).json({ message: 'Logged out successfully' }); 
 });
 
 
