@@ -31,9 +31,9 @@ function initModels(sequelize) {
   var rakennustiedot_ryhti = _rakennustiedot_ryhti(sequelize, DataTypes);
 
   rakennukset.belongsTo(kiinteistot, { as: "id_kiinteisto_kiinteistot", foreignKey: "id_kiinteisto"});
-  kiinteistot.hasMany(rakennukset, { as: "rakennuksets", foreignKey: "id_kiinteisto"});
+  kiinteistot.hasMany(rakennukset, { as: "rakennukset", foreignKey: "id_kiinteisto"});
   huoneistot.belongsTo(rakennukset, { as: "id_rakennus_rakennukset", foreignKey: "id_rakennus"});
-  rakennukset.hasMany(huoneistot, { as: "huoneistots", foreignKey: "id_rakennus"});
+  rakennukset.hasMany(huoneistot, { as: "huoneistot", foreignKey: "id_rakennus"});
   metadata_rakennus.belongsTo(rakennukset, { as: "id_rakennus_rakennukset", foreignKey: "id_rakennus"});
   rakennukset.hasMany(metadata_rakennus, { as: "metadata_rakennus", foreignKey: "id_rakennus"});
   rakennusluokitukset_ryhti.belongsTo(rakennukset, { as: "rakennu", foreignKey: "rakennus_id"});

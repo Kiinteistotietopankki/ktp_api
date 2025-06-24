@@ -97,10 +97,10 @@ const getKiinteistoWholeById = async (id_kiinteisto) => {
   const kiinteisto = await kiinteistot.findOne({ where: { id_kiinteisto } });
   if (!kiinteisto) return null;
 
-  const rakennukset = await rakennukset.findAll({ where: { id_kiinteisto } });
+  const rakennuksetFromDb = await rakennukset.findAll({ where: { id_kiinteisto } });
 
   const enrichedRakennukset = await Promise.all(
-    rakennukset.map(async rakennus => {
+    rakennuksetFromDb.map(async rakennus => {
       const rakennustiedot = await rakennustiedot_ryhti.findAll({
         where: { id_rakennus: rakennus.id_rakennus }
       });
