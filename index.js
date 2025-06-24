@@ -7,9 +7,14 @@ const cookieParser = require('cookie-parser');
 
 
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com']})); 
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com'],
+  credentials: true
+}));
 
-
+app.use(cookieParser());
+const microsoftAuthRoutes = require('./auth/microsoftAuth');
+app.use('/auth', microsoftAuthRoutes);
 const profileRoute = require('./routes/profileroute');
 app.use(profileRoute);
 
