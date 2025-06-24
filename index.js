@@ -7,13 +7,7 @@ const cookieParser = require('cookie-parser');
 
 
 app.use(express.json());
-app.use(cors({ 
-  origin: 'http://localhost:3000', 
-  credentials: true 
-}));
-app.use(cookieParser());
-
-app.use('/auth', require('./auth/microsoftAuth'));
+app.use(cors({ origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com']})); 
 
 
 const profileRoute = require('./routes/profileroute');
@@ -53,4 +47,5 @@ testConnection();
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log({ nodeVersion: process.version });
 });

@@ -1,6 +1,7 @@
 const { models } = require('../models');
 const { getLookupCode, getLookupName } = require('../scripts/lookupHelper');
 const kiinteistotService = require('../services/kiinteistoService');
+const logger = require('../utils/logger');
 
 const getAllKiinteistot = async (req, res) => {
   try {
@@ -8,6 +9,8 @@ const getAllKiinteistot = async (req, res) => {
     const pageSize = parseInt(req.query.pageSize) || 10;
 
     const kiinteistot = await kiinteistotService.getAllKiinteistot(page, pageSize);
+
+
     res.json(kiinteistot);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -22,6 +25,15 @@ const getAllKiinteistotWithData = async (req, res) => {
     const searchTerm = req.query.searchTerm || ''
 
     const kiinteistot = await kiinteistotService.getAllKiinteistotWithData(page, pageSize, order, searchTerm)
+
+    logger.info({
+      message: 'User performed an action',
+      action: 'GET getAllKiinteistotWithData',
+      userId: 'LogTestpPseudoId',
+      route: '/api/kiinteistot/withdata',
+      timestamp: new Date().toISOString()
+    });
+
     res.json(kiinteistot)
   } catch (err) {
     res.status(500).json({error : err.message})

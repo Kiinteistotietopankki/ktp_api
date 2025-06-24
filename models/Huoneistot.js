@@ -1,23 +1,23 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Huoneistot', {
+  return sequelize.define('huoneistot', {
     id_huoneisto: {
       autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
     id_rakennus: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       references: {
-        model: 'Rakennukset',
+        model: 'rakennukset',
         key: 'id_rakennus'
       }
     }
   }, {
     sequelize,
-    tableName: 'Huoneistot',
+    tableName: 'huoneistot',
     timestamps: false,
     indexes: [
       {
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "fk_rakennus",
+        name: "id_rakennus",
         using: "BTREE",
         fields: [
           { name: "id_rakennus" },

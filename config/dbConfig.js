@@ -11,10 +11,18 @@ const sequelize = new Sequelize(
     logging: false,
     dialectOptions: {
       ssl: {
-        require: true,
-        rejectUnauthorized: false, // Accept Azure's default SSL cert
-      },
-    },
+        // Depending on your MySQL SSL config, either:
+        // For Azure MySQL, often just "rejectUnauthorized: true"
+        // Or specify cert/key/ca if you have those files:
+
+        rejectUnauthorized: true
+
+        // OR if you have certificates, something like:
+        // ca: fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem'),
+        // key: fs.readFileSync(__dirname + '/ssl/client-key.pem'),
+        // cert: fs.readFileSync(__dirname + '/ssl/client-cert.pem'),
+      }
+    }
   }
 );
 

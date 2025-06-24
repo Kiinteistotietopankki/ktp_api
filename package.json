@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "gen-models": "node scripts/generateModels.js"
+    "gen-models": "node ./config/generateModelsSeq.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +20,8 @@
     "ktp_api": "file:",
     "mysql2": "^3.14.1",
     "node-fetch": "^3.3.2",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
