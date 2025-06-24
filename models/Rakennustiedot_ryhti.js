@@ -1,19 +1,17 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Rakennustiedot_ryhti', {
+  return sequelize.define('rakennustiedot_ryhti', {
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
-      comment: "Primary Key"
+      primaryKey: true
     },
     id_rakennus: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      comment: "Foreign key",
       references: {
-        model: 'Rakennukset',
+        model: 'rakennukset',
         key: 'id_rakennus'
       }
     },
@@ -47,7 +45,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'Rakennustiedot_ryhti',
+    tableName: 'rakennustiedot_ryhti',
     timestamps: false,
     indexes: [
       {

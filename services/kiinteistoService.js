@@ -3,7 +3,7 @@ const sequelize = require('../config/dbConfig'); // import your Sequelize instan
 const initModels = require('../models/init-models');
 const { generateMetadata } = require('../scripts/generateMetadata');
 
-const { Kiinteistot, Rakennukset, Rakennustiedot_ryhti, Rakennusluokitukset_ryhti, Metadata_rakennus } = initModels(sequelize);
+const {kiinteistot, rakennukset, rakennustiedot_ryhti, rakennusluokitukset_ryhti, metadata_rakennus } = initModels(sequelize);
 const { Op } = require('sequelize');
 
 
@@ -11,7 +11,7 @@ const { Op } = require('sequelize');
 const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   const offset = (page - 1) * pageSize;
 
-  const { count, rows } = await Kiinteistot.findAndCountAll({
+  const { count, rows } = await kiinteistot.findAndCountAll({
     limit: pageSize,
     offset,
     order: [['id_kiinteisto', 'ASC']], // Adjust sorting as needed
@@ -30,7 +30,7 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
   let count, rows;
 
   if (searchTerm.includes('-')){
-    ({ count, rows } = await Kiinteistot.findAndCountAll({
+    ({ count, rows } = await kiinteistot.findAndCountAll({
       limit: pageSize,
       offset,
       distinct: true,
@@ -40,21 +40,21 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
       },
       include: [
         {
-          model: Rakennukset,
+          model: rakennukset,
           as: 'rakennukset', // use the alias you defined in the association
         },
       ],
     }));
 
   } else {
-    ({ count, rows } = await Kiinteistot.findAndCountAll({
+    ({ count, rows } = await kiinteistot.findAndCountAll({
       limit: pageSize,
       offset,
       distinct: true, 
       order: [['id_kiinteisto', order]],
       include: [
         {
-          model: Rakennukset,
+          model: rakennukset,
           as: 'rakennukset', // use the alias you defined in the association
           where: {
             [Op.or]: [
@@ -94,22 +94,22 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
 
 
 const getKiinteistoWholeById = async (id_kiinteisto) => {
-  const kiinteisto = await Kiinteistot.findOne({ where: { id_kiinteisto } });
+  const kiinteisto = await kiinteistot.findOne({ where: { id_kiinteisto } });
   if (!kiinteisto) return null;
 
-  const rakennukset = await Rakennukset.findAll({ where: { id_kiinteisto } });
+  const rakennuksetFromDb = await rakennukset.findAll({ where: { id_kiinteisto } });
 
   const enrichedRakennukset = await Promise.all(
-    rakennukset.map(async rakennus => {
-      const rakennustiedot = await Rakennustiedot_ryhti.findAll({
+    rakennuksetFromDb.map(async rakennus => {
+      const rakennustiedot = await rakennustiedot_ryhti.findAll({
         where: { id_rakennus: rakennus.id_rakennus }
       });
 
-      const rakennusluokitukset = await Rakennusluokitukset_ryhti.findAll({
+      const rakennusluokitukset = await rakennusluokitukset_ryhti.findAll({
         where: { rakennus_id: rakennus.id_rakennus }
       });
 
-      const metadata = await Metadata_rakennus.findAll({
+      const metadata = await metadata_rakennus.findAll({
         where: { id_rakennus: rakennus.id_rakennus}
       }) 
 
@@ -130,11 +130,11 @@ const getKiinteistoWholeById = async (id_kiinteisto) => {
 
 
 const getKiinteistoById = async (id) => {
-  return await Kiinteistot.findByPk(id);
+  return await kiinteistot.findByPk(id);
 };
 
 const createKiinteisto = async (data) => {
-  return await Kiinteistot.create(data);
+  return await kiinteistot.create(data);
 };
 
 
@@ -142,11 +142,11 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
   const transaction = await sequelize.transaction();
   
   try {
-    const newKiinteisto = await Kiinteistot.create(kiinteistodata, { transaction });
+    const newKiinteisto = await kiinteistot.create(kiinteistodata, { transaction });
 
     const newRakennukset = await Promise.all(
       rakennusdataArray.map(data =>
-        Rakennukset.create(
+        rakennukset.create(
           { ...data, id_kiinteisto: newKiinteisto.id_kiinteisto },
           { transaction }
         )
@@ -158,7 +158,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
       const rakennustiedotArray = rakennusdataArray[index].rakennustiedotArray || [];
       rakennustiedotArray.forEach(tieto => {
         rakennustiedotPromises.push(
-          Rakennustiedot_ryhti.create(
+          rakennustiedot_ryhti.create(
             { ...tieto, id_rakennus: rakennus.id_rakennus },
             { transaction }
           )
@@ -172,7 +172,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
       const rakennusluokituksetArray = rakennusdataArray[index].rakennusluokituksetArray || [];
       rakennusluokituksetArray.forEach(luokitus => {
         rakennusluokituksetPromises.push(
-          Rakennusluokitukset_ryhti.create(
+          rakennusluokitukset_ryhti.create(
             { ...luokitus, rakennus_id: rakennus.id_rakennus },
             { transaction }
           )
@@ -184,7 +184,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
       await Promise.all(newRakennukset.map((rakennus, index) => {
         const metadata = generateMetadata(rakennusdataArray[index]);
         if (metadata) {
-          return Metadata_rakennus.create({
+          return metadata_rakennus.create({
             id_rakennus: rakennus.id_rakennus, // or rakennus_id, depending on your model
             metadata
           }, { transaction });
@@ -208,7 +208,7 @@ const createKiinteistoWhole = async (kiinteistodata, rakennusdataArray) => {
 };
 
 const updateKiinteisto = async (id, data) => {
-  const kiinteisto = await Kiinteistot.findByPk(id);
+  const kiinteisto = await kiinteistot.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
@@ -216,7 +216,7 @@ const updateKiinteisto = async (id, data) => {
 };
 
 const deleteKiinteisto = async (id) => {
-  const kiinteisto = await Kiinteistot.findByPk(id);
+  const kiinteisto = await kiinteistot.findByPk(id);
   if (!kiinteisto) {
     throw new Error('Kiinteisto not found');
   }
