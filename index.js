@@ -3,16 +3,32 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
 
 
 
 app.use(express.json());
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com'],
+  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com', 'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'],
   credentials: true
 }));
 
 app.use(cookieParser());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET, // use your generated secret here
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: false,       // set true if HTTPS in production!
+    sameSite: 'lax',
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+  }
+}));
+
+
 const microsoftAuthRoutes = require('./auth/microsoftAuth');
 app.use('/auth', microsoftAuthRoutes);
 const profileRoute = require('./routes/profileroute');

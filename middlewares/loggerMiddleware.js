@@ -2,7 +2,8 @@ const logger = require('../utils/logger');
 
 
 const requestLogger = (req, res, next) => {
-  const userId = req.user?.id || 'anonymous';
+  const userId = req.session?.userId || 'anonymous';
+  console.log('USER ID IN LOGGER:', req.session?.userId)
 
   // Keep original res.json function
   const originalJson = res.json;

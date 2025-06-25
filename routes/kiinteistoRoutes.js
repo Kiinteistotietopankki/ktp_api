@@ -8,16 +8,16 @@ const requestLogger = require('../middlewares/loggerMiddleware')
 // router.use(authMiddleware);
 router.use(apikeyMiddleware);
 
-router.get('/default', requestLogger, kiinteistotController.getAllKiinteistot);
-router.get('/default/:id', requestLogger, kiinteistotController.getKiinteistoById);
+router.get('/default', kiinteistotController.getAllKiinteistot);
+router.get('/default/:id', kiinteistotController.getKiinteistoById);
 router.put('/default/:id', requestLogger, kiinteistotController.updateKiinteisto);
 router.delete('/default/:id', requestLogger, kiinteistotController.deleteKiinteisto);
-router.post('/default', requestLogger, kiinteistotController.createKiinteisto);
+router.post('/default', kiinteistotController.createKiinteisto);
 
-router.get('/basic-data', requestLogger, kiinteistotController.getAllKiinteistotWithData);
+router.get('/basic-data', kiinteistotController.getAllKiinteistotWithData);
 
 router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeById);
-router.post('/full', requestLogger, kiinteistotController.createKiinteistoWhole);
+router.post('/full', kiinteistotController.createKiinteistoWhole);
 
 
 
