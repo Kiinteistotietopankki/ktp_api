@@ -1,21 +1,30 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+require('dotenv').config(); 
+const cookieParser = require('cookie-parser');
 
-//Route files
-const kiinteistoRoutes = require('./routes/kiinteistoRoutes')
-const rakennusRoutes = require('./routes/rakennusRoutes')
 
-const sequelize = require('./config/dbConfig');
-require('dotenv').config();
 
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com']})); 
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com'],
+  credentials: true
+}));
 
+app.use(cookieParser());
+const microsoftAuthRoutes = require('./auth/microsoftAuth');
+app.use('/auth', microsoftAuthRoutes);
+const profileRoute = require('./routes/profileroute');
+app.use(profileRoute);
 
-app.use('/api/kiinteistot', kiinteistoRoutes)
-app.use('/api/rakennukset', rakennusRoutes)
+const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
+const rakennusRoutes = require('./routes/rakennusRoutes');
 
+app.use('/api/kiinteistot', kiinteistoRoutes);
+app.use('/api/rakennukset', rakennusRoutes);
+
+const sequelize = require('./config/dbConfig');
 const PORT = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
@@ -23,13 +32,13 @@ app.get('/', (req, res) => {
     message: 'Welcome to Ktp_api',
     routes: {
       kiinteistot: '/api/kiinteistot',
-      rakennukset: '/api/rakennukset'
-      // add more routes here
+      rakennukset: '/api/rakennukset',
+      auth: '/auth/login'
     }
   });
 });
 
-// Function to test DB connection
+
 async function testConnection() {
   try {
     await sequelize.authenticate();
@@ -39,7 +48,7 @@ async function testConnection() {
   }
 }
 
-testConnection(); // Call it here
+testConnection();
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
