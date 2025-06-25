@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   res.clearCookie('sessionToken', {
     httpOnly: true,
-    secure: false, // true in production with HTTPS
+    secure: false, 
     sameSite: 'lax'
   });
   res.status(200).json({ message: 'Logged out successfully' }); 
@@ -46,10 +46,10 @@ router.get('/redirect', async (req, res) => {
 
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
-     console.log('✅ Login successful');
-    console.log('🔑 Access token:', response.accessToken);
-    console.log('👤 Logged in as:', response.account.username);
-    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); // Set secure: true in production
+     console.log('Login successful');
+    console.log('Access token:', response.accessToken);
+    console.log('Logged in as:', response.account.username);
+    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false });
     res.redirect('http://localhost:3000/');
   } catch (err) {
     console.error('Auth error:', err);
