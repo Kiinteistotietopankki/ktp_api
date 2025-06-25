@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
-const session = require('express-session')
+const authenticateJWT = require('./auth/jwtAuth');
 
 
 
@@ -16,18 +16,6 @@ app.use(cors({
 
 app.use(cookieParser());
 
-app.use(session({
-  secret: process.env.SESSION_SECRET, // use your generated secret here
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    httpOnly: true,
-    secure: false,       // set true if HTTPS in production!
-    sameSite: 'lax',
-    maxAge: 24 * 60 * 60 * 1000 // 1 day
-  }
-}));
-
 
 const microsoftAuthRoutes = require('./auth/microsoftAuth');
 app.use('/auth', microsoftAuthRoutes);
@@ -37,6 +25,7 @@ app.use(profileRoute);
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
 
+app.use('/api', authenticateJWT);
 app.use('/api/kiinteistot', kiinteistoRoutes);
 app.use('/api/rakennukset', rakennusRoutes);
 
@@ -67,6 +56,6 @@ async function testConnection() {
 testConnection();
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  // console.log(`Server running at http://localhost:${PORT}`);
   console.log({ nodeVersion: process.version });
 });
