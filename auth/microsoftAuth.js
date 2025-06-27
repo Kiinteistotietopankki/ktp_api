@@ -56,13 +56,13 @@ router.get('/redirect', async (req, res) => {
     console.log('Login successful');
     console.log('Access token:', response.accessToken);
     console.log('Logged in as:', response.account.username);
-    console.log('User azure id', response.uniqueId)
-        // Store userId (uniqueId) in session
+    console.log('User azure id', response.uniqueId)    // Store userId (uniqueId) in session
 
-    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false });
-    const jwtToken = generateToken({ userId: response.uniqueId });
 
-    res.cookie('authToken', jwtToken, {
+    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); //Azure token
+
+    const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
+    res.cookie('authToken', jwtToken, {  
       httpOnly: true,
       secure: false, // change to true in production with HTTPS
       sameSite: 'lax',
