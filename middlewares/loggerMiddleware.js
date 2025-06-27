@@ -3,8 +3,6 @@ const logger = require('../utils/logger');
 
 const requestLogger = (req, res, next) => {
   const userId = req.user?.id || 'anonymous';
-  console.log('USER ID IN LOGGER:', req.session?.userId)
-
   // Keep original res.json function
   const originalJson = res.json;
 
@@ -26,9 +24,8 @@ const requestLogger = (req, res, next) => {
     const finnishTime = new Date().toLocaleString('fi-FI', { timeZone: 'Europe/Helsinki' });
 
     logger.info({
-      message: `${req.method} ${req.originalUrl} response`,
       userId,
-      route: req.originalUrl,
+      message: `${req.method} ${req.originalUrl}`,
       timestampUTC: utcTimestamp,
       timestampFinnish: finnishTime,
       responseFields
