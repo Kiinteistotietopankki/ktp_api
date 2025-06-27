@@ -1,12 +1,11 @@
 const logger = require('../utils/logger');
-
+const lokitusService = require('../services/lokitusService');
 
 const requestLogger = (req, res, next) => {
   const userId = req.user?.id || 'anonymous';
-  // Keep original res.json function
   const originalJson = res.json;
 
-  res.json = function (data) {
+  res.json = async function (data) {
     let responseFields = [];
     if (data && typeof data === 'object') {
       if (Array.isArray(data)) {
@@ -19,10 +18,9 @@ const requestLogger = (req, res, next) => {
     }
 
     const utcTimestamp = new Date().toISOString();
-
-    // Convert to Finnish local time string
     const finnishTime = new Date().toLocaleString('fi-FI', { timeZone: 'Europe/Helsinki' });
 
+    // Log to console/file
     logger.info({
       userId,
       message: `${req.method} ${req.originalUrl}`,
@@ -31,11 +29,25 @@ const requestLogger = (req, res, next) => {
       responseFields
     });
 
+    // Create a Loki log entry in DB
+    try {
+      await lokitusService.createLoki({
+        userId,
+        message: `${req.method} ${req.originalUrl}`,
+        timeStampUTC: utcTimestamp,
+        timeStampFinnish: finnishTime,
+        responseField: responseFields.join(','),
+      });
+    } catch (err) {
+      logger.error('Failed to save log entry to DB', err);
+      // Don't block response flow
+    }
+
+
     return originalJson.call(this, data);
   };
 
   next();
 };
-
 
 module.exports = requestLogger;

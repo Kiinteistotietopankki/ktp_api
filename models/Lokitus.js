@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
     },
     message: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     timeStampUTC: {
