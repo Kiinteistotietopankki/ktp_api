@@ -25,68 +25,74 @@ const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   };
 };
 
-const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', searchTerm='') => {
+const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', searchTerm = '') => {
   const offset = (page - 1) * pageSize;
-  let count, rows;
 
-  if (searchTerm.includes('-')){
-    ({ count, rows } = await kiinteistot.findAndCountAll({
-      limit: pageSize,
-      offset,
-      distinct: true,
-      order: [['id_kiinteisto', order]],
-      where:{
-        kiinteistotunnus: searchTerm,
-      },
-      include: [
-        {
-          model: rakennukset,
-          as: 'rakennukset', // use the alias you defined in the association
+  try {
+    let count, rows;
+
+    if (searchTerm.includes('-')) {
+      ({ count, rows } = await kiinteistot.findAndCountAll({
+        limit: pageSize,
+        offset,
+        distinct: true,
+        order: [['id_kiinteisto', order]],
+        where: {
+          kiinteistotunnus: searchTerm,
         },
-      ],
-    }));
-
-  } else {
-    ({ count, rows } = await kiinteistot.findAndCountAll({
-      limit: pageSize,
-      offset,
-      distinct: true, 
-      order: [['id_kiinteisto', order]],
-      include: [
-        {
-          model: rakennukset,
-          as: 'rakennukset', // use the alias you defined in the association
-          where: {
-            [Op.or]: [
-              { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
-              { osoite: { [Op.like]: `%${searchTerm}%` } },
-              { postinumero: { [Op.like]: `%${searchTerm}%` } }
-            ]
+        include: [
+          {
+            model: rakennukset,
+            as: 'rakennuksets', // alias must match association
           },
-          required: true, // still LEFT JOIN, but the where clause filters only the child rows
-        },
-      ],
-    }));
-  }
+        ],
+      }));
+    } else {
+      ({ count, rows } = await kiinteistot.findAndCountAll({
+        limit: pageSize,
+        offset,
+        distinct: true,
+        order: [['id_kiinteisto', order]],
+        include: [
+          {
+            model: rakennukset,
+            as: 'rakennuksets',
+            where: {
+              [Op.or]: [
+                { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
+                { osoite: { [Op.like]: `%${searchTerm}%` } },
+                { postinumero: { [Op.like]: `%${searchTerm}%` } },
+              ],
+            },
+            required: true,
+          },
+        ],
+      }));
+    }
 
-  const enrichedRows = rows.map((kiinteisto) => {
-    const rakennus = kiinteisto.rakennukset?.[0] || null;
+    const enrichedRows = rows.map((kiinteisto) => {
+      const rakennus = kiinteisto.rakennuksets?.[0] || null;
+
+      return {
+        id_kiinteisto: kiinteisto.id_kiinteisto,
+        kiinteistotunnus: kiinteisto.kiinteistotunnus,
+        osoite: rakennus?.osoite || null,
+        toimipaikka: rakennus?.toimipaikka || null,
+        postinumero: rakennus?.postinumero || null,
+      };
+    });
 
     return {
-      id_kiinteisto: kiinteisto.id_kiinteisto,
-      kiinteistotunnus: kiinteisto.kiinteistotunnus,
-      osoite: rakennus?.osoite || null,
-      toimipaikka: rakennus?.toimipaikka || null,
-      postinumero: rakennus?.postinumero || null,
+      totalItems: count,
+      totalPages: Math.ceil(count / pageSize),
+      currentPage: page,
+      items: enrichedRows,
     };
-  });
 
-  return {
-    totalItems: count,
-    totalPages: Math.ceil(count / pageSize),
-    currentPage: page,
-    items: enrichedRows,
-  };
+  } catch (error) {
+    console.error('Error in getAllKiinteistotWithData:', error);
+    throw error; // Re-throw to let caller handle it if needed
+  }
 };
 
 

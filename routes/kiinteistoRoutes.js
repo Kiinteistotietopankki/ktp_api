@@ -10,8 +10,8 @@ router.use(apikeyMiddleware);
 
 router.get('/default', kiinteistotController.getAllKiinteistot);
 router.get('/default/:id', kiinteistotController.getKiinteistoById);
-router.put('/default/:id', kiinteistotController.updateKiinteisto);
-router.delete('/default/:id', kiinteistotController.deleteKiinteisto);
+router.put('/default/:id', requestLogger, kiinteistotController.updateKiinteisto);
+router.delete('/default/:id', requestLogger, kiinteistotController.deleteKiinteisto);
 router.post('/default', kiinteistotController.createKiinteisto);
 
 router.get('/basic-data', kiinteistotController.getAllKiinteistotWithData);

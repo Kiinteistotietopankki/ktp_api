@@ -2,14 +2,15 @@
 require('dotenv').config();
 const express = require('express');
 const { ConfidentialClientApplication } = require('@azure/msal-node');
+const { generateToken } = require('./tokenUtils');
+
 
 const router = express.Router();
 
 const msalConfig = {
   auth: {
     clientId: 
-"e9e3688f-df1a-4f99-b541-9a09640647dd"
-,
+    "e9e3688f-df1a-4f99-b541-9a09640647dd",
     authority: `https://login.microsoftonline.com/waativa.fi`,
     clientSecret: process.env.CLIENT_SECRET,
   },
@@ -26,13 +27,19 @@ router.get('/login', (req, res) => {
 
   cca.getAuthCodeUrl(authUrlParams).then((response) => res.redirect(response));
 });
+
 router.get('/logout', (req, res) => {
   res.clearCookie('sessionToken', {
     httpOnly: true,
-    secure: false, 
+    secure: false,  // set to true if using HTTPS in production
     sameSite: 'lax'
   });
-  res.status(200).json({ message: 'Logged out successfully' }); 
+  res.clearCookie('authToken', {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'lax'
+  });
+  res.status(200).json({ message: 'Logged out successfully' });
 });
 
 
@@ -46,11 +53,24 @@ router.get('/redirect', async (req, res) => {
 
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
-     console.log('Login successful');
+    console.log('Login successful');
     console.log('Access token:', response.accessToken);
     console.log('Logged in as:', response.account.username);
-    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false });
+    console.log('User azure id', response.uniqueId)    // Store userId (uniqueId) in session
+
+
+    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); //Azure token
+
+    const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
+    res.cookie('authToken', jwtToken, {  
+      httpOnly: true,
+      secure: false, // change to true in production with HTTPS
+      sameSite: 'lax',
+      // maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
+
     res.redirect('http://localhost:3000/');
+
   } catch (err) {
     console.error('Auth error:', err);
     res.status(500).send('Authentication failed.');

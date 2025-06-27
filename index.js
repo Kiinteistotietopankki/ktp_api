@@ -3,23 +3,34 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
-
+// const authenticateJWT = require('./auth/jwtAuth');
+// const authMiddleware = require('./middlewares/authMiddleware');
+const authenticateAzure = require('./middlewares/authAzureMiddleware')
 
 
 app.use(express.json());
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com'],
+  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com', 'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'],
   credentials: true
 }));
 
 app.use(cookieParser());
+
+
 const microsoftAuthRoutes = require('./auth/microsoftAuth');
 app.use('/auth', microsoftAuthRoutes);
+
 const profileRoute = require('./routes/profileroute');
 app.use(profileRoute);
 
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
+
+
+app.use('/api', authenticateAzure) 
+app.use('/me', authenticateAzure) 
+
 
 app.use('/api/kiinteistot', kiinteistoRoutes);
 app.use('/api/rakennukset', rakennusRoutes);
@@ -51,6 +62,6 @@ async function testConnection() {
 testConnection();
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  // console.log(`Server running at http://localhost:${PORT}`);
   console.log({ nodeVersion: process.version });
 });
