@@ -28,8 +28,8 @@ const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
 
 
-app.use('/api', authenticateAzure) 
-app.use('/me', authenticateAzure) 
+// app.use('/api', authenticateAzure) 
+// app.use('/me', authenticateAzure) 
 
 
 app.use('/api/kiinteistot', kiinteistoRoutes);

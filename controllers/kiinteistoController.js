@@ -34,13 +34,26 @@ const getAllKiinteistotWithData = async (req, res) => {
 const getKiinteistoWholeById = async (req, res) => {
   try {
     const kiinteisto = await kiinteistotService.getKiinteistoWholeById(req.params.id);
-    if (!kiinteisto) return res.status(404).json({ error: 'Kiinteisto not found' });
+
+    if (!kiinteisto) return res.status(404).json({ error: 'Kiinteistö not found' });
+
+    for (const rakennus of kiinteisto.rakennukset) {
+      for (const luokitus of rakennus.rakennusluokitukset) {
+        luokitus.rakennusluokitus = await getLookupName(models.lookup_rakennusluokitus, luokitus.rakennusluokitus);
+        luokitus.runkotapa = await getLookupName(models.lookup_rakentamistapa, luokitus.runkotapa);
+        luokitus.kayttotilanne = await getLookupName(models.lookup_kayttotilanne, luokitus.kayttotilanne);
+        luokitus.julkisivumateriaali = await getLookupName(models.lookup_julkisivumateriaali, luokitus.julkisivumateriaali);
+        luokitus.lammitystapa = await getLookupName(models.lookup_lammitystapa, luokitus.lammitystapa);
+        luokitus.lammitysenergialahde = await getLookupName(models.lookup_lammitysenergialahde, luokitus.lammitysenergialahde);
+        luokitus.rakennusaine = await getLookupName(models.lookup_rakennusaine, luokitus.rakennusaine);
+      }
+    }
+
     res.json(kiinteisto);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
 
 const getKiinteistoById = async (req, res) => {
   try {
@@ -76,7 +89,7 @@ const createKiinteistoWhole = async (req, res) => {
           // Do the same for other fields using appropriate lookup models
           item.julkisivumateriaali = await getLookupCode(models.lookup_julkisivumateriaali, item.julkisivumateriaali);
           item.lammitystapa = await getLookupCode(models.lookup_lammitystapa, item.lammitystapa);
-          item.lammitysenergialahde = await getLookupCode(models.lookup_lammitysenergialahde, item.lammitysenergianlahde);
+          item.lammitysenergialahde = await getLookupCode(models.lookup_lammitysenergialahde, item.lammitysenergialahde);
           item.rakennusaine = await getLookupCode(models.lookup_rakennusaine, item.rakennusaine);
           item.kayttotilanne = await getLookupCode(models.lookup_kayttotilanne, item.kayttotilanne)
         }

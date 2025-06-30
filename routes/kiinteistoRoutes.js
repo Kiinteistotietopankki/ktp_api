@@ -6,7 +6,7 @@ const apikeyMiddleware = require('../middlewares/checkApikey')
 const requestLogger = require('../middlewares/loggerMiddleware')
 
 // router.use(authMiddleware);
-router.use(apikeyMiddleware);
+// router.use(apikeyMiddleware);
 
 router.get('/default', kiinteistotController.getAllKiinteistot);
 router.get('/default/:id', kiinteistotController.getKiinteistoById);
