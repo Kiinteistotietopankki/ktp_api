@@ -12,11 +12,15 @@ app.use(cors({
   credentials: true
 }));
 
+
 app.use(cookieParser());
 const microsoftAuthRoutes = require('./auth/microsoftAuth');
 app.use('/auth', microsoftAuthRoutes);
 const profileRoute = require('./routes/profileroute');
 app.use(profileRoute);
+
+const uploadRoutes = require('./routes/uploadPdfRoutes');
+app.use(uploadRoutes);
 
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
