@@ -96,9 +96,6 @@ const getAllKiinteistotWithData = async (page = 1, pageSize = 5, order = 'ASC', 
 };
 
 
-
-
-
 const getKiinteistoWholeById = async (id_kiinteisto) => {
   const kiinteisto = await kiinteistot.findOne({ where: { id_kiinteisto } });
   if (!kiinteisto) return null;
@@ -134,6 +131,56 @@ const getKiinteistoWholeById = async (id_kiinteisto) => {
   };
 };
 
+const updateKiinteistoWholeByIdService = async(id_kiinteisto, updatedData) => {
+  const { rakennukset, ...kiinteistoFields } = updatedData;
+
+  // Update kiinteisto table (top-level)
+  if (Object.keys(kiinteistoFields).length > 0) {
+    await kiinteistot.update(kiinteistoFields, { where: { id_kiinteisto } });
+  }
+
+  if (rakennukset && rakennukset.length > 0) {
+    for (const rakennusUpdate of rakennukset) {
+      const { id_rakennus, rakennustiedot, rakennusluokitukset, metadata, ...rakennusFields } = rakennusUpdate;
+      if (!id_rakennus) continue;
+
+      // Update rakennus main fields
+      if (Object.keys(rakennusFields).length > 0) {
+        await rakennukset.update(rakennusFields, { where: { id_rakennus } });
+      }
+
+      // Update rakennustiedot array if present
+      if (rakennustiedot && rakennustiedot.length > 0) {
+        for (const tiedot of rakennustiedot) {
+          const { id, ...tiedotFields } = tiedot;
+          if (!id) continue;
+
+          await rakennustiedot_ryhti.update(tiedotFields, { where: { id } });
+        }
+      }
+
+      // Update rakennusluokitukset array if present
+      if (rakennusluokitukset && rakennusluokitukset.length > 0) {
+        for (const luokitus of rakennusluokitukset) {
+          const { id, ...luokitusFields } = luokitus;
+          if (!id) continue;
+
+          await rakennusluokitukset_ryhti.update(luokitusFields, { where: { id } });
+        }
+      }
+
+      // Update metadata array if present
+      if (metadata && metadata.length > 0) {
+        for (const meta of metadata) {
+          const { id, ...metaFields } = meta;
+          if (!id) continue;
+
+          await metadata_rakennus.update(metaFields, { where: { id } });
+        }
+      }
+    }
+  }
+}
 
 const getKiinteistoById = async (id) => {
   return await kiinteistot.findByPk(id);
@@ -233,6 +280,7 @@ module.exports = {
   getAllKiinteistot,
   getAllKiinteistotWithData,
   getKiinteistoWholeById,
+  updateKiinteistoWholeByIdService,
   getKiinteistoById,
   createKiinteisto,
   createKiinteistoWhole,

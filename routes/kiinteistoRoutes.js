@@ -17,6 +17,8 @@ router.post('/default', kiinteistotController.createKiinteisto);
 router.get('/basic-data', kiinteistotController.getAllKiinteistotWithData);
 
 router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeById);
+router.put('/full/:id', requestLogger, kiinteistotController.updateKiinteistoWholeById);
+
 router.post('/full', kiinteistotController.createKiinteistoWhole);
 
 

@@ -55,6 +55,22 @@ const getKiinteistoWholeById = async (req, res) => {
   }
 };
 
+const updateKiinteistoWholeById = async (req, res) => {
+  const id_kiinteisto = req.params.id;
+  const updatedData = req.body;
+
+  try {
+    // Call your service function that updates all nested tables
+    await kiinteistotService.updateKiinteistoWholeByIdService(id_kiinteisto, updatedData);
+
+    res.json({ message: 'Päivitys onnistui' });
+  } catch (err) {
+    console.error('Error updating kiinteisto:', err);
+    res.status(500).json({ error: 'Päivitys epäonnistui', details: err.message });
+  }
+};
+
+
 const getKiinteistoById = async (req, res) => {
   try {
     const kiinteisto = await kiinteistotService.getKiinteistoById(req.params.id);
@@ -136,6 +152,7 @@ module.exports = {
   getAllKiinteistot,
   getAllKiinteistotWithData,
   getKiinteistoWholeById,
+  updateKiinteistoWholeById,
   getKiinteistoById,
   createKiinteisto,
   createKiinteistoWhole,
