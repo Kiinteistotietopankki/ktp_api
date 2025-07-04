@@ -3,9 +3,13 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
+
+
 // const authenticateJWT = require('./auth/jwtAuth');
 // const authMiddleware = require('./middlewares/authMiddleware');
 const authenticateAzure = require('./middlewares/authAzureMiddleware')
+
+
 
 
 app.use(express.json());
@@ -36,6 +40,7 @@ app.use('/api/kiinteistot', kiinteistoRoutes);
 app.use('/api/rakennukset', rakennusRoutes);
 
 const sequelize = require('./config/dbConfig');
+const { default: axios } = require('axios');
 const PORT = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
@@ -47,6 +52,29 @@ app.get('/', (req, res) => {
       auth: '/auth/login'
     }
   });
+});
+
+const HttpsProxyAgent = require('https-proxy-agent');
+
+
+
+app.get('/test-proxy', async (req, res) => {
+  try {
+    const proxy = 'http://52.155.251.10:3128'; // Replace with your Squid proxy VM's IP
+    const agent = new HttpsProxyAgent(proxy);
+
+    const response = await axios.get('https://api.ipify.org?format=json', {
+      httpsAgent: agent
+    });
+
+    res.json({
+      outboundIp: response.data.ip,
+      proxyUsed: proxy
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Proxy test failed');
+  }
 });
 
 
