@@ -13,7 +13,7 @@ const findRakennustiedotById_Rakennus = async (id_rakennus) => {
 
 
 const updateRakennustiedot = async (
-  id,
+  id_rakennus,
   {
     rakennusvuosi,
     kokonaisala,
@@ -23,11 +23,14 @@ const updateRakennustiedot = async (
     kerroksia,
     sijainti
   }
-    ) => {
-    const rakennus = await rakennustiedot.findByPk(id);
-    if (!rakennus) {
-        throw new Error('Rakennus not found');
-    }
+) => {
+  const rakennus = await rakennustiedot_ryhti.findOne({
+    where: { id_rakennus }  // find by id_rakennus field, not primary key
+  });
+
+  if (!rakennus) {
+    throw new Error('Rakennus not found');
+  }
 
   return await rakennus.update({
     ...(rakennusvuosi !== undefined && { rakennusvuosi }),
