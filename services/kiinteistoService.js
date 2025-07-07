@@ -6,7 +6,34 @@ const { generateMetadata } = require('../scripts/generateMetadata');
 const {kiinteistot, rakennukset, rakennustiedot_ryhti, rakennusluokitukset_ryhti, metadata_rakennus } = initModels(sequelize);
 const { Op } = require('sequelize');
 
+const { findRakennusByKiinteistoId } = require('./rakennusService.js')
+const { findRakennustiedotById_Rakennus } = require('./rakennustiedotService.js')
+const { findRakennuluokituksetById_Rakennus } = require('./rakennusluokituksetService.js')
 
+
+const findKiinteistoWRakennus = async (id_kiinteisto) => {
+  const kiinteisto = await kiinteistot.findByPk(id_kiinteisto);
+  const rakennukset = await findRakennusByKiinteistoId(id_kiinteisto);
+
+  await Promise.all(
+    rakennukset.map(async (rakennus) => {
+      const tiedot = await findRakennustiedotById_Rakennus(rakennus.id_rakennus);
+      const luokitukset = await findRakennuluokituksetById_Rakennus(rakennus.id_rakennus);
+
+      rakennus.dataValues.rakennustiedot = tiedot;
+      rakennus.dataValues.rakennusluokitukset = luokitukset;
+    })
+  );
+
+  return {
+    kiinteisto,
+    rakennukset
+  };
+};
+
+
+
+// older
 
 const getAllKiinteistot = async (page = 1, pageSize = 2) => {
   const offset = (page - 1) * pageSize;
@@ -286,4 +313,5 @@ module.exports = {
   createKiinteistoWhole,
   updateKiinteisto,
   deleteKiinteisto,
+  findKiinteistoWRakennus
 };

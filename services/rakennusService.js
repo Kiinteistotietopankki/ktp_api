@@ -1,7 +1,33 @@
 const sequelize = require('../config/dbConfig'); // import your Sequelize instance
 const initModels = require('../models/init-models');
 
-const { Kiinteistot, Rakennukset } = initModels(sequelize);
+const { rakennukset } = initModels(sequelize);
+const { findRakennustiedotById_Rakennus } = require('./rakennustiedotService.js')
+
+
+const findRakennusByKiinteistoId = async (kiinteistoId) => {
+  return await rakennukset.findAll({
+    where: { id_kiinteisto: kiinteistoId }
+  });
+};
+
+const findRakennusWDataByKiinteistoId = async (kiinteistoId) => {
+  return await rakennukset.findAll({
+    where: { id_kiinteisto: kiinteistoId }
+  });
+};
+
+const updateRakennus = async (id, data) => {
+  const rakennus = await Rakennukset.findByPk(id);
+  if (!rakennus) {
+    throw new Error('Rakennus not found');
+  }
+  return await rakennus.update(data);
+};
+
+
+
+/////// older
 
 
 const getAllRakennukset = async () => {
@@ -11,6 +37,8 @@ const getAllRakennukset = async () => {
 const getRakennusById = async (id) => {
   return await Rakennukset.findByPk(id);
 };
+
+
 
 const createRakennus = async (data) => {
   // Check if the foreign key id_kiinteisto exists first
@@ -26,14 +54,6 @@ const createRakennus = async (data) => {
 };
 
 
-const updateRakennus = async (id, data) => {
-  const rakennus = await Rakennukset.findByPk(id);
-  if (!rakennus) {
-    throw new Error('Rakennus not found');
-  }
-  return await rakennus.update(data);
-};
-
 const deleteRakennus = async (id) => {
   const rakennus = await Rakennukset.findByPk(id);
   if (!rakennus) {
@@ -48,4 +68,5 @@ module.exports = {
   createRakennus,
   updateRakennus,
   deleteRakennus,
+  findRakennusByKiinteistoId
 };

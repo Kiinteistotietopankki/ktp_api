@@ -81,6 +81,18 @@ const getKiinteistoById = async (req, res) => {
   }
 };
 
+const getKiinteistoWRakennus = async (req, res) => {
+  try {
+    const kiinteisto = await kiinteistotService.findKiinteistoWRakennus(req.params.id);
+    if (!kiinteisto) return res.status(404).json({ error: 'Kiinteisto not found' });
+    res.json(kiinteisto);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+
 const createKiinteisto = async (req, res) => {
   try {
     const newKiinteisto = await kiinteistotService.createKiinteisto(req.body);
@@ -158,4 +170,5 @@ module.exports = {
   createKiinteistoWhole,
   updateKiinteisto,
   deleteKiinteisto,
+  getKiinteistoWRakennus
 };

@@ -82,6 +82,25 @@ router.get('/default/:id', kiinteistotController.getKiinteistoById);
 
 /**
  * @swagger
+ * /api/kiinteistot/V2/{id}:
+ *   get:
+ *     summary: Get kiinteistö by ID
+ *     tags: [Kiinteistöt]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A single kiinteistö
+ */
+router.get('/V2/:id', kiinteistotController.getKiinteistoWRakennus);
+
+
+/**
+ * @swagger
  * /api/kiinteistot/default/{id}:
  *   delete:
  *     summary: Delete kiinteistö by ID
