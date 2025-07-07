@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "properties": {
+    "id_rakennus": {
+      "type": "integer"
+    },
+    "id_kiinteisto": {
+      "type": "integer"
+    },
+    "rakennustunnus": {
+      "type": "string",
+      "maxLength": 55
+    },
+    "osoite": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "toimipaikka": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "postinumero": {
+      "type": "integer",
+      "nullable": true
+    },
+    "rakennusvuosi": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "kokonaisala": {
+      "type": "number",
+      "nullable": true
+    },
+    "kerrosala": {
+      "type": "number",
+      "nullable": true
+    },
+    "huoneistoala": {
+      "type": "number",
+      "nullable": true
+    },
+    "tilavuus": {
+      "type": "number",
+      "nullable": true
+    },
+    "kerroksia": {
+      "type": "number",
+      "nullable": true
+    },
+    "sijainti": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "nullable": true
+    },
+    "rakennusluokitus": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "runkotapa": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "kayttotilanne": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "julkisivumateriaali": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "lammitystapa": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "lammitysenergialahde": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "rakennusaine": {
+      "type": "string",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "id_kiinteisto_kiinteistot": {
+      "$ref": "#/components/schemas/kiinteistot"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id_rakennus",
+    "id_kiinteisto",
+    "rakennustunnus"
+  ]
+}

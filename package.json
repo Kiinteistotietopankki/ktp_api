@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "gen-models": "node ./config/generateModelsSeq.js"
+    "gen-models": "node ./config/generateModelsSeq.js",
+    "gen-schemas": "node ./config/generateSchemas.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@azure/msal-node": "^3.6.0",
     "@azure/storage-blob": "^12.27.0",
+    "@techntools/sequelize-to-openapi": "^1.0.0",
     "axios": "^1.10.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
