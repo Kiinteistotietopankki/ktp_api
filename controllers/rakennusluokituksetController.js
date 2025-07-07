@@ -17,8 +17,8 @@ const getLuokituksettById_Rakennus = async (req, res) => {
 
 const updateRakennusluokitukset = async (req, res) => {
   try {
-    const id = req.params.id;        // From the URL: /rakennukset/:id
-    const updates = req.query;       // All fields to update are in the query
+    const id = req.params.id;       // From the URL: /rakennukset/:id
+    const updates = req.body;       // All fields to update come in the JSON body
 
     const tiedot = await rakennusluokituksetService.updateRakennusluokitukset(id, updates);
     res.json(tiedot);

@@ -12,35 +12,16 @@ const findRakennustiedotById_Rakennus = async (id_rakennus) => {
 };
 
 
-const updateRakennustiedot = async (
-  id_rakennus,
-  {
-    rakennusvuosi,
-    kokonaisala,
-    kerrosala,
-    huoneistoala,
-    tilavuus,
-    kerroksia,
-    sijainti
-  }
-) => {
+const updateRakennustiedot = async (id_rakennus, updateFields) => {
   const rakennus = await rakennustiedot_ryhti.findOne({
-    where: { id_rakennus }  // find by id_rakennus field, not primary key
+    where: { id_rakennus }
   });
 
   if (!rakennus) {
     throw new Error('Rakennus not found');
   }
 
-  return await rakennus.update({
-    ...(rakennusvuosi !== undefined && { rakennusvuosi }),
-    ...(kokonaisala !== undefined && { kokonaisala }),
-    ...(kerrosala !== undefined && { kerrosala }),
-    ...(huoneistoala !== undefined && { huoneistoala }),
-    ...(tilavuus !== undefined && { tilavuus }),
-    ...(kerroksia !== undefined && { kerroksia }),
-    ...(sijainti !== undefined && { sijainti }),
-  });
+  return await rakennus.update(updateFields);
 };
 
 module.exports = {

@@ -18,7 +18,7 @@ const getRakennustiedotById_Rakennus = async (req, res) => {
 const updateRakennustiedot = async (req, res) => {
   try {
     const id = req.params.id;        // From the URL: /rakennukset/:id
-    const updates = req.query;       // All fields to update are in the query
+    const updates = req.body;        // All fields to update come in the JSON body
 
     const tiedot = await rakennuksetService.updateRakennustiedot(id, updates);
     res.json(tiedot);
@@ -26,7 +26,6 @@ const updateRakennustiedot = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
 
 module.exports = {
     getRakennustiedotById_Rakennus,

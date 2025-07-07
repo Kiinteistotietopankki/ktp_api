@@ -18,37 +18,17 @@ const findRakennuluokituksetById_Rakennus = async (id_rakennus) => {
 };
 
 
-const updateRakennusluokitukset = async (
-  rakennus_id,
-  {
-    rakennusluokitus,
-    runkotapa,
-    kayttotilanne,
-    julkisivumateriaali,
-    lammitystapa,
-    lammitysenergialahde,
-    rakennusaine
-  }
-) => {
+const updateRakennusluokitukset = async (rakennus_id, updateFields) => {
   const rakennus = await rakennusluokitukset_ryhti.findOne({
-    where: { rakennus_id }  // search by id_rakennus, not primary key
+    where: { rakennus_id }
   });
 
   if (!rakennus) {
     throw new Error('Rakennus not found');
   }
 
-  return await rakennus.update({
-    ...(rakennusluokitus !== undefined && { rakennusluokitus }),
-    ...(runkotapa !== undefined && { runkotapa }),
-    ...(kayttotilanne !== undefined && { kayttotilanne }),
-    ...(julkisivumateriaali !== undefined && { julkisivumateriaali }),
-    ...(lammitystapa !== undefined && { lammitystapa }),
-    ...(lammitysenergialahde !== undefined && { lammitysenergialahde }),
-    ...(rakennusaine !== undefined && { rakennusaine }),
-  });
+  return await rakennus.update(updateFields);
 };
-
 
 /**
  * Decode a rakennusluokitukset record, replacing code fields with strings.

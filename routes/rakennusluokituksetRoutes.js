@@ -30,7 +30,7 @@ router.get('/:id', rakennusluokituksetController.getLuokituksettById_Rakennus);
  * @swagger
  * /api/rakennusluokitukset/{id_rakennus}:
  *   put:
- *     summary: Update rakennusluokitukset by id_rakennus using query parameters
+ *     summary: Update rakennusluokitukset by id_rakennus using JSON payload
  *     tags:
  *       - Rakennusluokitukset
  *     parameters:
@@ -39,61 +39,63 @@ router.get('/:id', rakennusluokituksetController.getLuokituksettById_Rakennus);
  *         required: true
  *         schema:
  *           type: integer
- *         description: The id_rakennus of the building to update
- *       - in: query
- *         name: rakennusluokitus
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Rakennusluokitus value to update
- *       - in: query
- *         name: runkotapa
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Runkotapa value to update
- *       - in: query
- *         name: kayttotilanne
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Kayttotilanne value to update
- *       - in: query
- *         name: julkisivumateriaali
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Julkisivumateriaali value to update
- *       - in: query
- *         name: lammitystapa
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Lammitystapa value to update
- *       - in: query
- *         name: lammitysenergialahde
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Lammitysenergialahde value to update
- *       - in: query
- *         name: rakennusaine
- *         schema:
- *           type: string
- *           maxLength: 2
- *         description: Rakennusaine value to update
+ *         description: The ID of the building to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               rakennusluokitus:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["01", "02", "03", "04", "05", "06", "07"]
+ *                 example: "05"
+ *               runkotapa:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["01", "02"]
+ *                 example: "01"
+ *               kayttotilanne:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["01","02","03","04","05","06","07","08","09","10","11"]
+ *                 example: "01"
+ *               julkisivumateriaali:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["00","01","02","03","04","05","06","99"]
+ *                 example: "01"
+ *               lammitystapa:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["01","02","03","04","05","06","07","99"]
+ *                 example: "03"
+ *               lammitysenergialahde:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["01","02","03","04","05","06","07","08","09","10","11","99"]
+ *                 example: "04"
+ *               rakennusaine:
+ *                 type: string
+ *                 maxLength: 2
+ *                 enum: ["00","01","02","03","04","99"]
+ *                 example: "01"
  *     responses:
  *       200:
  *         description: Rakennusluokitukset updated successfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Rakennusluokitukset'
+ *               type: object
  *       404:
  *         description: Rakennus not found
  *       500:
  *         description: Server error
  */
+
 router.put('/:id', rakennusluokituksetController.updateRakennusluokitukset);
+
 
 module.exports = router;
