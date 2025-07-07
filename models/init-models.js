@@ -11,6 +11,7 @@ var _lookup_rakennusluokitus = require("./lookup_rakennusluokitus");
 var _lookup_rakentamistapa = require("./lookup_rakentamistapa");
 var _metadata_rakennus = require("./metadata_rakennus");
 var _rakennukset = require("./rakennukset");
+var _rakennukset_full = require("./rakennukset_full");
 var _rakennusluokitukset_ryhti = require("./rakennusluokitukset_ryhti");
 var _rakennustiedot_ryhti = require("./rakennustiedot_ryhti");
 var _row_metadata = require("./row_metadata");
@@ -28,12 +29,15 @@ function initModels(sequelize) {
   var lookup_rakentamistapa = _lookup_rakentamistapa(sequelize, DataTypes);
   var metadata_rakennus = _metadata_rakennus(sequelize, DataTypes);
   var rakennukset = _rakennukset(sequelize, DataTypes);
+  var rakennukset_full = _rakennukset_full(sequelize, DataTypes);
   var rakennusluokitukset_ryhti = _rakennusluokitukset_ryhti(sequelize, DataTypes);
   var rakennustiedot_ryhti = _rakennustiedot_ryhti(sequelize, DataTypes);
   var row_metadata = _row_metadata(sequelize, DataTypes);
 
   rakennukset.belongsTo(kiinteistot, { as: "id_kiinteisto_kiinteistot", foreignKey: "id_kiinteisto"});
   kiinteistot.hasMany(rakennukset, { as: "rakennuksets", foreignKey: "id_kiinteisto"});
+  rakennukset_full.belongsTo(kiinteistot, { as: "id_kiinteisto_kiinteistot", foreignKey: "id_kiinteisto"});
+  kiinteistot.hasMany(rakennukset_full, { as: "rakennukset_fulls", foreignKey: "id_kiinteisto"});
   huoneistot.belongsTo(rakennukset, { as: "id_rakennus_rakennukset", foreignKey: "id_rakennus"});
   rakennukset.hasMany(huoneistot, { as: "huoneistots", foreignKey: "id_rakennus"});
   metadata_rakennus.belongsTo(rakennukset, { as: "id_rakennus_rakennukset", foreignKey: "id_rakennus"});
@@ -56,6 +60,7 @@ function initModels(sequelize) {
     lookup_rakentamistapa,
     metadata_rakennus,
     rakennukset,
+    rakennukset_full,
     rakennusluokitukset_ryhti,
     rakennustiedot_ryhti,
     row_metadata,

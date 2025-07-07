@@ -27,8 +27,6 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'row_metadata',
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
     indexes: [
       {
         name: "PRIMARY",
