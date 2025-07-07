@@ -37,13 +37,13 @@ const row_metadataController = require('../controllers/row_metadataController');
  *           type: string
 
  *
- * /api/row_metadatas:
+ * /api/row_metadata:
  *   get:
- *     summary: Get all row_metadatas
- *     tags: [Row_metadatas]
+ *     summary: Get all row_metadata
+ *     tags: [Row_metadata]
  *     responses:
  *       200:
- *         description: List of all row_metadatas
+ *         description: List of all row_metadata
  *         content:
  *           application/json:
  *             schema:
@@ -55,10 +55,10 @@ router.get('/', row_metadataController.getAll);
 
 /**
  * @swagger
- * /api/row_metadatas/{id}:
+ * /api/row_metadata/{id}:
  *   get:
  *     summary: Get a single row_metadata by ID
- *     tags: [Row_metadatas]
+ *     tags: [Row_metadata]
  *     parameters:
  *       - in: path
  *         name: id
@@ -77,10 +77,10 @@ router.get('/:id', row_metadataController.getById);
 
 /**
  * @swagger
- * /api/row_metadatas:
+ * /api/row_metadata:
  *   post:
  *     summary: Create a new row_metadata
- *     tags: [Row_metadatas]
+ *     tags: [Row_metadata]
  *     requestBody:
  *       required: true
  *       content:
@@ -99,10 +99,10 @@ router.post('/', row_metadataController.create);
 
 /**
  * @swagger
- * /api/row_metadatas/{id}:
+ * /api/row_metadata/{id}:
  *   put:
  *     summary: Update an existing row_metadata by ID
- *     tags: [Row_metadatas]
+ *     tags: [Row_metadata]
  *     parameters:
  *       - in: path
  *         name: id
@@ -127,10 +127,10 @@ router.put('/:id', row_metadataController.update);
 
 /**
  * @swagger
- * /api/row_metadatas/{id}:
+ * /api/row_metadata/{id}:
  *   delete:
  *     summary: Delete a row_metadata by ID
- *     tags: [Row_metadatas]
+ *     tags: [Row_metadata]
  *     parameters:
  *       - in: path
  *         name: id

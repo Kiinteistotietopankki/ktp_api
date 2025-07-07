@@ -5,11 +5,6 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function pluralize(str) {
-  if (str.endsWith('o')) return str.slice(0, -1) + 'ot';
-  return str + 's';
-}
-
 function readSchemas(schemaDir) {
   return fs.readdirSync(schemaDir)
     .filter(f => f.endsWith('.json'))
@@ -38,9 +33,7 @@ function swaggerSchemaProperties(swaggerProps) {
 }
 
 function generateRoutes(resource, swaggerProps, createSchemaUsed) {
-  const resourcePlural = pluralize(resource);
   const Resource = capitalize(resource);
-  const ResourcePlural = capitalize(resourcePlural);
   const CreateSchemaName = `${Resource}_create`;
 
   return `const express = require('express');
@@ -60,13 +53,13 @@ ${swaggerSchemaProperties(swaggerProps)}
  *       properties:
 ${swaggerSchemaProperties(createSchemaUsed)}
  *
- * /api/${resourcePlural}:
+ * /api/${resource}:
  *   get:
- *     summary: Get all ${resourcePlural}
- *     tags: [${ResourcePlural}]
+ *     summary: Get all ${resource}
+ *     tags: [${Resource}]
  *     responses:
  *       200:
- *         description: List of all ${resourcePlural}
+ *         description: List of all ${resource}
  *         content:
  *           application/json:
  *             schema:
@@ -78,10 +71,10 @@ router.get('/', ${resource}Controller.getAll);
 
 /**
  * @swagger
- * /api/${resourcePlural}/{id}:
+ * /api/${resource}/by/{id}:
  *   get:
  *     summary: Get a single ${resource} by ID
- *     tags: [${ResourcePlural}]
+ *     tags: [${Resource}]
  *     parameters:
  *       - in: path
  *         name: id
@@ -96,14 +89,14 @@ router.get('/', ${resource}Controller.getAll);
  *             schema:
  *               $ref: '#/components/schemas/${Resource}'
  */
-router.get('/:id', ${resource}Controller.getById);
+router.get('/by/:id', ${resource}Controller.getById);
 
 /**
  * @swagger
- * /api/${resourcePlural}:
+ * /api/${resource}:
  *   post:
  *     summary: Create a new ${resource}
- *     tags: [${ResourcePlural}]
+ *     tags: [${Resource}]
  *     requestBody:
  *       required: true
  *       content:
@@ -122,10 +115,10 @@ router.post('/', ${resource}Controller.create);
 
 /**
  * @swagger
- * /api/${resourcePlural}/{id}:
+ * /api/${resource}/{id}:
  *   put:
  *     summary: Update an existing ${resource} by ID
- *     tags: [${ResourcePlural}]
+ *     tags: [${Resource}]
  *     parameters:
  *       - in: path
  *         name: id
@@ -150,10 +143,10 @@ router.put('/:id', ${resource}Controller.update);
 
 /**
  * @swagger
- * /api/${resourcePlural}/{id}:
+ * /api/${resource}/{id}:
  *   delete:
  *     summary: Delete a ${resource} by ID
- *     tags: [${ResourcePlural}]
+ *     tags: [${Resource}]
  *     parameters:
  *       - in: path
  *         name: id
@@ -290,11 +283,10 @@ function generateAllFromSchemas(schemaDir) {
     const swaggerProps = extractSwaggerProperties(baseSchema);
     const createSchema = createSchemas[name];
     const createProps = extractSwaggerProperties(createSchema || {});
-    const pluralName = pluralize(name);
 
     const filesToGenerate = [
       {
-        path: path.join(routesPath, `${pluralName}Routes.js`),
+        path: path.join(routesPath, `${name}Routes.js`),
         content: generateRoutes(name, swaggerProps, createProps),
         label: 'Route',
       },

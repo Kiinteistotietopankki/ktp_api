@@ -29,13 +29,13 @@ const kiinteistotController = require('../controllers/kiinteistotController');
  *           type: array
 
  *
- * /api/kiinteistots:
+ * /api/kiinteistot:
  *   get:
- *     summary: Get all kiinteistots
- *     tags: [Kiinteistots]
+ *     summary: Get all kiinteistot
+ *     tags: [Kiinteistot]
  *     responses:
  *       200:
- *         description: List of all kiinteistots
+ *         description: List of all kiinteistot
  *         content:
  *           application/json:
  *             schema:
@@ -47,10 +47,66 @@ router.get('/', kiinteistotController.getAll);
 
 /**
  * @swagger
- * /api/kiinteistots/{id}:
+ * /api/kiinteistot/with-rakennukset:
  *   get:
- *     summary: Get a single kiinteistot by ID
- *     tags: [Kiinteistots]
+ *     summary: Get paginated list of kiinteistot with rakennukset included
+ *     tags: [Kiinteistot]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number (starts at 1)
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 20
+ *           maximum: 100
+ *         description: Number of items per page (max 100)
+ *       - in: query
+ *         name: orderBy
+ *         schema:
+ *           type: string
+ *           default: id_kiinteisto
+ *         description: Field to order by
+ *       - in: query
+ *         name: orderDir
+ *         schema:
+ *           type: string
+ *           enum: [ASC, DESC]
+ *           default: ASC
+ *         description: Order direction (ascending or descending)
+ *     responses:
+ *       200:
+ *         description: Paginated list of kiinteistot with rakennukset
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Kiinteistot'
+ *                 page:
+ *                   type: integer
+ *                 limit:
+ *                   type: integer
+ *                 totalItems:
+ *                   type: integer
+ *                 totalPages:
+ *                   type: integer
+ */
+router.get('/with-rakennukset', kiinteistotController.getAllWithRakennukset);
+
+/**
+ * @swagger
+ * /api/kiinteistot/by/id/{id}:
+ *   get:
+ *     summary: Get a single kiinteisto by id
+ *     tags: [Kiinteistot]
  *     parameters:
  *       - in: path
  *         name: id
@@ -65,14 +121,15 @@ router.get('/', kiinteistotController.getAll);
  *             schema:
  *               $ref: '#/components/schemas/Kiinteistot'
  */
-router.get('/:id', kiinteistotController.getById);
+router.get('/by/id/:id', kiinteistotController.getById);
+
 
 /**
  * @swagger
- * /api/kiinteistots:
+ * /api/kiinteistot:
  *   post:
  *     summary: Create a new kiinteistot
- *     tags: [Kiinteistots]
+ *     tags: [Kiinteistot]
  *     requestBody:
  *       required: true
  *       content:
@@ -91,10 +148,10 @@ router.post('/', kiinteistotController.create);
 
 /**
  * @swagger
- * /api/kiinteistots/{id}:
+ * /api/kiinteistot/{id}:
  *   put:
  *     summary: Update an existing kiinteistot by ID
- *     tags: [Kiinteistots]
+ *     tags: [Kiinteistot]
  *     parameters:
  *       - in: path
  *         name: id
@@ -119,10 +176,10 @@ router.put('/:id', kiinteistotController.update);
 
 /**
  * @swagger
- * /api/kiinteistots/{id}:
+ * /api/kiinteistot/{id}:
  *   delete:
  *     summary: Delete a kiinteistot by ID
- *     tags: [Kiinteistots]
+ *     tags: [Kiinteistot]
  *     parameters:
  *       - in: path
  *         name: id

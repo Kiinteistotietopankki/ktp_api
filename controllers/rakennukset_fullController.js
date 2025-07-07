@@ -19,6 +19,16 @@ exports.getById = async (req, res) => {
   }
 };
 
+exports.getById_kiinteisto = async (req, res) => {
+  try {
+    const item = await rakennukset_fullService.getById_kiinteisto(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Rakennukset_full not found' });
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.create = async (req, res) => {
   try {
     const created = await rakennukset_fullService.create(req.body);

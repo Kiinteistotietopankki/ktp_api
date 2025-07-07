@@ -1,5 +1,6 @@
 const kiinteistotService = require('../services/kiinteistotService');
 
+
 exports.getAll = async (req, res) => {
   try {
     const items = await kiinteistotService.getAll();
@@ -8,6 +9,27 @@ exports.getAll = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getAllWithRakennukset = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const orderBy = req.query.orderBy || 'id_kiinteisto';
+    const orderDir = req.query.orderDir || 'ASC';
+
+    const result = await kiinteistotService.getAllWithRakennukset(
+      page,
+      limit,
+      orderBy,
+      orderDir
+    );
+
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 
 exports.getById = async (req, res) => {
   try {

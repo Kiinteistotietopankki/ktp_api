@@ -12,6 +12,12 @@ class Rakennukset_fullService {
     return rakennukset_full.findByPk(id);
   }
 
+  async getById_kiinteisto(id_kiinteisto) {
+    return rakennukset_full.findAll({
+      where: { id_kiinteisto: id_kiinteisto }
+    });
+  }
+
   async create(data) {
     return rakennukset_full.create(data);
   }

@@ -34,7 +34,7 @@ const rakennukset_fullController = require('../controllers/rakennukset_fullContr
  *         kerroksia:
  *           type: number
  *         sijainti:
- *           type: POINT
+ *           type: string
  *         rakennusluokitus:
  *           type: string
  *         runkotapa:
@@ -78,7 +78,7 @@ const rakennukset_fullController = require('../controllers/rakennukset_fullContr
  *         kerroksia:
  *           type: number
  *         sijainti:
- *           type: POINT
+ *           type: string
  *         rakennusluokitus:
  *           type: string
  *         runkotapa:
@@ -97,13 +97,13 @@ const rakennukset_fullController = require('../controllers/rakennukset_fullContr
  *           type: string
 
  *
- * /api/rakennukset_fulls:
+ * /api/rakennukset_full:
  *   get:
- *     summary: Get all rakennukset_fulls
- *     tags: [Rakennukset_fulls]
+ *     summary: Get all rakennukset_full
+ *     tags: [Rakennukset_full]
  *     responses:
  *       200:
- *         description: List of all rakennukset_fulls
+ *         description: List of all rakennukset_full
  *         content:
  *           application/json:
  *             schema:
@@ -115,10 +115,10 @@ router.get('/', rakennukset_fullController.getAll);
 
 /**
  * @swagger
- * /api/rakennukset_fulls/{id}:
+ * /api/rakennukset_full/by/id/{id}:
  *   get:
  *     summary: Get a single rakennukset_full by ID
- *     tags: [Rakennukset_fulls]
+ *     tags: [Rakennukset_full]
  *     parameters:
  *       - in: path
  *         name: id
@@ -133,14 +133,38 @@ router.get('/', rakennukset_fullController.getAll);
  *             schema:
  *               $ref: '#/components/schemas/Rakennukset_full'
  */
-router.get('/:id', rakennukset_fullController.getById);
+router.get('/by/id/:id', rakennukset_fullController.getById);
 
 /**
  * @swagger
- * /api/rakennukset_fulls:
+ * /api/rakennukset_full/by/id_kiinteisto/{id}:
+ *   get:
+ *     summary: Get rakennukset_full by id_kiinteisto
+ *     tags: [Rakennukset_full]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A single rakennukset_full
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Rakennukset_full'
+ */
+router.get('/by/id_kiinteisto/:id', rakennukset_fullController.getById_kiinteisto);
+
+
+
+/**
+ * @swagger
+ * /api/rakennukset_full:
  *   post:
  *     summary: Create a new rakennukset_full
- *     tags: [Rakennukset_fulls]
+ *     tags: [Rakennukset_full]
  *     requestBody:
  *       required: true
  *       content:
@@ -159,10 +183,10 @@ router.post('/', rakennukset_fullController.create);
 
 /**
  * @swagger
- * /api/rakennukset_fulls/{id}:
+ * /api/rakennukset_full/{id}:
  *   put:
  *     summary: Update an existing rakennukset_full by ID
- *     tags: [Rakennukset_fulls]
+ *     tags: [Rakennukset_full]
  *     parameters:
  *       - in: path
  *         name: id
@@ -187,10 +211,10 @@ router.put('/:id', rakennukset_fullController.update);
 
 /**
  * @swagger
- * /api/rakennukset_fulls/{id}:
+ * /api/rakennukset_full/{id}:
  *   delete:
  *     summary: Delete a rakennukset_full by ID
- *     tags: [Rakennukset_fulls]
+ *     tags: [Rakennukset_full]
  *     parameters:
  *       - in: path
  *         name: id
