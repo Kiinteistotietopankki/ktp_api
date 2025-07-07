@@ -6,7 +6,6 @@ const { rakennusluokitukset_ryhti } = initModels(sequelize);
 const rakennusKoodit = require('../utils/rakennusKoodit.js')
 
 
-
 const findRakennuluokituksetById_Rakennus = async (id_rakennus) => {
   const rawRows = await rakennusluokitukset_ryhti.findAll({
     where: { rakennus_id: id_rakennus }

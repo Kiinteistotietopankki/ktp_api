@@ -33,6 +33,7 @@ app.use(profileRoute);
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
 const rakennustiedotRoutes = require('./routes/rakennustiedotRoutes.js');
+const rakennusluokituksetRoutes = require('./routes/rakennusluokituksetRoutes.js');
 
 
 // app.use('/api', authenticateAzure) 
@@ -42,6 +43,7 @@ const rakennustiedotRoutes = require('./routes/rakennustiedotRoutes.js');
 app.use('/api/kiinteistot', kiinteistoRoutes);
 app.use('/api/rakennukset', rakennusRoutes);
 app.use('/api/rakennustiedot', rakennustiedotRoutes);
+app.use('/api/rakennusluokitukset', rakennusluokituksetRoutes);
 
 const sequelize = require('./config/dbConfig');
 const { default: axios } = require('axios');
