@@ -2,8 +2,6 @@ const sequelize = require('../config/dbConfig'); // import your Sequelize instan
 const initModels = require('../models/init-models');
 
 const { rakennukset } = initModels(sequelize);
-const { findRakennustiedotById_Rakennus } = require('./rakennustiedotService.js')
-
 
 const getAllRakennukset = async () => {
   return await rakennukset.findAll();

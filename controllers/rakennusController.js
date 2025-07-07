@@ -1,57 +1,97 @@
 const rakennuksetService = require('../services/rakennusService');
+const sequelize = require('../config/dbConfig'); // import your Sequelize instance
+const initModels = require('../models/init-models');
+
+const { rakennukset } = initModels(sequelize);
 
 const getAllRakennukset = async (req, res) => {
   try {
-    const rakennukset = await rakennuksetService.getAllRakennukset();
-    res.json(rakennukset);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const data = await rakennuksetService.getAllRakennukset();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 
 const getRakennusById = async (req, res) => {
   try {
-    const rakennus = await rakennuksetService.getRakennusById(req.params.id);
-    if (!rakennus) return res.status(404).json({ error: 'Rakennus not found' });
-    res.json(rakennus);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-const createRakennus = async (req, res) => {
-  try {
-    const newRakennus = await rakennuksetService.createRakennus(req.body);
-    res.status(201).json(newRakennus);
-  } catch (err) {
-
-    const status = err.statusCode || 400;  
-    res.status(status).json({ error: err.message });
+    const id = req.params.id;
+    const data = await rakennuksetService.getRakennusById(id);
+    if (!data) {
+      return res.status(404).json({ message: 'Rakennus not found' });
+    }
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 
 const updateRakennus = async (req, res) => {
   try {
-    const updatedRakennus = await rakennuksetService.updateRakennus(req.params.id, req.body);
-    res.json(updatedRakennus);
-  } catch (err) {
-    res.status(404).json({ error: err.message });
+    const id = req.params.id;
+    const updated = await rakennuksetService.updateRakennus(id, req.body);
+    res.json(updated);
+  } catch (error) {
+    if (error.message === 'Rakennus not found') {
+      return res.status(404).json({ message: error.message });
+    }
+    res.status(500).json({ message: error.message });
   }
 };
 
 const deleteRakennus = async (req, res) => {
   try {
-    await rakennuksetService.deleteRakennus(req.params.id);
+    const id = req.params.id;
+    await rakennuksetService.deleteRakennus(id);
     res.status(204).send();
-  } catch (err) {
-    res.status(404).json({ error: err.message });
+  } catch (error) {
+    if (error.message === 'Rakennus not found') {
+      return res.status(404).json({ message: error.message });
+    }
+    res.status(500).json({ message: error.message });
   }
 };
+
+const createRakennus = async (req, res) => {
+  try {
+    const { id_kiinteisto, rakennustunnus, osoite, toimipaikka, postinumero } = req.body;
+
+    if (!id_kiinteisto || !rakennustunnus || !osoite) {
+      return res.status(400).json({ message: 'Missing required fields.' });
+    }
+
+    const newRakennus = await rakennukset.create({
+      id_kiinteisto,
+      rakennustunnus,
+      osoite,
+      toimipaikka,
+      postinumero
+    });
+
+    res.status(201).json(newRakennus);
+  } catch (error) {
+    console.error('Create error:', error);
+    res.status(500).json({ message: 'Failed to create rakennus' });
+  }
+};
+
+const findRakennusByKiinteistoId = async (req, res) => {
+  try {
+    const id = req.params.kiinteistoId;
+    const data = await rakennuksetService.findRakennusByKiinteistoId(id);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 
 module.exports = {
   getAllRakennukset,
   getRakennusById,
-  createRakennus,
   updateRakennus,
   deleteRakennus,
+  findRakennusByKiinteistoId,
+  createRakennus
 };
