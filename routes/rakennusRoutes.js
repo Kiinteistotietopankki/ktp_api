@@ -40,31 +40,58 @@ router.get('/', rakennuksetController.getAllRakennukset);
  *       200:
  *         description: List of rakennukset for the specified kiinteistö
  */
-router.get('/id_kiinteisto/:id', rakennuksetController.findRakennusByKiinteistoId);
-
+router.get('/id_kiinteisto/:id', rakennuksetController.findRakennusByKiinteistoId); ///todo fix!½!!!!!!
 
 /**
  * @swagger
- * /api/rakennukset/{id}:
- *   get:
- *     summary: Get a single rakennus by ID
+ * /api/rakennukset/withmetadata:
+ *   post:
+ *     summary: Create a new rakennus with default metadata 'Ympäristö.fi'
  *     tags: [Rakennukset]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: Rakennus ID
- *         schema:
- *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - id_kiinteisto
+ *               - rakennustunnus
+ *               - osoite
+ *             properties:
+ *               id_kiinteisto:
+ *                 type: integer
+ *                 example: 123
+ *               rakennustunnus:
+ *                 type: string
+ *                 example: "RAK-456"
+ *               osoite:
+ *                 type: string
+ *                 example: "Esimerkkikatu 1"
+ *               toimipaikka:
+ *                 type: string
+ *                 example: "Helsinki"
+ *               postinumero:
+ *                 type: string
+ *                 example: "00100"
  *     responses:
- *       200:
- *         description: Rakennus found
- *       404:
- *         description: Rakennus not found
+ *       201:
+ *         description: Rakennus created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 rakennus:
+ *                   $ref: '#/components/schemas/Rakennus'
+ *                 metadata:
+ *                   $ref: '#/components/schemas/RowMetadata'
+ *       400:
+ *         description: Missing required fields
+ *       500:
+ *         description: Failed to create rakennus
  */
-router.get('/:id', rakennuksetController.getRakennusById);
-
-
+router.post('/withmetadata', rakennuksetController.createRakennusWithMetaDataYmparisto);
 
 /**
  * @swagger
@@ -98,6 +125,32 @@ router.get('/:id', rakennuksetController.getRakennusById);
  *         description: Rakennus created
  */
 router.post('/', rakennuksetController.createRakennus);
+
+
+/**
+ * @swagger
+ * /api/rakennukset/{id}:
+ *   get:
+ *     summary: Get a single rakennus by ID
+ *     tags: [Rakennukset]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Rakennus ID
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Rakennus found
+ *       404:
+ *         description: Rakennus not found
+ */
+router.get('/:id', rakennuksetController.getRakennusById);
+
+
+
+
 
 /**
  * @swagger
