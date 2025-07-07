@@ -4,6 +4,10 @@ const cors = require('cors');
 require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger.js')
+
+
 
 // const authenticateJWT = require('./auth/jwtAuth');
 // const authMiddleware = require('./middlewares/authMiddleware');
@@ -15,7 +19,7 @@ const authenticateAzure = require('./middlewares/authAzureMiddleware')
 app.use(express.json());
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com', 'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'],
+  origin: ['http://localhost:3000','https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'],
   credentials: true
 }));
 
@@ -43,16 +47,10 @@ const sequelize = require('./config/dbConfig');
 const { default: axios } = require('axios');
 const PORT = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to Ktp_api',
-    routes: {
-      kiinteistot: '/api/kiinteistot',
-      rakennukset: '/api/rakennukset',
-      auth: '/auth/login'
-    }
-  });
-});
+
+//Swagger setup
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 const HttpsProxyAgent = require('https-proxy-agent');
 
@@ -60,7 +58,7 @@ const HttpsProxyAgent = require('https-proxy-agent');
 
 app.get('/test-proxy', async (req, res) => {
   try {
-    const proxy = 'http://52.155.251.10:3128'; // Replace with your Squid proxy VM's IP
+    const proxy = 'http://52.155.251.10:3128'; 
     const agent = new HttpsProxyAgent(proxy);
 
     const response = await axios.get('https://api.ipify.org?format=json', {
@@ -90,6 +88,6 @@ async function testConnection() {
 testConnection();
 
 app.listen(PORT, () => {
-  // console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server docs at http://localhost:${PORT}/api/docs`);
   console.log({ nodeVersion: process.version });
 });
