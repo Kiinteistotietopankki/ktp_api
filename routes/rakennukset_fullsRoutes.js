@@ -34,7 +34,7 @@ const rakennukset_fullController = require('../controllers/rakennukset_fullContr
  *         kerroksia:
  *           type: number
  *         sijainti:
- *           type: string
+ *           type: POINT
  *         rakennusluokitus:
  *           type: string
  *         runkotapa:
@@ -78,7 +78,7 @@ const rakennukset_fullController = require('../controllers/rakennukset_fullContr
  *         kerroksia:
  *           type: number
  *         sijainti:
- *           type: string
+ *           type: POINT
  *         rakennusluokitus:
  *           type: string
  *         runkotapa:

@@ -36,12 +36,14 @@ const rakennustiedotRoutes = require('./routes/rakennustiedotRoutes.js');
 const rakennusluokituksetRoutes = require('./routes/rakennusluokituksetRoutes.js');
 const rakennuksetFullRoutes = require('./routes/rakennuksetFull.routes.js');
 const autorakennuksetfullroutes = require('./routes/rakennukset_fullsRoutes.js')
+const autokiinteistotRoutes = require('./routes/kiinteistotsRoutes.js')
 
 // app.use('/api', authenticateAzure) 
 // app.use('/me', authenticateAzure) 
 
 
-app.use('/api/kiinteistot', kiinteistoRoutes);
+// app.use('/api/kiinteistot', kiinteistoRoutes);
+app.use('/api/kiinteistots', autokiinteistotRoutes);
 // app.use('/api/rakennukset', rakennusRoutes);
 
 app.use('/api/rakennukset', rakennuksetFullRoutes);

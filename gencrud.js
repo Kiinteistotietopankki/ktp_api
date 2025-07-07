@@ -290,28 +290,40 @@ function generateAllFromSchemas(schemaDir) {
     const swaggerProps = extractSwaggerProperties(baseSchema);
     const createSchema = createSchemas[name];
     const createProps = extractSwaggerProperties(createSchema || {});
-
     const pluralName = pluralize(name);
 
-    fs.writeFileSync(
-      path.join(routesPath, `${pluralName}Routes.js`),
-      generateRoutes(name, swaggerProps, createProps),
-      'utf8'
-    );
+    const filesToGenerate = [
+      {
+        path: path.join(routesPath, `${pluralName}Routes.js`),
+        content: generateRoutes(name, swaggerProps, createProps),
+        label: 'Route',
+      },
+      {
+        path: path.join(controllersPath, `${name}Controller.js`),
+        content: generateController(name),
+        label: 'Controller',
+      },
+      {
+        path: path.join(servicesPath, `${name}Service.js`),
+        content: generateService(name),
+        label: 'Service',
+      },
+    ];
 
-    fs.writeFileSync(
-      path.join(controllersPath, `${name}Controller.js`),
-      generateController(name),
-      'utf8'
-    );
+    let alreadyExists = false;
 
-    fs.writeFileSync(
-      path.join(servicesPath, `${name}Service.js`),
-      generateService(name),
-      'utf8'
-    );
+    for (const file of filesToGenerate) {
+      if (fs.existsSync(file.path)) {
+        console.log(`⚠️  ${file.label} file already exists for: ${name}, skipping.`);
+        alreadyExists = true;
+      } else {
+        fs.writeFileSync(file.path, file.content, 'utf8');
+      }
+    }
 
-    console.log(`✅ Generated CRUD files for resource: ${name}`);
+    if (!alreadyExists) {
+      console.log(`✅ Generated CRUD files for resource: ${name}`);
+    }
   }
 }
 

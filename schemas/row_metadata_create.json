@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "table_name": {
+      "type": "string",
+      "enum": [
+        "rakennukset",
+        "rakennusluokitukset_ryhti",
+        "rakennustiedot_ryhti"
+      ]
+    },
+    "row_id": {
+      "type": "integer"
+    },
+    "metadata": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "table_name",
+    "row_id",
+    "metadata",
+    "createdAt",
+    "updatedAt"
+  ]
+}
