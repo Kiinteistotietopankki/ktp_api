@@ -18,12 +18,35 @@ const findRakennuluokituksetById_Rakennus = async (id_rakennus) => {
 };
 
 
-const updateRakennusluokitukset = async (id, data) => {
-  const rakennus = await rakennusluokitukset_ryhti.findByPk(id);
+const updateRakennusluokitukset = async (
+  rakennus_id,
+  {
+    rakennusluokitus,
+    runkotapa,
+    kayttotilanne,
+    julkisivumateriaali,
+    lammitystapa,
+    lammitysenergialahde,
+    rakennusaine
+  }
+) => {
+  const rakennus = await rakennusluokitukset_ryhti.findOne({
+    where: { rakennus_id }  // search by id_rakennus, not primary key
+  });
+
   if (!rakennus) {
     throw new Error('Rakennus not found');
   }
-  return await rakennus.update(data);
+
+  return await rakennus.update({
+    ...(rakennusluokitus !== undefined && { rakennusluokitus }),
+    ...(runkotapa !== undefined && { runkotapa }),
+    ...(kayttotilanne !== undefined && { kayttotilanne }),
+    ...(julkisivumateriaali !== undefined && { julkisivumateriaali }),
+    ...(lammitystapa !== undefined && { lammitystapa }),
+    ...(lammitysenergialahde !== undefined && { lammitysenergialahde }),
+    ...(rakennusaine !== undefined && { rakennusaine }),
+  });
 };
 
 
@@ -60,9 +83,6 @@ function decodeRakennusLuokitukset(row) {
       }
     }
   }
-
-
-
   return decoded;
 }
 

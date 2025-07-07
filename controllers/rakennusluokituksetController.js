@@ -15,12 +15,12 @@ const getLuokituksettById_Rakennus = async (req, res) => {
   }
 };
 
-const updateRakennustiedot = async (req, res) => {
+const updateRakennusluokitukset = async (req, res) => {
   try {
     const id = req.params.id;        // From the URL: /rakennukset/:id
     const updates = req.query;       // All fields to update are in the query
 
-    const tiedot = await rakennusluokituksetService.updateRakennustiedot(id, updates);
+    const tiedot = await rakennusluokituksetService.updateRakennusluokitukset(id, updates);
     res.json(tiedot);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -30,5 +30,5 @@ const updateRakennustiedot = async (req, res) => {
 
 module.exports = {
     getLuokituksettById_Rakennus,
-    updateRakennustiedot
+    updateRakennusluokitukset
 };
