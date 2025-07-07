@@ -13,6 +13,7 @@ var _metadata_rakennus = require("./metadata_rakennus");
 var _rakennukset = require("./rakennukset");
 var _rakennusluokitukset_ryhti = require("./rakennusluokitukset_ryhti");
 var _rakennustiedot_ryhti = require("./rakennustiedot_ryhti");
+var _row_metadata = require("./row_metadata");
 
 function initModels(sequelize) {
   var huoneistot = _huoneistot(sequelize, DataTypes);
@@ -29,6 +30,7 @@ function initModels(sequelize) {
   var rakennukset = _rakennukset(sequelize, DataTypes);
   var rakennusluokitukset_ryhti = _rakennusluokitukset_ryhti(sequelize, DataTypes);
   var rakennustiedot_ryhti = _rakennustiedot_ryhti(sequelize, DataTypes);
+  var row_metadata = _row_metadata(sequelize, DataTypes);
 
   rakennukset.belongsTo(kiinteistot, { as: "id_kiinteisto_kiinteistot", foreignKey: "id_kiinteisto"});
   kiinteistot.hasMany(rakennukset, { as: "rakennuksets", foreignKey: "id_kiinteisto"});
@@ -56,6 +58,7 @@ function initModels(sequelize) {
     rakennukset,
     rakennusluokitukset_ryhti,
     rakennustiedot_ryhti,
+    row_metadata,
   };
 }
 module.exports = initModels;
