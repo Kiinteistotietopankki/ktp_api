@@ -123,6 +123,29 @@ router.get('/with-rakennukset', kiinteistotController.getAllWithRakennukset);
  */
 router.get('/by/id/:id', kiinteistotController.getById);
 
+/**
+ * @swagger
+ * /api/kiinteistot/with-rakennukset:
+ *   post:
+ *     summary: Create a new kiinteisto along with rakennukset_fulls
+ *     tags: [Kiinteistot]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Kiinteistot_create'
+ *     responses:
+ *       201:
+ *         description: Created kiinteisto with rakennukset_fulls
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Kiinteistot'
+ *       500:
+ *         description: Server error
+ */
+router.post('/with-rakennukset', kiinteistotController.createWithRakennukset);
 
 /**
  * @swagger

@@ -30,6 +30,19 @@ exports.getAllWithRakennukset = async (req, res) => {
   }
 };
 
+exports.createWithRakennukset = async (req, res) => {
+  try {
+    const kiinteistoData = req.body;
+
+    const createdKiinteisto = await kiinteistotService.createWithRakennukset(kiinteistoData);
+
+    res.status(201).json(createdKiinteisto);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message || 'Internal server error' });
+  }
+};
+
 
 exports.getById = async (req, res) => {
   try {

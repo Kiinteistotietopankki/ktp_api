@@ -1,7 +1,7 @@
 const sequelize = require('../config/dbConfig');
 const initModels = require('../models/init-models');
 
-// const rakennukset_fullService = require('./rakennukset_fullService');
+const rakennukset_fullService = require('./rakennukset_fullService');
 
 const { kiinteistot, rakennukset_full } = initModels(sequelize);
 
@@ -31,6 +31,22 @@ class KiinteistotService {
   
   }
 
+  async createWithRakennukset(kiinteisto) {
+    // Create the kiinteisto first
+    const createdKiinteisto = await kiinteistot.create(kiinteisto);
+
+    // Create each rakennukset_full separately and assign kiinteistoId
+    if (kiinteisto.rakennukset_fulls && kiinteisto.rakennukset_fulls.length > 0) {
+      for (const rakennus of kiinteisto.rakennukset_fulls) {
+        await rakennukset_fullService.create({
+          ...rakennus,
+          id_kiinteisto: createdKiinteisto.id_kiinteisto, // foreign key
+        });
+      }
+    }
+
+    return createdKiinteisto;
+  }
 
   async getById(id) {
     return kiinteistot.findByPk(id);
