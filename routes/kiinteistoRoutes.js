@@ -217,7 +217,7 @@ router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeB
  * @swagger
  * /api/kiinteistot/full/{id}:
  *   put:
- *     summary: Update full kiinteistö data by ID
+ *     summary: Update partial or full kiinteistö data by ID
  *     tags: [Kiinteistöt]
  *     parameters:
  *       - in: path
@@ -232,78 +232,62 @@ router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeB
  *         application/json:
  *           schema:
  *             type: object
+ *             description: >
+ *               Partial or full kiinteistö update data. 
+ *               All fields are optional — send only fields to update.
+ *             additionalProperties: false
  *             properties:
- *               id_kiinteisto:
- *                 type: integer
- *                 example: 91
- *                 description: Kiinteistö database ID (usually read-only)
- *                 readOnly: true
  *               kiinteistotunnus:
  *                 type: string
- *                 example: "205-2-47-1"
+ *                 example: "244-401-117-125"
  *                 description: Kiinteistötunnus (property identifier)
  *               rakennukset:
  *                 type: array
- *                 description: List of rakennukset (buildings)
+ *                 description: List of rakennukset (buildings) to update
  *                 items:
  *                   type: object
+ *                   description: Partial rakennus data — send only fields to update
+ *                   additionalProperties: false
  *                   properties:
  *                     id_rakennus:
  *                       type: integer
- *                       example: 133
- *                       description: Rakennus ID (read-only)
- *                       readOnly: true
- *                     id_kiinteisto:
- *                       type: integer
- *                       example: 91
- *                       description: Foreign key to kiinteistö (read-only)
- *                       readOnly: true
+ *                       example: 132
+ *                       description: Rakennus ID (required to identify which rakennus to update)
  *                     rakennustunnus:
  *                       type: string
- *                       example: "1018216733"
+ *                       example: "100561859X"
  *                     osoite:
  *                       type: string
- *                       example: "Lönnrotinkatu 1c"
+ *                       example: "Katintie 9"
  *                     toimipaikka:
  *                       type: string
- *                       example: "KAJAANI"
+ *                       example: "KEMPELE"
  *                     postinumero:
  *                       type: integer
- *                       example: 87100
+ *                       example: 90440
  *                     rakennustiedot:
  *                       type: array
  *                       items:
  *                         type: object
+ *                         description: Partial rakennustiedot data — send only fields to update
+ *                         additionalProperties: false
  *                         properties:
  *                           id:
  *                             type: integer
- *                             example: 92
- *                             description: Rakennustiedot ID (read-only)
- *                             readOnly: true
- *                           id_rakennus:
- *                             type: integer
- *                             example: 133
- *                             description: Foreign key to rakennus (read-only)
- *                             readOnly: true
+ *                             example: 91
+ *                             description: Rakennustiedot ID (required to identify record)
  *                           rakennusvuosi:
  *                             type: string
- *                             example: "1930"
- *                           kokonaisala:
- *                             type: string
- *                             example: "760.00"
+ *                             example: "1969"
  *                           kerrosala:
  *                             type: string
- *                             example: "760.00"
+ *                             example: "120.00"
  *                           huoneistoala:
  *                             type: string
- *                             example: "440.00"
- *                           tilavuus:
- *                             type: string
- *                             nullable: true
- *                             example: null
+ *                             example: "120.00"
  *                           kerroksia:
  *                             type: integer
- *                             example: 3
+ *                             example: 1
  *                           sijainti:
  *                             type: object
  *                             properties:
@@ -314,74 +298,39 @@ router.get('/full/:id', requestLogger, kiinteistotController.getKiinteistoWholeB
  *                                 type: array
  *                                 items:
  *                                   type: number
- *                                 example: [27.72696699, 64.22165784]
+ *                                 example: [25.52603082, 64.91089078]
  *                     rakennusluokitukset:
  *                       type: array
  *                       items:
  *                         type: object
+ *                         description: Partial rakennusluokitukset data — send only fields to update
+ *                         additionalProperties: false
  *                         properties:
  *                           id:
  *                             type: integer
- *                             example: 78
- *                             description: Rakennusluokitus ID (read-only)
- *                             readOnly: true
- *                           rakennus_id:
- *                             type: integer
- *                             example: 133
- *                             description: Foreign key to rakennus (read-only)
- *                             readOnly: true
+ *                             example: 77
+ *                             description: Rakennusluokitus ID (required to identify record)
  *                           rakennusluokitus:
  *                             type: string
- *                             example: "Julkinen rakennus"
+ *                             example: "Pientalo"
  *                           runkotapa:
  *                             type: string
  *                             example: "Paikalla tehty"
  *                           kayttotilanne:
  *                             type: string
- *                             example: "Tyhjillään"
+ *                             example: "Käytetään vakinaiseen asumiseen"
  *                           julkisivumateriaali:
  *                             type: string
- *                             example: "Puu"
+ *                             example: "Tiili"
  *                           lammitystapa:
  *                             type: string
  *                             example: "Vesikeskuslämmitys"
  *                           lammitysenergialahde:
  *                             type: string
- *                             example: "Kauko- tai aluelämpö"
+ *                             example: "Kevyt polttoöljy"
  *                           rakennusaine:
  *                             type: string
- *                             example: "Betoni"
- *                     metadata:
- *                       type: array
- *                       items:
- *                         type: object
- *                         properties:
- *                           id:
- *                             type: integer
- *                             example: 51
- *                             description: Metadata ID (read-only)
- *                             readOnly: true
- *                           metadata:
- *                             type: object
- *                             additionalProperties: true
- *                             description: Metadata details with source and editor info
- *                           id_rakennus:
- *                             type: integer
- *                             example: 133
- *                             description: Foreign key to rakennus (read-only)
- *                             readOnly: true
- *                           createdAt:
- *                             type: string
- *                             format: date-time
- *                             example: "2025-07-02T11:57:47.000Z"
- *                             description: Creation timestamp (read-only)
- *                             readOnly: true
- *                           updatedAt:
- *                             type: string
- *                             format: date-time
- *                             example: "2025-07-02T11:57:47.000Z"
- *                             description: Update timestamp (read-only)
- *                             readOnly: true
+ *                             example: "Puu"
  *     responses:
  *       200:
  *         description: Kiinteistö updated successfully
