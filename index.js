@@ -14,8 +14,6 @@ const swaggerSpec = require('./swagger.js')
 const authenticateAzure = require('./middlewares/authAzureMiddleware')
 
 
-
-
 app.use(express.json());
 
 app.use(cors({
@@ -34,6 +32,7 @@ app.use(profileRoute);
 
 const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
 const rakennusRoutes = require('./routes/rakennusRoutes');
+const rakennustiedotRoutes = require('./routes/rakennustiedotRoutes.js');
 
 
 // app.use('/api', authenticateAzure) 
@@ -42,6 +41,7 @@ const rakennusRoutes = require('./routes/rakennusRoutes');
 
 app.use('/api/kiinteistot', kiinteistoRoutes);
 app.use('/api/rakennukset', rakennusRoutes);
+app.use('/api/rakennustiedot', rakennustiedotRoutes);
 
 const sequelize = require('./config/dbConfig');
 const { default: axios } = require('axios');
