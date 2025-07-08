@@ -157,7 +157,36 @@ router.get('/by/id/:id', rakennukset_fullController.getById);
  */
 router.get('/by/id_kiinteisto/:id', rakennukset_fullController.getById_kiinteisto);
 
-
+/**
+ * @swagger
+ * /api/rakennukset_full/by/id_kiinteisto_with_metadata/{id_kiinteisto}:
+ *   get:
+ *     summary: Get rakennukset_full by id_kiinteisto with metadata
+ *     tags: [Rakennukset_full]
+ *     parameters:
+ *       - in: path
+ *         name: id_kiinteisto
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID of the kiinteisto
+ *     responses:
+ *       200:
+ *         description: List of rakennukset_full with metadata
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 allOf:
+ *                   - $ref: '#/components/schemas/Rakennukset_full'
+ *                   - type: object
+ *                     properties:
+ *                       metadata:
+ *                         type: object
+ *                         description: Metadata object for each rakennus
+ */
+router.get('/by/id_kiinteisto_with_metadata/:id_kiinteisto', rakennukset_fullController.getById_kiinteistoWithMetadata);
 
 /**
  * @swagger

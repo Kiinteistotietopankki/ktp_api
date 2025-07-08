@@ -12,8 +12,46 @@ class Row_metadataService {
     return row_metadata.findByPk(id);
   }
 
+  async getByTableAndRow(table_name, row_id) {
+    return row_metadata.findOne({
+      where: {
+        table_name,
+        row_id,
+      },
+    });
+  }
+
   async create(data) {
     return row_metadata.create(data);
+  }
+
+  generateMetadataFromRakennus(rakennusObj, userid='') {
+    const metadata = {};
+
+    for (const key of Object.keys(rakennusObj)) {
+      if (['id_rakennus', 'createdAt', 'updatedAt'].includes(key)) continue;
+
+      metadata[key] = {
+        source: 'Ympäristö.fi-RYHTI',
+        madeby: userid,
+      };
+    }
+
+    return metadata;
+  }
+
+  async createMetadataForRakennus(rakennusObj, userid='') {
+    const metadata = this.generateMetadataFromRakennus(rakennusObj, userid);
+
+    const now = new Date();
+
+    return row_metadata.create({
+      table_name: 'rakennukset_full',
+      row_id: rakennusObj.id_rakennus,
+      metadata,
+      createdAt: now,
+      updatedAt: now,
+    });
   }
 
   async update(id, data) {

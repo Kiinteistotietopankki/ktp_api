@@ -1,7 +1,8 @@
 const sequelize = require('../config/dbConfig');
 const initModels = require('../models/init-models');
 
-const { rakennukset_full } = initModels(sequelize);
+const { rakennukset_full, row_metadata } = initModels(sequelize);
+const Row_metadataService = require('./row_metadataService')
 
 class Rakennukset_fullService {
   async getAll() {
@@ -18,8 +19,41 @@ class Rakennukset_fullService {
     });
   }
 
-  async create(data) {
-    return rakennukset_full.create(data);
+  async getById_kiinteistoWithMetadata(id_kiinteisto) {
+  // 1. Get all rakennukset_full for kiinteisto
+  const rakennukset = await rakennukset_full.findAll({
+    where: { id_kiinteisto },
+  });
+
+  const rakennuksetWithMetadata = await Promise.all(
+    rakennukset.map(async (rakennus) => {
+      const metadata = await row_metadata.findOne({
+        where: {
+          table_name: 'rakennukset_full',
+          row_id: rakennus.id_rakennus,
+        },
+      });
+
+      // Return combined object
+      return {
+        ...rakennus.toJSON(),
+        metadata: metadata ? metadata.metadata : null,
+      };
+    })
+  );
+
+  return rakennuksetWithMetadata;
+  }
+
+  
+  async create(data, userid='') {
+    // 1. Create the rakennus row
+    const rakennus = await rakennukset_full.create(data);
+
+    // 2. Create metadata for the created rakennus row
+    await Row_metadataService.createMetadataForRakennus(rakennus.dataValues, userid);
+
+    return rakennus;
   }
 
   async update(id, data) {
