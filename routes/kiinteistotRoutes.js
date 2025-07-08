@@ -129,6 +129,31 @@ router.get('/with-rakennukset', kiinteistotController.getAllWithRakennukset);
  */
 router.get('/by/id/:id', kiinteistotController.getById);
 
+
+
+/**
+ * @swagger
+ * /api/kiinteistot/with-rakennukset/by/id/{id}:
+ *   get:
+ *     summary: Get a single kiinteisto by id with rakennukset
+ *     tags: [Kiinteistot]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A single kiinteistot with rakennukset
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Kiinteistot'
+ */
+router.get('/with-rakennukset/by/id/:id', kiinteistotController.getByIdWithRakennukset);
+
+
 /**
  * @swagger
  * /api/kiinteistot/with-rakennukset:

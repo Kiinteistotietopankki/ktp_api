@@ -91,6 +91,17 @@ class KiinteistotService {
     return kiinteistot.findByPk(id);
   }
 
+  async getByIdWithRakennukset(id) {
+  return kiinteistot.findByPk(id, {
+      include: [
+        {
+          model: rakennukset_full,
+          as: 'rakennukset_fulls',
+        },
+      ],
+    });
+  }
+
   async getByKiinteistotunnus(id) {
     return kiinteistot.findAll({
       where: { kiinteistotunnus : id }

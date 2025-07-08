@@ -56,6 +56,16 @@ exports.getById = async (req, res) => {
   }
 };
 
+exports.getByIdWithRakennukset = async (req, res) => {
+  try {
+    const item = await kiinteistotService.getByIdWithRakennukset(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Kiinteistot not found' });
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.create = async (req, res) => {
   try {
     const created = await kiinteistotService.create(req.body);
