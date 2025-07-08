@@ -1,5 +1,5 @@
 export function generateMetadata(rakennus) {
-  const defaultMeta = { source: "ymparisto.fi", editedBy: "testikäyttäjä" };
+  const defaultMeta = { source: "Ympäristö.fi", editedBy: "testikäyttäjä" };
 
   const wrap = () => ({ ...defaultMeta });
 

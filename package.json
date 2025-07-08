@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "gen-models": "node ./config/generateModelsSeq.js"
+    "gen-models": "node ./config/generateModelsSeq.js",
+    "gen-schemas": "node ./config/generateSchemas.js"
   },
   "keywords": [],
   "author": "",
@@ -14,11 +15,13 @@
   "dependencies": {
     "@azure/msal-node": "^3.6.0",
     "@azure/storage-blob": "^12.27.0",
+    "@techntools/sequelize-to-openapi": "^1.0.0",
     "axios": "^1.10.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "https-proxy-agent": "^5.0.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
     "ktp_api": "file:",
@@ -26,6 +29,8 @@
     "node-fetch": "^3.3.2",
     "npm": "^11.4.2",
     "sequelize": "^6.37.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0"
   },
   "devDependencies": {

@@ -1,55 +1,80 @@
+require('dotenv').config();
+
 const express = require('express');
-const app = express();
 const cors = require('cors');
-require('dotenv').config(); 
 const cookieParser = require('cookie-parser');
-// const authenticateJWT = require('./auth/jwtAuth');
-// const authMiddleware = require('./middlewares/authMiddleware');
-const authenticateAzure = require('./middlewares/authAzureMiddleware')
+const swaggerUi = require('swagger-ui-express');
+const { default: axios } = require('axios');
+const HttpsProxyAgent = require('https-proxy-agent');
 
+const app = express();
+const PORT = process.env.PORT || 3001;
 
+const sequelize = require('./config/dbConfig');
+const swaggerSpec = require('./swagger.js');
+
+const authenticateAzure = require('./middlewares/authAzureMiddleware');
+
+const microsoftAuthRoutes = require('./auth/microsoftAuth');
+const profileRoute = require('./routes/profileroute');
+const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
+const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
+const lokitusRoutes = require('./routes/lokitusRoutes.js')
+const metadataRoutes = require('./routes/row_metadataRoutes.js')
+
+// Middleware setup
 app.use(express.json());
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://ktp-demo-static.onrender.com', 'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'],
+  origin: [
+    'http://localhost:3000',
+    'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'
+  ],
   credentials: true
 }));
 
 app.use(cookieParser());
 
+// Swagger documentation route
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-const microsoftAuthRoutes = require('./auth/microsoftAuth');
+// Authentication routes
 app.use('/auth', microsoftAuthRoutes);
 
-const profileRoute = require('./routes/profileroute');
+// Main application routes
 app.use(profileRoute);
 
-const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
-const rakennusRoutes = require('./routes/rakennusRoutes');
+// Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
+// app.use('/api', authenticateAzure);
+// app.use('/me', authenticateAzure);
+
+app.use('/api/kiinteistot', kiinteistotRoutes);
+app.use('/api/rakennukset_full', rakennuksetRoutes);
+app.use('/api/lokitus', lokitusRoutes);
+app.use('/api/row_metadata', metadataRoutes);
 
 
-app.use('/api', authenticateAzure) 
-app.use('/me', authenticateAzure) 
+// Proxy test route
+app.get('/test-proxy', async (req, res) => {
+  try {
+    const proxy = 'http://52.155.251.10:3128';
+    const agent = new HttpsProxyAgent(proxy);
 
+    const response = await axios.get('https://api.ipify.org?format=json', {
+      httpsAgent: agent
+    });
 
-app.use('/api/kiinteistot', kiinteistoRoutes);
-app.use('/api/rakennukset', rakennusRoutes);
-
-const sequelize = require('./config/dbConfig');
-const PORT = process.env.PORT || 3001;
-
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to Ktp_api',
-    routes: {
-      kiinteistot: '/api/kiinteistot',
-      rakennukset: '/api/rakennukset',
-      auth: '/auth/login'
-    }
-  });
+    res.json({
+      outboundIp: response.data.ip,
+      proxyUsed: proxy
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Proxy test failed');
+  }
 });
 
-
+// Test DB connection
 async function testConnection() {
   try {
     await sequelize.authenticate();
@@ -58,10 +83,10 @@ async function testConnection() {
     console.error('Unable to connect to the database:', error);
   }
 }
-
 testConnection();
 
+// Start server
 app.listen(PORT, () => {
-  // console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server docs at http://localhost:${PORT}/api/docs`);
   console.log({ nodeVersion: process.version });
 });

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id_kiinteisto": {
+      "type": "integer"
+    },
+    "kiinteistotunnus": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "rakennukset_fulls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/rakennukset_full"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id_kiinteisto",
+    "kiinteistotunnus"
+  ]
+}
