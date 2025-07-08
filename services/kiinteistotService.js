@@ -2,6 +2,7 @@ const sequelize = require('../config/dbConfig');
 const initModels = require('../models/init-models');
 
 const rakennukset_fullService = require('./rakennukset_fullService');
+const { Op } = require('sequelize');
 
 const { kiinteistot, rakennukset_full } = initModels(sequelize);
 
@@ -10,16 +11,54 @@ class KiinteistotService {
     return kiinteistot.findAll();
   }
 
-  async getAllWithRakennukset(page = 1, limit = 20, orderBy = 'id_kiinteisto', orderDir = 'ASC') {
+  async getAllWithRakennukset(page = 1, limit = 20, orderBy = 'id_kiinteisto', orderDir = 'ASC', searchTerm = '') {
     const cappedLimit = Math.min(limit, 100);
     const offset = (page - 1) * cappedLimit;
 
-    const { count, rows } = await kiinteistot.findAndCountAll({
-      limit: cappedLimit,
-      offset,
-      order: [[orderBy, orderDir.toUpperCase() === 'DESC' ? 'DESC' : 'ASC']],
-      include: [{ model: rakennukset_full, as: 'rakennukset_fulls' }],
-    });
+    const orderDirection = orderDir.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
+
+    let count, rows;
+
+    if (searchTerm.includes('-')) {
+      // Search by kiinteistotunnus
+      ({ count, rows } = await kiinteistot.findAndCountAll({
+        limit: cappedLimit,
+        offset,
+        order: [[orderBy, orderDirection]],
+        where: {
+          kiinteistotunnus: searchTerm,
+        },
+        include: [
+          {
+            model: rakennukset_full,
+            as: 'rakennukset_fulls',
+          },
+        ],
+        distinct: true,
+      }));
+    } else {
+      // Search in associated rakennukset_fulls fields
+      ({ count, rows } = await kiinteistot.findAndCountAll({
+        limit: cappedLimit,
+        offset,
+        order: [[orderBy, orderDirection]],
+        include: [
+          {
+            model: rakennukset_full,
+            as: 'rakennukset_fulls',
+            where: {
+              [Op.or]: [
+                { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
+                { osoite: { [Op.like]: `%${searchTerm}%` } },
+                { postinumero: { [Op.like]: `%${searchTerm}%` } },
+              ],
+            },
+            required: true, // Ensures filtering works correctly
+          },
+        ],
+        distinct: true,
+      }));
+    }
 
     return {
       data: rows,
@@ -28,8 +67,8 @@ class KiinteistotService {
       totalItems: count,
       totalPages: Math.ceil(count / cappedLimit),
     };
-  
   }
+
 
   async createWithRakennukset(kiinteisto) {
     // Create the kiinteisto first

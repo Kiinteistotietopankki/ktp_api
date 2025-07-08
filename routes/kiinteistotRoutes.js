@@ -78,6 +78,12 @@ router.get('/', kiinteistotController.getAll);
  *           enum: [ASC, DESC]
  *           default: ASC
  *         description: Order direction (ascending or descending)
+ *       - in: query
+ *         name: searchTerm
+ *         schema:
+ *           type: string
+ *           default: ""
+ *         description: Search by kiinteistotunnus (with hyphen) or rakennukset fields (toimipaikka, osoite, postinumero)
  *     responses:
  *       200:
  *         description: Paginated list of kiinteistot with rakennukset

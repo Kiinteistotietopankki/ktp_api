@@ -16,12 +16,14 @@ exports.getAllWithRakennukset = async (req, res) => {
     const limit = parseInt(req.query.limit) || 20;
     const orderBy = req.query.orderBy || 'id_kiinteisto';
     const orderDir = req.query.orderDir || 'ASC';
+    const searchTerm = req.query.searchTerm || ''; // <-- added
 
     const result = await kiinteistotService.getAllWithRakennukset(
       page,
       limit,
       orderBy,
-      orderDir
+      orderDir,
+      searchTerm // <-- added
     );
 
     res.json(result);
