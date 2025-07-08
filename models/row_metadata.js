@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       comment: "Unique metadata entry ID"
     },
     table_name: {
-      type: DataTypes.ENUM('rakennukset','rakennusluokitukset_ryhti','rakennustiedot_ryhti'),
+      type: DataTypes.ENUM('rakennukset_full'),
       allowNull: false,
       comment: "Target table name"
     },

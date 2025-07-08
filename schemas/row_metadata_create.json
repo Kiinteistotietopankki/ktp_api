@@ -4,9 +4,7 @@
     "table_name": {
       "type": "string",
       "enum": [
-        "rakennukset",
-        "rakennusluokitukset_ryhti",
-        "rakennustiedot_ryhti"
+        "rakennukset_full"
       ]
     },
     "row_id": {

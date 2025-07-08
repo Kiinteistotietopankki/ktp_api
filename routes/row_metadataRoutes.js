@@ -55,7 +55,7 @@ router.get('/', row_metadataController.getAll);
 
 /**
  * @swagger
- * /api/row_metadata/{id}:
+ * /api/row_metadata/by/{id}:
  *   get:
  *     summary: Get a single row_metadata by ID
  *     tags: [Row_metadata]
@@ -73,7 +73,7 @@ router.get('/', row_metadataController.getAll);
  *             schema:
  *               $ref: '#/components/schemas/Row_metadata'
  */
-router.get('/:id', row_metadataController.getById);
+router.get('/by/:id', row_metadataController.getById);
 
 /**
  * @swagger

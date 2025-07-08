@@ -5,12 +5,6 @@
       "type": "string",
       "maxLength": 255
     },
-    "rakennuksets": {
-      "type": "array",
-      "items": {
-        "$ref": "#/components/schemas/rakennukset"
-      }
-    },
     "rakennukset_fulls": {
       "type": "array",
       "items": {
