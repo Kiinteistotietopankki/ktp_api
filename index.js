@@ -20,6 +20,7 @@ const profileRoute = require('./routes/profileroute');
 const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
 const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')
+const metadataRoutes = require('./routes/row_metadataRoutes.js')
 
 // Middleware setup
 app.use(express.json());
@@ -50,6 +51,7 @@ app.use(profileRoute);
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
+app.use('/api/row_metadata', metadataRoutes);
 
 
 // Proxy test route

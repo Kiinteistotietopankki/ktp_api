@@ -60,6 +60,54 @@ class Row_metadataService {
     return item.update(data);
   }
 
+  async updateByRowId(table_name, row_id, metadataUpdates) {
+    // First, fetch current metadata with Sequelize findOne (to merge)
+    const item = await row_metadata.findOne({
+      where: { table_name, row_id }
+    });
+
+    if (!item) throw new Error('Row_metadata not found');
+
+    const currentMetadata = item.metadata || {};
+
+    console.log('CURRENT METADATA AT DB (object):', currentMetadata);
+
+    // Merge new updates in
+    for (const [field, newMeta] of Object.entries(metadataUpdates)) {
+      currentMetadata[field] = {
+        ...(currentMetadata[field] || {}),
+        ...newMeta
+      };
+    }
+
+    console.log('UPDATED METADATA TO SAVE (object):', currentMetadata);
+
+    // Stringify merged metadata for raw SQL update
+    const metadataJSONString = JSON.stringify(currentMetadata);
+
+    // Run raw SQL update
+    await row_metadata.sequelize.query(
+      `UPDATE ${row_metadata.getTableName()} SET metadata = :metadata WHERE table_name = :table_name AND row_id = :row_id`,
+      {
+        replacements: {
+          metadata: metadataJSONString,
+          table_name,
+          row_id,
+        },
+        type: row_metadata.sequelize.QueryTypes.UPDATE,
+      }
+    );
+
+    // Re-fetch updated item to confirm and return
+    const savedItem = await row_metadata.findOne({
+      where: { table_name, row_id }
+    });
+
+    console.log('SAVED METADATA FROM DB (object):', savedItem.metadata);
+
+    return savedItem;
+  }
+
   async remove(id) {
     const item = await row_metadata.findByPk(id);
     if (!item) throw new Error('Row_metadata not found');

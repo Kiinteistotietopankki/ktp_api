@@ -240,6 +240,74 @@ router.put('/:id', rakennukset_fullController.update);
 
 /**
  * @swagger
+ * /api/rakennukset_full/{id}/with-metadata:
+ *   put:
+ *     summary: Update rakennukset_full main data fields and metadata by ID
+ *     tags: [Rakennukset_full]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID of the rakennukset_full row to update
+ *     requestBody:
+ *       description: Main data fields to update along with optional metadata object
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               metadata:
+ *                 type: object
+ *                 description: Metadata fields to update (field-wise JSON)
+ *                 additionalProperties:
+ *                   type: object
+ *                   description: Metadata for individual fields (e.g. source, madeby)
+ *                   example:
+ *                     source: "Internet"
+ *                     madeby: "John Doe"
+ *             additionalProperties:
+ *               oneOf:
+ *                 - type: string
+ *                 - type: number
+ *                 - type: boolean
+ *             example:
+ *               kerroksia: "2"
+ *               osoite: "Jarintie 5"
+ *               metadata: 
+ *                 kerroksia:
+ *                   source: "DFD"
+ *                 osoite:
+ *                   source: "Kirjasto"
+ *     responses:
+ *       200:
+ *         description: Update successful, returns updated rakennukset_full object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               example:
+ *                 id: 123
+ *                 kerroksia: "2"
+ *                 osoite: "Jarintie 5"
+ *                 metadata:
+ *                   kerroksia:
+ *                     source: "DFD"
+ *                   osoite:
+ *                     source: "Kirjasto"
+ *       400:
+ *         description: Bad request, invalid input format
+ *       404:
+ *         description: Rakennukset_full not found with given ID
+ *       500:
+ *         description: Internal server error
+ */
+router.put('/:id/with-metadata', rakennukset_fullController.updateRakennusWithMetadata);
+
+/**
+ * @swagger
  * /api/rakennukset_full/{id}:
  *   delete:
  *     summary: Delete a rakennukset_full by ID

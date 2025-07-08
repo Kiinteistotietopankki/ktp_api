@@ -62,6 +62,28 @@ class Rakennukset_fullService {
     return item.update(data);
   }
 
+  async updateWithMetadata(id, dataArray) {
+    const item = await rakennukset_full.findByPk(id);
+    if (!item) throw new Error('Rakennukset_full not found');
+
+    for (const data of dataArray) {
+      const { metadata, ...mainData } = data;
+
+      if (Object.keys(mainData).length > 0) {
+        await item.update(mainData);
+      }
+
+      if (metadata && Object.keys(metadata).length > 0) {
+        await Row_metadataService.updateByRowId('rakennukset_full', id, metadata);
+      } else {
+        console.log('NO METADATA PROVIDED for one update object');
+      }
+    }
+
+    return item;
+  }
+
+
   async remove(id) {
     const item = await rakennukset_full.findByPk(id);
     if (!item) throw new Error('Rakennukset_full not found');

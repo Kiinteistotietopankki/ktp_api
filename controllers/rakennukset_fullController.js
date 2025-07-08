@@ -2,7 +2,7 @@ const Rakennukset_fullService = require('../services/rakennukset_fullService');
 
 exports.getAll = async (req, res) => {
   try {
-    const items = await rakennukset_fullService.getAll();
+    const items = await Rakennukset_fullService.getAll();
     res.json(items);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -52,6 +52,26 @@ exports.create = async (req, res) => {
     res.status(201).json(created);
   } catch (error) {
     res.status(400).json({ error: error.message });
+  }
+};
+
+exports.updateRakennusWithMetadata = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const dataArray = req.body;
+
+    if (!Array.isArray(dataArray) || dataArray.length === 0) {
+      return res.status(400).json({ error: 'Request body must be a non-empty array' });
+    }
+
+    const updatedItem = await Rakennukset_fullService.updateWithMetadata(id, dataArray);
+    res.json(updatedItem);
+  } catch (error) {
+    console.error(error);
+    if (error.message === 'Rakennukset_full not found') {
+      return res.status(404).json({ error: error.message });
+    }
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 
