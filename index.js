@@ -44,7 +44,7 @@ app.use('/auth', microsoftAuthRoutes);
 // Main application routes
 app.use(profileRoute);
 
-// Protected API routes (add authentication middleware here if needed)
+// Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
 // app.use('/api', authenticateAzure);
 // app.use('/me', authenticateAzure);
 
