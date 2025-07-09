@@ -54,6 +54,7 @@ app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
 app.use('/api/row_metadata', metadataRoutes);
+app.use('/api/mml', MMLKiinteistotRoutes);
 
 
 // Proxy test route

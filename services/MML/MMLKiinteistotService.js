@@ -5,8 +5,9 @@ class MMLKiinteistotService {
     this.baseUrl = process.env.MML_KIINTEISTO_URL;
     this.auth = {
       username: process.env.MML_KIINTEISTO_NAME,
-      password: process.env.MML_KIINTEISTÖ_PASSWORD,
+      password: process.env.MML_KIINTEISTO_PASSWORD,
     };
+    this.userid = 'dev_no_auth'
   }
 
   async haePerustiedot(kohdetunnus) {
@@ -14,9 +15,48 @@ class MMLKiinteistotService {
     try {
       const response = await axios.get(url, {
         params: { kohdetunnus },
-        auth: this.auth  // Basic Auth
+        auth: this.auth,
+        headers: {
+          userid: this.userid  // add your actual user ID here
+        }
       });
-      return response.data; // XML string
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching perustiedot:', error.message);
+      throw error;
+    }
+  }
+
+  
+
+  async haeLainhuutotiedotIlmanhenkilotietoja(kohdetunnus) {
+    const url = `${this.baseUrl}/lainhuutotiedot_ilman_henkilotietoja/xml`;
+    try {
+      const response = await axios.get(url, {
+        params: { kohdetunnus },
+        auth: this.auth,
+        headers: {
+          userid: this.userid  // add your actual user ID here
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching perustiedot:', error.message);
+      throw error;
+    }
+  }
+
+  async haeLainhuutotiedotIlmanhenkilotunnuksia(kohdetunnus) {
+    const url = `${this.baseUrl}/lainhuutotiedot_ilman_henkilotunnusta/xml`;
+    try {
+      const response = await axios.get(url, {
+        params: { kohdetunnus },
+        auth: this.auth,
+        headers: {
+          userid: this.userid  // add your actual user ID here
+        }
+      });
+      return response.data;
     } catch (error) {
       console.error('Error fetching perustiedot:', error.message);
       throw error;
