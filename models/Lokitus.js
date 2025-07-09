@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    kayttaja: {
+    userId: {
       type: DataTypes.STRING(255),
       allowNull: false
     },
@@ -16,9 +16,21 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
     },
-    pyynto: {
-      type: DataTypes.TEXT,
+    message: {
+      type: DataTypes.STRING(255),
       allowNull: false
+    },
+    timeStampUTC: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    timeStampFinnish: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    responseField: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,
