@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:kypt="http://xml.nls.fi/ktjkir/kysely/perustiedot/2018/02/01" xmlns:trpt="http://xml.nls.fi/ktjkir/perustiedot/2018/02/01" xmlns:y="http://xml.nls.fi/ktjkir/yhteinen/2018/02/01" targetNamespace="http://xml.nls.fi/ktjkir/kysely/perustiedot/2018/02/01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:import namespace="http://xml.nls.fi/ktjkir/perustiedot/2018/02/01" schemaLocation="../../../../../api/perustiedot/2018/02/01/Perustiedot.xsd"/>
+    <xs:import namespace="http://xml.nls.fi/ktjkir/yhteinen/2018/02/01" schemaLocation="../../../../../api/yhteiset/2018/02/01/YhteisetTietorakenteet.xsd"/>
+    <xs:element name="Perustiedot" type="kypt:PerustiedotTyyppi"/>
+    <xs:complexType name="PerustiedotTyyppi">
+        <xs:complexContent>
+            <xs:extension base="y:TulosteTyyppi">
+                <xs:sequence>
+                <xs:element ref="kypt:Rekisteriyksikko" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="kypt:Maaraala" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="kypt:Laitos" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="y:metatiedot" minOccurs="0"/>
+                <xs:sequence minOccurs="0">
+                    <xs:element ref="y:virhe" minOccurs="1" maxOccurs="unbounded"/>
+                </xs:sequence>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi">
+        <xs:sequence>
+            <xs:element ref="trpt:rekisteriyksikonPerustiedot"/>
+            <xs:element ref="y:muutostapahtumat" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MaaraalanPerustiedotJaMuutostapahtumatTyyppi">
+        <xs:sequence>
+            <xs:element ref="trpt:maaraalanPerustiedot"/>
+            <xs:element ref="y:muutostapahtumat" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LaitoksenPerustiedotJaMuutostapatumatTyyppi">
+        <xs:sequence>
+            <xs:element ref="trpt:laitoksenPerustiedot"/>
+            <xs:element ref="y:muutostapahtumat" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Rekisteriyksikko" type="kypt:RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"/>
+    <xs:element name="Maaraala" type="kypt:MaaraalanPerustiedotJaMuutostapahtumatTyyppi"/>
+    <xs:element name="Laitos" type="kypt:LaitoksenPerustiedotJaMuutostapatumatTyyppi"/>
+</xs:schema>
