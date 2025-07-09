@@ -22,6 +22,8 @@ const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')
 const metadataRoutes = require('./routes/row_metadataRoutes.js')
 
+const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
+
 // Middleware setup
 app.use(express.json());
 

@@ -1,0 +1,3399 @@
+<kood:Koodistot xmlns:y="http://xml.nls.fi/ktjkir/yhteinen/2018/02/01" xmlns:yo="http://xml.nls.fi/ktjkir/otteet/yhteinen/2018/02/01" xmlns:kood="http://xml.nls.fi/ktjkir/koodistot/2018/02/01" xmlns:trpt="http://xml.nls.fi/ktjkir/perustiedot/2018/02/01" xmlns:trvo="http://xml.nls.fi/ktjkir/vuokraoikeustiedot/2018/02/01" xmlns:trra="http://xml.nls.fi/ktjkir/rasitustiedot/2018/02/01" xmlns:trlh="http://xml.nls.fi/ktjkir/lainhuutotiedot/2018/02/01">
+    <y:asianLaadunPeruste tunnus="LH022">
+        <y:nimi kieli="fi">Sulautuminen</y:nimi>
+        <y:nimi kieli="sv">Fusion</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH023">
+        <y:nimi kieli="fi">Yhtiön jakautuminen</y:nimi>
+        <y:nimi kieli="sv">Delning av bolag</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH024">
+        <y:nimi kieli="fi">Nimen muutos</y:nimi>
+        <y:nimi kieli="sv">Namnändring</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH025">
+        <y:nimi kieli="fi">Ehdollisen luovutuksen purkaminen</y:nimi>
+        <y:nimi kieli="sv">Hävning av villkorlig överlåtelse</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH026">
+        <y:nimi kieli="fi">Muu peruste</y:nimi>
+        <y:nimi kieli="sv">Annan grund</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH027">
+        <y:nimi kieli="fi">Omalle varalle lohkominen</y:nimi>
+        <y:nimi kieli="sv">Styckning från egen fastighet</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH028">
+        <y:nimi kieli="fi">Aikaisempi omistus</y:nimi>
+        <y:nimi kieli="sv">Tidigare ägande</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH029">
+        <y:nimi kieli="fi">Määräalan pidätys</y:nimi>
+        <y:nimi kieli="sv">Förbehåll av outbrutet område</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH0210">
+        <y:nimi kieli="fi">Kiinteistötoimitus</y:nimi>
+        <y:nimi kieli="sv">Fastighetsförrättning</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH0211">
+        <y:nimi kieli="fi">Ajantasaistus</y:nimi>
+        <y:nimi kieli="sv">Uppdatering</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaadunPeruste tunnus="LH0212">
+        <y:nimi kieli="fi">Yhtiömuodon muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av bolagsform</y:nimi>
+    </y:asianLaadunPeruste>
+    <y:asianLaatu tunnus="EO01">
+        <y:nimi kieli="fi">Erityisen oikeuden kirjaaminen</y:nimi>
+        <y:nimi kieli="sv">Inskrivning av särskild rättighet</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO02">
+        <y:nimi kieli="fi">Erityisen oikeuden muuttaminen</y:nimi>
+        <y:nimi kieli="sv">Ändring av särskild rättighet</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO03">
+        <y:nimi kieli="fi">Erityisen oikeuden siirtäminen</y:nimi>
+        <y:nimi kieli="sv">Överföring av särskild rättighet</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO04">
+        <y:nimi kieli="fi">Erityisen oikeuden poistaminen</y:nimi>
+        <y:nimi kieli="sv">Avförande av särskild rättighet</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO05">
+        <y:nimi kieli="fi">Erityisen oikeuden selventäminen / tiedot</y:nimi>
+        <y:nimi kieli="sv">Förtydligande av särskild rättighet/uppgifter</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO06">
+        <y:nimi kieli="fi">Erityisen oikeuden selventäminen / haltijat</y:nimi>
+        <y:nimi kieli="sv">Förtydligande av särskild rättighet/innehavare</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO07">
+        <y:nimi kieli="fi">Erityisten oikeuksien poistaminen kohteilta</y:nimi>
+        <y:nimi kieli="sv">Avförande av särskilda rättigheter från objekt</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="EO08">
+        <y:nimi kieli="fi">Erityisen oikeuden selventäminen / henkilöt</y:nimi>
+        <y:nimi kieli="sv">Förtydligande av uppgifter för särskild rättighet / personer</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI01">
+        <y:nimi kieli="fi">Vahvistaminen</y:nimi>
+        <y:nimi kieli="sv">Fastställande</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI07">
+        <y:nimi kieli="fi">Uuden panttikirjan antaminen</y:nimi>
+        <y:nimi kieli="sv">Utfärdande av nytt pantbrev</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI12">
+        <y:nimi kieli="fi">Kiinnityksen kuolettaminen</y:nimi>
+        <y:nimi kieli="sv">Dödande av inteckning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI21">
+        <y:nimi kieli="fi">Etusijajärjestyksen muuttaminen</y:nimi>
+        <y:nimi kieli="sv">Ändring av företrädesordning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI22">
+        <y:nimi kieli="fi">Kiinnityksen muuttaminen</y:nimi>
+        <y:nimi kieli="sv">Ändring av inteckning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI23">
+        <y:nimi kieli="fi">Kiinnityksen yhdistäminen ja jakaminen</y:nimi>
+        <y:nimi kieli="sv">Sammanslagning och delning av inteckningar</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI24">
+        <y:nimi kieli="fi">Kiinnityksen selventäminen</y:nimi>
+        <y:nimi kieli="sv">Förtydligande av inteckning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI25">
+        <y:nimi kieli="fi">Kiinnitysten muuttaminen</y:nimi>
+        <y:nimi kieli="sv">Ändring av inteckningar</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI26">
+        <y:nimi kieli="fi">Konvertoitu etusija-asia</y:nimi>
+        <y:nimi kieli="sv">Konverterat företrädesärende</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KI27">
+        <y:nimi kieli="fi">Sähköisen panttikirjan siirto</y:nimi>
+        <y:nimi kieli="sv">Överföring av elektroniskt pantbrev</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KO00">
+        <y:nimi kieli="fi">Korjaamisasia konversiosta</y:nimi>
+        <y:nimi kieli="sv">Rättelseärende från konvertering</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOEH">
+        <y:nimi kieli="fi">Erityisen oikeuden korjaaminen / haltijat</y:nimi>
+        <y:nimi kieli="sv">Rättelse av särskild rättighet/innehavare</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOEJ">
+        <y:nimi kieli="fi">Etusijajärjestyksen korjaaminen</y:nimi>
+        <y:nimi kieli="sv">Rättelse av företrädesordning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOEO">
+        <y:nimi kieli="fi">Erityisen oikeuden korjaaminen / tiedot</y:nimi>
+        <y:nimi kieli="sv">Rättelse av särskild rättighet/uppgifter</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOKI">
+        <y:nimi kieli="fi">Kiinnityksen korjaaminen</y:nimi>
+        <y:nimi kieli="sv">Rättelse av inteckning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOLH">
+        <y:nimi kieli="fi">Lainhuudon korjaaminen</y:nimi>
+        <y:nimi kieli="sv">Rättelse av lagfart</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KOMU">
+        <y:nimi kieli="fi">Muistutuksen korjaaminen</y:nimi>
+        <y:nimi kieli="sv">Rättelse av anmärkning</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="KORK">
+        <y:nimi kieli="fi">Ratkaisun korjaaminen</y:nimi>
+        <y:nimi kieli="sv">Rättelse av avgörande</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="LH01">
+        <y:nimi kieli="fi">Lainhuuto</y:nimi>
+        <y:nimi kieli="sv">Lagfart</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="LH02">
+        <y:nimi kieli="fi">Selvennyslainhuuto</y:nimi>
+        <y:nimi kieli="sv">Förtydligande lagfart</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="LH03">
+        <y:nimi kieli="fi">Omistusoikeuden rekisteröinti</y:nimi>
+        <y:nimi kieli="sv">Registrering av äganderätt</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="LH04">
+        <y:nimi kieli="fi">Hallinnoivan viranomaisen merkitseminen</y:nimi>
+        <y:nimi kieli="sv">Registrering av förvaltande myndighet</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="LH05">
+        <y:nimi kieli="fi">Lainhuudon selventäminen / henkilöt</y:nimi>
+        <y:nimi kieli="sv">Förtydligande av lagfartsuppgifter / personer</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="MU01">
+        <y:nimi kieli="fi">Merkitseminen</y:nimi>
+        <y:nimi kieli="sv">Registrering</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="MU02">
+        <y:nimi kieli="fi">Poistaminen</y:nimi>
+        <y:nimi kieli="sv">Avförande</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="MU05">
+        <y:nimi kieli="fi">Muuttaminen</y:nimi>
+        <y:nimi kieli="sv">Ändring</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="MU06">
+        <y:nimi kieli="fi">Selventäminen</y:nimi>
+        <y:nimi kieli="sv">Förtydligande</y:nimi>
+    </y:asianLaatu>
+    <y:asianLaatu tunnus="MU07">
+        <y:nimi kieli="fi">Muistutusten poistaminen kohteilta</y:nimi>
+        <y:nimi kieli="sv">Avförande av anmärkningar från objekt</y:nimi>
+    </y:asianLaatu>
+    <y:asialaji tunnus="EO">
+        <y:nimi kieli="fi">Erityinen oikeus asia</y:nimi>
+        <y:nimi kieli="sv">Ärende avseende särskild rättighet</y:nimi>
+    </y:asialaji>
+    <y:asialaji tunnus="KI">
+        <y:nimi kieli="fi">Kiinnitysasia</y:nimi>
+        <y:nimi kieli="sv">Inteckningsärende</y:nimi>
+    </y:asialaji>
+    <y:asialaji tunnus="KO">
+        <y:nimi kieli="fi">Korjaamisasia</y:nimi>
+        <y:nimi kieli="sv">Rättelseärende</y:nimi>
+    </y:asialaji>
+    <y:asialaji tunnus="LH">
+        <y:nimi kieli="fi">Lainhuutoasia</y:nimi>
+        <y:nimi kieli="sv">Lagfartsärende</y:nimi>
+    </y:asialaji>
+    <y:asialaji tunnus="MU">
+        <y:nimi kieli="fi">Muistutusasia</y:nimi>
+        <y:nimi kieli="sv">Anmärkningsärende</y:nimi>
+    </y:asialaji>
+    <y:asianTila tunnus="01">
+        <y:nimi kieli="fi">Vireillä</y:nimi>
+        <y:nimi kieli="sv">Anhängig</y:nimi>
+    </y:asianTila>
+    <y:asianTila tunnus="02">
+        <y:nimi kieli="fi">Ratkaistu</y:nimi>
+        <y:nimi kieli="sv">Avgjord</y:nimi>
+    </y:asianTila>
+    <y:asianTila tunnus="03">
+        <y:nimi kieli="fi">Loppuunsaatettu</y:nimi>
+        <y:nimi kieli="sv">Slutförd</y:nimi>
+    </y:asianTila>
+    <y:asianTila tunnus="04">
+        <y:nimi kieli="fi">Poistettu</y:nimi>
+        <y:nimi kieli="sv">Borttagen</y:nimi>
+    </y:asianTila>
+    <y:erityinenOikeusAsiakirjalaji tunnus="01">
+        <y:nimi kieli="fi">Eläkeoikeussopimus</y:nimi>
+        <y:nimi kieli="sv">Sytningsavtal</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="02">
+        <y:nimi kieli="fi">Kauppakirja</y:nimi>
+        <y:nimi kieli="sv">Köpebrev</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="03">
+        <y:nimi kieli="fi">Lahjakirja</y:nimi>
+        <y:nimi kieli="sv">Gåvobrev</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="04">
+        <y:nimi kieli="fi">Ositus</y:nimi>
+        <y:nimi kieli="sv">Avvittring</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="05">
+        <y:nimi kieli="fi">Perinnönjakokirja</y:nimi>
+        <y:nimi kieli="sv">Arvskiftesinstrument</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="06">
+        <y:nimi kieli="fi">Sopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="07">
+        <y:nimi kieli="fi">Ositus ja omaisuuden erottelukirja</y:nimi>
+        <y:nimi kieli="sv">Avvittring och avskiljningshandling</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="10">
+        <y:nimi kieli="fi">Vuokrasopimus</y:nimi>
+        <y:nimi kieli="sv">Legoavtal</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="13">
+        <y:nimi kieli="fi">Käyttöoikeussopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om nyttjanderätt</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="16">
+        <y:nimi kieli="fi">Perinnönjakosopimus</y:nimi>
+        <y:nimi kieli="sv">Arvskiftesavtal</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="18">
+        <y:nimi kieli="fi">Hallinnanjakosopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om besittningsdelning</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="21">
+        <y:nimi kieli="fi">Vaihtokirja</y:nimi>
+        <y:nimi kieli="sv">Byteshandling</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="22">
+        <y:nimi kieli="fi">Jakokirja</y:nimi>
+        <y:nimi kieli="sv">Skiftesinstrument</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="23">
+        <y:nimi kieli="fi">Apporttiomaisuuden luovutussopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om överlåtelse av apportegendom</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="24">
+        <y:nimi kieli="fi">Jakautumissuunnitelma</y:nimi>
+        <y:nimi kieli="sv">Delningsplan</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="25">
+        <y:nimi kieli="fi">Omaisuuden erottelusopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om delning av egendom</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="26">
+        <y:nimi kieli="fi">Perinnöstä luopumisilmoitus</y:nimi>
+        <y:nimi kieli="sv">Meddelande om arvsavsägelse</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="27">
+        <y:nimi kieli="fi">Irrottamisoikeussopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om lösgörningsrätt</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="28">
+        <y:nimi kieli="fi">Metsänhakkuuoikeus</y:nimi>
+        <y:nimi kieli="sv">Skogsavverkningsrätt</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="29">
+        <y:nimi kieli="fi">Testamentti</y:nimi>
+        <y:nimi kieli="sv">Testamente</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="30">
+        <y:nimi kieli="fi">Muu saantokirja</y:nimi>
+        <y:nimi kieli="sv">Annan förvärvshandling</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="31">
+        <y:nimi kieli="fi">Ilmoitus</y:nimi>
+        <y:nimi kieli="sv">Anmälan</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <y:erityinenOikeusAsiakirjalaji tunnus="32">
+        <y:nimi kieli="fi">Muu asiakirja</y:nimi>
+        <y:nimi kieli="sv">Annan dokumentation</y:nimi>
+    </y:erityinenOikeusAsiakirjalaji>
+    <trpt:erityisenOikeudenLaji tunnus="0101">
+        <y:nimi kieli="fi">Hallinta-, asumis- ja käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Besittnings-, boende- och nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0106">
+        <y:nimi kieli="fi">Asumis- ja käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Boende- och nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0107">
+        <y:nimi kieli="fi">Hallinta- ja käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Besittnings- och nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0108">
+        <y:nimi kieli="fi">Käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0109">
+        <y:nimi kieli="fi">Vastikkeeton käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Vederlagsfri nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0110">
+        <y:nimi kieli="fi">Käyttöoikeus kiinteistöllä oleviin rakennuksiin</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till byggnader på fastigheten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0111">
+        <y:nimi kieli="fi">Asumis- ja käyttöoikeus kiinteistön rakennuksiin</y:nimi>
+        <y:nimi kieli="sv">Boende- och nyttjanderätt till byggnader på fastigheten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0112">
+        <y:nimi kieli="fi">Käyttöoikeus kiinteistöön</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till fastighet</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0113">
+        <y:nimi kieli="fi">Käyttöoikeus pysäköintialueeseen</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till parkeringsområde</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0114">
+        <y:nimi kieli="fi">Rakentamis- ja käyttöoikeus tiehen</y:nimi>
+        <y:nimi kieli="sv">Bygg- och nyttjanderätt till väg</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0116">
+        <y:nimi kieli="fi">Metsäautotien käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till skogsbilväg</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0117">
+        <y:nimi kieli="fi">Oja- ja piennartiealueen käyttö</y:nimi>
+        <y:nimi kieli="sv">Nyttjande av område för dike och väg vid dikesren</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0118">
+        <y:nimi kieli="fi">Oikeus käyttää kiinteistöön kuuluvaa maa-aluetta</y:nimi>
+        <y:nimi kieli="sv">Rätt att använda markområde som tillhör fastigheten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0119">
+        <y:nimi kieli="fi">Kulkuoikeus</y:nimi>
+        <y:nimi kieli="sv">Passagerätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0120">
+        <y:nimi kieli="fi">Nautintaoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0121">
+        <y:nimi kieli="fi">Vedenjohto-oikeus</y:nimi>
+        <y:nimi kieli="sv">Vattenavledningsrätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0122">
+        <y:nimi kieli="fi">Kaivon käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till brunn</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0123">
+        <y:nimi kieli="fi">Porakaivon käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till borrad brunn</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0124">
+        <y:nimi kieli="fi">Jäteveden pumppaamoa koskevat edut ja oikeudet</y:nimi>
+        <y:nimi kieli="sv">Förmåner och rättigheter som gäller pumpanläggning för avloppsvatten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0125">
+        <y:nimi kieli="fi">Metsästysoikeus</y:nimi>
+        <y:nimi kieli="sv">Jakträtt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0126">
+        <y:nimi kieli="fi">Kauppakirjassa mainitut oikeudet ja etuudet</y:nimi>
+        <y:nimi kieli="sv">Rättigheter och förmåner angvina i köpebrev</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0127">
+        <y:nimi kieli="fi">Metsänkäyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till skog</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0128">
+        <y:nimi kieli="fi">Vapaa-ajan asunnon käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till fritidsbostad</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0129">
+        <y:nimi kieli="fi">Käyttöoikeus kesäasuntoihin</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt till sommarbostäder</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0130">
+        <y:nimi kieli="fi">Poltto- ja tarvepuun otto-oikeus</y:nimi>
+        <y:nimi kieli="sv">Rätt att ta brännved och gagnvirke</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0131">
+        <y:nimi kieli="fi">Määräaikainen asuntosyytinki</y:nimi>
+        <y:nimi kieli="sv">Tidsbestämd boenderätt (sytning)</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0132">
+        <y:nimi kieli="fi">Kiinteistöeläke</y:nimi>
+        <y:nimi kieli="sv">Sytning</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0201">
+        <y:nimi kieli="fi">Eläkeoikeus</y:nimi>
+        <y:nimi kieli="sv">Sytning</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0202">
+        <y:nimi kieli="fi">Asumis- ja eläkeoikeus</y:nimi>
+        <y:nimi kieli="sv">Boenderätt och sytning</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0301">
+        <y:nimi kieli="fi">Metsänhakkuuoikeus</y:nimi>
+        <y:nimi kieli="sv">Skogsavverkningsrätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0401">
+        <y:nimi kieli="fi">Kiinteistön hallinnan jakaminen</y:nimi>
+        <y:nimi kieli="sv">Besittningsdelning för fastighet</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0501">
+        <y:nimi kieli="fi">Irrottamisoikeus</y:nimi>
+        <y:nimi kieli="sv">Lösgörningsrätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0502">
+        <y:nimi kieli="fi">Soranotto-oikeus</y:nimi>
+        <y:nimi kieli="sv">Rätt till grustäkt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0503">
+        <y:nimi kieli="fi">Maa-aineksien irrottamisoikeus</y:nimi>
+        <y:nimi kieli="sv">Lösgörningsrätt för marksubstanser</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0601">
+        <y:nimi kieli="fi">Vuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Legorätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0602">
+        <y:nimi kieli="fi">Liikehuoneiston vuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Hyresrätt till affärslokal</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0603">
+        <y:nimi kieli="fi">Huoneenvuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Hyresrätt till lägenhet</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0604">
+        <y:nimi kieli="fi">Vuokraoikeus, laitos</y:nimi>
+        <y:nimi kieli="sv">Legorätt, anläggning</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0605">
+        <y:nimi kieli="fi">Käyttöoikeus, laitos</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt, anläggning</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0606">
+        <y:nimi kieli="fi">Rekisteröity tontinvuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Registrerad tomtlegorätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0701">
+        <y:nimi kieli="fi">Rakennusta tai laitetta koskeva kirjaus omistuksenpidätys- tai takaisinottoehdoin</y:nimi>
+        <y:nimi kieli="sv">Inskrivning som gäller byggnad eller anläggning med villkor om äganderätts- eller återtagningsförbehåll</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0702">
+        <y:nimi kieli="fi">Rakennus tai laite on luovutettu käyttöoikeuteen kuuluvaksi</y:nimi>
+        <y:nimi kieli="sv">Byggnad eller anläggning överlåten för att ingå i nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0703">
+        <y:nimi kieli="fi">Rakennus tai laite on kiinteistöllä vuokraussopimuksen tai muun siihen verrattavan sopimuksen perusteella</y:nimi>
+        <y:nimi kieli="sv">Byggnad eller anläggning finns på fastigheten enligt ett legoavtal/arrendeavtal eller annat liknande avtal</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0801">
+        <y:nimi kieli="fi">Kiinteistöllä tai vuokra-alueella pysyvästi sijaitseva kone tai laite kuuluu kiinteistöön tai vuokraoikeuteen</y:nimi>
+        <y:nimi kieli="sv">Maskin eller anordning, som är permanent placerad på fastigheten eller legoområdet, tillhör fastigheten eller legorätten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0802">
+        <y:nimi kieli="fi">Kiinteistöllä tai vuokra-alueella pysyvästi sijaitseva kone tai laite ei kuulu kiinteistöön tai vuokraoikeuteen</y:nimi>
+        <y:nimi kieli="sv">Maskin eller anordning, som är permanent placerad på fastigheten eller legoområdet, tillhör inte fastigheten eller legorätten</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="0901">
+        <y:nimi kieli="fi">Määräalan erottamisoikeus</y:nimi>
+        <y:nimi kieli="sv">Avskiljningsrätt för outbrutet område</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="1001">
+        <y:nimi kieli="fi">Vuokraoikeus, jonka kirjausta ei ole haettu</y:nimi>
+        <y:nimi kieli="sv">Legorätt för vilken inskrivning inte sökts</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="1101">
+        <y:nimi kieli="fi">Hallintaoikeus</y:nimi>
+        <y:nimi kieli="sv">Besittningsrätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="1201">
+        <y:nimi kieli="fi">Asumisoikeus</y:nimi>
+        <y:nimi kieli="sv">Boenderätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenLaji tunnus="1301">
+        <y:nimi kieli="fi">Muu oikeus</y:nimi>
+        <y:nimi kieli="sv">Annan rätt</y:nimi>
+    </trpt:erityisenOikeudenLaji>
+    <trpt:erityisenOikeudenTyyppi tunnus="01">
+        <y:nimi kieli="fi">Muu käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Annan nyttjanderätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="02">
+        <y:nimi kieli="fi">Eläkeoikeus</y:nimi>
+        <y:nimi kieli="sv">Sytning</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="03">
+        <y:nimi kieli="fi">Metsänhakkuuoikeus</y:nimi>
+        <y:nimi kieli="sv">Skogsavverkningsrätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="04">
+        <y:nimi kieli="fi">Kiinteistön hallinnan jakaminen</y:nimi>
+        <y:nimi kieli="sv">Besittningsdelning för fastighet</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="05">
+        <y:nimi kieli="fi">Irrottamisoikeus</y:nimi>
+        <y:nimi kieli="sv">Lösgörningsrätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="06">
+        <y:nimi kieli="fi">Vuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Legorätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="07">
+        <y:nimi kieli="fi">Rakennusta tai laitetta koskeva kirjaus</y:nimi>
+        <y:nimi kieli="sv">Inskrivning som gäller byggnad eller anläggning</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="08">
+        <y:nimi kieli="fi">Ainesosien ja tarpeiston määritys</y:nimi>
+        <y:nimi kieli="sv">Fastställande av beståndsdelar och tillbehör</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="09">
+        <y:nimi kieli="fi">Määräalan erottamisoikeus</y:nimi>
+        <y:nimi kieli="sv">Avskiljningsrätt för outbrutet område</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="10">
+        <y:nimi kieli="fi">Vuokraoikeus, jonka kirjausta ei ole haettu</y:nimi>
+        <y:nimi kieli="sv">Legorätt för vilken inskrivning inte sökts</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="11">
+        <y:nimi kieli="fi">Hallintaoikeus</y:nimi>
+        <y:nimi kieli="sv">Besittningsrätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="12">
+        <y:nimi kieli="fi">Asumisoikeus</y:nimi>
+        <y:nimi kieli="sv">Boenderätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <trpt:erityisenOikeudenTyyppi tunnus="13">
+        <y:nimi kieli="fi">Muu oikeus</y:nimi>
+        <y:nimi kieli="sv">Annan rätt</y:nimi>
+    </trpt:erityisenOikeudenTyyppi>
+    <y:etusijajarjestyslaji tunnus="ET">
+        <y:nimi kieli="fi">Etusijateksti</y:nimi>
+        <y:nimi kieli="sv">Företrädestext</y:nimi>
+    </y:etusijajarjestyslaji>
+    <y:etusijajarjestyslaji tunnus="NU">
+        <y:nimi kieli="fi">Numeroitu</y:nimi>
+        <y:nimi kieli="sv">Numrerad</y:nimi>
+    </y:etusijajarjestyslaji>
+    <y:etusijajarjestyslaji tunnus="PA">
+        <y:nimi kieli="fi">Paras</y:nimi>
+        <y:nimi kieli="sv">Främsta</y:nimi>
+    </y:etusijajarjestyslaji>
+    <y:henkilolaji tunnus="JU">
+        <y:nimi kieli="fi">Juridinen henkilö</y:nimi>
+        <y:nimi kieli="sv">Juridisk person</y:nimi>
+    </y:henkilolaji>
+    <y:henkilolaji tunnus="KP">
+        <y:nimi kieli="fi">Kuolinpesä</y:nimi>
+        <y:nimi kieli="sv">Dödsbo</y:nimi>
+    </y:henkilolaji>
+    <y:henkilolaji tunnus="LU">
+        <y:nimi kieli="fi">Luonnollinen henkilö</y:nimi>
+        <y:nimi kieli="sv">Fysisk person</y:nimi>
+    </y:henkilolaji>
+    <y:henkilolaji tunnus="TU">
+        <y:nimi kieli="fi">Tuntematon henkilö</y:nimi>
+        <y:nimi kieli="sv">Okänd person</y:nimi>
+    </y:henkilolaji>
+    <y:henkilolaji tunnus="VA">
+        <y:nimi kieli="fi">Valtio</y:nimi>
+        <y:nimi kieli="sv">Staten</y:nimi>
+    </y:henkilolaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="EM">
+        <y:nimi kieli="fi">Kiinnityksen etusijajärjestyslajin muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av företrädesordningstyp i inteckningen</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="ET">
+        <y:nimi kieli="fi">Kiinnityksen etusijatekstin muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av företrädestext i inteckningen</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="EU">
+        <y:nimi kieli="fi">Markkamääräisen kiinnityksen muuntaminen euroiksi</y:nimi>
+        <y:nimi kieli="sv">Konvertering av inteckning med belopp i mark till euro</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="HM">
+        <y:nimi kieli="fi">Kiinnityksen haltijan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av innehavare i inteckningen</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="KS">
+        <y:nimi kieli="fi">Kirjallisen panttikirjan muuttaminen sähköiseksi</y:nimi>
+        <y:nimi kieli="sv">Ändring av skriftligt pantbrev till elektroniskt</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="LA">
+        <y:nimi kieli="fi">Laajentaminen</y:nimi>
+        <y:nimi kieli="sv">Utvidgning</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="MM">
+        <y:nimi kieli="fi">Kiinnityksen määräosan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av kvotdel i inteckningen</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="OM">
+        <y:nimi kieli="fi">Omistajien muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av ägare</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="RK">
+        <y:nimi kieli="fi">Kiinnityksen kuolettaminen rahamäärän osalta</y:nimi>
+        <y:nimi kieli="sv">Dödande av inteckningens belopp</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="SK">
+        <y:nimi kieli="fi">Sähköisen panttikirjan muuttaminen kirjalliseksi</y:nimi>
+        <y:nimi kieli="sv">Ändring av elektroniskt pantbrev till skriftligt</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="SM">
+        <y:nimi kieli="fi">Sähköisen panttikirjan saajien muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av mottagare av elektroniskt pantbrev</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trra:kiinnitysmuuttamisenlaji tunnus="YP">
+        <y:nimi kieli="fi">Yhteiskiinnityksen purkaminen</y:nimi>
+        <y:nimi kieli="sv">Upplösning av gemensam inteckning</y:nimi>
+    </trra:kiinnitysmuuttamisenlaji>
+    <trpt:kohdelaji tunnus="EO">
+        <y:nimi kieli="fi">Muu erityinen oikeus</y:nimi>
+        <y:nimi kieli="sv">Annan särskild rättighet</y:nimi>
+    </trpt:kohdelaji>
+    <trpt:kohdelaji tunnus="KI">
+        <y:nimi kieli="fi">Rekisteriyksikkö</y:nimi>
+        <y:nimi kieli="sv">Registerenhet</y:nimi>
+    </trpt:kohdelaji>
+    <trpt:kohdelaji tunnus="MA">
+        <y:nimi kieli="fi">Määräala</y:nimi>
+        <y:nimi kieli="sv">Outbrutet område</y:nimi>
+    </trpt:kohdelaji>
+    <trpt:kohdelaji tunnus="MI">
+        <y:nimi kieli="fi">Tunnukseton määräala</y:nimi>
+        <y:nimi kieli="sv">Outbrutet område utan beteckning</y:nimi>
+    </trpt:kohdelaji>
+    <trpt:kohdelaji tunnus="RT">
+        <y:nimi kieli="fi">Rekisteröity tontinvuokraoikeus</y:nimi>
+        <y:nimi kieli="sv">Registrerad tomtlegorätt</y:nimi>
+    </trpt:kohdelaji>
+    <trpt:kohdelaji tunnus="VO">
+        <y:nimi kieli="fi">Vuokraoikeus, jolla on laitostunnus</y:nimi>
+        <y:nimi kieli="sv">Legorätt med anläggningsbeteckning</y:nimi>
+    </trpt:kohdelaji>
+    <y:kohdistumisenlaji tunnus="KK">
+        <y:nimi kieli="fi">Kohdistuu koko kiinteistöön</y:nimi>
+        <y:nimi kieli="sv">Avser hela fastigheten</y:nimi>
+    </y:kohdistumisenlaji>
+    <y:kohdistumisenlaji tunnus="OK">
+        <y:nimi kieli="fi">Kohdistuu osaan kiinteistöä</y:nimi>
+        <y:nimi kieli="sv">Avser en del av fastigheten</y:nimi>
+    </y:kohdistumisenlaji>
+    <y:lepaamisperustelaji tunnus="EO01">
+        <y:nimi kieli="fi">Erityisen oikeuden lepäämään jättäminen</y:nimi>
+        <y:nimi kieli="sv">Vilandeförklaring av särskild rättighet</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="KI01">
+        <y:nimi kieli="fi">Hakijan lainhuutohakemus on jätetty lepäämään</y:nimi>
+        <y:nimi kieli="sv">Sökandens lagfartsansökan har lämnats vilande</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH01">
+        <y:nimi kieli="fi">Saanto on ehdollinen (lykkäävä tai purkava ehto)</y:nimi>
+        <y:nimi kieli="sv">Förvärvet är villkorligt (uppskjutande eller upplösande villkor)</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="MU01">
+        <y:nimi kieli="fi">Muu peruste</y:nimi>
+        <y:nimi kieli="sv">Annan grund</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO02">
+        <y:nimi kieli="fi">Perustamissopimus on ehdollinen tai se ei ole lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Avtalet om upplåtelsen är villkorligt eller har inte vunnit laga kraft</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="KI02">
+        <y:nimi kieli="fi">Kiinteistön omistusoikeudesta on vireillä riita</y:nimi>
+        <y:nimi kieli="sv">Anhängig tvist om äganderätten till fastigheten</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH02">
+        <y:nimi kieli="fi">Saannon perusteena oleva oikeustoimi ei ole lainvoimainen (esim. ositus, perinnönjako tai testamentti)</y:nimi>
+        <y:nimi kieli="sv">Rättshandlingen som ligger till grund för förvärvet har inte vunnit laga kraft (t.ex. avvittring, arvskifte eller testamente)</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO03">
+        <y:nimi kieli="fi">Perustamiseen tarvitaan muun henkilön, yhteisön toimivaltaisen elimen, tuomioistuimen tai muun viranomaisen suostumus tai päätös</y:nimi>
+        <y:nimi kieli="sv">Upplåtelsen förutsätter samtycke eller beslut av någon annan person, en sammanslutnings behöriga organ, en domstol eller någon annan myndighet</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="KI03">
+        <y:nimi kieli="fi">Ulosmittausta tai turvaamistoimea koskeva merkintä lainhuuto- ja kiinnitysrekisterissä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om utmätning eller säkringsåtgärd i lagfarts- och inteckningsregistret</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH03">
+        <y:nimi kieli="fi">Saannon perusteena oleva viranomaisen päätös ei ole lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Myndighetsbeslutet som ligger till grund för förvärvet har inte vunnit laga kraft</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO04">
+        <y:nimi kieli="fi">Ulosmittausta tai turvaamistoimea koskeva merkintä lainhuuto- ja kiinnitysrekisterissä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om utmätning eller säkringsåtgärd i lagfarts- och inteckningsregistret</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="KI04">
+        <y:nimi kieli="fi">Muu peruste</y:nimi>
+        <y:nimi kieli="sv">Annan grund</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH04">
+        <y:nimi kieli="fi">Kunnan etuosto-oikeudelle säädetty aika (3 kk luovutuskirjan tekemisestä) ei ole kulunut</y:nimi>
+        <y:nimi kieli="sv">Den föreskrivna tidsfristen för kommunens förköpsrätt (3 månader efter upprättandet av överlåtelsehandlingen) har inte förflutit</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO05">
+        <y:nimi kieli="fi">Asiassa on annettu osoitus erilliseen oikeudenkäyntiin</y:nimi>
+        <y:nimi kieli="sv">Anvisning om separat rättegång har getts i ärendet</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="KI05">
+        <y:nimi kieli="fi">Hakijan erityisen oikeuden kirjaamishakemus on jätetty lepäämään</y:nimi>
+        <y:nimi kieli="sv">Sökandens ansökan om inskrivning av särskild rättighet har lämnats vilande</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH05">
+        <y:nimi kieli="fi">Saantoon tarvitaan muun henkilön, yhteisön toimivaltaisen elimen, tuomioistuimen tai muun viranomaisen suostumus tai päätös</y:nimi>
+        <y:nimi kieli="sv">Förvärvet förutsätter samtycke eller beslut av någon annan person, en sammanslutnings behöriga organ, en domstol eller någon annan myndighet</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO06">
+        <y:nimi kieli="fi">Erityisen oikeuden lepäämään jättäminen: Vireillä on riita erityisen oikeuden pätevyydestä tai kiinteistön omistusoikeudesta</y:nimi>
+        <y:nimi kieli="sv">Vilandeförklaring av särskild rättighet: Anhängig tvist om den särskilda rättighetens giltighet eller äganderätten till fastigheten</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH06">
+        <y:nimi kieli="fi">Kiinteistö on hankittu perustettavan yhteisön tai säätiön lukuun</y:nimi>
+        <y:nimi kieli="sv">Fastigheten har förvärvats för en sammanslutning eller stiftelse under bildning</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO07">
+        <y:nimi kieli="fi">Sopimuksen voimassaoloaika alkaa tulevaisuudessa</y:nimi>
+        <y:nimi kieli="sv">Avtalets giltighetstid börjar i framtiden</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH07">
+        <y:nimi kieli="fi">Ulosmittausta tai turvaamistoimea koskeva merkintä lainhuuto- ja kiinnitysrekisterissä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om utmätning eller säkringsåtgärd i lagfarts- och inteckningsregistret</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO08">
+        <y:nimi kieli="fi">Käyttöoikeus on siirretty perustettavan yhteisön tai säätiön lukuun</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätten har överförts till en sammanslutning eller stiftelse under bildning</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH08">
+        <y:nimi kieli="fi">Asiassa on annettu osoitus erilliseen oikeudenkäyntiin</y:nimi>
+        <y:nimi kieli="sv">Anvisning om separat rättegång har getts i ärendet</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="EO09">
+        <y:nimi kieli="fi">Saanto on ehdollinen (lykkäävä tai purkava ehto)</y:nimi>
+        <y:nimi kieli="sv">Förvärvet är villkorligt (uppskjutande eller upplösande villkor)</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH09">
+        <y:nimi kieli="sv">Kungörelsen publiceras på Lantmäteriverkets webbplats för att utreda sökandens äganderätt före beviljande av lagfart.</y:nimi>
+        <y:nimi kieli="fi">Hakijan omistusoikeuden selvittämiseksi julkaistaan kuulutus Maanmittauslaitoksen verkkosivuilla ennen lainhuudon myöntämistä.</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH10">
+        <y:nimi kieli="fi">Vireillä on riita saannon pysyvyydestä tai paremmasta oikeudesta kiinteistöön</y:nimi>
+        <y:nimi kieli="sv">Anhängig tvist om förvärvets bestånd eller om bättre rätt till fastigheten</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH11">
+        <y:nimi kieli="fi">Muu peruste</y:nimi>
+        <y:nimi kieli="sv">Annan grund</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH12">
+        <y:nimi kieli="fi">Valtion etuosto-oikeudelle säädetty aika (3 kk luovutuskirjan tekemisestä) ei ole kulunut</y:nimi>
+        <y:nimi kieli="sv">Den föreskrivna tidsfristen för statens förköpsrätt (3 månader efter upprättandet av överlåtelsehandlingen) har inte förflutit</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH13">
+        <y:nimi kieli="fi">Saantoon tarvitaan Puolustusministeriön lupa</y:nimi>
+        <y:nimi kieli="sv">Till förvärvet behövs Försvarsministeriets tillstånd</y:nimi>
+    </y:lepaamisperustelaji>
+    <y:lepaamisperustelaji tunnus="LH14">
+        <y:nimi kieli="fi">Valtion etuosto-oikeudelle säädetty aika (4 kk luovutuskirjan tekemisestä) ei ole kulunut</y:nimi>
+        <y:nimi kieli="sv">Den föreskrivna tidsfristen för statens förköpsrätt (4 månader efter upprättandet av överlåtelsehandlingen) har inte förflutit</y:nimi>
+    </y:lepaamisperustelaji>
+    <trpt:maaraalanTyyppi tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </trpt:maaraalanTyyppi>
+    <trpt:maaraalanTyyppi tunnus="1">
+        <y:nimi kieli="fi">Määräala</y:nimi>
+        <y:nimi kieli="sv">Outbrutet område</y:nimi>
+    </trpt:maaraalanTyyppi>
+    <trpt:maaraalanTyyppi tunnus="2">
+        <y:nimi kieli="fi">Erillisenä luovutettu yhteisalueosuus</y:nimi>
+        <y:nimi kieli="sv">Separat överlåten andel i samfällt område</y:nimi>
+    </trpt:maaraalanTyyppi>
+    <trpt:maaraalanOlotila tunnus="1">
+        <y:nimi kieli="fi">Erottamaton</y:nimi>
+        <y:nimi kieli="sv">Outbrutet</y:nimi>
+    </trpt:maaraalanOlotila>
+    <trpt:maaraalanOlotila tunnus="2">
+        <y:nimi kieli="fi">Muodostettu osittain rekisteriyksiköksi</y:nimi>
+        <y:nimi kieli="sv">Delvis bildad till registerenhet</y:nimi>
+    </trpt:maaraalanOlotila>
+    <trpt:maaraalanOlotila tunnus="3">
+        <y:nimi kieli="fi">Lakannut</y:nimi>
+        <y:nimi kieli="sv">Upphörd</y:nimi>
+    </trpt:maaraalanOlotila>
+    <trpt:maaraalanOlotila tunnus="4">
+        <y:nimi kieli="fi">Virheellisesti rekisteröity</y:nimi>
+        <y:nimi kieli="sv">Felaktigt registrerad</y:nimi>
+    </trpt:maaraalanOlotila>
+    <trpt:maaraalanOlotila tunnus="5">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </trpt:maaraalanOlotila>
+    <trpt:lakkaamissyy tunnus="0">
+        <y:nimi kieli="fi">Voimassaoleva</y:nimi>
+        <y:nimi kieli="sv">Gällande</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="1">
+        <y:nimi kieli="fi">Kiinteistötoimitus</y:nimi>
+        <y:nimi kieli="sv">Fastighetsförrättning</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="2">
+        <y:nimi kieli="fi">Luovutettu kokonaan osamääräaloiksi</y:nimi>
+        <y:nimi kieli="sv">I sin helhet överlåtet som outbrutna delområden</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="3">
+        <y:nimi kieli="fi">Luovutus purettu</y:nimi>
+        <y:nimi kieli="sv">Överlåtelsen hävd</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="4">
+        <y:nimi kieli="fi">Virheen korjaus</y:nimi>
+        <y:nimi kieli="sv">Rättelse av fel</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="5">
+        <y:nimi kieli="fi">Kiinteistörekisterinpitäjän päätös</y:nimi>
+        <y:nimi kieli="sv">Fastighetsregisterförarens beslut</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="6">
+        <y:nimi kieli="fi">Kirjaamisviranomaisen ilmoitus (rekisteriyksikön omistajalle siirtynyt määräala)</y:nimi>
+        <y:nimi kieli="sv">Meddelande från inskrivningsmyndigheten (det outbrutna området har övergått till registerenhetens ägare)</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:lakkaamissyy tunnus="9">
+        <y:nimi kieli="fi">Ei tiedossa</y:nimi>
+        <y:nimi kieli="sv">Okänd</y:nimi>
+    </trpt:lakkaamissyy>
+    <trpt:maaraalanSaantotapa tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </trpt:maaraalanSaantotapa>
+    <trpt:maaraalanSaantotapa tunnus="1">
+        <y:nimi kieli="fi">Luovutettu</y:nimi>
+        <y:nimi kieli="sv">Överlåtet</y:nimi>
+    </trpt:maaraalanSaantotapa>
+    <trpt:maaraalanSaantotapa tunnus="2">
+        <y:nimi kieli="fi">Aikaisemman määräalan lisäksi luovutettu</y:nimi>
+        <y:nimi kieli="sv">Överlåtet utöver tidigare outbrutet område</y:nimi>
+    </trpt:maaraalanSaantotapa>
+    <trpt:maaraalanSaantotapa tunnus="3">
+        <y:nimi kieli="fi">Pidätetty</y:nimi>
+        <y:nimi kieli="sv">Förbehållet</y:nimi>
+    </trpt:maaraalanSaantotapa>
+    <trpt:maaraalanSaantotapa tunnus="4">
+        <y:nimi kieli="fi">Emäkiinteistön omistajalle erotettava</y:nimi>
+        <y:nimi kieli="sv">Skall utbrytas åt moderfastighetens ägare</y:nimi>
+    </trpt:maaraalanSaantotapa>
+    <trpt:maaraalanTietolahde tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänd)</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="1">
+        <y:nimi kieli="fi">Kiinteistönluovutusilmoitus</y:nimi>
+        <y:nimi kieli="sv">Meddelande om fastighetsöverlåtelse</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="2">
+        <y:nimi kieli="fi">Käräjäoikeus</y:nimi>
+        <y:nimi kieli="sv">Tingsrätt</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="3">
+        <y:nimi kieli="fi">Verotoimisto</y:nimi>
+        <y:nimi kieli="sv">Skattebyrå</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="4">
+        <y:nimi kieli="fi">Maanmittauslaitos</y:nimi>
+        <y:nimi kieli="sv">Lantmäteriverket</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="5">
+        <y:nimi kieli="fi">Kunnan kiinteistöinsinööri</y:nimi>
+        <y:nimi kieli="sv">Kommunens fastighetsingenjör</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="6">
+        <y:nimi kieli="fi">Päätös toiseen kuntaan siirtämisestä</y:nimi>
+        <y:nimi kieli="sv">Beslut om överföring från annan kommun</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trpt:maaraalanTietolahde tunnus="9">
+        <y:nimi kieli="fi">Ei tiedossa</y:nimi>
+        <y:nimi kieli="sv">Okänd</y:nimi>
+    </trpt:maaraalanTietolahde>
+    <trra:muistutuslaji tunnus="MU3101">
+        <y:nimi kieli="fi">Uhkasakkolain mukainen ilmoitus</y:nimi>
+        <y:nimi kieli="sv">Anmälningar enligt viteslagen</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3301">
+        <y:nimi kieli="fi">Etuosto-oikeuden käyttäminen</y:nimi>
+        <y:nimi kieli="sv">Nyttjande av förköpsrätt</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3401">
+        <y:nimi kieli="fi">Maantietoimitus</y:nimi>
+        <y:nimi kieli="sv">Landsvägsförrättning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3402">
+        <y:nimi kieli="fi">Ratatoimitus</y:nimi>
+        <y:nimi kieli="sv">Järnvägsförrättning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3403">
+        <y:nimi kieli="fi">Lunastustoimitus</y:nimi>
+        <y:nimi kieli="sv">Inlösningsförrättning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3501">
+        <y:nimi kieli="fi">Lakisääteinen panttioikeus kiinteistötoimitusmaksusta</y:nimi>
+        <y:nimi kieli="sv">Lagstadgad panträtt för fastighetsförrättningsavgift</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3502">
+        <y:nimi kieli="fi">Lakisääteinen panttioikeus</y:nimi>
+        <y:nimi kieli="sv">Lagstadgad panträtt</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3601">
+        <y:nimi kieli="fi">Riita kiinteistön omistusoikeudesta</y:nimi>
+        <y:nimi kieli="sv">Tvist om äganderätten till fastigheten</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3701">
+        <y:nimi kieli="fi">Metsänparannuslaina</y:nimi>
+        <y:nimi kieli="sv">Skogsförbättringslån</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3801">
+        <y:nimi kieli="fi">Maanparannuslaina</y:nimi>
+        <y:nimi kieli="sv">Jordförbättringslån</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU3901">
+        <y:nimi kieli="fi">Suojelupäätös</y:nimi>
+        <y:nimi kieli="sv">Skyddsbeslut</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU4001">
+        <y:nimi kieli="fi">Kulttuurihistoriallisesti arvokkaan rakennuksen suojelupäätös</y:nimi>
+        <y:nimi kieli="sv">Beslut om skydd av kulturhistoriskt värdefull byggnad</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU4101">
+        <y:nimi kieli="fi">Porotalouden ja luontaiselinkeinojen rahoituslain mukainen ilmoitus</y:nimi>
+        <y:nimi kieli="sv">Anmälningar enligt lagen om finansiering av renhushållning och naturnäringar</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU4201">
+        <y:nimi kieli="fi">Kolttalain mukainen ilmoitus</y:nimi>
+        <y:nimi kieli="sv">Anmälningar enligt skoltlagen</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU4301">
+        <y:nimi kieli="fi">Erityistä oikeutta koskeva riita</y:nimi>
+        <y:nimi kieli="sv">Tvist om särskild rättighet</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU4401">
+        <y:nimi kieli="fi">Kehittämiskorvaus</y:nimi>
+        <y:nimi kieli="sv">Utvecklingskostnadsersättning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU5001">
+        <y:nimi kieli="fi">Hallinnanjakosopimusta koskeva rajoitus</y:nimi>
+        <y:nimi kieli="sv">Begränsning gällande avtal om delning av besittning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="MU5901">
+        <y:nimi kieli="fi">Muu muistutusasia</y:nimi>
+        <y:nimi kieli="sv">Annat anmärkningsärende</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0101">
+        <y:nimi kieli="fi">Ulosmittaus</y:nimi>
+        <y:nimi kieli="sv">Utmätning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0201">
+        <y:nimi kieli="fi">Väliaikainen hukkaamiskielto</y:nimi>
+        <y:nimi kieli="sv">Tillfälligt skingringsförbud</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0202">
+        <y:nimi kieli="fi">Takavarikko</y:nimi>
+        <y:nimi kieli="sv">Kvarstad</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0203">
+        <y:nimi kieli="fi">Turvaamistoimi</y:nimi>
+        <y:nimi kieli="sv">Säkringsåtgärd</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0204">
+        <y:nimi kieli="fi">Väliaikaistoimi</y:nimi>
+        <y:nimi kieli="sv">Interimistisk åtgärd</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0301">
+        <y:nimi kieli="fi">Konkurssi</y:nimi>
+        <y:nimi kieli="sv">Konkurs</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0401">
+        <y:nimi kieli="fi">Yrityssaneeraus</y:nimi>
+        <y:nimi kieli="sv">Företagssanering</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0501">
+        <y:nimi kieli="fi">Yksityishenkilön velkajärjestely</y:nimi>
+        <y:nimi kieli="sv">Skuldsanering för privatpersoner</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0601">
+        <y:nimi kieli="fi">Kuolinpesäosuuden ulosmittaus</y:nimi>
+        <y:nimi kieli="sv">Utmätning av andel i dödsbo</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0701">
+        <y:nimi kieli="fi">Yhteisöosuuden tai osakkeiden ulosmittaus</y:nimi>
+        <y:nimi kieli="sv">Utmätning av samfundsandel eller aktier</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0801">
+        <y:nimi kieli="fi">Hypoteekkituomio</y:nimi>
+        <y:nimi kieli="sv">Hypoteksdom</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0901">
+        <y:nimi kieli="fi">Lesken hallintaoikeus</y:nimi>
+        <y:nimi kieli="sv">Efterlevande makes besittningsrätt</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0902">
+        <y:nimi kieli="fi">Testamenttiin perustuva käyttöoikeus</y:nimi>
+        <y:nimi kieli="sv">Nyttjanderätt på grundval av testamente</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0903">
+        <y:nimi kieli="fi">Hakijan saantoon liittyvä vallintarajoitus koskien edelleen luovutusta rakentamattomana</y:nimi>
+        <y:nimi kieli="sv">Rådighetsbegränsning som avser sökandens förvärv och som inskränker dennes rätt att överlåta obebyggt</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0904">
+        <y:nimi kieli="fi">Testamenttiin sisältyvä vallintarajoitus</y:nimi>
+        <y:nimi kieli="sv">På testamente grundad rådighetsbegränsning</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA0905">
+        <y:nimi kieli="fi">Hakijan saantoon liittyvä vallintarajoitus koskien edelleen luovutusta</y:nimi>
+        <y:nimi kieli="sv">Rådighetsbegränsning som avser sökandens förvärv och som inskränker dennes rätt att överlåta</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1001">
+        <y:nimi kieli="fi">Ilmoitus hautausmaana käytetystä kiinteistöstä</y:nimi>
+        <y:nimi kieli="sv">Anmälan om fastighet som används som begravningsplats</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1101">
+        <y:nimi kieli="fi">Valtion asuntorahasto/asuntotuotantolain mukainen merkintä</y:nimi>
+        <y:nimi kieli="sv">Anteckning enligt lagen om Statens bostadsfond/bostadsproduktion</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1201">
+        <y:nimi kieli="fi">Asumisoikeusasunnoista annetun lain mukainen merkintä</y:nimi>
+        <y:nimi kieli="sv">Anteckning enligt lagen om bostadsrättsbostäder</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1301">
+        <y:nimi kieli="fi">Vuokra-alueella sijaitsee aravavuokrataloa koskeva merkintä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om aravahyreshus gäller legoområdet</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1401">
+        <y:nimi kieli="fi">Vuokrataloa koskeva merkintä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om hyreshus</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1501">
+        <y:nimi kieli="fi">Asunto-osakeyhtiömuotoista vuokrataloa koskeva merkintä</y:nimi>
+        <y:nimi kieli="sv">Anteckning om hyreshus i bostadsaktiebolagsform</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1601">
+        <y:nimi kieli="fi">Porotilalaissa säädetty rajoitus</y:nimi>
+        <y:nimi kieli="sv">Begränsningar föreskrivna i lagen om renskötsellägenheter</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA1701">
+        <y:nimi kieli="fi">Yksipuolinen tuomio</y:nimi>
+        <y:nimi kieli="sv">Tredskodom</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA2901">
+        <y:nimi kieli="fi">Muu vallintarajoitus</y:nimi>
+        <y:nimi kieli="sv">Annan begränsning av förfoganderätten</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA2902">
+        <y:nimi kieli="fi">Kiinnitys- ja panttauskielto</y:nimi>
+        <y:nimi kieli="sv">Intecknings- och pantsättningsförbud</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA5001">
+        <y:nimi kieli="fi">Määräosan siirtokielto</y:nimi>
+        <y:nimi kieli="sv">Överlåtelseförbud som gäller kvotdel av objektet</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA5002">
+        <y:nimi kieli="fi">Määräosan osittainen siirtokielto</y:nimi>
+        <y:nimi kieli="sv">Partiellt överlåtelseförbud som gäller kvotdel av objektet</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA5101">
+        <y:nimi kieli="fi">Riita oikeudesta sähköiseen panttikirjaan</y:nimi>
+        <y:nimi kieli="sv">Strid om rätten till elektroniskt pantbrev</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutuslaji tunnus="VA5201">
+        <y:nimi kieli="fi">Panttaamattomuussitoumus</y:nimi>
+        <y:nimi kieli="sv">Förbindelse att inte pantsätta</y:nimi>
+    </trra:muistutuslaji>
+    <trra:muistutusluokka tunnus="MU">
+        <y:nimi kieli="fi">Muistutustiedot</y:nimi>
+        <y:nimi kieli="sv">Anmärkningsuppgifter</y:nimi>
+    </trra:muistutusluokka>
+    <trra:muistutusluokka tunnus="VA">
+        <y:nimi kieli="fi">Vallintarajoitukset</y:nimi>
+        <y:nimi kieli="sv">Begränsningar av förfoganderätten</y:nimi>
+    </trra:muistutusluokka>
+    <trra:panttikirjanMuoto tunnus="KI">
+        <y:nimi kieli="fi">Kirjallinen</y:nimi>
+        <y:nimi kieli="sv">Skriftligt</y:nimi>
+    </trra:panttikirjanMuoto>
+    <trra:panttikirjanMuoto tunnus="SA">
+        <y:nimi kieli="fi">Sähköinen</y:nimi>
+        <y:nimi kieli="sv">Elektronisk</y:nimi>
+    </trra:panttikirjanMuoto>
+    <y:tiimi tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="23">
+        <y:nimi kieli="fi">Asiantuntijat 1</y:nimi>
+        <y:nimi kieli="sv">Specialister 1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="24">
+        <y:nimi kieli="fi">Asiantuntijat 2</y:nimi>
+        <y:nimi kieli="sv">Specialister 2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="25">
+        <y:nimi kieli="fi">Asiantuntijat 3</y:nimi>
+        <y:nimi kieli="sv">Specialister 3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="26">
+        <y:nimi kieli="fi">Lakimiehet</y:nimi>
+        <y:nimi kieli="sv">Jurister</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="29">
+        <y:nimi kieli="fi">Vireillelaitto Vaasa</y:nimi>
+        <y:nimi kieli="sv">Förberedande Vasa</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="30">
+        <y:nimi kieli="fi">Etelä 1</y:nimi>
+        <y:nimi kieli="sv">Syd 1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="31">
+        <y:nimi kieli="fi">Etelä 2</y:nimi>
+        <y:nimi kieli="sv">Syd 2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="32">
+        <y:nimi kieli="fi">Etelä 3</y:nimi>
+        <y:nimi kieli="sv">Syd 3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="34">
+        <y:nimi kieli="fi">Etelä 5</y:nimi>
+        <y:nimi kieli="sv">Syd 5</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="35">
+        <y:nimi kieli="fi">KIR-län 1</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="36">
+        <y:nimi kieli="fi">KIR-län 2</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="37">
+        <y:nimi kieli="fi">KIR-län 3</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="38">
+        <y:nimi kieli="fi">KIR-län 4</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="39">
+        <y:nimi kieli="fi">KIR-län 5</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 5</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="40">
+        <y:nimi kieli="fi">KIR-län 6</y:nimi>
+        <y:nimi kieli="sv">KIR-väst 6</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="41">
+        <y:nimi kieli="fi">KIR-itä 1</y:nimi>
+        <y:nimi kieli="sv">KIR-öst 1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="42">
+        <y:nimi kieli="fi">KIR-itä 2</y:nimi>
+        <y:nimi kieli="sv">KIR-öst 2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="43">
+        <y:nimi kieli="fi">KIR-itä 3</y:nimi>
+        <y:nimi kieli="sv">KIR-öst 3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="44">
+        <y:nimi kieli="fi">KIR-itä 4</y:nimi>
+        <y:nimi kieli="sv">KIR-öst 4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="45">
+        <y:nimi kieli="fi">KIR-poh 1</y:nimi>
+        <y:nimi kieli="sv">KIR-nord 1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="46">
+        <y:nimi kieli="fi">KIR-poh 2</y:nimi>
+        <y:nimi kieli="sv">KIR-nord 2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="47">
+        <y:nimi kieli="fi">KIR-poh 3</y:nimi>
+        <y:nimi kieli="sv">KIR-nord 3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="48">
+        <y:nimi kieli="fi">KIR-poh 4</y:nimi>
+        <y:nimi kieli="sv">KIR-nord 4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="49">
+        <y:nimi kieli="fi">Toimitustuotanto</y:nimi>
+        <y:nimi kieli="sv">Förrättningsproduktion</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="50">
+        <y:nimi kieli="fi">Etelä 6</y:nimi>
+        <y:nimi kieli="sv">Syd 6</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="51">
+        <y:nimi kieli="fi">Vireillelaitto Etelä</y:nimi>
+        <y:nimi kieli="sv">Förberedande Syd</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="52">
+        <y:nimi kieli="fi">HUKI-ETELÄ_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_SYD_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="53">
+        <y:nimi kieli="fi">HUKI-ETELÄ_2</y:nimi>
+        <y:nimi kieli="sv">HUKI_SYD_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="54">
+        <y:nimi kieli="fi">HUKI-ETELÄ_3</y:nimi>
+        <y:nimi kieli="sv">HUKI_SYD_3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="55">
+        <y:nimi kieli="fi">HUKI-ETELÄ_4</y:nimi>
+        <y:nimi kieli="sv">HUKI_SYD_4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="59">
+        <y:nimi kieli="fi">HUKI-ITÄ_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_ÖST_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="60">
+        <y:nimi kieli="fi">HUKI-ITÄ_2</y:nimi>
+        <y:nimi kieli="sv">HUKI_ÖST_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="61">
+        <y:nimi kieli="fi">HUKI-ITÄ_3</y:nimi>
+        <y:nimi kieli="sv">HUKI_ÖST_3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="62">
+        <y:nimi kieli="fi">HUKI-ITÄ_4</y:nimi>
+        <y:nimi kieli="sv">HUKI_ÖST_4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="63">
+        <y:nimi kieli="fi">HUKI-JOTI</y:nimi>
+        <y:nimi kieli="sv">HUKI-JOTI</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="64">
+        <y:nimi kieli="fi">HUKI-LÄN_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_VÄST_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="65">
+        <y:nimi kieli="fi">HUKI-LÄN_2</y:nimi>
+        <y:nimi kieli="sv">HUKI_VÄST_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="66">
+        <y:nimi kieli="fi">HUKI-LÄN_3</y:nimi>
+        <y:nimi kieli="sv">HUKI_VÄST_3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="67">
+        <y:nimi kieli="fi">HUKI-LÄN_4</y:nimi>
+        <y:nimi kieli="sv">HUKI_VÄST_4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="68">
+        <y:nimi kieli="fi">HUKI-LÄN_5</y:nimi>
+        <y:nimi kieli="sv">HUKI_VÄST_5</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="69">
+        <y:nimi kieli="fi">HUKI-POH_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_NORD_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="70">
+        <y:nimi kieli="fi">HUKI-POH_2</y:nimi>
+        <y:nimi kieli="sv">HUKI_NORD_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="71">
+        <y:nimi kieli="fi">HUKI-POH_3</y:nimi>
+        <y:nimi kieli="sv">HUKI_NORD_3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="72">
+        <y:nimi kieli="fi">HUKI-APA_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_SAKKUNNIG_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="73">
+        <y:nimi kieli="fi">HUKI-APA_2</y:nimi>
+        <y:nimi kieli="sv">HUKI_SAKKUNNIG_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="74">
+        <y:nimi kieli="fi">HUKI-APA_3</y:nimi>
+        <y:nimi kieli="sv">HUKI_SAKKUNNIG_3</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="75">
+        <y:nimi kieli="fi">HUKI-APA_4</y:nimi>
+        <y:nimi kieli="sv">HUKI_SAKKUNNIG_4</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="76">
+        <y:nimi kieli="fi">HUKI-VIR_1</y:nimi>
+        <y:nimi kieli="sv">HUKI_ANHÄNGIG_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="77">
+        <y:nimi kieli="fi">HUKI-HUON_1</y:nimi>
+        <y:nimi kieli="sv">HUKI-LÄG_1</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="78">
+        <y:nimi kieli="fi">HUKI-HUON_2</y:nimi>
+        <y:nimi kieli="sv">HUKI-LÄG_2</y:nimi>
+    </y:tiimi>
+    <y:tiimi tunnus="79">
+        <y:nimi kieli="fi">HUKI-HUON_3</y:nimi>
+        <y:nimi kieli="sv">HUKI-LÄG_3</y:nimi>
+    </y:tiimi>
+    <y:toimintayksikko tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5000">
+        <y:nimi kieli="fi">Kiinteistöjen omistuksen palvelut</y:nimi>
+        <y:nimi kieli="sv">Tjänster om ägande av fastigheter</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5010">
+        <y:nimi kieli="fi">Maanmittauslaitoksen keskushallinto</y:nimi>
+        <y:nimi kieli="sv">Centralförvaltningen</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5411">
+        <y:nimi kieli="fi">KOPA Asiantuntijapalvelut</y:nimi>
+        <y:nimi kieli="sv">Specialist tjänster</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5412">
+        <y:nimi kieli="fi">KOPA Eteläinen</y:nimi>
+        <y:nimi kieli="sv">Sydliga</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5413">
+        <y:nimi kieli="fi">KOPA Läntinen</y:nimi>
+        <y:nimi kieli="sv">Västliga</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5414">
+        <y:nimi kieli="fi">KOPA Itäinen</y:nimi>
+        <y:nimi kieli="sv">Ostliga</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5415">
+        <y:nimi kieli="fi">KOPA Pohjoinen</y:nimi>
+        <y:nimi kieli="sv">Nordliga</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5417">
+        <y:nimi kieli="fi">KOPA Vaasa</y:nimi>
+        <y:nimi kieli="sv">Vasa</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5419">
+        <y:nimi kieli="fi">KOPA tuki- ja kehittäminen</y:nimi>
+        <y:nimi kieli="sv">Stöd och utveckling</y:nimi>
+    </y:toimintayksikko>
+    <y:toimintayksikko tunnus="5420">
+        <y:nimi kieli="fi">KOPA Keskinen</y:nimi>
+        <y:nimi kieli="sv">Centrala</y:nimi>
+    </y:toimintayksikko>
+    <y:toimipiste tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänt)</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="01">
+        <y:nimi kieli="fi">Mikkeli</y:nimi>
+        <y:nimi kieli="sv">S:t Michel</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="02">
+        <y:nimi kieli="fi">Savonlinna</y:nimi>
+        <y:nimi kieli="sv">Nyslott</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="03">
+        <y:nimi kieli="fi">Hämeenlinna</y:nimi>
+        <y:nimi kieli="sv">Tavastehus</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="04">
+        <y:nimi kieli="fi">Helsinki/Pasila</y:nimi>
+        <y:nimi kieli="sv">Helsingfors/Böle</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="05">
+        <y:nimi kieli="fi">Lahti</y:nimi>
+        <y:nimi kieli="sv">Lahtis</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="06">
+        <y:nimi kieli="fi">Lohja</y:nimi>
+        <y:nimi kieli="sv">Lojo</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="07">
+        <y:nimi kieli="fi">Porvoo</y:nimi>
+        <y:nimi kieli="sv">Borgå</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="08">
+        <y:nimi kieli="fi">Kouvola</y:nimi>
+        <y:nimi kieli="sv">Kouvola</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="09">
+        <y:nimi kieli="fi">Lappeenranta</y:nimi>
+        <y:nimi kieli="sv">Villmanstrand</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="10">
+        <y:nimi kieli="fi">Kajaani</y:nimi>
+        <y:nimi kieli="sv">Kajana</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="11">
+        <y:nimi kieli="fi">Kuusamo</y:nimi>
+        <y:nimi kieli="sv">Kuusamo</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="12">
+        <y:nimi kieli="fi">Jyväskylä</y:nimi>
+        <y:nimi kieli="sv">Jyväskylä</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="13">
+        <y:nimi kieli="fi">Saarijärvi</y:nimi>
+        <y:nimi kieli="sv">Saarijärvi</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="14">
+        <y:nimi kieli="fi">Ivalo</y:nimi>
+        <y:nimi kieli="sv">Ivalo</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="15">
+        <y:nimi kieli="fi">Kemijärvi</y:nimi>
+        <y:nimi kieli="sv">Kemijärvi</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="16">
+        <y:nimi kieli="fi">Rovaniemi</y:nimi>
+        <y:nimi kieli="sv">Rovaniemi</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="17">
+        <y:nimi kieli="fi">Tornio</y:nimi>
+        <y:nimi kieli="sv">Torneå</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="18">
+        <y:nimi kieli="fi">Huittinen</y:nimi>
+        <y:nimi kieli="sv">Huittinen</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="19">
+        <y:nimi kieli="fi">Ikaalinen</y:nimi>
+        <y:nimi kieli="sv">Ikalis</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="20">
+        <y:nimi kieli="fi">Pori</y:nimi>
+        <y:nimi kieli="sv">Björneborg</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="21">
+        <y:nimi kieli="fi">Tampere</y:nimi>
+        <y:nimi kieli="sv">Tammerfors</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="22">
+        <y:nimi kieli="fi">Alajärvi</y:nimi>
+        <y:nimi kieli="sv">Alajärvi</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="23">
+        <y:nimi kieli="fi">Kokkola</y:nimi>
+        <y:nimi kieli="sv">Karleby</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="24">
+        <y:nimi kieli="fi">Närpiö</y:nimi>
+        <y:nimi kieli="sv">Närpes</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="25">
+        <y:nimi kieli="fi">Seinäjoki</y:nimi>
+        <y:nimi kieli="sv">Seinäjoki</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="26">
+        <y:nimi kieli="fi">Vaasa</y:nimi>
+        <y:nimi kieli="sv">Vasa</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="27">
+        <y:nimi kieli="fi">Joensuu</y:nimi>
+        <y:nimi kieli="sv">Joensuu</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="28">
+        <y:nimi kieli="fi">Nurmes</y:nimi>
+        <y:nimi kieli="sv">Nurmes</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="29">
+        <y:nimi kieli="fi">Oulu</y:nimi>
+        <y:nimi kieli="sv">Uleåborg</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="30">
+        <y:nimi kieli="fi">Ylivieska</y:nimi>
+        <y:nimi kieli="sv">Ylivieska</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="31">
+        <y:nimi kieli="fi">Iisalmi</y:nimi>
+        <y:nimi kieli="sv">Idensalmi</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="32">
+        <y:nimi kieli="fi">Kuopio</y:nimi>
+        <y:nimi kieli="sv">Kuopio</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="33">
+        <y:nimi kieli="fi">Maarianhamina</y:nimi>
+        <y:nimi kieli="sv">Mariehamn</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="34">
+        <y:nimi kieli="fi">Salo</y:nimi>
+        <y:nimi kieli="sv">Salo</y:nimi>
+    </y:toimipiste>
+    <y:toimipiste tunnus="35">
+        <y:nimi kieli="fi">Turku</y:nimi>
+        <y:nimi kieli="sv">Åbo</y:nimi>
+    </y:toimipiste>
+    <y:virkaasema tunnus="1">
+        <y:nimi kieli="fi">Kirjaamislakimies</y:nimi>
+        <y:nimi kieli="sv">Inskrivningsjurist</y:nimi>
+    </y:virkaasema>
+    <y:virkaasema tunnus="2">
+        <y:nimi kieli="fi">Kirjaamissihteeri</y:nimi>
+        <y:nimi kieli="sv">Inskrivningssekreterare</y:nimi>
+    </y:virkaasema>
+    <y:virkaasema tunnus="3">
+        <y:nimi kieli="fi">Kirjaamisasiantuntija</y:nimi>
+        <y:nimi kieli="sv">Inskrivningsspecialist</y:nimi>
+    </y:virkaasema>
+    <y:virkaasema tunnus="4">
+        <y:nimi kieli="fi">Ei kirjaamisviranomainen</y:nimi>
+        <y:nimi kieli="sv">Ej inskrivningsmyndighet</y:nimi>
+    </y:virkaasema>
+    <y:ratkaisulaji tunnus="01">
+        <y:nimi kieli="fi">Hyväksytty</y:nimi>
+        <y:nimi kieli="sv">Godkänd</y:nimi>
+    </y:ratkaisulaji>
+    <y:ratkaisulaji tunnus="02">
+        <y:nimi kieli="fi">Lepäämään jätetty</y:nimi>
+        <y:nimi kieli="sv">Vilandeförklarad</y:nimi>
+    </y:ratkaisulaji>
+    <y:ratkaisulaji tunnus="03">
+        <y:nimi kieli="fi">Hylätty</y:nimi>
+        <y:nimi kieli="sv">Avslagen</y:nimi>
+    </y:ratkaisulaji>
+    <y:ratkaisulaji tunnus="04">
+        <y:nimi kieli="fi">Jätetty tutkimatta</y:nimi>
+        <y:nimi kieli="sv">Avvisad</y:nimi>
+    </y:ratkaisulaji>
+    <y:ratkaisulaji tunnus="05">
+        <y:nimi kieli="fi">Hakemus rauennut</y:nimi>
+        <y:nimi kieli="sv">Ansökan har förfallit</y:nimi>
+    </y:ratkaisulaji>
+    <y:ratkaisulaji tunnus="06">
+        <y:nimi kieli="fi">Päätös purettu</y:nimi>
+        <y:nimi kieli="sv">Beslut upphävt</y:nimi>
+    </y:ratkaisulaji>
+    <trpt:rekisteriyksikkolaji tunnus="0">
+        <y:nimi kieli="fi">(Tuntematon)</y:nimi>
+        <y:nimi kieli="sv">(Okänd)</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="1">
+        <y:nimi kieli="fi">Tila</y:nimi>
+        <y:nimi kieli="sv">Lägenhet</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="10">
+        <y:nimi kieli="fi">Yhteismetsä</y:nimi>
+        <y:nimi kieli="sv">Samfälld skog</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="11">
+        <y:nimi kieli="fi">Tie- tai liitännäisalue</y:nimi>
+        <y:nimi kieli="sv">Väg- eller biområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="12">
+        <y:nimi kieli="fi">Lakkautettu tie- tai liitännäisalue</y:nimi>
+        <y:nimi kieli="sv">Indraget väg- eller biområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="13">
+        <y:nimi kieli="fi">Tontti</y:nimi>
+        <y:nimi kieli="sv">Tomt</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="14">
+        <y:nimi kieli="fi">Yleinen alue</y:nimi>
+        <y:nimi kieli="sv">Allmänt område</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="15">
+        <y:nimi kieli="fi">Selvittämätön yhteinen alue</y:nimi>
+        <y:nimi kieli="sv">Outrett samfällt område</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="17">
+        <y:nimi kieli="fi">Yhteinen vesialue</y:nimi>
+        <y:nimi kieli="sv">Samfällt vattenområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="18">
+        <y:nimi kieli="fi">Yhteinen maa-alue</y:nimi>
+        <y:nimi kieli="sv">Samfällt jordområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="19">
+        <y:nimi kieli="fi">Suojelualuekiinteistö</y:nimi>
+        <y:nimi kieli="sv">Skyddsområdesfastighet</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="21">
+        <y:nimi kieli="fi">Tie- tai liitännäisalue tieoikeudella</y:nimi>
+        <y:nimi kieli="sv">Väg- eller biområde med vägrätt</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="22">
+        <y:nimi kieli="fi">Tie- tai liitännäisalue omistusoikeudella</y:nimi>
+        <y:nimi kieli="sv">Väg- eller biområde med äganderätt</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="23">
+        <y:nimi kieli="fi">Yleisen alueen lisäosa</y:nimi>
+        <y:nimi kieli="sv">Allmänna områdets tilläggsområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="24">
+        <y:nimi kieli="fi">Tuntematon kunnan rekisteriyksikkö</y:nimi>
+        <y:nimi kieli="sv">Okänd kommunens registerenhet</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="25">
+        <y:nimi kieli="fi">Yhteinen erityinen etuus</y:nimi>
+        <y:nimi kieli="sv">Gemensam särskild förmån</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="3">
+        <y:nimi kieli="fi">Valtion metsämaa</y:nimi>
+        <y:nimi kieli="sv">Statens skogsmark</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="4">
+        <y:nimi kieli="fi">Lunastusyksikkö</y:nimi>
+        <y:nimi kieli="sv">Inlösningsenhet</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="5">
+        <y:nimi kieli="fi">Kruununkalastus</y:nimi>
+        <y:nimi kieli="sv">Kronofiske</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="6">
+        <y:nimi kieli="fi">Yleiseen tarpeeseen erotettu alue</y:nimi>
+        <y:nimi kieli="sv">Område avskilt för allmänt behov</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="7">
+        <y:nimi kieli="fi">Erillinen vesijättö</y:nimi>
+        <y:nimi kieli="sv">Fristående tillandning</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="8">
+        <y:nimi kieli="fi">Yleinen vesialue</y:nimi>
+        <y:nimi kieli="sv">Allmänt vattenområde</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="9">
+        <y:nimi kieli="fi">Yhteinen alue</y:nimi>
+        <y:nimi kieli="sv">Samfällt område</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <trpt:rekisteriyksikkolaji tunnus="99">
+        <y:nimi kieli="fi">Selvittämätön alue</y:nimi>
+        <y:nimi kieli="sv">Outrett område</y:nimi>
+    </trpt:rekisteriyksikkolaji>
+    <y:saannonLaatu tunnus="01">
+        <y:nimi kieli="fi">Kauppa</y:nimi>
+        <y:nimi kieli="sv">Köp</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="02">
+        <y:nimi kieli="fi">Vaihto</y:nimi>
+        <y:nimi kieli="sv">Byte</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="03">
+        <y:nimi kieli="fi">Lahja</y:nimi>
+        <y:nimi kieli="sv">Gåva</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="04">
+        <y:nimi kieli="fi">Perintö</y:nimi>
+        <y:nimi kieli="sv">Arv</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="05">
+        <y:nimi kieli="fi">Testamentti</y:nimi>
+        <y:nimi kieli="sv">Testamente</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="06">
+        <y:nimi kieli="fi">Ositus</y:nimi>
+        <y:nimi kieli="sv">Avvittring</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="07">
+        <y:nimi kieli="fi">Sulautuminen</y:nimi>
+        <y:nimi kieli="sv">Fusion</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="08">
+        <y:nimi kieli="fi">Apportti</y:nimi>
+        <y:nimi kieli="sv">Apport</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="09">
+        <y:nimi kieli="fi">Pakkolunastus</y:nimi>
+        <y:nimi kieli="sv">Tvångsinlösning</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="10">
+        <y:nimi kieli="fi">Asutustilan perustaminen</y:nimi>
+        <y:nimi kieli="sv">Upplåtelse av kolonisationslägenhet</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="11">
+        <y:nimi kieli="fi">Vuokra-alueen lunastus</y:nimi>
+        <y:nimi kieli="sv">Inlösning av legoområde</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="12">
+        <y:nimi kieli="fi">Pakkohuutokauppa</y:nimi>
+        <y:nimi kieli="sv">Exekutiv auktion</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="13">
+        <y:nimi kieli="fi">Perinnönjako</y:nimi>
+        <y:nimi kieli="sv">Arvskifte</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="15">
+        <y:nimi kieli="fi">Jakosopimus</y:nimi>
+        <y:nimi kieli="sv">Skiftesavtal</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="16">
+        <y:nimi kieli="fi">Ositus ja perinnönjako</y:nimi>
+        <y:nimi kieli="sv">Avvittring och arvskifte</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="17">
+        <y:nimi kieli="fi">Muu saanto</y:nimi>
+        <y:nimi kieli="sv">Annat förvärv</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="18">
+        <y:nimi kieli="fi">Huutokauppa</y:nimi>
+        <y:nimi kieli="sv">Auktion</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="19">
+        <y:nimi kieli="fi">Vapaa myynti</y:nimi>
+        <y:nimi kieli="sv">Försäljning under hand</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="20">
+        <y:nimi kieli="fi">Luovutuksen purkautuminen</y:nimi>
+        <y:nimi kieli="sv">Upplösning av överlåtelse</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="21">
+        <y:nimi kieli="fi">Esisopimus</y:nimi>
+        <y:nimi kieli="sv">Föravtal</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="22">
+        <y:nimi kieli="fi">Kauppakirjan korjaus</y:nimi>
+        <y:nimi kieli="sv">Rättelse av köpebrev</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="23">
+        <y:nimi kieli="fi">Saantokirjan korjaus</y:nimi>
+        <y:nimi kieli="sv">Rättelse av förvärvshandling</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="24">
+        <y:nimi kieli="fi">Lunastustoimitus</y:nimi>
+        <y:nimi kieli="sv">Inlösningsförrättning</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="25">
+        <y:nimi kieli="fi">Erottelusopimus</y:nimi>
+        <y:nimi kieli="sv">Avtal om åtskiljande</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="26">
+        <y:nimi kieli="fi">Pesäosuuden luovutus</y:nimi>
+        <y:nimi kieli="sv">Överlåtelse av dödsboandel</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="27">
+        <y:nimi kieli="fi">Aikaisempi omistus</y:nimi>
+        <y:nimi kieli="sv">Tidigare ägande</y:nimi>
+    </y:saannonLaatu>
+    <y:saannonLaatu tunnus="28">
+        <y:nimi kieli="fi">Peruste</y:nimi>
+        <y:nimi kieli="sv">Grund</y:nimi>
+    </y:saannonLaatu>
+    <y:luovutuksenLaatu tunnus="01">
+        <y:nimi kieli="fi">Kauppa</y:nimi>
+        <y:nimi kieli="sv">Köp</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="02">
+        <y:nimi kieli="fi">Vaihto</y:nimi>
+        <y:nimi kieli="sv">Byte</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="03">
+        <y:nimi kieli="fi">Lahja</y:nimi>
+        <y:nimi kieli="sv">Gåva</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="06">
+        <y:nimi kieli="fi">Ositus</y:nimi>
+        <y:nimi kieli="sv">Avvittring</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="08">
+        <y:nimi kieli="fi">Apportti</y:nimi>
+        <y:nimi kieli="sv">Apport</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="12">
+        <y:nimi kieli="fi">Pakkohuutokauppa</y:nimi>
+        <y:nimi kieli="sv">Exekutiv auktion</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="13">
+        <y:nimi kieli="fi">Perinnönjako</y:nimi>
+        <y:nimi kieli="sv">Arvskifte</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="15">
+        <y:nimi kieli="fi">Jakosopimus</y:nimi>
+        <y:nimi kieli="sv">Skiftesavtal</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="17">
+        <y:nimi kieli="fi">Muu saanto</y:nimi>
+        <y:nimi kieli="sv">Annat förvärv</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="18">
+        <y:nimi kieli="fi">Huutokauppa</y:nimi>
+        <y:nimi kieli="sv">Auktion</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="21">
+        <y:nimi kieli="fi">Esisopimus</y:nimi>
+        <y:nimi kieli="sv">Föravtal</y:nimi>
+    </y:luovutuksenLaatu>
+    <y:luovutuksenLaatu tunnus="22">
+        <y:nimi kieli="fi">Kauppakirjan korjaus</y:nimi>
+        <y:nimi kieli="sv">Rättelse av köpebrev</y:nimi>
+    </y:luovutuksenLaatu>
+    <trlh:saannonTietolahde tunnus="KHR">
+        <y:nimi kieli="fi">Kauppahintarekisteri</y:nimi>
+        <y:nimi kieli="sv">Köpeskillingsregistret</y:nimi>
+    </trlh:saannonTietolahde>
+    <trlh:saannonTietolahde tunnus="KIR">
+        <y:nimi kieli="fi">Lainhuuto- ja kiinnitysrekisteri</y:nimi>
+        <y:nimi kieli="sv">Lagfarts- och inteckningsregistret</y:nimi>
+    </trlh:saannonTietolahde>
+    <trlh:saannonTietolahde tunnus="KVP">
+        <y:nimi kieli="fi">Kiinteistökaupan verkkopalvelu</y:nimi>
+        <y:nimi kieli="sv">Webbtjänsten för fastighetshandel</y:nimi>
+    </trlh:saannonTietolahde>
+    <y:seurantatieto tunnus="01">
+        <y:nimi kieli="fi">Lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Lagakraftvunnen</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="02">
+        <y:nimi kieli="fi">Ei lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Icke lagakraftvunnen</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="03">
+        <y:nimi kieli="fi">Ei lainvoimainen, valitettu maaoikeuteen</y:nimi>
+        <y:nimi kieli="sv">Icke lagakraftvunnen, överklagad till jorddomstolen</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="04">
+        <y:nimi kieli="fi">Ei lainvoimainen, maaoikeuden päätös</y:nimi>
+        <y:nimi kieli="sv">Icke lagakraftvunnen, jorddomstolens beslut</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="05">
+        <y:nimi kieli="fi">Ei lainvoimainen, valituslupa haettu KKO:lta</y:nimi>
+        <y:nimi kieli="sv">Icke lagakraftvunnen, besvärstillstånd sökt hos HD</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="06">
+        <y:nimi kieli="fi">Ei lainvoimainen, valitettu KKO:hon</y:nimi>
+        <y:nimi kieli="sv">Icke lagakraftvunnen, överklagad till HD</y:nimi>
+    </y:seurantatieto>
+    <y:seurantatieto tunnus="VP">
+        <y:nimi kieli="fi">Välipäätös</y:nimi>
+        <y:nimi kieli="sv">Uppskovsbeslut</y:nimi>
+    </y:seurantatieto>
+    <trra:tehostelaji tunnus="01">
+        <y:nimi kieli="fi">Uhkasakko</y:nimi>
+        <y:nimi kieli="sv">Vite</y:nimi>
+    </trra:tehostelaji>
+    <trra:tehostelaji tunnus="02">
+        <y:nimi kieli="fi">Teettämisuhka</y:nimi>
+        <y:nimi kieli="sv">Hot om tvångsutförande</y:nimi>
+    </trra:tehostelaji>
+    <trpt:voimassaololaji tunnus="01">
+        <y:nimi kieli="sv">Tidsbestämd</y:nimi>
+        <y:nimi kieli="fi">Määräaikainen</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="02">
+        <y:nimi kieli="fi">Toistaiseksi voimassaoleva</y:nimi>
+        <y:nimi kieli="sv">Gäller tillsvidare</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="03">
+        <y:nimi kieli="fi">Elinikäinen</y:nimi>
+        <y:nimi kieli="sv">Livstid</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="04">
+        <y:nimi kieli="fi">2 vuotta</y:nimi>
+        <y:nimi kieli="sv">2 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="05">
+        <y:nimi kieli="sv">5 år</y:nimi>
+        <y:nimi kieli="fi">5 vuotta</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="06">
+        <y:nimi kieli="fi">10 vuotta</y:nimi>
+        <y:nimi kieli="sv">10 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="07">
+        <y:nimi kieli="sv">15 år</y:nimi>
+        <y:nimi kieli="fi">15 vuotta</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="08">
+        <y:nimi kieli="fi">30 vuotta</y:nimi>
+        <y:nimi kieli="sv">30 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="09">
+        <y:nimi kieli="fi">50 vuotta</y:nimi>
+        <y:nimi kieli="sv">50 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="10">
+        <y:nimi kieli="fi">100 vuotta</y:nimi>
+        <y:nimi kieli="sv">100 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="11">
+        <y:nimi kieli="fi">200 vuotta</y:nimi>
+        <y:nimi kieli="sv">200 år</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="12">
+        <y:nimi kieli="fi">Vuokra-ajanehto 1</y:nimi>
+        <y:nimi kieli="sv">Legotidsvillkor 1</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="13">
+        <y:nimi kieli="fi">Vuokra-ajanehto 2</y:nimi>
+        <y:nimi kieli="sv">Legotidsvillkor 2</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="14">
+        <y:nimi kieli="fi">Muu voimassaolo</y:nimi>
+        <y:nimi kieli="sv">Annan giltighetstid</y:nimi>
+    </trpt:voimassaololaji>
+    <trpt:voimassaololaji tunnus="EV">
+        <y:nimi kieli="sv">Ingen giltighetstid</y:nimi>
+        <y:nimi kieli="fi">Ei voimassaoloaikaa</y:nimi>
+    </trpt:voimassaololaji>
+    <y:henkilorooli tunnus="EOHJ">
+        <y:nimi kieli="fi">Haltija</y:nimi>
+        <y:nimi kieli="sv">Innehavare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="EOIL">
+        <y:nimi kieli="fi">Ilmoittaja</y:nimi>
+        <y:nimi kieli="sv">Anmälare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="EOOP">
+        <y:nimi kieli="fi">Osapuoli</y:nimi>
+        <y:nimi kieli="sv">Part</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="EOVA">
+        <y:nimi kieli="fi">Vuokranantaja</y:nimi>
+        <y:nimi kieli="sv">Legogivare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="EOVU">
+        <y:nimi kieli="fi">Vuokralainen</y:nimi>
+        <y:nimi kieli="sv">Legotagare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="KIHJ">
+        <y:nimi kieli="fi">Kiinnityksen haltija</y:nimi>
+        <y:nimi kieli="sv">lnnehavare i inteckning</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="KIOM">
+        <y:nimi kieli="fi">Kiinnityksen omistaja</y:nimi>
+        <y:nimi kieli="sv">Ägare i inteckning</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="KPOS">
+        <y:nimi kieli="fi">Kuolinpesän osakas</y:nimi>
+        <y:nimi kieli="sv">Dödsbodelägare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="KPYH">
+        <y:nimi kieli="fi">Kuolinpesän yhteyshenkilö</y:nimi>
+        <y:nimi kieli="sv">Dödsboets kontaktperson</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LHHS">
+        <y:nimi kieli="fi">Lainhuudon saaja</y:nimi>
+        <y:nimi kieli="sv">Den som erhåller lagfart</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LHHV">
+        <y:nimi kieli="fi">Hallinnoiva viranomainen</y:nimi>
+        <y:nimi kieli="sv">Förvaltande myndighet</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LHLU">
+        <y:nimi kieli="fi">Luovuttaja</y:nimi>
+        <y:nimi kieli="sv">Överlåtare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LHOS">
+        <y:nimi kieli="fi">Omistusoikeuden saaja</y:nimi>
+        <y:nimi kieli="sv">Den som erhåller äganderätten</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LHSA">
+        <y:nimi kieli="fi">Saantomies</y:nimi>
+        <y:nimi kieli="sv">Fångesman</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LVLU">
+        <y:nimi kieli="fi">Luovuttaja</y:nimi>
+        <y:nimi kieli="sv">Överlåtare i förvärv</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="LVSA">
+        <y:nimi kieli="fi">Luovutuksen saaja</y:nimi>
+        <y:nimi kieli="sv">Förvärvare i förvärv</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUHA">
+        <y:nimi kieli="fi">Haltija</y:nimi>
+        <y:nimi kieli="sv">Innehavare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUHS">
+        <y:nimi kieli="fi">Velvoitettu</y:nimi>
+        <y:nimi kieli="sv">Förpliktad</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUIL">
+        <y:nimi kieli="fi">Ilmoittaja</y:nimi>
+        <y:nimi kieli="sv">Anmälare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MULA">
+        <y:nimi kieli="fi">Lunastusluvan antaja</y:nimi>
+        <y:nimi kieli="sv">Tillståndsgivare för inlösen</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUMO">
+        <y:nimi kieli="fi">Omistaja</y:nimi>
+        <y:nimi kieli="sv">Ägare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUPJ">
+        <y:nimi kieli="fi">Pantinhaltija</y:nimi>
+        <y:nimi kieli="sv">Panthavare</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUVJ">
+        <y:nimi kieli="fi">Velkoja</y:nimi>
+        <y:nimi kieli="sv">Borgenär</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUVL">
+        <y:nimi kieli="fi">Velallinen</y:nimi>
+        <y:nimi kieli="sv">Gäldenär</y:nimi>
+    </y:henkilorooli>
+    <y:henkilorooli tunnus="MUVU">
+        <y:nimi kieli="fi">Vuokralainen</y:nimi>
+        <y:nimi kieli="sv">Legotagare</y:nimi>
+    </y:henkilorooli>
+    <y:muutostapahtumalaji tunnus="101">
+        <y:nimi kieli="fi">Lainhuudon muutos, hyväksytty lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Ändring av lagfart, godkänd lagakraftvunnen</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="102">
+        <y:nimi kieli="fi">Lainhuudon muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av lagfart</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="112">
+        <y:nimi kieli="fi">Vuokraoikeuden muutos, hyväksytty lainvoimainen</y:nimi>
+        <y:nimi kieli="sv">Ändring av arrenderätt, godkänd lagakraftvunnen</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="113">
+        <y:nimi kieli="fi">Vuokraoikeuden muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av arrenderätt</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="201">
+        <y:nimi kieli="fi">Perustietojen muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av grunduppgifter</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="202">
+        <y:nimi kieli="fi">Olotilan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av tillstånd</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="203">
+        <y:nimi kieli="fi">Uusi kohde</y:nimi>
+        <y:nimi kieli="sv">Ny objekt</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="204">
+        <y:nimi kieli="fi">Rekisteröintipäivämäärän muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av registreringsdatum</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="205">
+        <y:nimi kieli="fi">Lakannut kohde</y:nimi>
+        <y:nimi kieli="sv">Upphört objekt</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="206">
+        <y:nimi kieli="fi">Lakkaamispäivämäärän muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av upphörandedatum</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="207">
+        <y:nimi kieli="fi">Nimen muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av namn</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="208">
+        <y:nimi kieli="fi">Maapinta-alan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av jordareal</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="209">
+        <y:nimi kieli="fi">Vesipinta-alan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av vattenareal</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="210">
+        <y:nimi kieli="fi">Sijaintirekisteriyksikön muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av lokaliseringsenhet</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="211">
+        <y:nimi kieli="fi">Sijaintikunnan muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av lokaliseringskommun</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="301">
+        <y:nimi kieli="fi">Luovutuksen muutos, uusi luovutus</y:nimi>
+        <y:nimi kieli="sv">Ändring av överlåtelse, ny överlåtelse</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="302">
+        <y:nimi kieli="fi">Luovutuksen muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av överlåtelse</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="401">
+        <y:nimi kieli="fi">Henkilön tietojen muutos</y:nimi>
+        <y:nimi kieli="sv">Ändring av personuppgifter</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="501">
+        <y:nimi kieli="fi">Uusi kiinnitys</y:nimi>
+        <y:nimi kieli="sv">Uusi kiinnitys:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="502">
+        <y:nimi kieli="fi">Vireillä oleva kiinnitys</y:nimi>
+        <y:nimi kieli="sv">Vireillä oleva kiinnitys:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="503">
+        <y:nimi kieli="fi">Kuoletettu kiinnitys</y:nimi>
+        <y:nimi kieli="sv">Kuoletettu kiinnitys:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="504">
+        <y:nimi kieli="fi">Muutettu kiinnitys</y:nimi>
+        <y:nimi kieli="sv">Muutettu kiinnitys:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="505">
+        <y:nimi kieli="fi">Y-tunnukselta siirretyt kiinnitykset toiselle y-tunnukselle</y:nimi>
+        <y:nimi kieli="sv">Y-tunnukselta siirretyt kiinnitykset toiselle y-tunnukselle:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="506">
+        <y:nimi kieli="fi">Y-tunnuksen vastaanottamat kiinnitykset toiselta y-tunnukselta</y:nimi>
+        <y:nimi kieli="sv">Y-tunnuksen vastaanottamat kiinnitykset toiselta y-tunnukselta:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <y:muutostapahtumalaji tunnus="507">
+        <y:nimi kieli="fi">Kiinnityksen etusijan muutos</y:nimi>
+        <y:nimi kieli="sv">Kiinnityksen etusijan muutos:se</y:nimi>
+    </y:muutostapahtumalaji>
+    <trpt:olotila tunnus="0">
+        <y:nimi kieli="fi">Vireillä</y:nimi>
+        <y:nimi kieli="sv">Anhängig</y:nimi>
+    </trpt:olotila>
+    <trpt:olotila tunnus="1">
+        <y:nimi kieli="fi">Voimassaoleva</y:nimi>
+        <y:nimi kieli="sv">Gällande</y:nimi>
+    </trpt:olotila>
+    <trpt:olotila tunnus="2">
+        <y:nimi kieli="fi">Lakannut</y:nimi>
+        <y:nimi kieli="sv">Upphört</y:nimi>
+    </trpt:olotila>
+    <kood:maakoodi tunnus="004">
+        <y:nimi kieli="en">Afghanistan</y:nimi>
+        <y:nimi kieli="sv">Afghanistan</y:nimi>
+        <y:nimi kieli="fi">Afganistan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="008">
+        <y:nimi kieli="en">Albania</y:nimi>
+        <y:nimi kieli="sv">Albanien</y:nimi>
+        <y:nimi kieli="fi">Albania</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="010">
+        <y:nimi kieli="en">Antarctica</y:nimi>
+        <y:nimi kieli="sv">Antarktis</y:nimi>
+        <y:nimi kieli="fi">Antarktis</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="012">
+        <y:nimi kieli="en">Algeria</y:nimi>
+        <y:nimi kieli="sv">Algeriet</y:nimi>
+        <y:nimi kieli="fi">Algeria</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="016">
+        <y:nimi kieli="en">American Samoa</y:nimi>
+        <y:nimi kieli="sv">Amerikanska Samoa</y:nimi>
+        <y:nimi kieli="fi">Amerikan Samoa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="020">
+        <y:nimi kieli="en">Andorra</y:nimi>
+        <y:nimi kieli="sv">Andorra</y:nimi>
+        <y:nimi kieli="fi">Andorra</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="024">
+        <y:nimi kieli="en">Angola</y:nimi>
+        <y:nimi kieli="sv">Angola</y:nimi>
+        <y:nimi kieli="fi">Angola</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="028">
+        <y:nimi kieli="en">Antigua and Barbuda</y:nimi>
+        <y:nimi kieli="sv">Antigua och Barbuda</y:nimi>
+        <y:nimi kieli="fi">Antigua ja Barbuda</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="031">
+        <y:nimi kieli="en">Azerbaijan</y:nimi>
+        <y:nimi kieli="sv">Azerbajdzjan</y:nimi>
+        <y:nimi kieli="fi">Azerbaidžan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="032">
+        <y:nimi kieli="en">Argentina</y:nimi>
+        <y:nimi kieli="sv">Argentina</y:nimi>
+        <y:nimi kieli="fi">Argentiina</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="036">
+        <y:nimi kieli="en">Australia</y:nimi>
+        <y:nimi kieli="sv">Australien</y:nimi>
+        <y:nimi kieli="fi">Australia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="040">
+        <y:nimi kieli="en">Austria</y:nimi>
+        <y:nimi kieli="sv">Österrike</y:nimi>
+        <y:nimi kieli="fi">Itävalta</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="044">
+        <y:nimi kieli="en">Bahamas</y:nimi>
+        <y:nimi kieli="sv">Bahamas</y:nimi>
+        <y:nimi kieli="fi">Bahama</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="048">
+        <y:nimi kieli="en">Bahrain</y:nimi>
+        <y:nimi kieli="sv">Bahrain</y:nimi>
+        <y:nimi kieli="fi">Bahrain</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="050">
+        <y:nimi kieli="en">Bangladesh</y:nimi>
+        <y:nimi kieli="sv">Bangladesh</y:nimi>
+        <y:nimi kieli="fi">Bangladesh</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="051">
+        <y:nimi kieli="en">Armenia</y:nimi>
+        <y:nimi kieli="sv">Armenien</y:nimi>
+        <y:nimi kieli="fi">Armenia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="052">
+        <y:nimi kieli="en">Barbados</y:nimi>
+        <y:nimi kieli="sv">Barbados</y:nimi>
+        <y:nimi kieli="fi">Barbados</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="056">
+        <y:nimi kieli="en">Belgium</y:nimi>
+        <y:nimi kieli="sv">Belgien</y:nimi>
+        <y:nimi kieli="fi">Belgia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="060">
+        <y:nimi kieli="en">Bermuda</y:nimi>
+        <y:nimi kieli="sv">Bermuda</y:nimi>
+        <y:nimi kieli="fi">Bermuda</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="064">
+        <y:nimi kieli="en">Bhutan</y:nimi>
+        <y:nimi kieli="sv">Bhutan</y:nimi>
+        <y:nimi kieli="fi">Bhutan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="068">
+        <y:nimi kieli="en">Bolivia, Plurinational State of</y:nimi>
+        <y:nimi kieli="sv">Bolivia</y:nimi>
+        <y:nimi kieli="fi">Bolivia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="070">
+        <y:nimi kieli="en">Bosnia and Herzegovina</y:nimi>
+        <y:nimi kieli="sv">Bosnien och Hercegovina</y:nimi>
+        <y:nimi kieli="fi">Bosnia ja Hertsegovina</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="072">
+        <y:nimi kieli="en">Botswana</y:nimi>
+        <y:nimi kieli="sv">Botswana</y:nimi>
+        <y:nimi kieli="fi">Botswana</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="074">
+        <y:nimi kieli="en">Bouvet Island</y:nimi>
+        <y:nimi kieli="sv">Bouvetön</y:nimi>
+        <y:nimi kieli="fi">Bouvet’nsaari</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="076">
+        <y:nimi kieli="en">Brazil</y:nimi>
+        <y:nimi kieli="sv">Brasilien</y:nimi>
+        <y:nimi kieli="fi">Brasilia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="084">
+        <y:nimi kieli="en">Belize</y:nimi>
+        <y:nimi kieli="sv">Belize</y:nimi>
+        <y:nimi kieli="fi">Belize</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="086">
+        <y:nimi kieli="en">British Indian Ocean Territory</y:nimi>
+        <y:nimi kieli="sv">Brittiska territoriet i Indiska oceanen</y:nimi>
+        <y:nimi kieli="fi">Brittiläinen Intian valtameren alue</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="090">
+        <y:nimi kieli="en">Solomon Islands</y:nimi>
+        <y:nimi kieli="sv">Salomonöarna</y:nimi>
+        <y:nimi kieli="fi">Salomonsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="092">
+        <y:nimi kieli="en">Virgin Islands, British</y:nimi>
+        <y:nimi kieli="sv">Brittiska Jungfruöarna</y:nimi>
+        <y:nimi kieli="fi">Brittiläiset Neitsytsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="096">
+        <y:nimi kieli="en">Brunei Darussalam</y:nimi>
+        <y:nimi kieli="sv">Brunei</y:nimi>
+        <y:nimi kieli="fi">Brunei</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="100">
+        <y:nimi kieli="en">Bulgaria</y:nimi>
+        <y:nimi kieli="sv">Bulgarien</y:nimi>
+        <y:nimi kieli="fi">Bulgaria</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="104">
+        <y:nimi kieli="en">Myanmar</y:nimi>
+        <y:nimi kieli="sv">Myanmar</y:nimi>
+        <y:nimi kieli="fi">Myanmar</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="108">
+        <y:nimi kieli="en">Burundi</y:nimi>
+        <y:nimi kieli="sv">Burundi</y:nimi>
+        <y:nimi kieli="fi">Burundi</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="112">
+        <y:nimi kieli="en">Belarus</y:nimi>
+        <y:nimi kieli="sv">Vitryssland</y:nimi>
+        <y:nimi kieli="fi">Valko-Venäjä</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="116">
+        <y:nimi kieli="en">Cambodia</y:nimi>
+        <y:nimi kieli="sv">Kambodja</y:nimi>
+        <y:nimi kieli="fi">Kambodža</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="120">
+        <y:nimi kieli="en">Cameroon</y:nimi>
+        <y:nimi kieli="sv">Kamerun</y:nimi>
+        <y:nimi kieli="fi">Kamerun</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="124">
+        <y:nimi kieli="en">Canada</y:nimi>
+        <y:nimi kieli="sv">Canada</y:nimi>
+        <y:nimi kieli="fi">Kanada</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="132">
+        <y:nimi kieli="en">Cape Verde</y:nimi>
+        <y:nimi kieli="sv">Kap Verde</y:nimi>
+        <y:nimi kieli="fi">Kap Verde</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="136">
+        <y:nimi kieli="en">Cayman Islands</y:nimi>
+        <y:nimi kieli="sv">Caymanöarna</y:nimi>
+        <y:nimi kieli="fi">Caymansaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="140">
+        <y:nimi kieli="en">Central African Republic</y:nimi>
+        <y:nimi kieli="sv">Centralafrikanska republiken</y:nimi>
+        <y:nimi kieli="fi">Keski-Afrikan tasavalta</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="144">
+        <y:nimi kieli="en">Sri Lanka</y:nimi>
+        <y:nimi kieli="sv">Sri Lanka</y:nimi>
+        <y:nimi kieli="fi">Sri Lanka</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="148">
+        <y:nimi kieli="en">Chad</y:nimi>
+        <y:nimi kieli="sv">Tchad</y:nimi>
+        <y:nimi kieli="fi">Tšad</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="152">
+        <y:nimi kieli="en">Chile</y:nimi>
+        <y:nimi kieli="sv">Chile</y:nimi>
+        <y:nimi kieli="fi">Chile</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="156">
+        <y:nimi kieli="en">China</y:nimi>
+        <y:nimi kieli="sv">Kina</y:nimi>
+        <y:nimi kieli="fi">Kiina</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="158">
+        <y:nimi kieli="en">Taiwan, Province of China</y:nimi>
+        <y:nimi kieli="sv">Taiwan</y:nimi>
+        <y:nimi kieli="fi">Taiwan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="162">
+        <y:nimi kieli="en">Christmas Island</y:nimi>
+        <y:nimi kieli="sv">Julön</y:nimi>
+        <y:nimi kieli="fi">Joulusaari</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="166">
+        <y:nimi kieli="en">Cocos (Keeling) Islands</y:nimi>
+        <y:nimi kieli="sv">Kokosöarna</y:nimi>
+        <y:nimi kieli="fi">Kookossaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="170">
+        <y:nimi kieli="en">Colombia</y:nimi>
+        <y:nimi kieli="sv">Colombia</y:nimi>
+        <y:nimi kieli="fi">Kolumbia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="174">
+        <y:nimi kieli="en">Comoros</y:nimi>
+        <y:nimi kieli="sv">Comorerna</y:nimi>
+        <y:nimi kieli="fi">Komorit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="175">
+        <y:nimi kieli="en">Mayotte</y:nimi>
+        <y:nimi kieli="sv">Mayotte</y:nimi>
+        <y:nimi kieli="fi">Mayotte</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="178">
+        <y:nimi kieli="en">Congo</y:nimi>
+        <y:nimi kieli="sv">Kongo (Kongo-Brazzaville)</y:nimi>
+        <y:nimi kieli="fi">Kongo (Kongo-Brazzaville)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="180">
+        <y:nimi kieli="en">Congo, the Democratic Republic of the</y:nimi>
+        <y:nimi kieli="sv">Kongo (Kongo-Kinshasa)</y:nimi>
+        <y:nimi kieli="fi">Kongo (Kongo-Kinshasa)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="184">
+        <y:nimi kieli="en">Cook Islands</y:nimi>
+        <y:nimi kieli="sv">Cooköarna</y:nimi>
+        <y:nimi kieli="fi">Cookinsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="188">
+        <y:nimi kieli="en">Costa Rica</y:nimi>
+        <y:nimi kieli="sv">Costa Rica</y:nimi>
+        <y:nimi kieli="fi">Costa Rica</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="191">
+        <y:nimi kieli="en">Croatia</y:nimi>
+        <y:nimi kieli="sv">Kroatien</y:nimi>
+        <y:nimi kieli="fi">Kroatia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="192">
+        <y:nimi kieli="en">Cuba</y:nimi>
+        <y:nimi kieli="sv">Kuba</y:nimi>
+        <y:nimi kieli="fi">Kuuba</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="196">
+        <y:nimi kieli="en">Cyprus</y:nimi>
+        <y:nimi kieli="sv">Cypern</y:nimi>
+        <y:nimi kieli="fi">Kypros</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="203">
+        <y:nimi kieli="en">Czech Republic</y:nimi>
+        <y:nimi kieli="sv">Tjeckien</y:nimi>
+        <y:nimi kieli="fi">Tšekki</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="204">
+        <y:nimi kieli="en">Benin</y:nimi>
+        <y:nimi kieli="sv">Benin</y:nimi>
+        <y:nimi kieli="fi">Benin</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="208">
+        <y:nimi kieli="en">Denmark</y:nimi>
+        <y:nimi kieli="sv">Danmark</y:nimi>
+        <y:nimi kieli="fi">Tanska</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="212">
+        <y:nimi kieli="en">Dominica</y:nimi>
+        <y:nimi kieli="sv">Dominica</y:nimi>
+        <y:nimi kieli="fi">Dominica</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="214">
+        <y:nimi kieli="en">Dominican Republic</y:nimi>
+        <y:nimi kieli="sv">Dominikanska republiken</y:nimi>
+        <y:nimi kieli="fi">Dominikaaninen tasavalta</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="218">
+        <y:nimi kieli="en">Ecuador</y:nimi>
+        <y:nimi kieli="sv">Ecuador</y:nimi>
+        <y:nimi kieli="fi">Ecuador</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="222">
+        <y:nimi kieli="en">El Salvador</y:nimi>
+        <y:nimi kieli="sv">El Salvador</y:nimi>
+        <y:nimi kieli="fi">El Salvador</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="226">
+        <y:nimi kieli="en">Equatorial Guinea</y:nimi>
+        <y:nimi kieli="sv">Ekvatorialguinea</y:nimi>
+        <y:nimi kieli="fi">Päiväntasaajan Guinea</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="231">
+        <y:nimi kieli="en">Ethiopia</y:nimi>
+        <y:nimi kieli="sv">Etiopien</y:nimi>
+        <y:nimi kieli="fi">Etiopia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="232">
+        <y:nimi kieli="en">Eritrea</y:nimi>
+        <y:nimi kieli="sv">Eritrea</y:nimi>
+        <y:nimi kieli="fi">Eritrea</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="233">
+        <y:nimi kieli="en">Estonia</y:nimi>
+        <y:nimi kieli="sv">Estland</y:nimi>
+        <y:nimi kieli="fi">Viro</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="234">
+        <y:nimi kieli="en">Faroe Islands</y:nimi>
+        <y:nimi kieli="sv">Färöarna</y:nimi>
+        <y:nimi kieli="fi">Färsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="238">
+        <y:nimi kieli="en">Falkland Islands (Malvinas)</y:nimi>
+        <y:nimi kieli="sv">Falklandsöarna</y:nimi>
+        <y:nimi kieli="fi">Falklandinsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="239">
+        <y:nimi kieli="en">South Georgia and the South Sandwich Islands</y:nimi>
+        <y:nimi kieli="sv">Sydgeorgien och Sydsandwichöarna</y:nimi>
+        <y:nimi kieli="fi">Etelä-Georgia ja Eteläiset Sandwichsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="242">
+        <y:nimi kieli="en">Fiji</y:nimi>
+        <y:nimi kieli="sv">Fiji</y:nimi>
+        <y:nimi kieli="fi">Fidži</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="246">
+        <y:nimi kieli="en">Finland</y:nimi>
+        <y:nimi kieli="sv">Finland</y:nimi>
+        <y:nimi kieli="fi">Suomi</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="248">
+        <y:nimi kieli="en">Åland Islands</y:nimi>
+        <y:nimi kieli="sv">Åland</y:nimi>
+        <y:nimi kieli="fi">Ahvenanmaa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="250">
+        <y:nimi kieli="en">France</y:nimi>
+        <y:nimi kieli="sv">Frankrike</y:nimi>
+        <y:nimi kieli="fi">Ranska</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="254">
+        <y:nimi kieli="en">French Guiana</y:nimi>
+        <y:nimi kieli="sv">Franska Guayana</y:nimi>
+        <y:nimi kieli="fi">Ranskan Guayana</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="258">
+        <y:nimi kieli="en">French Polynesia</y:nimi>
+        <y:nimi kieli="sv">Franska Polynesien</y:nimi>
+        <y:nimi kieli="fi">Ranskan Polynesia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="260">
+        <y:nimi kieli="en">French Southern Territories</y:nimi>
+        <y:nimi kieli="sv">Franska sydterritorierna</y:nimi>
+        <y:nimi kieli="fi">Ranskan eteläiset alueet</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="262">
+        <y:nimi kieli="en">Djibouti</y:nimi>
+        <y:nimi kieli="sv">Djibouti</y:nimi>
+        <y:nimi kieli="fi">Djibouti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="266">
+        <y:nimi kieli="en">Gabon</y:nimi>
+        <y:nimi kieli="sv">Gabon</y:nimi>
+        <y:nimi kieli="fi">Gabon</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="268">
+        <y:nimi kieli="en">Georgia</y:nimi>
+        <y:nimi kieli="sv">Georgien</y:nimi>
+        <y:nimi kieli="fi">Georgia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="270">
+        <y:nimi kieli="en">Gambia</y:nimi>
+        <y:nimi kieli="sv">Gambia</y:nimi>
+        <y:nimi kieli="fi">Gambia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="275">
+        <y:nimi kieli="en">Palestinian Territory, Occupied</y:nimi>
+        <y:nimi kieli="sv">Palestina</y:nimi>
+        <y:nimi kieli="fi">Palestiina</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="276">
+        <y:nimi kieli="en">Germany</y:nimi>
+        <y:nimi kieli="sv">Tyskland</y:nimi>
+        <y:nimi kieli="fi">Saksa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="288">
+        <y:nimi kieli="en">Ghana</y:nimi>
+        <y:nimi kieli="sv">Ghana</y:nimi>
+        <y:nimi kieli="fi">Ghana</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="292">
+        <y:nimi kieli="en">Gibraltar</y:nimi>
+        <y:nimi kieli="sv">Gibraltar</y:nimi>
+        <y:nimi kieli="fi">Gibraltar</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="296">
+        <y:nimi kieli="en">Kiribati</y:nimi>
+        <y:nimi kieli="sv">Kiribati</y:nimi>
+        <y:nimi kieli="fi">Kiribati</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="300">
+        <y:nimi kieli="en">Greece</y:nimi>
+        <y:nimi kieli="sv">Grekland</y:nimi>
+        <y:nimi kieli="fi">Kreikka</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="304">
+        <y:nimi kieli="en">Greenland</y:nimi>
+        <y:nimi kieli="sv">Grönland</y:nimi>
+        <y:nimi kieli="fi">Grönlanti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="308">
+        <y:nimi kieli="en">Grenada</y:nimi>
+        <y:nimi kieli="sv">Grenada</y:nimi>
+        <y:nimi kieli="fi">Grenada</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="312">
+        <y:nimi kieli="en">Guadeloupe</y:nimi>
+        <y:nimi kieli="sv">Guadeloupe</y:nimi>
+        <y:nimi kieli="fi">Guadeloupe</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="316">
+        <y:nimi kieli="en">Guam</y:nimi>
+        <y:nimi kieli="sv">Guam</y:nimi>
+        <y:nimi kieli="fi">Guam</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="320">
+        <y:nimi kieli="en">Guatemala</y:nimi>
+        <y:nimi kieli="sv">Guatemala</y:nimi>
+        <y:nimi kieli="fi">Guatemala</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="324">
+        <y:nimi kieli="en">Guinea</y:nimi>
+        <y:nimi kieli="sv">Guinea</y:nimi>
+        <y:nimi kieli="fi">Guinea</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="328">
+        <y:nimi kieli="en">Guyana</y:nimi>
+        <y:nimi kieli="sv">Guyana</y:nimi>
+        <y:nimi kieli="fi">Guyana</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="332">
+        <y:nimi kieli="en">Haiti</y:nimi>
+        <y:nimi kieli="sv">Haiti</y:nimi>
+        <y:nimi kieli="fi">Haiti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="334">
+        <y:nimi kieli="en">Heard Island and McDonald Islands</y:nimi>
+        <y:nimi kieli="sv">Heard- och McDonaldöarna</y:nimi>
+        <y:nimi kieli="fi">Heard ja McDonaldinsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="336">
+        <y:nimi kieli="en">Holy See (Vatican City State)</y:nimi>
+        <y:nimi kieli="sv">Vatikanen</y:nimi>
+        <y:nimi kieli="fi">Vatikaani</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="340">
+        <y:nimi kieli="en">Honduras</y:nimi>
+        <y:nimi kieli="sv">Honduras</y:nimi>
+        <y:nimi kieli="fi">Honduras</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="344">
+        <y:nimi kieli="en">Hong Kong</y:nimi>
+        <y:nimi kieli="sv">Hongkong</y:nimi>
+        <y:nimi kieli="fi">Hongkong</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="348">
+        <y:nimi kieli="en">Hungary</y:nimi>
+        <y:nimi kieli="sv">Ungern</y:nimi>
+        <y:nimi kieli="fi">Unkari</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="352">
+        <y:nimi kieli="en">Iceland</y:nimi>
+        <y:nimi kieli="sv">Island</y:nimi>
+        <y:nimi kieli="fi">Islanti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="356">
+        <y:nimi kieli="en">India</y:nimi>
+        <y:nimi kieli="sv">Indien</y:nimi>
+        <y:nimi kieli="fi">Intia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="360">
+        <y:nimi kieli="en">Indonesia</y:nimi>
+        <y:nimi kieli="sv">Indonesien</y:nimi>
+        <y:nimi kieli="fi">Indonesia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="364">
+        <y:nimi kieli="en">Iran, Islamic Republic of</y:nimi>
+        <y:nimi kieli="sv">Iran</y:nimi>
+        <y:nimi kieli="fi">Iran</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="368">
+        <y:nimi kieli="en">Iraq</y:nimi>
+        <y:nimi kieli="sv">Irak</y:nimi>
+        <y:nimi kieli="fi">Irak</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="372">
+        <y:nimi kieli="en">Ireland</y:nimi>
+        <y:nimi kieli="sv">Irland</y:nimi>
+        <y:nimi kieli="fi">Irlanti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="376">
+        <y:nimi kieli="en">Israel</y:nimi>
+        <y:nimi kieli="sv">Israel</y:nimi>
+        <y:nimi kieli="fi">Israel</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="380">
+        <y:nimi kieli="en">Italy</y:nimi>
+        <y:nimi kieli="sv">Italien</y:nimi>
+        <y:nimi kieli="fi">Italia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="384">
+        <y:nimi kieli="en">Côte d&apos;Ivoire</y:nimi>
+        <y:nimi kieli="sv">Elfenbenskusten</y:nimi>
+        <y:nimi kieli="fi">Norsunluurannikko</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="388">
+        <y:nimi kieli="en">Jamaica</y:nimi>
+        <y:nimi kieli="sv">Jamaica</y:nimi>
+        <y:nimi kieli="fi">Jamaika</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="392">
+        <y:nimi kieli="en">Japan</y:nimi>
+        <y:nimi kieli="sv">Japan</y:nimi>
+        <y:nimi kieli="fi">Japani</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="398">
+        <y:nimi kieli="en">Kazakhstan</y:nimi>
+        <y:nimi kieli="sv">Kazakstan</y:nimi>
+        <y:nimi kieli="fi">Kazakstan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="400">
+        <y:nimi kieli="en">Jordan</y:nimi>
+        <y:nimi kieli="sv">Jordanien</y:nimi>
+        <y:nimi kieli="fi">Jordania</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="404">
+        <y:nimi kieli="en">Kenya</y:nimi>
+        <y:nimi kieli="sv">Kenya</y:nimi>
+        <y:nimi kieli="fi">Kenia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="408">
+        <y:nimi kieli="en">Korea, Democratic People&apos;s Republic of</y:nimi>
+        <y:nimi kieli="sv">Demokratiska folkrepubliken Korea (Nordkorea)</y:nimi>
+        <y:nimi kieli="fi">Korean demokraattinen kansantasavalta (Pohjois-Korea)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="410">
+        <y:nimi kieli="en">Korea, Republic of</y:nimi>
+        <y:nimi kieli="sv">Republiken Korea (Sydkorea)</y:nimi>
+        <y:nimi kieli="fi">Korean tasavalta (Etelä-Korea)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="414">
+        <y:nimi kieli="en">Kuwait</y:nimi>
+        <y:nimi kieli="sv">Kuwait</y:nimi>
+        <y:nimi kieli="fi">Kuwait</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="417">
+        <y:nimi kieli="en">Kyrgyzstan</y:nimi>
+        <y:nimi kieli="sv">Kirgizistan</y:nimi>
+        <y:nimi kieli="fi">Kirgisia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="418">
+        <y:nimi kieli="en">Lao People&apos;s Democratic Republic</y:nimi>
+        <y:nimi kieli="sv">Laos</y:nimi>
+        <y:nimi kieli="fi">Laos</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="422">
+        <y:nimi kieli="en">Lebanon</y:nimi>
+        <y:nimi kieli="sv">Libanon</y:nimi>
+        <y:nimi kieli="fi">Libanon</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="426">
+        <y:nimi kieli="en">Lesotho</y:nimi>
+        <y:nimi kieli="sv">Lesotho</y:nimi>
+        <y:nimi kieli="fi">Lesotho</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="428">
+        <y:nimi kieli="en">Latvia</y:nimi>
+        <y:nimi kieli="sv">Lettland</y:nimi>
+        <y:nimi kieli="fi">Latvia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="430">
+        <y:nimi kieli="en">Liberia</y:nimi>
+        <y:nimi kieli="sv">Liberia</y:nimi>
+        <y:nimi kieli="fi">Liberia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="434">
+        <y:nimi kieli="en">Libya</y:nimi>
+        <y:nimi kieli="sv">Libyen</y:nimi>
+        <y:nimi kieli="fi">Libya</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="438">
+        <y:nimi kieli="en">Liechtenstein</y:nimi>
+        <y:nimi kieli="sv">Liechtenstein</y:nimi>
+        <y:nimi kieli="fi">Liechtenstein</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="440">
+        <y:nimi kieli="en">Lithuania</y:nimi>
+        <y:nimi kieli="sv">Litauen</y:nimi>
+        <y:nimi kieli="fi">Liettua</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="442">
+        <y:nimi kieli="en">Luxembourg</y:nimi>
+        <y:nimi kieli="sv">Luxemburg</y:nimi>
+        <y:nimi kieli="fi">Luxemburg</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="446">
+        <y:nimi kieli="en">Macao</y:nimi>
+        <y:nimi kieli="sv">Macao</y:nimi>
+        <y:nimi kieli="fi">Macao</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="450">
+        <y:nimi kieli="en">Madagascar</y:nimi>
+        <y:nimi kieli="sv">Madagaskar</y:nimi>
+        <y:nimi kieli="fi">Madagaskar</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="454">
+        <y:nimi kieli="en">Malawi</y:nimi>
+        <y:nimi kieli="sv">Malawi</y:nimi>
+        <y:nimi kieli="fi">Malawi</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="458">
+        <y:nimi kieli="en">Malaysia</y:nimi>
+        <y:nimi kieli="sv">Malaysia</y:nimi>
+        <y:nimi kieli="fi">Malesia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="462">
+        <y:nimi kieli="en">Maldives</y:nimi>
+        <y:nimi kieli="sv">Maldiverna</y:nimi>
+        <y:nimi kieli="fi">Malediivit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="466">
+        <y:nimi kieli="en">Mali</y:nimi>
+        <y:nimi kieli="sv">Mali</y:nimi>
+        <y:nimi kieli="fi">Mali</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="470">
+        <y:nimi kieli="en">Malta</y:nimi>
+        <y:nimi kieli="sv">Malta</y:nimi>
+        <y:nimi kieli="fi">Malta</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="474">
+        <y:nimi kieli="en">Martinique</y:nimi>
+        <y:nimi kieli="sv">Martinique</y:nimi>
+        <y:nimi kieli="fi">Martinique</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="478">
+        <y:nimi kieli="en">Mauritania</y:nimi>
+        <y:nimi kieli="sv">Mauretanien</y:nimi>
+        <y:nimi kieli="fi">Mauritania</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="480">
+        <y:nimi kieli="en">Mauritius</y:nimi>
+        <y:nimi kieli="sv">Mauritius</y:nimi>
+        <y:nimi kieli="fi">Mauritius</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="484">
+        <y:nimi kieli="en">Mexico</y:nimi>
+        <y:nimi kieli="sv">Mexiko</y:nimi>
+        <y:nimi kieli="fi">Meksiko</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="492">
+        <y:nimi kieli="en">Monaco</y:nimi>
+        <y:nimi kieli="sv">Monaco</y:nimi>
+        <y:nimi kieli="fi">Monaco</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="496">
+        <y:nimi kieli="en">Mongolia</y:nimi>
+        <y:nimi kieli="sv">Mongoliet</y:nimi>
+        <y:nimi kieli="fi">Mongolia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="498">
+        <y:nimi kieli="en">Moldova, Republic of</y:nimi>
+        <y:nimi kieli="sv">Moldavien</y:nimi>
+        <y:nimi kieli="fi">Moldova</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="499">
+        <y:nimi kieli="en">Montenegro</y:nimi>
+        <y:nimi kieli="sv">Montenegro</y:nimi>
+        <y:nimi kieli="fi">Montenegro</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="500">
+        <y:nimi kieli="en">Montserrat</y:nimi>
+        <y:nimi kieli="sv">Montserrat</y:nimi>
+        <y:nimi kieli="fi">Montserrat</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="504">
+        <y:nimi kieli="en">Morocco</y:nimi>
+        <y:nimi kieli="sv">Marocko</y:nimi>
+        <y:nimi kieli="fi">Marokko</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="508">
+        <y:nimi kieli="en">Mozambique</y:nimi>
+        <y:nimi kieli="sv">Moçambique</y:nimi>
+        <y:nimi kieli="fi">Mosambik</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="512">
+        <y:nimi kieli="en">Oman</y:nimi>
+        <y:nimi kieli="sv">Oman</y:nimi>
+        <y:nimi kieli="fi">Oman</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="516">
+        <y:nimi kieli="en">Namibia</y:nimi>
+        <y:nimi kieli="sv">Namibia</y:nimi>
+        <y:nimi kieli="fi">Namibia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="520">
+        <y:nimi kieli="en">Nauru</y:nimi>
+        <y:nimi kieli="sv">Nauru</y:nimi>
+        <y:nimi kieli="fi">Nauru</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="524">
+        <y:nimi kieli="en">Nepal</y:nimi>
+        <y:nimi kieli="sv">Nepal</y:nimi>
+        <y:nimi kieli="fi">Nepal</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="528">
+        <y:nimi kieli="en">Netherlands</y:nimi>
+        <y:nimi kieli="sv">Nederländerna</y:nimi>
+        <y:nimi kieli="fi">Alankomaat</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="531">
+        <y:nimi kieli="en">Curaçao</y:nimi>
+        <y:nimi kieli="sv">Curaçao</y:nimi>
+        <y:nimi kieli="fi">Curaçao</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="533">
+        <y:nimi kieli="en">Aruba</y:nimi>
+        <y:nimi kieli="sv">Aruba</y:nimi>
+        <y:nimi kieli="fi">Aruba</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="534">
+        <y:nimi kieli="en">Sint Maarten (Dutch part)</y:nimi>
+        <y:nimi kieli="sv">Sint Maarten</y:nimi>
+        <y:nimi kieli="fi">Sint Maarten(Alankomaiden osa)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="535">
+        <y:nimi kieli="en">Bonaire, Sint Eustatius and Saba</y:nimi>
+        <y:nimi kieli="sv">Bonaire, Sint Eustatius och Saba</y:nimi>
+        <y:nimi kieli="fi">Bonaire, Sint Eustatius ja Saba</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="540">
+        <y:nimi kieli="en">New Caledonia</y:nimi>
+        <y:nimi kieli="sv">Nya Kaledonien</y:nimi>
+        <y:nimi kieli="fi">Uusi-Kaledonia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="548">
+        <y:nimi kieli="en">Vanuatu</y:nimi>
+        <y:nimi kieli="sv">Vanuatu</y:nimi>
+        <y:nimi kieli="fi">Vanuatu</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="554">
+        <y:nimi kieli="en">New Zealand</y:nimi>
+        <y:nimi kieli="sv">Nya Zeeland</y:nimi>
+        <y:nimi kieli="fi">Uusi-Seelanti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="558">
+        <y:nimi kieli="en">Nicaragua</y:nimi>
+        <y:nimi kieli="sv">Nicaragua</y:nimi>
+        <y:nimi kieli="fi">Nicaragua</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="562">
+        <y:nimi kieli="en">Niger</y:nimi>
+        <y:nimi kieli="sv">Niger</y:nimi>
+        <y:nimi kieli="fi">Niger</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="566">
+        <y:nimi kieli="en">Nigeria</y:nimi>
+        <y:nimi kieli="sv">Nigeria</y:nimi>
+        <y:nimi kieli="fi">Nigeria</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="570">
+        <y:nimi kieli="en">Niue</y:nimi>
+        <y:nimi kieli="sv">Niue</y:nimi>
+        <y:nimi kieli="fi">Niue</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="574">
+        <y:nimi kieli="en">Norfolk Island</y:nimi>
+        <y:nimi kieli="sv">Norfolkön</y:nimi>
+        <y:nimi kieli="fi">Norfolkinsaari</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="578">
+        <y:nimi kieli="en">Norway</y:nimi>
+        <y:nimi kieli="sv">Norge</y:nimi>
+        <y:nimi kieli="fi">Norja</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="580">
+        <y:nimi kieli="en">Northern Mariana Islands</y:nimi>
+        <y:nimi kieli="sv">Norra Marianerna</y:nimi>
+        <y:nimi kieli="fi">Pohjois-Mariaanit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="581">
+        <y:nimi kieli="en">United States Minor Outlying Islands</y:nimi>
+        <y:nimi kieli="sv">Förenta staternas mindre öar</y:nimi>
+        <y:nimi kieli="fi">Yhdysvaltain pienet erillissaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="583">
+        <y:nimi kieli="en">Micronesia, Federated States of</y:nimi>
+        <y:nimi kieli="sv">Mikronesien</y:nimi>
+        <y:nimi kieli="fi">Mikronesia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="584">
+        <y:nimi kieli="en">Marshall Islands</y:nimi>
+        <y:nimi kieli="sv">Marshallöarna</y:nimi>
+        <y:nimi kieli="fi">Marshallinsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="585">
+        <y:nimi kieli="en">Palau</y:nimi>
+        <y:nimi kieli="sv">Palau</y:nimi>
+        <y:nimi kieli="fi">Palau</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="586">
+        <y:nimi kieli="en">Pakistan</y:nimi>
+        <y:nimi kieli="sv">Pakistan</y:nimi>
+        <y:nimi kieli="fi">Pakistan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="591">
+        <y:nimi kieli="en">Panama</y:nimi>
+        <y:nimi kieli="sv">Panama</y:nimi>
+        <y:nimi kieli="fi">Panama</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="598">
+        <y:nimi kieli="en">Papua New Guinea</y:nimi>
+        <y:nimi kieli="sv">Papua Nya Guinea</y:nimi>
+        <y:nimi kieli="fi">Papua-Uusi-Guinea</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="600">
+        <y:nimi kieli="en">Paraguay</y:nimi>
+        <y:nimi kieli="sv">Paraguay</y:nimi>
+        <y:nimi kieli="fi">Paraguay</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="604">
+        <y:nimi kieli="en">Peru</y:nimi>
+        <y:nimi kieli="sv">Peru</y:nimi>
+        <y:nimi kieli="fi">Peru</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="608">
+        <y:nimi kieli="en">Philippines</y:nimi>
+        <y:nimi kieli="sv">Filippinerna</y:nimi>
+        <y:nimi kieli="fi">Filippiinit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="612">
+        <y:nimi kieli="en">Pitcairn</y:nimi>
+        <y:nimi kieli="sv">Pitcairn</y:nimi>
+        <y:nimi kieli="fi">Pitcairn</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="616">
+        <y:nimi kieli="en">Poland</y:nimi>
+        <y:nimi kieli="sv">Polen</y:nimi>
+        <y:nimi kieli="fi">Puola</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="620">
+        <y:nimi kieli="en">Portugal</y:nimi>
+        <y:nimi kieli="sv">Portugal</y:nimi>
+        <y:nimi kieli="fi">Portugali</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="624">
+        <y:nimi kieli="en">Guinea-Bissau</y:nimi>
+        <y:nimi kieli="sv">Guinea-Bissau</y:nimi>
+        <y:nimi kieli="fi">Guinea-Bissau</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="626">
+        <y:nimi kieli="en">Timor-Leste</y:nimi>
+        <y:nimi kieli="sv">Östtimor</y:nimi>
+        <y:nimi kieli="fi">Itä-Timor</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="630">
+        <y:nimi kieli="en">Puerto Rico</y:nimi>
+        <y:nimi kieli="sv">Puerto Rico</y:nimi>
+        <y:nimi kieli="fi">Puerto Rico</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="634">
+        <y:nimi kieli="en">Qatar</y:nimi>
+        <y:nimi kieli="sv">Qatar</y:nimi>
+        <y:nimi kieli="fi">Qatar</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="638">
+        <y:nimi kieli="en">Réunion</y:nimi>
+        <y:nimi kieli="sv">Réunion</y:nimi>
+        <y:nimi kieli="fi">Réunion</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="642">
+        <y:nimi kieli="en">Romania</y:nimi>
+        <y:nimi kieli="sv">Rumänien</y:nimi>
+        <y:nimi kieli="fi">Romania</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="643">
+        <y:nimi kieli="en">Russian Federation</y:nimi>
+        <y:nimi kieli="sv">Ryssland</y:nimi>
+        <y:nimi kieli="fi">Venäjä</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="646">
+        <y:nimi kieli="en">Rwanda</y:nimi>
+        <y:nimi kieli="sv">Rwanda</y:nimi>
+        <y:nimi kieli="fi">Ruanda</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="652">
+        <y:nimi kieli="en">Saint Barthélemy</y:nimi>
+        <y:nimi kieli="sv">Saint Barthélemy</y:nimi>
+        <y:nimi kieli="fi">Saint Barthélemy</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="654">
+        <y:nimi kieli="en">Saint Helena, Ascension and Tristan da Cunha</y:nimi>
+        <y:nimi kieli="sv">Sankta Helena</y:nimi>
+        <y:nimi kieli="fi">Saint Helena</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="659">
+        <y:nimi kieli="en">Saint Kitts and Nevis</y:nimi>
+        <y:nimi kieli="sv">Saint Kitts och Nevis</y:nimi>
+        <y:nimi kieli="fi">Saint Kitts ja Nevis</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="660">
+        <y:nimi kieli="en">Anguilla</y:nimi>
+        <y:nimi kieli="sv">Anguilla</y:nimi>
+        <y:nimi kieli="fi">Anguilla</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="662">
+        <y:nimi kieli="en">Saint Lucia</y:nimi>
+        <y:nimi kieli="sv">Saint Lucia</y:nimi>
+        <y:nimi kieli="fi">Saint Lucia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="663">
+        <y:nimi kieli="en">Saint Martin (French part)</y:nimi>
+        <y:nimi kieli="sv">Saint Martin</y:nimi>
+        <y:nimi kieli="fi">Saint Martin (Ranska)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="666">
+        <y:nimi kieli="en">Saint Pierre and Miquelon</y:nimi>
+        <y:nimi kieli="sv">Saint-Pierre och Miquelon</y:nimi>
+        <y:nimi kieli="fi">Saint-Pierre ja Miquelon</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="670">
+        <y:nimi kieli="en">Saint Vincent and the Grenadines</y:nimi>
+        <y:nimi kieli="sv">Saint Vincent och Grenadinerna</y:nimi>
+        <y:nimi kieli="fi">Saint Vincent ja Grenadiinit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="674">
+        <y:nimi kieli="en">San Marino</y:nimi>
+        <y:nimi kieli="sv">San Marino</y:nimi>
+        <y:nimi kieli="fi">San Marino</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="678">
+        <y:nimi kieli="en">Sao Tome and Principe</y:nimi>
+        <y:nimi kieli="sv">São Tomé och Príncipe</y:nimi>
+        <y:nimi kieli="fi">São Tomé ja Príncipe</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="682">
+        <y:nimi kieli="en">Saudi Arabia</y:nimi>
+        <y:nimi kieli="sv">Saudiarabien</y:nimi>
+        <y:nimi kieli="fi">Saudi-Arabia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="686">
+        <y:nimi kieli="en">Senegal</y:nimi>
+        <y:nimi kieli="sv">Senegal</y:nimi>
+        <y:nimi kieli="fi">Senegal</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="688">
+        <y:nimi kieli="en">Serbia</y:nimi>
+        <y:nimi kieli="sv">Serbien</y:nimi>
+        <y:nimi kieli="fi">Serbia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="690">
+        <y:nimi kieli="en">Seychelles</y:nimi>
+        <y:nimi kieli="sv">Seychellerna</y:nimi>
+        <y:nimi kieli="fi">Seychellit</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="694">
+        <y:nimi kieli="en">Sierra Leone</y:nimi>
+        <y:nimi kieli="sv">Sierra Leone</y:nimi>
+        <y:nimi kieli="fi">Sierra Leone</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="702">
+        <y:nimi kieli="en">Singapore</y:nimi>
+        <y:nimi kieli="sv">Singapore</y:nimi>
+        <y:nimi kieli="fi">Singapore</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="703">
+        <y:nimi kieli="en">Slovakia</y:nimi>
+        <y:nimi kieli="sv">Slovakien</y:nimi>
+        <y:nimi kieli="fi">Slovakia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="704">
+        <y:nimi kieli="en">Viet Nam</y:nimi>
+        <y:nimi kieli="sv">Vietnam</y:nimi>
+        <y:nimi kieli="fi">Vietnam</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="705">
+        <y:nimi kieli="en">Slovenia</y:nimi>
+        <y:nimi kieli="sv">Slovenien</y:nimi>
+        <y:nimi kieli="fi">Slovenia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="706">
+        <y:nimi kieli="en">Somalia</y:nimi>
+        <y:nimi kieli="sv">Somalia</y:nimi>
+        <y:nimi kieli="fi">Somalia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="710">
+        <y:nimi kieli="en">South Africa</y:nimi>
+        <y:nimi kieli="sv">Sydafrika</y:nimi>
+        <y:nimi kieli="fi">Etelä-Afrikka</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="716">
+        <y:nimi kieli="en">Zimbabwe</y:nimi>
+        <y:nimi kieli="sv">Zimbabwe</y:nimi>
+        <y:nimi kieli="fi">Zimbabwe</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="724">
+        <y:nimi kieli="en">Spain</y:nimi>
+        <y:nimi kieli="sv">Spanien</y:nimi>
+        <y:nimi kieli="fi">Espanja</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="728">
+        <y:nimi kieli="en">South Sudan</y:nimi>
+        <y:nimi kieli="sv">Sydsudan</y:nimi>
+        <y:nimi kieli="fi">Etelä-Sudan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="729">
+        <y:nimi kieli="en">Sudan</y:nimi>
+        <y:nimi kieli="sv">Sudan</y:nimi>
+        <y:nimi kieli="fi">Sudan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="732">
+        <y:nimi kieli="en">Western Sahara</y:nimi>
+        <y:nimi kieli="sv">Västsahara</y:nimi>
+        <y:nimi kieli="fi">Länsi-Sahara</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="740">
+        <y:nimi kieli="en">Suriname</y:nimi>
+        <y:nimi kieli="sv">Surinam</y:nimi>
+        <y:nimi kieli="fi">Suriname</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="744">
+        <y:nimi kieli="en">Svalbard and Jan Mayen</y:nimi>
+        <y:nimi kieli="sv">Svalbard och Jan Mayen</y:nimi>
+        <y:nimi kieli="fi">Svalbard ja Jan Mayen</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="748">
+        <y:nimi kieli="en">Swaziland</y:nimi>
+        <y:nimi kieli="sv">Swaziland</y:nimi>
+        <y:nimi kieli="fi">Swazimaa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="752">
+        <y:nimi kieli="en">Sweden</y:nimi>
+        <y:nimi kieli="sv">Sverige</y:nimi>
+        <y:nimi kieli="fi">Ruotsi</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="756">
+        <y:nimi kieli="en">Switzerland</y:nimi>
+        <y:nimi kieli="sv">Schweiz</y:nimi>
+        <y:nimi kieli="fi">Sveitsi</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="760">
+        <y:nimi kieli="en">Syrian Arab Republic</y:nimi>
+        <y:nimi kieli="sv">Syrien</y:nimi>
+        <y:nimi kieli="fi">Syyria</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="762">
+        <y:nimi kieli="en">Tajikistan</y:nimi>
+        <y:nimi kieli="sv">Tadzjikistan</y:nimi>
+        <y:nimi kieli="fi">Tadžikistan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="764">
+        <y:nimi kieli="en">Thailand</y:nimi>
+        <y:nimi kieli="sv">Thailand</y:nimi>
+        <y:nimi kieli="fi">Thaimaa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="768">
+        <y:nimi kieli="en">Togo</y:nimi>
+        <y:nimi kieli="sv">Togo</y:nimi>
+        <y:nimi kieli="fi">Togo</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="772">
+        <y:nimi kieli="en">Tokelau</y:nimi>
+        <y:nimi kieli="sv">Tokelau</y:nimi>
+        <y:nimi kieli="fi">Tokelau</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="776">
+        <y:nimi kieli="en">Tonga</y:nimi>
+        <y:nimi kieli="sv">Tonga</y:nimi>
+        <y:nimi kieli="fi">Tonga</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="780">
+        <y:nimi kieli="en">Trinidad and Tobago</y:nimi>
+        <y:nimi kieli="sv">Trinidad och Tobago</y:nimi>
+        <y:nimi kieli="fi">Trinidad ja Tobago</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="784">
+        <y:nimi kieli="en">United Arab Emirates</y:nimi>
+        <y:nimi kieli="sv">Arabemiraten</y:nimi>
+        <y:nimi kieli="fi">Arabiemiirikunnat</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="788">
+        <y:nimi kieli="en">Tunisia</y:nimi>
+        <y:nimi kieli="sv">Tunisien</y:nimi>
+        <y:nimi kieli="fi">Tunisia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="792">
+        <y:nimi kieli="en">Turkey</y:nimi>
+        <y:nimi kieli="sv">Turkiet</y:nimi>
+        <y:nimi kieli="fi">Turkki</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="795">
+        <y:nimi kieli="en">Turkmenistan</y:nimi>
+        <y:nimi kieli="sv">Turkmenistan</y:nimi>
+        <y:nimi kieli="fi">Turkmenistan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="796">
+        <y:nimi kieli="en">Turks and Caicos Islands</y:nimi>
+        <y:nimi kieli="sv">Turks- och Caicosöarna</y:nimi>
+        <y:nimi kieli="fi">Turks- ja Caicossaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="798">
+        <y:nimi kieli="en">Tuvalu</y:nimi>
+        <y:nimi kieli="sv">Tuvalu</y:nimi>
+        <y:nimi kieli="fi">Tuvalu</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="800">
+        <y:nimi kieli="en">Uganda</y:nimi>
+        <y:nimi kieli="sv">Uganda</y:nimi>
+        <y:nimi kieli="fi">Uganda</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="804">
+        <y:nimi kieli="en">Ukraine</y:nimi>
+        <y:nimi kieli="sv">Ukraina</y:nimi>
+        <y:nimi kieli="fi">Ukraina</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="807">
+        <y:nimi kieli="en">Macedonia, the former Yugoslav Republic of</y:nimi>
+        <y:nimi kieli="sv">Makedonien</y:nimi>
+        <y:nimi kieli="fi">Makedonia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="818">
+        <y:nimi kieli="en">Egypt</y:nimi>
+        <y:nimi kieli="sv">Egypten</y:nimi>
+        <y:nimi kieli="fi">Egypti</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="826">
+        <y:nimi kieli="en">United Kingdom</y:nimi>
+        <y:nimi kieli="sv">Storbritannien</y:nimi>
+        <y:nimi kieli="fi">Britannia</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="831">
+        <y:nimi kieli="en">Guernsey</y:nimi>
+        <y:nimi kieli="sv">Guernsey</y:nimi>
+        <y:nimi kieli="fi">Guernsey</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="832">
+        <y:nimi kieli="en">Jersey</y:nimi>
+        <y:nimi kieli="sv">Jersey</y:nimi>
+        <y:nimi kieli="fi">Jersey</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="833">
+        <y:nimi kieli="en">Isle of Man</y:nimi>
+        <y:nimi kieli="sv">Isle of Man</y:nimi>
+        <y:nimi kieli="fi">Mansaari</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="834">
+        <y:nimi kieli="en">Tanzania, United Republic of</y:nimi>
+        <y:nimi kieli="sv">Tanzania</y:nimi>
+        <y:nimi kieli="fi">Tansania</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="840">
+        <y:nimi kieli="en">United States</y:nimi>
+        <y:nimi kieli="sv">Förenta staterna (USA)</y:nimi>
+        <y:nimi kieli="fi">Yhdysvallat (USA)</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="850">
+        <y:nimi kieli="en">Virgin Islands, U.S.</y:nimi>
+        <y:nimi kieli="sv">Amerikanska Jungfruöarna</y:nimi>
+        <y:nimi kieli="fi">Yhdysvaltain Neitsytsaaret</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="854">
+        <y:nimi kieli="en">Burkina Faso</y:nimi>
+        <y:nimi kieli="sv">Burkina Faso</y:nimi>
+        <y:nimi kieli="fi">Burkina Faso</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="858">
+        <y:nimi kieli="en">Uruguay</y:nimi>
+        <y:nimi kieli="sv">Uruguay</y:nimi>
+        <y:nimi kieli="fi">Uruguay</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="860">
+        <y:nimi kieli="en">Uzbekistan</y:nimi>
+        <y:nimi kieli="sv">Uzbekistan</y:nimi>
+        <y:nimi kieli="fi">Uzbekistan</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="862">
+        <y:nimi kieli="en">Venezuela, Bolivarian Republic of</y:nimi>
+        <y:nimi kieli="sv">Venezuela</y:nimi>
+        <y:nimi kieli="fi">Venezuela</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="876">
+        <y:nimi kieli="en">Wallis and Futuna</y:nimi>
+        <y:nimi kieli="sv">Wallis och Futuna</y:nimi>
+        <y:nimi kieli="fi">Wallis ja Futuna</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="882">
+        <y:nimi kieli="en">Samoa</y:nimi>
+        <y:nimi kieli="sv">Samoa</y:nimi>
+        <y:nimi kieli="fi">Samoa</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="887">
+        <y:nimi kieli="en">Yemen</y:nimi>
+        <y:nimi kieli="sv">Yemen</y:nimi>
+        <y:nimi kieli="fi">Jemen</y:nimi>
+    </kood:maakoodi>
+    <kood:maakoodi tunnus="894">
+        <y:nimi kieli="en">Zambia</y:nimi>
+        <y:nimi kieli="sv">Zambia</y:nimi>
+        <y:nimi kieli="fi">Sambia</y:nimi>
+    </kood:maakoodi>
+    <kood:suhdePeruskiinteistoon tunnus="0">
+        <y:nimi kieli="fi">(Ei arvoa)</y:nimi>
+        <y:nimi kieli="sv">(Inget värde)</y:nimi>
+    </kood:suhdePeruskiinteistoon>
+    <kood:suhdePeruskiinteistoon tunnus="101">
+        <y:nimi kieli="fi">Peruskiinteistön alapuolinen</y:nimi>
+        <y:nimi kieli="sv">Nedanför basfastigheten</y:nimi>
+    </kood:suhdePeruskiinteistoon>
+    <kood:suhdePeruskiinteistoon tunnus="102">
+        <y:nimi kieli="fi">Peruskiinteistön yläpuolinen</y:nimi>
+        <y:nimi kieli="sv">Ovanför basfastigheten</y:nimi>
+    </kood:suhdePeruskiinteistoon>
+    <kood:lukuuntoiminnanlaji tunnus="OL">
+        <y:nimi kieli="fi">Omaan lukuun</y:nimi>
+        <y:nimi kieli="sv">För egen räkning</y:nimi>
+    </kood:lukuuntoiminnanlaji>
+    <kood:lukuuntoiminnanlaji tunnus="PA">
+        <y:nimi kieli="fi">Perustettavan asunto-osakeyhtiön lukuun</y:nimi>
+        <y:nimi kieli="sv">För ett under bildning varande bostadsaktiebolags räkning</y:nimi>
+    </kood:lukuuntoiminnanlaji>
+    <kood:lukuuntoiminnanlaji tunnus="PY">
+        <y:nimi kieli="fi">Perustettavan yhteisön tai säätiön lukuun</y:nimi>
+        <y:nimi kieli="sv">För en under bildning varande sammanslutning eller stiftelse</y:nimi>
+    </kood:lukuuntoiminnanlaji>
+</kood:Koodistot>
