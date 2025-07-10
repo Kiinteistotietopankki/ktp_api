@@ -15,8 +15,8 @@ const swaggerSpec = require('./swagger.js');
 
 const authenticateAzure = require('./middlewares/authAzureMiddleware');
 
-const microsoftAuthRoutes = require('./auth/microsoftAuth');
-const profileRoute = require('./routes/profileroute');
+const microsoftAuthRoutes = require('./auth/microsoftAuth.js');
+const profileRoute = require('./routes/profileRoute.js');
 const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
 const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')

@@ -1,8 +1,8 @@
 var DataTypes = require("sequelize").DataTypes;
-var _kiinteistot = require("./kiinteistot");
-var _lokitus = require("./lokitus");
-var _rakennukset_full = require("./rakennukset_full");
-var _row_metadata = require("./row_metadata");
+var _kiinteistot = require("./Kiinteistot.js");
+var _lokitus = require("./Lokitus.js");
+var _rakennukset_full = require("./rakennukset_full.js");
+var _row_metadata = require("./row_metadata.js");
 
 function initModels(sequelize) {
   var kiinteistot = _kiinteistot(sequelize, DataTypes);
