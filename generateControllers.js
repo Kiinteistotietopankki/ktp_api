@@ -1,6 +1,48 @@
 const fs = require('fs');
 const path = require('path');
 
+const reservedKeywords = new Set([
+  'break', 'case', 'catch', 'class', 'const', 'continue', 'debugger', 'default',
+  'delete', 'do', 'else', 'export', 'extends', 'finally', 'for', 'function', 'if',
+  'import', 'in', 'instanceof', 'new', 'return', 'super', 'switch', 'this', 'throw',
+  'try', 'typeof', 'var', 'void', 'while', 'with', 'yield', 'let', 'static', 'await'
+]);
+
+function isValidIdentifier(name) {
+  // simple regex for valid JS identifier names
+  return /^[A-Za-z$_][A-Za-z0-9$_]*$/.test(name) && !reservedKeywords.has(name);
+}
+
+function sanitizeParamName(param) {
+  // Remove all invalid characters and leading non-letters/underscore/dollar
+  let clean = param.replace(/[^\w$]/g, '');
+  // If first char not letter/$_, prefix with _
+  if (!/^[A-Za-z$_]/.test(clean)) clean = '_' + clean;
+  return clean;
+}
+
+function parseParams(paramString) {
+  if (!paramString.trim()) return [];
+  return paramString
+    .split(',')
+    .map(p => p.trim().split('=')[0].trim())
+    .map(p => p.replace(/[\{\}\[\]\.\.\.]/g, ''))
+    .filter(p => p.length > 0)
+    .map(sanitizeParamName)
+    .filter(isValidIdentifier);
+}
+
+function generateParamExtraction(param) {
+  if (/id|page|limit|count|number|year/i.test(param)) {
+    return `const ${param} = parseInt(req.query.${param}) || 0;`;
+  }
+  return `const ${param} = req.query.${param} || '';`;
+}
+
+function camelCase(str) {
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
 async function main() {
   const args = process.argv.slice(2);
   if (args.length === 0) {
@@ -14,73 +56,80 @@ async function main() {
     process.exit(1);
   }
 
-  const fileContent = fs.readFileSync(serviceFilePath, 'utf-8');
+  const content = fs.readFileSync(serviceFilePath, 'utf-8');
 
-  // Extract service class name (optional, not used here but could be logged)
-  const classNameMatch = fileContent.match(/class\s+([A-Za-z0-9_]+)/);
-  const className = classNameMatch ? classNameMatch[1] : 'Service';
+  const classMatch = content.match(/class\s+([A-Za-z0-9_]+)/);
+  if (!classMatch) {
+    console.error('No class declaration found.');
+    process.exit(1);
+  }
+  const className = classMatch[1];
+  const serviceInstanceName = camelCase(className);
 
-  // Extract methods (skip constructor and methods starting with _)
-  const methodRegex = /^\s*(?:async\s+)?([a-zA-Z0-9_]+)\s*\(/gm;
+  const methodRegex = /(?:async\s+)?([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*\{/g;
+
   const methods = [];
   let match;
-  while ((match = methodRegex.exec(fileContent)) !== null) {
+  while ((match = methodRegex.exec(content)) !== null) {
     const methodName = match[1];
-    if (methodName !== 'constructor' && !methodName.startsWith('_')) {
-      methods.push(methodName);
+    if (methodName === 'constructor') continue;
+    if (!isValidIdentifier(methodName)) {
+      console.warn(`Skipping invalid method name: ${methodName}`);
+      continue;
     }
+    const paramString = match[2];
+    const params = parseParams(paramString);
+    methods.push({ methodName, params });
   }
 
   if (methods.length === 0) {
-    console.error('No methods found in the service class.');
+    console.error('No valid methods found in the service class.');
     process.exit(1);
   }
 
-  // Derive a service variable name in camelCase from class name, or fallback
-  function toCamelCase(str) {
-    return str.charAt(0).toLowerCase() + str.slice(1);
-  }
-  const serviceInstanceName = toCamelCase(className);
+  const controllersDir = path.resolve(__dirname, 'controllers');
+  const relativeRequirePath = path.relative(controllersDir, serviceFilePath).replace(/\\/g, '/');
+  const requirePath = relativeRequirePath.startsWith('.') ? relativeRequirePath : './' + relativeRequirePath;
 
-  // Basic param name and param checker function name, you can customize these or pass as args later
-  const paramName = 'param';
-  const paramCheckerFn = 'tarkistaParam';
+  function genController({ methodName, params }) {
+    const paramLines = params.map(generateParamExtraction).join('\n    ');
+    const callParams = params.join(', ');
 
-  // Generate controller code for one method
-  function generateController(method) {
     return `
-exports.${method} = async (req, res) => {
-  const ${paramName} = ${paramCheckerFn}(req, res);
-  if (!${paramName}) return;
-  await handleRequest(res, () => ${serviceInstanceName}.${method}(${paramName}));
+exports.${methodName} = async (req, res) => {
+  try {
+    ${paramLines ? paramLines : '// no params'}
+
+    const result = await ${serviceInstanceName}.${methodName}(${callParams});
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 `.trim();
   }
 
-  const controllerFileContent = `
-// AUTO-GENERATED CONTROLLERS for ${className} from ${path.basename(serviceFilePath)}
+  const controllersCode = methods.map(genController).join('\n\n');
 
-const { ${className} } = require('../services/${path.basename(serviceFilePath, '.js')}');
+  const controllerFileContent = `
+// AUTO-GENERATED CONTROLLER for ${className} from ${path.basename(serviceFilePath)}
+
+const ${className} = require('${requirePath}');
 const ${serviceInstanceName} = new ${className}();
 
-const { ${paramCheckerFn}, handleRequest } = require('../utils/helpers'); // Adjust imports as needed
-
-${methods.map(generateController).join('\n\n')}
+${controllersCode}
 `.trim();
 
-  // Output directory `/controllers` relative to script location
-  const outputDir = path.resolve(__dirname, 'controllers');
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
+  if (!fs.existsSync(controllersDir)) {
+    fs.mkdirSync(controllersDir);
   }
 
-  // Output file name, e.g. MMLTilastotService.js -> MMLTilastotServiceController.js
   const outputFileName = path.basename(serviceFilePath, '.js') + 'Controller.js';
-  const outputPath = path.join(outputDir, outputFileName);
+  const outputPath = path.join(controllersDir, outputFileName);
 
   fs.writeFileSync(outputPath, controllerFileContent, 'utf-8');
 
-  console.log(`Controllers generated and saved to ${outputPath}`);
+  console.log(`Controller file generated at: ${outputPath}`);
 }
 
 main();
