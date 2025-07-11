@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mmlController = require('../controllers/MMLKiinteistotController');
+const mmlController = require('../controllers/MMLKiinteistotController.js');
 
 // Perustiedot
 

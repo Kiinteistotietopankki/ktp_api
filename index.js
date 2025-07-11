@@ -23,6 +23,7 @@ const lokitusRoutes = require('./routes/lokitusRoutes.js')
 const metadataRoutes = require('./routes/row_metadataRoutes.js')
 
 const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
+const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
 
 // Middleware setup
 app.use(express.json());
@@ -55,6 +56,7 @@ app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
 app.use('/api/row_metadata', metadataRoutes);
 app.use('/api/mml', MMLKiinteistotRoutes);
+app.use('/api/mmltulosteet', MMLTulosteetRoutes);
 
 
 // Proxy test route
