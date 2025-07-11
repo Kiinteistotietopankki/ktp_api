@@ -8,7 +8,7 @@ const mmlController = require('../controllers/MMLKiinteistotController');
  * @swagger
  * /api/mml/perustiedot/{kohdetunnus}:
  *   get:
- *     summary: Get perustiedot XML data for a given kohdetunnus
+ *     summary: Get perustiedot JSON data for a given kohdetunnus
  *     tags: [MML Kiinteistot - perustiedot]
  *     parameters:
  *       - in: path
@@ -19,9 +19,9 @@ const mmlController = require('../controllers/MMLKiinteistotController');
  *         description: Kohdetunnus, jonka perustiedot haetaan
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -47,9 +47,9 @@ router.get('/perustiedot/:kohdetunnus', mmlController.haePerustiedot);
  *         description: Kohdetunnus, jolla rekisteriyksikkö haetaan
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -74,9 +74,9 @@ router.get('/rekisteriyksikko/:kohdetunnus', mmlController.haeRekisteriyksikkoa)
  *         description: Kohdetunnus, jolla määräala haetaan
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -101,9 +101,9 @@ router.get('/maara_ala/:kohdetunnus', mmlController.haeMaara_alaa);
  *         description: Kohdetunnus, jolla laitos haetaan
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -128,9 +128,9 @@ router.get('/laitos/:kohdetunnus', mmlController.haeLaitosta);
  *         description: Kohdetunnus, jolla yhteystiedot haetaan
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -146,7 +146,7 @@ router.get('/yhteystieto/:kohdetunnus', mmlController.haeYhteystiedot);
  * @swagger
  * /api/mml/lainhuutotiedot/ilmanhenkilotietoja/{kohdetunnus}:
  *   get:
- *     summary: Get lainhuutotiedot (without personal data) as XML
+ *     summary: Get lainhuutotiedot (without personal data) as JSON
  *     tags: [MML Kiinteistot - lainhuutotiedot]
  *     parameters:
  *       - in: path
@@ -157,9 +157,9 @@ router.get('/yhteystieto/:kohdetunnus', mmlController.haeYhteystiedot);
  *         description: Kohdetunnus
  *     responses:
  *       200:
- *         description: XML-data palautettu ilman henkilötietoja
+ *         description: JSON-data palautettu ilman henkilötietoja
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -173,7 +173,7 @@ router.get('/lainhuutotiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController.ha
  * @swagger
  * /api/mml/lainhuutotiedot/ilmanhenkilotunnuksia/{kohdetunnus}:
  *   get:
- *     summary: Get lainhuutotiedot (without personal identity numbers) as XML
+ *     summary: Get lainhuutotiedot (without personal identity numbers) as JSON
  *     tags: [MML Kiinteistot - lainhuutotiedot]
  *     parameters:
  *       - in: path
@@ -184,9 +184,9 @@ router.get('/lainhuutotiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController.ha
  *         description: Kohdetunnus
  *     responses:
  *       200:
- *         description: XML-data palautettu ilman henkilötunnuksia
+ *         description: JSON-data palautettu ilman henkilötunnuksia
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -211,9 +211,9 @@ router.get('/lainhuutotiedot/ilmanhenkilotunnuksia/:kohdetunnus', mmlController.
  *         description: Kohdetunnus
  *     responses:
  *       200:
- *         description: XML-data palautettu kaikkine henkilötietoineen
+ *         description: JSON-data palautettu kaikkine henkilötietoineen
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  *       400:
@@ -229,7 +229,7 @@ router.get('/lainhuutotiedot/henkilotunnuksilla/:kohdetunnus', mmlController.hae
  * @swagger
  * /api/mml/rasitustiedot/ilmanhenkilotietoja/{kohdetunnus}:
  *   get:
- *     summary: Get rasitustiedot (without personal data) as XML
+ *     summary: Get rasitustiedot (without personal data) as JSON
  *     tags: [MML Kiinteistot - rasitustiedot]
  *     parameters:
  *       - in: path
@@ -239,9 +239,9 @@ router.get('/lainhuutotiedot/henkilotunnuksilla/:kohdetunnus', mmlController.hae
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
@@ -251,7 +251,7 @@ router.get('/rasitustiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController.haeR
  * @swagger
  * /api/mml/rasitustiedot/ilmanhenkilotunnuksia/{kohdetunnus}:
  *   get:
- *     summary: Get rasitustiedot (without personal identity numbers) as XML
+ *     summary: Get rasitustiedot (without personal identity numbers) as JSON
  *     tags: [MML Kiinteistot - rasitustiedot]
  *     parameters:
  *       - in: path
@@ -261,9 +261,9 @@ router.get('/rasitustiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController.haeR
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
@@ -283,9 +283,9 @@ router.get('/rasitustiedot/ilmanhenkilotunnuksia/:kohdetunnus', mmlController.ha
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
@@ -297,7 +297,7 @@ router.get('/rasitustiedot/henkilotunnuksilla/:kohdetunnus', mmlController.haeRa
  * @swagger
  * /api/mml/vuokraoikeustiedot/ilmanhenkilotietoja/{kohdetunnus}:
  *   get:
- *     summary: Get vuokraoikeustiedot (without personal data) as XML
+ *     summary: Get vuokraoikeustiedot (without personal data) as JSON
  *     tags: [MML Kiinteistot - vuokraoikeustiedot]
  *     parameters:
  *       - in: path
@@ -307,9 +307,9 @@ router.get('/rasitustiedot/henkilotunnuksilla/:kohdetunnus', mmlController.haeRa
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
@@ -319,7 +319,7 @@ router.get('/vuokraoikeustiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController
  * @swagger
  * /api/mml/vuokraoikeustiedot/ilmanhenkilotunnuksia/{kohdetunnus}:
  *   get:
- *     summary: Get vuokraoikeustiedot (without personal identity numbers) as XML
+ *     summary: Get vuokraoikeustiedot (without personal identity numbers) as JSON
  *     tags: [MML Kiinteistot - vuokraoikeustiedot]
  *     parameters:
  *       - in: path
@@ -329,9 +329,9 @@ router.get('/vuokraoikeustiedot/ilmanhenkilotietoja/:kohdetunnus', mmlController
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: JSON-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
@@ -351,9 +351,9 @@ router.get('/vuokraoikeustiedot/ilmanhenkilotunnuksia/:kohdetunnus', mmlControll
  *           type: string
  *     responses:
  *       200:
- *         description: XML-data palautettu
+ *         description: json-data palautettu
  *         content:
- *           application/xml:
+ *           application/json:
  *             schema:
  *               type: string
  */
