@@ -27,7 +27,7 @@ class MMLKiinteistotService {
     }
   }
 
-  
+  //  LAINHUUTOTIEDOT
 
   async haeLainhuutotiedotIlmanhenkilotietoja(kohdetunnus) {
     const url = `${this.baseUrl}/lainhuutotiedot_ilman_henkilotietoja/xml`;
@@ -63,6 +63,25 @@ class MMLKiinteistotService {
     }
   }
 
+
+  // RASITUSTIEDOT 
+
+    async haeRasitustiedotIlmanhenkilotietoja(kohdetunnus) {
+    const url = `${this.baseUrl}/rasitustiedot_ilman_henkilotietoja/xml`;
+    try {
+      const response = await axios.get(url, {
+        params: { kohdetunnus },
+        auth: this.auth,
+        headers: {
+          userid: this.userid  // add your actual user ID here
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching perustiedot:', error.message);
+      throw error;
+    }
+  }
   
 
 }

@@ -15,6 +15,8 @@ exports.haePerustiedot = async (req, res) => {
   }
 };
 
+// LAINHUUTOTIEDOT
+
 exports.haeLainhuutotiedotIlmanhenkilotietoja = async (req, res) => {
     try {
       const kohdetunnus = req.params.kohdetunnus;
@@ -37,6 +39,22 @@ exports.haeLainhuutotiedotIlmanhenkilotietoja = async (req, res) => {
       }
 
       const xmlData = await kiinteistotService.haeLainhuutotiedotIlmanhenkilotunnuksia(kohdetunnus);
+      res.type('application/xml').send(xmlData);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+
+  // RASITUSTIEDOT
+
+  exports.haeRasitustiedotIlmanhenkilotietoja = async (req, res) => {
+    try {
+      const kohdetunnus = req.params.kohdetunnus;
+      if (!kohdetunnus) {
+        return res.status(400).json({ error: 'kohdetunnus parameter is required' });
+      }
+
+      const xmlData = await kiinteistotService.haeRasitustiedotIlmanhenkilotietoja(kohdetunnus);
       res.type('application/xml').send(xmlData);
     } catch (error) {
       res.status(500).json({ error: error.message });
