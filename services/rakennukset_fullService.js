@@ -66,6 +66,8 @@ class Rakennukset_fullService {
     const item = await rakennukset_full.findByPk(id);
     if (!item) throw new Error('Rakennukset_full not found');
 
+    console.log(dataArray)
+
     for (const data of dataArray) {
       const { metadata, ...mainData } = data;
 
@@ -75,9 +77,10 @@ class Rakennukset_fullService {
 
       if (metadata && Object.keys(metadata).length > 0) {
         await Row_metadataService.updateByRowId('rakennukset_full', id, metadata);
-      } else {
-        console.log('NO METADATA PROVIDED for one update object');
       }
+      // else {
+      //   // optionally ignore or log: no metadata, so no update
+      // }
     }
 
     return item;

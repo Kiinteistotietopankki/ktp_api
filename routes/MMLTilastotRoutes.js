@@ -26,7 +26,11 @@ const controller = require('../controllers/MMLTilastotController.js');
  *         name: years
  *         required: false
  *         schema:
- *           type: integer
+ *           type: array
+ *              items:integer
+ *         style: form
+ *         explode: true
+ * 
  *     responses:
  *       200:
  *         description: JSON data returned
