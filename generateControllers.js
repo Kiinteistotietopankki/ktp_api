@@ -123,9 +123,10 @@ ${controllersCode}
   if (!fs.existsSync(controllersDir)) {
     fs.mkdirSync(controllersDir);
   }
-
-  const outputFileName = path.basename(serviceFilePath, '.js') + 'Controller.js';
-  const outputPath = path.join(controllersDir, outputFileName);
+    const originalName = path.basename(serviceFilePath, '.js');  // e.g. "MMLTilastotService"
+    const baseName = originalName.replace(/Service$/, '');        // remove trailing 'Service' if present
+    const outputFileName = baseName + 'Controller.js';            // e.g. "MMLTilastotController.js"
+    const outputPath = path.join(controllersDir, outputFileName);
 
   fs.writeFileSync(outputPath, controllerFileContent, 'utf-8');
 

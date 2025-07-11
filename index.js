@@ -24,6 +24,7 @@ const metadataRoutes = require('./routes/row_metadataRoutes.js')
 
 const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
 const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
+const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 
 // Middleware setup
 app.use(express.json());
@@ -57,6 +58,7 @@ app.use('/api/lokitus', lokitusRoutes);
 app.use('/api/row_metadata', metadataRoutes);
 app.use('/api/mml', MMLKiinteistotRoutes);
 app.use('/api/mmltulosteet', MMLTulosteetRoutes);
+app.use('/api/tilastot', MMLTilastotRoutes);
 
 
 // Proxy test route
