@@ -7,83 +7,91 @@ class MMLKiinteistotService {
       username: process.env.MML_KIINTEISTO_NAME,
       password: process.env.MML_KIINTEISTO_PASSWORD,
     };
-    this.userid = 'dev_no_auth'
+    this.userid = 'dev_no_auth';
   }
+
+  //Perustieto
 
   async haePerustiedot(kohdetunnus) {
-    const url = `${this.baseUrl}/perustiedot/kohde/xml`;
-    try {
-      const response = await axios.get(url, {
-        params: { kohdetunnus },
-        auth: this.auth,
-        headers: {
-          userid: this.userid  // add your actual user ID here
-        }
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching perustiedot:', error.message);
-      throw error;
-    }
+    return this._get('/perustiedot/kohde/xml', kohdetunnus);
   }
 
-  //  LAINHUUTOTIEDOT
+    async haeRekisteriyksikkoa(kohdetunnus) {
+    return this._get('/perustiedot/rekisteriyksikko/kohde/xml', kohdetunnus);
+  }
+
+  async haeMaara_alaa(kohdetunnus) {
+    return this._get('/perustiedot/maaraala/kohde/xml', kohdetunnus);
+  }
+
+  async haeLaitosta(kohdetunnus) {
+    return this._get('/perustiedot/laitos/kohde/xml', kohdetunnus);
+  }
+
+  async haeYhteystiedot(kohdetunnus) {
+    return this._get('/yhteystiedot/xml', kohdetunnus);
+  }
+
+  // Lainhuutotiedot
 
   async haeLainhuutotiedotIlmanhenkilotietoja(kohdetunnus) {
-    const url = `${this.baseUrl}/lainhuutotiedot_ilman_henkilotietoja/xml`;
-    try {
-      const response = await axios.get(url, {
-        params: { kohdetunnus },
-        auth: this.auth,
-        headers: {
-          userid: this.userid  // add your actual user ID here
-        }
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching perustiedot:', error.message);
-      throw error;
-    }
+    return this._get('/lainhuutotiedot_ilman_henkilotietoja/xml', kohdetunnus);
   }
 
   async haeLainhuutotiedotIlmanhenkilotunnuksia(kohdetunnus) {
-    const url = `${this.baseUrl}/lainhuutotiedot_ilman_henkilotunnusta/xml`;
+    return this._get('/lainhuutotiedot_ilman_henkilotunnusta/xml', kohdetunnus);
+  }
+
+  async haeLainhuutotiedotHenkilotunnuksilla(kohdetunnus) {
+    return this._get('/lainhuutotiedot/xml', kohdetunnus);
+  }
+
+  // Rasitustiedot
+
+  async haeRasitustiedotIlmanhenkilotietoja(kohdetunnus) {
+    return this._get('/rasitustiedot_ilman_henkilotietoja/xml', kohdetunnus);
+  }
+
+  async haeRasitustiedotIlmanhenkilotunnuksia(kohdetunnus) {
+    return this._get('/rasitustiedot_ilman_henkilotunnusta/xml', kohdetunnus);
+  }
+
+  async haeRasitustiedotHenkilotunnuksilla(kohdetunnus) {
+    return this._get('/rasitustiedot/xml', kohdetunnus);
+  }
+
+
+  // Vuokraoikeustiedot
+  async haeVuokraoikeustiedotIlmanhenkilotunnuksia(kohdetunnus) {
+    return this._get('/vuokraoikeustiedot_ilman_henkilotunnusta/xml', kohdetunnus);
+  }
+
+  async haeVuokraoikeustiedotIlmanhenkilotietoja(kohdetunnus) {
+    return this._get('/vuokraoikeustiedot_ilman_henkilotietoja/xml', kohdetunnus);
+  }
+
+  async haeVuokraoikeustiedotHenkilotunnuksilla(kohdetunnus) {
+    return this._get('/vuokraoikeustiedot/xml', kohdetunnus);
+  }
+
+
+
+  async _get(path, kohdetunnus) {
+    const url = `${this.baseUrl}${path}`;
     try {
       const response = await axios.get(url, {
         params: { kohdetunnus },
         auth: this.auth,
         headers: {
-          userid: this.userid  // add your actual user ID here
-        }
+          userid: this.userid,
+        },
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching perustiedot:', error.message);
+      console.error(`Virhe haettaessa ${path}:`, error.message);
       throw error;
     }
   }
-
-
-  // RASITUSTIEDOT 
-
-    async haeRasitustiedotIlmanhenkilotietoja(kohdetunnus) {
-    const url = `${this.baseUrl}/rasitustiedot_ilman_henkilotietoja/xml`;
-    try {
-      const response = await axios.get(url, {
-        params: { kohdetunnus },
-        auth: this.auth,
-        headers: {
-          userid: this.userid  // add your actual user ID here
-        }
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching perustiedot:', error.message);
-      throw error;
-    }
-  }
-  
-
 }
 
 module.exports = MMLKiinteistotService;
