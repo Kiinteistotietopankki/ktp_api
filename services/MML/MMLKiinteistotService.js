@@ -85,6 +85,7 @@ class MMLKiinteistotService {
         headers: {
           userid: this.userid,
         },
+        responseType:'text'
       });
       return response.data;
     } catch (error) {
