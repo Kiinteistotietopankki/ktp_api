@@ -90,6 +90,12 @@ async function testConnection() {
 }
 testConnection();
 
+// Serve raw swagger JSON at /api/docs/swagger.json
+app.get('/docsraw/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server docs at http://localhost:${PORT}/api/docs`);
