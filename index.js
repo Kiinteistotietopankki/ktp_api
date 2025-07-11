@@ -62,7 +62,7 @@ app.use('/api/mmltulosteet', MMLTulosteetRoutes);
 // Proxy test route
 app.get('/test-proxy', async (req, res) => {
   try {
-    const proxy = 'http://52.155.251.10:3128';
+    const proxy = process.env.PROXY_URL;
     const agent = new HttpsProxyAgent(proxy);
 
     const response = await axios.get('https://api.ipify.org?format=json', {
