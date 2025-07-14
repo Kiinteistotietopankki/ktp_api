@@ -15,7 +15,7 @@ class MMLTulosteetService {
   }
 
   async haeLainhuutotodistusIlmanHenkilotietoja(kohdetunnus) {
-    return this._get(`/lainhuutotodistus_ilman_henkilotietoja/pdf`, kohdetunnus);
+    return this._get(`/lainhuutotodistus_ilman_henkilotunnusta/pdf`, kohdetunnus);
   }
 
   async haeRasitustodistus(kohdetunnus) {
@@ -23,7 +23,7 @@ class MMLTulosteetService {
   }
 
   async haeRasitustodistusIlmanHenkilotietoja(kohdetunnus) {
-    return this._get(`/rasitustodistus_ilman_henkilotietoja/pdf`, kohdetunnus);
+    return this._get(`/rasitustodistus_ilman_henkilotunnusta/pdf`, kohdetunnus);
   }
 
   async haeVuokraoikeustodistus(kohdetunnus) {
@@ -31,7 +31,7 @@ class MMLTulosteetService {
   }
 
   async haeVuokraoikeustodistusIlmanHenkilotietoja(kohdetunnus) {
-    return this._get(`/vuokraoikeustodistus_ilman_henkilotietoja/pdf`, kohdetunnus);
+    return this._get(`/vuokraoikeustodistus_ilman_henkilotunnusta/pdf`, kohdetunnus);
   }
 
   async haeYhteystiedot(kohdetunnus) {
@@ -40,6 +40,10 @@ class MMLTulosteetService {
 
   async _get(path, kohdetunnus) {
     const url = `${this.baseUrl}${path}`;
+
+    console.log(kohdetunnus)
+    console.log(url)
+
     try {
       const response = await axios.get(url, {
         params: { kohdetunnus },
