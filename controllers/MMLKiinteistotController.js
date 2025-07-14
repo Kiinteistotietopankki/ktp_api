@@ -4,7 +4,7 @@ const xml2js = require('xml2js');
 
 // Apufunktio kohdetunnuksen tarkistukseen (esim. vaaditaan query-parametri)
 function tarkistaKohdetunnus(req, res) {
-  const kohdetunnus = req.params.kohdetunnus; // korjattu path-parametriksi
+  const kohdetunnus = req.params.kohdetunnus; 
   if (!kohdetunnus) {
     res.status(400).json({ error: 'Kohdetunnus puuttuu' });
     return null;
@@ -66,6 +66,8 @@ async function handleRequest(res, serviceCall) {
 exports.haePerustiedot = async (req, res) => {
   const kohdetunnus = tarkistaKohdetunnus(req, res);
   if (!kohdetunnus) return;
+  console.log(kohdetunnus)
+  console.log(typeof(kohdetunnus))
   await handleRequest(res, () => kiinteistotService.haePerustiedot(kohdetunnus));
 };
 
