@@ -1,25 +1,9 @@
 const fs = require('fs');
 const { XMLParser } = require('fast-xml-parser');
 const sequelize = require('../config/dbConfig');
-const { DataTypes } = require('sequelize');
-
-// Define model (adjust fields as needed)
-const Codebook = sequelize.define('codebook', {
-  category: DataTypes.STRING,
-  code: {
-    type: DataTypes.STRING,
-    unique: true,
-    primaryKey: true,
-  },
-  name_fi: DataTypes.TEXT,
-  name_sv: DataTypes.TEXT,
-}, {
-  timestamps: false,
-  tableName: 'codebook',
-});
+const Codebook = require('../models/Codebook');  // <-- import your existing model here
 
 async function main() {
-  // Load and parse XML
   const xml = fs.readFileSync('koodistot.xml', 'utf8');
   const parser = new XMLParser({
     ignoreAttributes: false,
@@ -28,7 +12,6 @@ async function main() {
   const json = parser.parse(xml);
 
   await sequelize.authenticate();
-  await sequelize.sync(); // optional: create table if not exists
 
   const codes = json['kood:Koodistot']['y:asianLaadunPeruste'];
   

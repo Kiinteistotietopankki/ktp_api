@@ -100,6 +100,7 @@ for (const [funcName, funcBody] of Object.entries(exportedFuncs)) {
   }));
 
   const routePath = baseRoute ? `${baseRoute}/${toKebabCase(funcName)}` : `/${toKebabCase(funcName)}`;
+  const tag = baseRoute ? baseRoute.split('/').filter(Boolean).pop() : '';
 
   const swaggerParamsBlock = buildSwaggerParams(params);
 
@@ -110,7 +111,7 @@ for (const [funcName, funcBody] of Object.entries(exportedFuncs)) {
  *   get:
  *     summary: ${funcName} (auto-generated route)
  *     tags:
- *       - Generated
+ *       - ${tag}
 ${swaggerParamsBlock ? swaggerParamsBlock : ''}
  *     responses:
  *       200:
@@ -120,7 +121,7 @@ ${swaggerParamsBlock ? swaggerParamsBlock : ''}
  *             schema:
  *               type: object
  */
-router.get('controller.${funcName});
+router.get('/${toKebabCase(funcName)}', controller.${funcName});
 `;
 }
 
