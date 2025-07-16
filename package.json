@@ -28,6 +28,7 @@
     "mysql2": "^3.14.1",
     "node-fetch": "^3.3.2",
     "npm": "^11.4.2",
+    "proj4": "^2.19.7",
     "sequelize": "^6.37.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
