@@ -3,55 +3,54 @@ const router = express.Router();
 const controller = require('../controllers/MMLKartatController.js');
 
 
-
 /**
  * @swagger
- * /api/kartat/fetch-tile-by-lat-lng:
+ * /api/kartat/fetch-tile/{layerName}/{tileMatrixSet}/{z}/{y}/{x}:
  *   get:
- *     summary: fetchTileByLatLng (auto-generated route)
+ *     summary: Fetch WMTS tile by XYZ tile coordinates
  *     tags:
  *       - kartat
  *     parameters:
- *       - in: query
+ *       - in: path
  *         name: layerName
- *         required: false
+ *         required: true
  *         schema:
  *           type: string
  *           default: taustakartta
-
- *       - in: query
+ *       - in: path
  *         name: tileMatrixSet
- *         required: false
+ *         required: true
  *         schema:
  *           type: string
  *           default: WGS84_Pseudo-Mercator
- *       - in: query
- *         name: zoom
- *         required: false
+ *       - in: path
+ *         name: z
+ *         required: true
  *         schema:
- *           type: number
+ *           type: integer
  *           default: 17
- *       - in: query
- *         name: lat
- *         required: false
+ *       - in: path
+ *         name: y
+ *         required: true
  *         schema:
- *           type: number
- *           default: 65.00816937
- *       - in: query
- *         name: lng
- *         required: false
+ *           type: integer
+ *           default: 59151
+ *       - in: path
+ *         name: x
+ *         required: true
  *         schema:
- *           type: number
- *           default: 25.46030678
+ *           type: integer
+ *           default: 71415
  *     responses:
  *       200:
- *         description: JSON data returned
+ *         description: Returns the tile image (PNG)
  *         content:
- *           application/json:
+ *           image/png:
  *             schema:
- *               type: object
+ *               type: string
+ *               format: binary
  */
-router.get('/fetch-tile-by-lat-lng', controller.fetchTileByLatLng);
+router.get('/fetch-tile/:layerName/:tileMatrixSet/:z/:y/:x', controller.fetchTileByCoords);
 
 
 module.exports = router;

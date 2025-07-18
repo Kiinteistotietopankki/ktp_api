@@ -2,90 +2,88 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const proj4 = require('proj4');
-proj4.defs("EPSG:3857", "+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs");
 
 class MMLKartatService {
   constructor() {
     this.baseUrl = process.env.MML_KARTAT_BASEURL;
     this.apiKey = process.env.MML_KARTAT_APIKEY;
     this.authHeader = 'Basic ' + Buffer.from(`${this.apiKey}:${this.apiKey}`).toString('base64');
+
+    // ETRS-TM35FIN proj4 määritelmä
+    this.projETRSTM35FIN = '+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs +towgs84=0,0,0';
+    this.projWGS84 = 'EPSG:4326';
+
+    // Lähtöpisteet JHS180
+    this.xMIN_ETRS = -548576;
+    this.yMAX_ETRS = 8388608;
   }
 
-    async fetchTile(layerName, tileMatrixSet, z, y, x) {
+  async fetchTile(layerName, tileMatrixSet, z, y, x) {
     const tileUrl = `${this.baseUrl}/${layerName}/default/${tileMatrixSet}/${z}/${y}/${x}.png?`;
 
     const headers = {
-        'Authorization': this.authHeader,
+      'Authorization': this.authHeader,
     };
     try {
-        const response = await axios.get(tileUrl, {
+      const response = await axios.get(tileUrl, {
         headers: headers,
         responseType: 'arraybuffer'
-        });
+      });
 
-        console.log('Request headers:', headers);
-        console.log('Fetching tile from:', tileUrl);
+      console.log('Request headers:', headers);
+      console.log('Fetching tile from:', tileUrl);
+      console.log(`Tile fetch response code: ${response.status}`);
 
-
-        // ✅ Log status code
-        console.log(`Tile fetch response code: ${response.status}`);
-
-        const contentType = response.headers['content-type'];
-        if (!contentType || !contentType.includes('image')) {
+      const contentType = response.headers['content-type'];
+      if (!contentType || !contentType.includes('image')) {
         throw new Error(`Unexpected content type: ${contentType}`);
-        }
+      }
 
-        if (!response.data || response.data.length === 0) {
+      if (!response.data || response.data.length === 0) {
         throw new Error('Tile fetch succeeded but returned empty data.');
-        }
+      }
 
-        const tileBuffer = Buffer.from(response.data);
-        // const outputPath = path.resolve(__dirname, `tile_${z}_${x}_${y}.png`);
-        // fs.writeFileSync(outputPath, tileBuffer);
-        // console.log(`Tile saved to: ${outputPath}`);
-        return tileBuffer;
-
+      return Buffer.from(response.data);
     } catch (error) {
-        if (error.response) {
-        // ✅ Log error status code if available
+      if (error.response) {
         console.error(`Tile fetch failed: ${error.response.status} - ${error.response.statusText}`);
-        } else {
+      } else {
         console.error(`Tile fetch failed: ${error.message}`);
-        }
-        throw error;
+      }
+      throw error;
     }
-    }
+  }
 
+  latLngToTileWGS84(lat, lng, zoom) {
+    // Convert lat/lng (EPSG:4326) to EPSG:3857 (Pseudo-Mercator)
+    const [x, y] = proj4('EPSG:4326', 'EPSG:3857', [lng, lat]);
 
+    const xMIN = -20037508.342789248;
+    const xMAX = 20037508.342789248;  // <-- added this line
+    const yMAX = 20037508.342789248;
+    const tileSize = 256;
 
-    latLngToTileFixed(lat, lng, zoom) {
-    const TILE_SIZE = 256;
+    // Resolution at zoom level
+    const resolution = (2 * xMAX) / (tileSize * Math.pow(2, zoom));
 
-    // Convert lat/lng to meters in EPSG:3857
-    const [xMeters, yMeters] = proj4('EPSG:4326', 'EPSG:3857', [lng, lat]);
+    // denom = pixels per tile * meters per pixel at zoom
+    const denom = tileSize * resolution;
 
-    // Constants for WGS84 Pseudo-Mercator tile grid
-    const xMin = -20037508.3427892480;
-    const yMax = 20037508.3427892480;
-
-    const initialResolution = 156543.033928041; // resolution at zoom 0
-    const resolution = initialResolution / Math.pow(2, zoom);
-
-    // Calculate column (x) and row (y) tile indices
-    const col = Math.ceil((xMeters - xMin) / (TILE_SIZE * resolution));
-    const row = Math.ceil((yMax - yMeters) / (TILE_SIZE * resolution));
-
-    console.log(`lat/lng: ${lat}, ${lng}`);
-    console.log(`meters: ${xMeters}, ${yMeters}`);
-    console.log(`tile: x=${col}, y=${row}, zoom=${zoom}`);
+    const col = Math.floor((x - xMIN) / denom);
+    const row = Math.floor((yMAX - y) / denom);
 
     return { x: col, y: row };
-    }
+  }
 
-    async fetchTileByLatLng(layerName, tileMatrixSet, zoom, lat, lng) {
-        const { x, y } = this.latLngToTileFixed(lat, lng, zoom);
-        return await this.fetchTile(layerName, tileMatrixSet, zoom, y, x);
-    } 
+  async fetchTileByLatLng(layerName, tileMatrixSet, zoom, lat, lng) {
+    const { x, y } = this.latLngToTileWGS84(lat, lng, zoom);
+    return await this.fetchTile(layerName, tileMatrixSet, zoom, y, x);
+  }
 }
 
+
 module.exports = MMLKartatService;
+
+
+
+

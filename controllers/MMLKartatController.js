@@ -4,32 +4,25 @@ const MMLKartatService = require('../services/MML/MMLKartatService.js');
 const mMLKartatService = new MMLKartatService();
 
 
-exports.fetchTileByLatLng = async (req, res) => {
+exports.fetchTileByCoords = async (req, res) => {
   try {
-    const layerName = req.query.layerName || 'taustakartta';
-    const tileMatrixSet = req.query.tileMatrixSet || 'WGS84_Pseudo-Mercator';
+    const layerName = req.params.layerName || 'taustakartta';
+    const tileMatrixSet = req.params.tileMatrixSet || 'WGS84_Pseudo-Mercator';
 
-    // 👇 Ensure proper number conversion
-    const zoom = parseInt(req.query.zoom ?? '17', 10);
-    const lat = parseFloat(req.query.lat ?? '65.00816937');
-    const lng = parseFloat(req.query.lng ?? '25.46030678');
+    const z = parseInt(req.params.z, 10);
+    const y = parseInt(req.params.y, 10);
+    const x = parseInt(req.params.x, 10);
 
-    // 🔍 Validate values
-    if (!isFinite(lat) || !isFinite(lng) || !Number.isInteger(zoom)) {
-      return res.status(400).json({ error: 'Invalid lat, lng, or zoom' });
+    if (!Number.isInteger(z) || !Number.isInteger(x) || !Number.isInteger(y)) {
+      return res.status(400).json({ error: 'Invalid tile coordinates: z, x, or y' });
     }
 
-    const result = await mMLKartatService.fetchTileByLatLng(
-      layerName,
-      tileMatrixSet,
-      zoom,
-      lat,
-      lng
-    );
+    const tileBuffer = await mMLKartatService.fetchTile(layerName, tileMatrixSet, z, y, x);
 
-    res.set('Content-Type', 'image/png'); // assuming you're sending an image
-    res.send(result);
+    res.set('Content-Type', 'image/png');
+    res.send(tileBuffer);
   } catch (error) {
+    console.error('Tile fetch error:', error.message);
     res.status(500).json({ error: error.message });
   }
 };
