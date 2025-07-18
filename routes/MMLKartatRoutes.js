@@ -50,7 +50,7 @@ const controller = require('../controllers/MMLKartatController.js');
  *               type: string
  *               format: binary
  */
-router.get('/fetch-tile/:layerName/:tileMatrixSet/:z/:y/:x', controller.fetchTileByLatLng);
+router.get('/fetch-tile/:layerName/:tileMatrixSet/:zoom/:y/:x', controller.fetchTile);
 
 
 module.exports = router;

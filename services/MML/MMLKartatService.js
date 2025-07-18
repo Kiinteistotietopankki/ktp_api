@@ -29,8 +29,6 @@ class MMLKartatService {
         headers: headers,
         responseType: 'arraybuffer'
       });
-
-      console.log('Request headers:', headers);
       console.log('Fetching tile from:', tileUrl);
       console.log(`Tile fetch response code: ${response.status}`);
 
