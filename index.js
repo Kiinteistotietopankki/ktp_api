@@ -21,7 +21,8 @@ const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
 const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')
 const metadataRoutes = require('./routes/row_metadataRoutes.js')
-
+const uploadRoutes = require('./routes/uploadPdfRoutes');
+const ptsRoutes = require('./routes/ptsRoute.js');
 // Middleware setup
 app.use(express.json());
 
@@ -45,15 +46,15 @@ app.use('/auth', microsoftAuthRoutes);
 // Main application routes
 app.use(profileRoute);
 
-const uploadRoutes = require('./routes/uploadPdfRoutes');
+
 app.use(uploadRoutes);
 
-const kiinteistoRoutes = require('./routes/kiinteistoRoutes');
-const rakennusRoutes = require('./routes/rakennusRoutes');
+
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
 // app.use('/api', authenticateAzure);
 // app.use('/me', authenticateAzure);
 
+app.use('/api/pts', ptsRoutes);
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
