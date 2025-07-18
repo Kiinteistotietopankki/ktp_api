@@ -4,25 +4,35 @@ const MMLKartatService = require('../services/MML/MMLKartatService.js');
 const mMLKartatService = new MMLKartatService();
 
 
-exports.fetchTileByCoords = async (req, res) => {
+exports.fetchTileByLatLng = async (req, res) => {
   try {
-    const layerName = req.params.layerName || 'taustakartta';
-    const tileMatrixSet = req.params.tileMatrixSet || 'WGS84_Pseudo-Mercator';
+    const layerName = req.query.layerName || 'taustakartta';
+    const tileMatrixSet = req.query.tileMatrixSet || 'WGS84_Pseudo-Mercator';
 
-    const z = parseInt(req.params.z, 10);
-    const y = parseInt(req.params.y, 10);
-    const x = parseInt(req.params.x, 10);
+    const zoom = parseInt(req.query.zoom ?? '17', 10);
+    const lat = parseFloat(req.query.lat ?? '65.00816937');
+    const lng = parseFloat(req.query.lng ?? '25.46030678');
 
-    if (!Number.isInteger(z) || !Number.isInteger(x) || !Number.isInteger(y)) {
-      return res.status(400).json({ error: 'Invalid tile coordinates: z, x, or y' });
+    if (!isFinite(lat) || !isFinite(lng) || !Number.isInteger(zoom)) {
+      return res.status(400).json({ error: 'Invalid lat, lng, or zoom' });
     }
 
-    const tileBuffer = await mMLKartatService.fetchTile(layerName, tileMatrixSet, z, y, x);
+    const result = await mMLKartatService.fetchTileByLatLng(
+      layerName,
+      tileMatrixSet,
+      zoom,
+      lat,
+      lng
+    );
 
+    // ⬇️ Palauta myös caching-headerit
     res.set('Content-Type', 'image/png');
-    res.send(tileBuffer);
+    res.set('Cache-Control', 'public, max-age=604800'); // 1 viikko selaimelle
+    const expires = new Date(Date.now() + 604800000).toUTCString(); // 1 viikko eteenpäin
+    res.set('Expires', expires);
+
+    res.send(result);
   } catch (error) {
-    console.error('Tile fetch error:', error.message);
     res.status(500).json({ error: error.message });
   }
 };
