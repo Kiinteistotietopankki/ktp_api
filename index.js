@@ -3,12 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const { default: axios } = require('axios');
 const HttpsProxyAgent = require('https-proxy-agent');
-
-const app = express();
-const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/dbConfig');
 const swaggerSpec = require('./swagger.js');
@@ -26,6 +24,23 @@ const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
 const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
 const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 const MMLKartatRoutes = require('./routes/MMLKartatRoutes.js')
+
+//Map cache handling
+const cleanOldCacheFiles = require('./utils/cleanCache.js');
+const cacheDir = path.join(process.cwd(), './cache'); // or wherever your cache is
+cleanOldCacheFiles(cacheDir).catch(console.error);
+const CLEAN_INTERVAL_MS = 24 * 60 * 60 * 1000; // once a day
+
+setInterval(() => {
+  cleanOldCacheFiles(cacheDir).catch(console.error);
+  console.log('Map image cache cleared from old items.')
+}, CLEAN_INTERVAL_MS);
+
+
+
+
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // Middleware setup
 app.use(express.json());
