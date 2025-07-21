@@ -23,7 +23,7 @@ class MMLKartatService {
 
     // Return from cache if available
     if (fs.existsSync(cachePath)) {
-      console.log('Serving tile from cache:', cachePath);
+      // console.log('Serving tile from cache:', cachePath);
       return fs.promises.readFile(cachePath);
     }
 
@@ -42,7 +42,7 @@ class MMLKartatService {
         responseType: 'arraybuffer'
       });
 
-      console.log('Fetching tile from remote:', tileUrl);
+      // console.log('Fetching tile from remote:', tileUrl);
 
       const contentType = response.headers['content-type'];
       if (!contentType || !contentType.includes('image')) {
