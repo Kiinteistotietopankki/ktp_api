@@ -9,39 +9,52 @@ class MMLKartatService {
     this.apiKey = process.env.MML_KARTAT_APIKEY;
     this.authHeader = 'Basic ' + Buffer.from(`${this.apiKey}:${this.apiKey}`).toString('base64');
 
-    // ETRS-TM35FIN proj4 määritelmä
+    this.cacheDir = path.resolve(__dirname, '../../cache'); // Make sure this folder exists
+
     this.projETRSTM35FIN = '+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs +towgs84=0,0,0';
     this.projWGS84 = 'EPSG:4326';
 
-    // Lähtöpisteet JHS180
     this.xMIN_ETRS = -548576;
     this.yMAX_ETRS = 8388608;
   }
 
   async fetchTile(layerName, tileMatrixSet, z, y, x) {
+    const cachePath = path.join(this.cacheDir, layerName, tileMatrixSet, z.toString(), y.toString(), `${x}.png`);
+
+    // Return from cache if available
+    if (fs.existsSync(cachePath)) {
+      console.log('Serving tile from cache:', cachePath);
+      return fs.promises.readFile(cachePath);
+    }
+
+    // Create directory if not exists
+    await fs.promises.mkdir(path.dirname(cachePath), { recursive: true });
+
     const tileUrl = `${this.baseUrl}/${layerName}/default/${tileMatrixSet}/${z}/${y}/${x}.png?`;
 
     const headers = {
       'Authorization': this.authHeader,
     };
+
     try {
       const response = await axios.get(tileUrl, {
         headers: headers,
         responseType: 'arraybuffer'
       });
-      console.log('Fetching tile from:', tileUrl);
-      console.log(`Tile fetch response code: ${response.status}`);
+
+      console.log('Fetching tile from remote:', tileUrl);
 
       const contentType = response.headers['content-type'];
       if (!contentType || !contentType.includes('image')) {
         throw new Error(`Unexpected content type: ${contentType}`);
       }
 
-      if (!response.data || response.data.length === 0) {
-        throw new Error('Tile fetch succeeded but returned empty data.');
-      }
+      const tileBuffer = Buffer.from(response.data);
 
-      return Buffer.from(response.data);
+      // Cache to disk
+      await fs.promises.writeFile(cachePath, tileBuffer);
+
+      return tileBuffer;
     } catch (error) {
       if (error.response) {
         console.error(`Tile fetch failed: ${error.response.status} - ${error.response.statusText}`);
@@ -51,6 +64,7 @@ class MMLKartatService {
       throw error;
     }
   }
+
 
   latLngToTileWGS84(lat, lng, zoom) {
     // Convert lat/lng (EPSG:4326) to EPSG:3857 (Pseudo-Mercator)
