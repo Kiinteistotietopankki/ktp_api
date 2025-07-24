@@ -24,6 +24,7 @@ const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
 const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
 const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 const MMLKartatRoutes = require('./routes/MMLKartatRoutes.js')
+const MMLHuoneistotIJRoutes = require('./routes/MMLHuoneistotIJRoutes.js')
 
 //Map cache handling
 const cleanOldCacheFiles = require('./utils/cleanCache.js');
@@ -74,6 +75,7 @@ app.use('/api/mml', MMLKiinteistotRoutes);
 app.use('/api/mmltulosteet', MMLTulosteetRoutes);
 app.use('/api/tilastot', MMLTilastotRoutes);
 app.use('/api/kartat', MMLKartatRoutes)
+app.use('/api/mmlij', MMLHuoneistotIJRoutes)
 
 
 // Proxy test route

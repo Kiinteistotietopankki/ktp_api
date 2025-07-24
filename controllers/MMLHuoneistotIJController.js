@@ -168,6 +168,8 @@ exports.haeHallintakohteetJaOsakeryhmat = async (req, res) => {
   try {
     const ytunnus = req.query.ytunnus || '';
 
+    console.log(ytunnus)
+
     const result = await mMLHuoneistotIJService.haeHallintakohteetJaOsakeryhmat(ytunnus);
     res.json(result);
   } catch (error) {

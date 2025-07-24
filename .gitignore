@@ -1,5 +1,6 @@
 # Node modules (installed packages)
 node_modules/
+certs/
 
 # Logs
 logs/

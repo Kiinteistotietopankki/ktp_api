@@ -1,4 +1,17 @@
+const https = require('https');
+const fs = require('fs');
 const axios = require('axios');
+
+// Load cert + key from files (paths from env)
+const cert = fs.readFileSync(process.env.CLIENT_CERT_PATH);
+const key = fs.readFileSync(process.env.CLIENT_KEY_PATH);
+
+
+const httpsAgent = new https.Agent({
+  cert,
+  key,
+  rejectUnauthorized: true, 
+});
 
 class MMLHuoneistotIJService {
   constructor() {
@@ -22,6 +35,7 @@ class MMLHuoneistotIJService {
     try {
       const response = await axios.get(url, {
         auth: this.auth,
+        httpsAgent,
         headers: {
           'x-isannoitsija': this.x_isannoitsija,
         },
@@ -39,6 +53,7 @@ class MMLHuoneistotIJService {
     try {
       const response = await axios.post(url, data, {
         auth: this.auth,
+        httpsAgent,
         headers: {
           'x-isannoitsija': this.x_isannoitsija,
         },
@@ -55,6 +70,7 @@ class MMLHuoneistotIJService {
     try {
       const response = await axios.put(url, data, {
         auth: this.auth,
+        httpsAgent,
         headers: {
           'x-isannoitsija': this.x_isannoitsija,
         },
@@ -71,6 +87,7 @@ class MMLHuoneistotIJService {
     try {
       const response = await axios.delete(url, {
         auth: this.auth,
+        httpsAgent,
         headers: {
           'x-isannoitsija': this.x_isannoitsija,
         },
@@ -137,7 +154,7 @@ class MMLHuoneistotIJService {
   }
 
   async haeHallintakohteetJaOsakeryhmat(ytunnus) {
-    return this._get(`/htj2/yhtio-julkinen/v1/yhtion-hallintakohteet-ja-osakeryhmat/haku?ytunnus=${ytunnus}`, useOld = false);
+    return this._get(`/htj2/yhtio-julkinen/v1/yhtion-hallintakohteet-ja-osakeryhmat/haku?ytunnus=${ytunnus}`,false);
   }
 }
 
