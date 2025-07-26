@@ -66,8 +66,8 @@ app.use('/auth', microsoftAuthRoutes);
 app.use(profileRoute);
 
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
-// app.use('/api', authenticateAzure);
-// app.use('/me', authenticateAzure);
+app.use('/api', authenticateAzure);
+app.use('/me', authenticateAzure);
 
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
