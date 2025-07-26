@@ -4,16 +4,14 @@ const KiinteistoHakuService = require('../services/SEARCH/kiinteistoHakuService.
 const kiinteistoHakuService = new KiinteistoHakuService();
 
 exports.haeKiinteistoja = async (req, res) => {
-  try {
-    const kiinteistotunnus = req.query.kiinteistotunnus || '';
-    const osoite = req.query.osoite || '';
-    const kaupunki = req.query.kaupunki || '';
+  const { kiinteistotunnus, osoite, kaupunki } = req.query;
+  const service = new KiinteistoHakuService();
 
-    const result = await kiinteistoHakuService.haeKiinteistoja(kiinteistotunnus, osoite, kaupunki);
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  const result = await service.haeKiinteistoja(kiinteistotunnus, osoite, kaupunki);
+
+  return res.status(result.status).json(
+    result.error ? { error: result.error } : result.data
+  );
 };
 
 exports.fetchOsoiteData = async (req, res) => {
