@@ -22,6 +22,7 @@ router.get('/login', (req, res) => {
   const authUrlParams = {
     scopes: ['user.read'],
     redirectUri: 'http://localhost:3001/auth/redirect',
+    prompt: 'select_account'
   };
 
   cca.getAuthCodeUrl(authUrlParams).then((response) => res.redirect(response));
