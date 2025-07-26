@@ -26,6 +26,8 @@ const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 const MMLKartatRoutes = require('./routes/MMLKartatRoutes.js')
 const MMLHuoneistotIJRoutes = require('./routes/MMLHuoneistotIJRoutes.js')
 
+const KiinteistoHakuRoutes = require('./routes/kiinteistoHakuRoutes.js')
+
 //Map cache handling
 const cleanOldCacheFiles = require('./utils/cleanCache.js');
 const cacheDir = path.join(process.cwd(), './cache'); // or wherever your cache is
@@ -76,6 +78,8 @@ app.use('/api/mmltulosteet', MMLTulosteetRoutes);
 app.use('/api/tilastot', MMLTilastotRoutes);
 app.use('/api/kartat', MMLKartatRoutes)
 app.use('/api/mmlij', MMLHuoneistotIJRoutes)
+app.use('/api/haku', KiinteistoHakuRoutes)
+
 
 
 // Proxy test route
