@@ -4,8 +4,13 @@ const KiinteistoHakuService = require('../services/SEARCH/kiinteistoHakuService.
 const kiinteistoHakuService = new KiinteistoHakuService();
 
 exports.haeKiinteistoja = async (req, res) => {
-  const { kiinteistotunnus, osoite, kaupunki } = req.query;
+  let { kiinteistotunnus, osoite, kaupunki } = req.query;
+  kiinteistotunnus = kiinteistotunnus?.trim() || '';
+  osoite = osoite?.trim() || '';
+  kaupunki = kaupunki?.trim() || '';
   const service = new KiinteistoHakuService();
+
+  console.log(kaupunki,osoite,kaupunki)
 
   const result = await service.haeKiinteistoja(kiinteistotunnus, osoite, kaupunki);
 

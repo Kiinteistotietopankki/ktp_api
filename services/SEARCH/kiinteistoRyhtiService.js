@@ -75,9 +75,9 @@ class KiinteistoRyhtiService {
     }
   }
 
-  getRakennukset() {
-    return this.rakennukset;
-  }
+    getRakennukset() {
+        return this.rakennukset.map(rakennus => rakennus.toGeoJSON());
+    }
 
   toGeoJSON() {
     return {

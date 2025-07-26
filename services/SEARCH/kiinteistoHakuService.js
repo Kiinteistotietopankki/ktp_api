@@ -29,8 +29,8 @@ class KiinteistoHakuService {
         const kiinteistotunnukset = await this.haeKiinteistotunnukset(buildingKeys);
 
         if (kiinteistotunnukset.has(kiinteistotunnus)) {
-          const data = await this.createKiinteistot(kiinteistotunnus, addressKeys, osoite);
-          return { status: 200, data, error: null };
+        const data = await this.createKiinteistot(kiinteistotunnukset, addressKeys, osoite);
+        return { status: 200, data: data.map(k => k.toGeoJSON()), error: null };
         } else {
           return {
             status: 404,
@@ -54,13 +54,13 @@ class KiinteistoHakuService {
           };
         }
 
-        const data = await this.createKiinteistot(kiinteistotunnukset, addressKeys, osoite);
-        return { status: 200, data, error: null };
+      const data = await this.createKiinteistot(kiinteistotunnukset, addressKeys, osoite);
+      return { status: 200, data: data.map(k => k.toGeoJSON()), error: null };
       }
 
       if (kiinteistotunnus) {
         const data = await this.createKiinteistotWithoutAddress(kiinteistotunnus);
-        return { status: 200, data, error: null };
+        return { status: 200, data: data.map(k => k.toGeoJSON()), error: null };
       }
 
     } catch (error) {
