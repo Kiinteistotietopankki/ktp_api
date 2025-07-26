@@ -12,6 +12,7 @@ const sequelize = require('./config/dbConfig');
 const swaggerSpec = require('./swagger.js');
 
 const authenticateAzure = require('./middlewares/authAzureMiddleware');
+const authenticateJWT = require('./auth/jwtAuth.js'); 
 
 const microsoftAuthRoutes = require('./auth/microsoftAuth.js');
 const profileRoute = require('./routes/profileRoute.js');
