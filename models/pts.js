@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     kiinteistotunnus: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true, 
     },
     title: {
       type: DataTypes.STRING,

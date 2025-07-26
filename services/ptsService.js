@@ -3,31 +3,32 @@ const initModels = require('../models/init-models');
 const { PTSProject, PTSEntry } = initModels(sequelize);
 
 class PTSService {
-  async create({ kiinteistotunnus, title, created_by, entries }) {
-    const newProject = await PTSProject.create({
-      kiinteistotunnus,
-      title,
-      created_by,
-    });
+ async create({ kiinteistotunnus, title, created_by, entries }) {
+  const newProject = await PTSProject.create({
+    kiinteistotunnus,
+    title,
+    created_by,
+  });
 
-    const projectId = newProject.id;
+  const projectId = newProject.id;
 
-    if (entries?.length > 0) {
-      const formattedEntries = entries.map(entry => ({
-        id_pts_project: projectId,
-        category: entry.category || '',
-        section: entry.section || '',
-        label: entry.label || '',
-        kl_rating: entry.kl_rating || null,
-        values_by_year: entry.values_by_year || {},
-        metadata: entry.metadata || {},
-      }));
+  if (entries?.length > 0) {
+    const formattedEntries = entries.map(entry => ({
+      id_pts_project: projectId,
+      category: entry.category || '',
+      section: entry.section || '',
+      label: entry.label || '',
+      kl_rating: entry.kl_rating || null,
+      values_by_year: JSON.stringify(entry.values_by_year || {}), 
+      metadata: JSON.stringify(entry.metadata || {}),             
+    }));
 
-      await PTSEntry.bulkCreate(formattedEntries);
-    }
-
-    return { success: true, id_pts_project: projectId };
+    await PTSEntry.bulkCreate(formattedEntries);
   }
+
+  return { success: true, id_pts_project: projectId };
+}
+
 
   async getById(id) {
     const project = await PTSProject.findByPk(id);
