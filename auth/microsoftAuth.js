@@ -9,9 +9,8 @@ const router = express.Router();
 
 const msalConfig = {
   auth: {
-    clientId: 
-    "e9e3688f-df1a-4f99-b541-9a09640647dd",
-    authority: `https://login.microsoftonline.com/waativa.fi`,
+    clientId: process.env.CLIENT_ID,
+    authority: process.env.CLIENT_AUTHORITY,
     clientSecret: process.env.CLIENT_SECRET,
   },
 };
