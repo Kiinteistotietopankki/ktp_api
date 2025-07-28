@@ -53,14 +53,17 @@ router.get('/redirect', async (req, res) => {
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
 
-    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); // Azure token
+    res.cookie('sessionToken', response.accessToken, {
+      httpOnly: true,
+      secure: true,      
+      sameSite: 'None',    
+    });
 
     const jwtToken = generateToken({ userId: response.uniqueId }); // Tokenisoitu userId
-    res.cookie('authToken', jwtToken, {  
+    res.cookie('authToken', jwtToken, {
       httpOnly: true,
-      secure: false, // change to true in production with HTTPS
-      sameSite: 'lax',
-      // maxAge: 24 * 60 * 60 * 1000, // 1 day
+      secure: true,        
+      sameSite: 'None',   
     });
 
     res.redirect(`${FRONTEND_URL}`);
