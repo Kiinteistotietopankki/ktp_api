@@ -10,6 +10,7 @@ const HttpsProxyAgent = require('https-proxy-agent');
 
 const sequelize = require('./config/dbConfig');
 const swaggerSpec = require('./swagger.js');
+const fs = require('fs');
 
 const authenticateAzure = require('./middlewares/authAzureMiddleware');
 
