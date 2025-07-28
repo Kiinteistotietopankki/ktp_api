@@ -30,13 +30,19 @@ const KiinteistoHakuRoutes = require('./routes/kiinteistoHakuRoutes.js')
 
 //Map cache handling
 const cleanOldCacheFiles = require('./utils/cleanCache.js');
+
 const cacheDir = path.join(process.cwd(), './cache'); // or wherever your cache is
+// Ensure cache directory exists
+if (!fs.existsSync(cacheDir)) {
+  fs.mkdirSync(cacheDir, { recursive: true });
+  console.log(`Created missing cache directory at ${cacheDir}`);
+}
+// Initial clean
 cleanOldCacheFiles(cacheDir).catch(console.error);
 const CLEAN_INTERVAL_MS = 24 * 60 * 60 * 1000; // once a day
-
 setInterval(() => {
   cleanOldCacheFiles(cacheDir).catch(console.error);
-  console.log('Map image cache cleared from old items.')
+  console.log('Map image cache cleared from old items.');
 }, CLEAN_INTERVAL_MS);
 
 
