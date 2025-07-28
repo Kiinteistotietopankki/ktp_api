@@ -12,7 +12,6 @@ const sequelize = require('./config/dbConfig');
 const swaggerSpec = require('./swagger.js');
 
 const authenticateAzure = require('./middlewares/authAzureMiddleware');
-const authenticateJWT = require('./auth/jwtAuth.js'); 
 
 const microsoftAuthRoutes = require('./auth/microsoftAuth.js');
 const profileRoute = require('./routes/profileRoute.js');
@@ -48,11 +47,21 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://yellow-tree-07bb64803.6.azurestaticapps.net'
-  ],
-  credentials: true
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'http://127.0.0.1:3000',
+      'https://yellow-tree-07bb64803.6.azurestaticapps.net'
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.warn(`⛔ CORS origin rejected: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 
 app.use(cookieParser());
@@ -67,8 +76,8 @@ app.use('/auth', microsoftAuthRoutes);
 app.use(profileRoute);
 
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
-app.use('/api', authenticateAzure);
-app.use('/me', authenticateAzure);
+// app.use('/api', authenticateAzure);
+// app.use('/me', authenticateAzure);
 
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
