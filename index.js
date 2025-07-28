@@ -50,7 +50,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://ktpapi-b9bpd4g9ewaqa4af.swedencentral-01.azurewebsites.net'
+    'https://yellow-tree-07bb64803.6.azurestaticapps.net'
   ],
   credentials: true
 }));
