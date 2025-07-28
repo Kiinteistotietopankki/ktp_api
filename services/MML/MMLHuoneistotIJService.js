@@ -3,15 +3,28 @@ const fs = require('fs');
 const axios = require('axios');
 
 // Load cert + key from files (paths from env)
-const cert = fs.readFileSync(process.env.CLIENT_CERT_PATH);
-const key = fs.readFileSync(process.env.CLIENT_KEY_PATH);
+let httpsAgent;
 
+try {
+  const cert = fs.readFileSync(process.env.CLIENT_CERT_PATH);
+  const key = fs.readFileSync(process.env.CLIENT_KEY_PATH);
 
-const httpsAgent = new https.Agent({
-  cert,
-  key,
-  rejectUnauthorized: true, 
-});
+  httpsAgent = new https.Agent({
+    cert,
+    key,
+    rejectUnauthorized: true,
+  });
+
+  console.log('Loaded cert and key for HTTPS agent');
+} catch (err) {
+  console.warn('Cert or key file missing or failed to load, falling back to default HTTPS agent.', err);
+
+  // Fallback: no cert/key
+  httpsAgent = new https.Agent({
+    rejectUnauthorized: true, // or false, if you want to skip verification (not recommended)
+  });
+}
+
 
 class MMLHuoneistotIJService {
   constructor() {
