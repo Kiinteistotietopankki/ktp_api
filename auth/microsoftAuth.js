@@ -1,11 +1,12 @@
-// auth/microsoftAuth.js
 require('dotenv').config();
 const express = require('express');
 const { ConfidentialClientApplication } = require('@azure/msal-node');
 const { generateToken } = require('./tokenUtils');
 
-
 const router = express.Router();
+
+const PORT = process.env.PORT || 3001;
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000/'
 
 const msalConfig = {
   auth: {
@@ -21,7 +22,7 @@ const cca = new ConfidentialClientApplication(msalConfig);
 router.get('/login', (req, res) => {
   const authUrlParams = {
     scopes: ['user.read'],
-    redirectUri: 'http://localhost:3001/auth/redirect',
+    redirectUri: `http://localhost:${PORT}/auth/redirect`,
     prompt: 'select_account'
   };
 
@@ -42,22 +43,19 @@ router.get('/logout', (req, res) => {
   res.status(200).json({ message: 'Logged out successfully' });
 });
 
-
-
 router.get('/redirect', async (req, res) => {
   const tokenRequest = {
     code: req.query.code,
     scopes: ['user.read'],
-    redirectUri: 'http://localhost:3001/auth/redirect',
+    redirectUri: `http://localhost:${PORT}/auth/redirect`,
   };
 
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
 
+    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); // Azure token
 
-    res.cookie('sessionToken', response.accessToken, { httpOnly: true, secure: false }); //Azure token
-
-    const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
+    const jwtToken = generateToken({ userId: response.uniqueId }); // Tokenisoitu userId
     res.cookie('authToken', jwtToken, {  
       httpOnly: true,
       secure: false, // change to true in production with HTTPS
@@ -65,7 +63,7 @@ router.get('/redirect', async (req, res) => {
       // maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
 
-    res.redirect('http://localhost:3000/');
+    res.redirect(`${FRONTEND_URL}`);
 
   } catch (err) {
     console.error('Auth error:', err);
