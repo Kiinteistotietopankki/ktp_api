@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - ktpAPI
 on:
   push:
     branches:
-      - azure
+      - azure2
   workflow_dispatch:
 
 jobs:
