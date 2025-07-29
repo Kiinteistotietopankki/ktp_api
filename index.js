@@ -54,11 +54,16 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'],
-  credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 204
+  origin: function (origin, callback) {
+    // Allow list for credentials
+    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 // This must come *before* your routes and `authenticateAzure`
