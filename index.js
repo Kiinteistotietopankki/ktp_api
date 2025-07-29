@@ -52,6 +52,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware setup
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -66,14 +67,6 @@ app.use(cors({
   credentials: true
 }));
 
-// This must come *before* your routes and `authenticateAzure`
-app.use(express.json());
-app.use(cookieParser());
-
-app.use((req, res, next) => {
-  res.setHeader('X-Debug-Custom-Header', 'ServerHeaderTest');
-  next();
-});
 
 
 // Swagger documentation route
