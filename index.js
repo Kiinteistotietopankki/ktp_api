@@ -69,6 +69,7 @@ app.use(cors({
 
 
 
+
 // Swagger documentation route
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
