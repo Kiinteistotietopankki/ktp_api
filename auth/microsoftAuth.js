@@ -6,7 +6,8 @@ const { generateToken } = require('./tokenUtils');
 const router = express.Router();
 
 const PORT = process.env.PORT || 3001;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000/'
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000'
+const SELF_API_URL = process.env.SELF_API_URL || 'http://localhost:3001'
 
 const msalConfig = {
   auth: {
@@ -22,7 +23,7 @@ const cca = new ConfidentialClientApplication(msalConfig);
 router.get('/login', (req, res) => {
   const authUrlParams = {
     scopes: ['user.read'],
-    redirectUri: `http://localhost:${PORT}/auth/redirect`,
+    redirectUri: `${SELF_API_URL}/auth/redirect`,
     prompt: 'select_account'
   };
 
@@ -47,7 +48,7 @@ router.get('/redirect', async (req, res) => {
   const tokenRequest = {
     code: req.query.code,
     scopes: ['user.read'],
-    redirectUri: `http://localhost:${PORT}/auth/redirect`,
+    redirectUri: `${SELF_API_URL}/auth/redirect`,
   };
 
   try {
