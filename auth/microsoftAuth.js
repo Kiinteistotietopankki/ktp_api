@@ -53,17 +53,19 @@ router.get('/redirect', async (req, res) => {
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
 
+    const isProd = false;
+
     res.cookie('sessionToken', response.accessToken, {
       httpOnly: true,
-      secure: true,      
-      sameSite: 'None',    
+      secure: isProd,
+      sameSite: isProd ? 'None' : 'Lax',    
     });
 
     const jwtToken = generateToken({ userId: response.uniqueId }); // Tokenisoitu userId
     res.cookie('authToken', jwtToken, {
       httpOnly: true,
-      secure: true,        
-      sameSite: 'None',   
+      secure: isProd,
+      sameSite: isProd ? 'None' : 'Lax',   
     });
 
     res.redirect(`${FRONTEND_URL}`);

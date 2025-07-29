@@ -54,24 +54,17 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      'http://localhost:3000',
-      'http://127.0.0.1:3000',
-      'https://yellow-tree-07bb64803.6.azurestaticapps.net'
-    ];
-
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.warn(`⛔ CORS origin rejected: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'],
   credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 204
 }));
 
+// This must come *before* your routes and `authenticateAzure`
+app.use(express.json());
 app.use(cookieParser());
+
 
 // Swagger documentation route
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
