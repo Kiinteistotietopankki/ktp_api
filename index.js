@@ -75,10 +75,15 @@ app.use('/auth', microsoftAuthRoutes);
 // Main application routes
 app.use(profileRoute);
 
+
+app.use(uploadRoutes);
+
+
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
 // app.use('/api', authenticateAzure);
 // app.use('/me', authenticateAzure);
 
+app.use('/api/pts', ptsRoutes);
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
