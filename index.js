@@ -65,6 +65,11 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  res.setHeader('X-Debug-Custom-Header', 'ServerHeaderTest');
+  next();
+});
+
 
 // Swagger documentation route
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
