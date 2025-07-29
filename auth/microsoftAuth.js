@@ -34,12 +34,12 @@ router.get('/logout', (req, res) => {
   res.clearCookie('sessionToken', {
     httpOnly: true,
     secure: false,  // set to true if using HTTPS in production
-    sameSite: 'None'
+    sameSite: 'Lax'
   });
   res.clearCookie('authToken', {
     httpOnly: true,
     secure: false,
-    sameSite: 'None'
+    sameSite: 'Lax'
   });
   res.status(200).json({ message: 'Logged out successfully' });
 });
@@ -59,14 +59,14 @@ router.get('/redirect', async (req, res) => {
     res.cookie('sessionToken', response.accessToken, {
       httpOnly: true,
       secure: isProd,
-      sameSite: 'None',    
+      sameSite: 'Lax',    
     });
 
     const jwtToken = generateToken({ userId: response.uniqueId }); // Tokenisoitu userId
     res.cookie('authToken', jwtToken, {
       httpOnly: true,
       secure: isProd,
-      sameSite: 'None'   
+      sameSite: 'Lax'   
     });
 
     res.redirect(`${FRONTEND_URL}`);
