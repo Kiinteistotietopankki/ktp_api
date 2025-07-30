@@ -1,0 +1,211 @@
+{
+  "$id": "PerustiedotKysely.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "This JSON Schema file was generated from PerustiedotKysely.xsd on Wed Jul 09 2025 13:07:15 GMT+0300 (Eastern European Summer Time).  For more information please see http://www.xsd2jsonschema.org",
+  "description": "Schema tag attributes: xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:kypt='http://xml.nls.fi/ktjkir/kysely/perustiedot/2018/02/01' xmlns:trpt='http://xml.nls.fi/ktjkir/perustiedot/2018/02/01' xmlns:y='http://xml.nls.fi/ktjkir/yhteinen/2018/02/01' targetNamespace='http://xml.nls.fi/ktjkir/kysely/perustiedot/2018/02/01' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'",
+  "properties": {
+    "Perustiedot": {
+      "$ref": "#/definitions/PerustiedotTyyppi"
+    },
+    "PerustiedotTyyppi": {
+      "$ref": "#/definitions/PerustiedotTyyppi"
+    },
+    "RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi": {
+      "$ref": "#/definitions/RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "MaaraalanPerustiedotJaMuutostapahtumatTyyppi": {
+      "$ref": "#/definitions/MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "LaitoksenPerustiedotJaMuutostapatumatTyyppi": {
+      "$ref": "#/definitions/LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+    },
+    "Rekisteriyksikko": {
+      "$ref": "#/definitions/RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "Maaraala": {
+      "$ref": "#/definitions/MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "Laitos": {
+      "$ref": "#/definitions/LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+    }
+  },
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "Perustiedot"
+      ]
+    },
+    {
+      "required": [
+        "PerustiedotTyyppi"
+      ]
+    },
+    {
+      "required": [
+        "RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+      ]
+    },
+    {
+      "required": [
+        "MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+      ]
+    },
+    {
+      "required": [
+        "LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+      ]
+    },
+    {
+      "required": [
+        "Rekisteriyksikko"
+      ]
+    },
+    {
+      "required": [
+        "Maaraala"
+      ]
+    },
+    {
+      "required": [
+        "Laitos"
+      ]
+    }
+  ],
+  "definitions": {
+    "Perustiedot": {
+      "$ref": "#/definitions/PerustiedotTyyppi"
+    },
+    "PerustiedotTyyppi": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:TulosteTyyppi"
+        },
+        {
+          "properties": {
+            "kypt:Rekisteriyksikko": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+                },
+                {
+                  "items": {
+                    "$ref": "#/definitions/RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "kypt:Maaraala": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+                },
+                {
+                  "items": {
+                    "$ref": "#/definitions/MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "kypt:Laitos": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+                },
+                {
+                  "items": {
+                    "$ref": "#/definitions/LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "y:metatiedot": {
+              "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:metatiedot"
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "y:virhe"
+              ],
+              "properties": {
+                "y:virhe": {
+                  "oneOf": [
+                    {
+                      "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:virhe"
+                    },
+                    {
+                      "items": {
+                        "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:virhe"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "description": "This truthy schema is what makes an optional <sequence> optional."
+            }
+          ]
+        }
+      ]
+    },
+    "RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi": {
+      "required": [
+        "trpt:rekisteriyksikonPerustiedot"
+      ],
+      "properties": {
+        "trpt:rekisteriyksikonPerustiedot": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/perustiedot/2018/02/01/trpt:rekisteriyksikonPerustiedot"
+        },
+        "y:muutostapahtumat": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:muutostapahtumat"
+        }
+      },
+      "type": "object"
+    },
+    "MaaraalanPerustiedotJaMuutostapahtumatTyyppi": {
+      "required": [
+        "trpt:maaraalanPerustiedot"
+      ],
+      "properties": {
+        "trpt:maaraalanPerustiedot": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/perustiedot/2018/02/01/trpt:maaraalanPerustiedot"
+        },
+        "y:muutostapahtumat": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:muutostapahtumat"
+        }
+      },
+      "type": "object"
+    },
+    "LaitoksenPerustiedotJaMuutostapatumatTyyppi": {
+      "required": [
+        "trpt:laitoksenPerustiedot"
+      ],
+      "properties": {
+        "trpt:laitoksenPerustiedot": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/perustiedot/2018/02/01/trpt:laitoksenPerustiedot"
+        },
+        "y:muutostapahtumat": {
+          "$ref": "FORWARD_REFERENCE#/to/http://xml.nls.fi/ktjkir/yhteinen/2018/02/01/y:muutostapahtumat"
+        }
+      },
+      "type": "object"
+    },
+    "Rekisteriyksikko": {
+      "$ref": "#/definitions/RekisteriyksikonPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "Maaraala": {
+      "$ref": "#/definitions/MaaraalanPerustiedotJaMuutostapahtumatTyyppi"
+    },
+    "Laitos": {
+      "$ref": "#/definitions/LaitoksenPerustiedotJaMuutostapatumatTyyppi"
+    }
+  }
+}

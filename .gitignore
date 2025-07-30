@@ -1,5 +1,6 @@
 # Node modules (installed packages)
 node_modules/
+certs/
 
 # Logs
 logs/
@@ -8,6 +9,8 @@ npm-debug.log*
 
 # Environment variables
 .env
+
+/cache
 
 # OS files
 .DS_Store
