@@ -80,8 +80,8 @@ app.use('/auth', microsoftAuthRoutes);
 app.use(profileRoute);
 
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
-// app.use('/api', authenticateAzure);
-// app.use('/me', authenticateAzure);
+app.use('/api', authenticateAzure);
+app.use('/me', authenticateAzure);
 
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
@@ -97,7 +97,7 @@ app.use('/api/haku', KiinteistoHakuRoutes)
 
 
 // Proxy test route
-app.get('/test-proxy', async (req, res) => {
+app.get('/api/test-proxy', async (req, res) => {
   try {
     const proxy = process.env.PROXY_URL;
     const agent = new HttpsProxyAgent(proxy);
