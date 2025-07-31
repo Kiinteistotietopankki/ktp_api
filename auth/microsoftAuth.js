@@ -22,7 +22,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const corsSettings = {
   httpOnly: true,
   secure: isProd, // true in prod with HTTPS
-  sameSite: isProd ? 'none' : 'lax'
+  sameSite: 'Lax'
 };
 
 const cca = new ConfidentialClientApplication(msalConfig);
@@ -62,7 +62,7 @@ router.get('/redirect', async (req, res) => {
     const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
     res.cookie('authToken', jwtToken, corsSettings);
 
-    res.redirect(`${FRONTEND_URL}`);
+    res.redirect('/');
 
   } catch (err) {
     console.error('Auth error:', err);
