@@ -20,13 +20,13 @@ const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
 const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')
 const metadataRoutes = require('./routes/row_metadataRoutes.js')
-
+const uploadRoutes = require('./routes/uploadPdfRoutes.js');
 const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
 const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
 const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 const MMLKartatRoutes = require('./routes/MMLKartatRoutes.js')
 const MMLHuoneistotIJRoutes = require('./routes/MMLHuoneistotIJRoutes.js')
-
+const ptsRoutes = require('./routes/ptsRoute.js');
 const KiinteistoHakuRoutes = require('./routes/kiinteistoHakuRoutes.js')
 
 //Map cache handling
@@ -57,7 +57,7 @@ app.use(cors({
   origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization','x-api-key'],
   optionsSuccessStatus: 204
 }));
 

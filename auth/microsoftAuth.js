@@ -69,7 +69,7 @@ router.get('/redirect', async (req, res) => {
       sameSite: isProd ? 'None' : 'Lax',   
     });
 
-    res.redirect(`${FRONTEND_URL}`);
+     res.redirect(`${FRONTEND_URL}`);
 
   } catch (err) {
     console.error('Auth error:', err);
