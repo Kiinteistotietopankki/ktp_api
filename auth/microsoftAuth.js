@@ -22,7 +22,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const corsSettings = {
   httpOnly: true,
   secure: isProd, // true in prod with HTTPS
-  sameSite: 'lax'
+  sameSite: 'None'
 };
 
 const cca = new ConfidentialClientApplication(msalConfig);

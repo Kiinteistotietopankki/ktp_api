@@ -108,7 +108,6 @@ app.get('/api/test-proxy', async (req, res) => {
 
     res.json({
       outboundIp: response.data.ip,
-      proxyUsed: proxy
     });
   } catch (err) {
     console.error(err.message);
