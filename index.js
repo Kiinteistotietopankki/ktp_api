@@ -57,7 +57,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: function (origin, callback) {
     // Allow list for credentials
-    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'];
+    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net', 'https://ktp.waativa.fi'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
