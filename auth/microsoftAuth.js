@@ -62,7 +62,7 @@ router.get('/redirect', async (req, res) => {
     const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
     res.cookie('authToken', jwtToken, corsSettings);
 
-    res.redirect(`${FRONTEND_URL}`);
+     res.redirect(`${FRONTEND_URL}`);
 
   } catch (err) {
     console.error('Auth error:', err);

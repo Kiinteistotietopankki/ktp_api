@@ -20,13 +20,13 @@ const rakennuksetRoutes = require('./routes/rakennukset_fullRoutes.js');
 const kiinteistotRoutes = require('./routes/kiinteistotRoutes.js');
 const lokitusRoutes = require('./routes/lokitusRoutes.js')
 const metadataRoutes = require('./routes/row_metadataRoutes.js')
-
+const uploadRoutes = require('./routes/uploadPdfRoutes.js');
 const MMLKiinteistotRoutes = require('./routes/MMLKiinteistotRoutes.js')
 const MMLTulosteetRoutes = require('./routes/MMLTulosteetRoutes.js')
 const MMLTilastotRoutes = require('./routes/MMLTilastotRoutes.js')
 const MMLKartatRoutes = require('./routes/MMLKartatRoutes.js')
 const MMLHuoneistotIJRoutes = require('./routes/MMLHuoneistotIJRoutes.js')
-
+const ptsRoutes = require('./routes/ptsRoute.js');
 const KiinteistoHakuRoutes = require('./routes/kiinteistoHakuRoutes.js')
 
 //Map cache handling
@@ -64,7 +64,8 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS','PUT'],
 }));
 
 
@@ -79,10 +80,15 @@ app.use('/auth', microsoftAuthRoutes);
 // Main application routes
 app.use(profileRoute);
 
+
+app.use(uploadRoutes);
+
+
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
 app.use('/api', authenticateAzure);
 app.use('/me', authenticateAzure);
 
+app.use('/api/pts', ptsRoutes);
 app.use('/api/kiinteistot', kiinteistotRoutes);
 app.use('/api/rakennukset_full', rakennuksetRoutes);
 app.use('/api/lokitus', lokitusRoutes);
