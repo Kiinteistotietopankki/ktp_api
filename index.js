@@ -57,7 +57,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: function (origin, callback) {
     // Allow list for credentials
-    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'];
+    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net', 'https://ktp.waativa.fi'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -97,7 +97,7 @@ app.use('/api/haku', KiinteistoHakuRoutes)
 
 
 // Proxy test route
-app.get('/test-proxy', async (req, res) => {
+app.get('/api/test-proxy', async (req, res) => {
   try {
     const proxy = process.env.PROXY_URL;
     const agent = new HttpsProxyAgent(proxy);
@@ -108,7 +108,6 @@ app.get('/test-proxy', async (req, res) => {
 
     res.json({
       outboundIp: response.data.ip,
-      proxyUsed: proxy
     });
   } catch (err) {
     console.error(err.message);
