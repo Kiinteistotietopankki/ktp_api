@@ -56,8 +56,8 @@ app.use(express.json());
 app.use(cors({
   origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'],
   credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization','x-api-key'],
+  methods: ['GET', 'POST', 'OPTIONS','PUT'],
+  allowedHeaders: ['Content-Type', 'Authorization',''],
   optionsSuccessStatus: 204
 }));
 
