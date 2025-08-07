@@ -52,18 +52,23 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware setup
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net'],
+  origin: function (origin, callback) {
+    // Allow list for credentials
+    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net', 'https://ktp.waativa.fi'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS','PUT'],
-  allowedHeaders: ['Content-Type', 'Authorization',''],
-  optionsSuccessStatus: 204
 }));
 
-// This must come *before* your routes and `authenticateAzure`
-app.use(express.json());
-app.use(cookieParser());
+
 
 
 // Swagger documentation route
@@ -80,8 +85,8 @@ app.use(uploadRoutes);
 
 
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
-// app.use('/api', authenticateAzure);
-// app.use('/me', authenticateAzure);
+app.use('/api', authenticateAzure);
+app.use('/me', authenticateAzure);
 
 app.use('/api/pts', ptsRoutes);
 app.use('/api/kiinteistot', kiinteistotRoutes);
@@ -98,7 +103,7 @@ app.use('/api/haku', KiinteistoHakuRoutes)
 
 
 // Proxy test route
-app.get('/test-proxy', async (req, res) => {
+app.get('/api/test-proxy', async (req, res) => {
   try {
     const proxy = process.env.PROXY_URL;
     const agent = new HttpsProxyAgent(proxy);
@@ -109,7 +114,6 @@ app.get('/test-proxy', async (req, res) => {
 
     res.json({
       outboundIp: response.data.ip,
-      proxyUsed: proxy
     });
   } catch (err) {
     console.error(err.message);

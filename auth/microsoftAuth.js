@@ -1,3 +1,4 @@
+// auth/microsoftAuth.js
 require('dotenv').config();
 const express = require('express');
 const { ConfidentialClientApplication } = require('@azure/msal-node');
@@ -5,9 +6,8 @@ const { generateToken } = require('./tokenUtils');
 
 const router = express.Router();
 
-const PORT = process.env.PORT || 3001;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000'
-const SELF_API_URL = process.env.SELF_API_URL || 'http://localhost:3001'
+const API_URL = process.env.SELF_API_URL
+const FRONTEND_URL = process.env.FRONTEND_URL
 
 const msalConfig = {
   auth: {
@@ -17,13 +17,21 @@ const msalConfig = {
   },
 };
 
+const isProd = process.env.NODE_ENV === 'production';
+
+const corsSettings = {
+  httpOnly: true,
+  secure: isProd, // true in prod with HTTPS
+  sameSite: 'None'
+};
+
 const cca = new ConfidentialClientApplication(msalConfig);
 
 // Redirect user to Microsoft login
 router.get('/login', (req, res) => {
   const authUrlParams = {
     scopes: ['user.read'],
-    redirectUri: `${SELF_API_URL}/auth/redirect`,
+    redirectUri: `${API_URL}/auth/redirect`,
     prompt: 'select_account'
   };
 
@@ -31,43 +39,28 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  res.clearCookie('sessionToken', {
-    httpOnly: true,
-    secure: false,  // set to true if using HTTPS in production
-    sameSite: 'lax'
-  });
-  res.clearCookie('authToken', {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax'
-  });
+  res.clearCookie('sessionToken', corsSettings);
+  res.clearCookie('authToken',corsSettings);
   res.status(200).json({ message: 'Logged out successfully' });
 });
+
+
 
 router.get('/redirect', async (req, res) => {
   const tokenRequest = {
     code: req.query.code,
     scopes: ['user.read'],
-    redirectUri: `${SELF_API_URL}/auth/redirect`,
+    redirectUri: `${API_URL}/auth/redirect`,
   };
 
   try {
     const response = await cca.acquireTokenByCode(tokenRequest);
 
-    const isProd = false;
 
-    res.cookie('sessionToken', response.accessToken, {
-      httpOnly: true,
-      secure: isProd,
-      sameSite: isProd ? 'None' : 'Lax',    
-    });
+    res.cookie('sessionToken', response.accessToken, corsSettings); //Azure token
 
-    const jwtToken = generateToken({ userId: response.uniqueId }); // Tokenisoitu userId
-    res.cookie('authToken', jwtToken, {
-      httpOnly: true,
-      secure: isProd,
-      sameSite: isProd ? 'None' : 'Lax',   
-    });
+    const jwtToken = generateToken({ userId: response.uniqueId }); //Tokenisoitu userId
+    res.cookie('authToken', jwtToken, corsSettings);
 
      res.redirect(`${FRONTEND_URL}`);
 
