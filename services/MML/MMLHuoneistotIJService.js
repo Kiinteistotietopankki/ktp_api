@@ -2,33 +2,40 @@ const https = require('https');
 const fs = require('fs');
 const axios = require('axios');
 
-// Load cert + key from files (paths from env)
-const certPath = process.env.CLIENT_CERT_PATH;
-const keyPath = process.env.CLIENT_KEY_PATH;
 
 let httpsAgent;
 
 try {
-  if (certPath && keyPath) {
-    const cert = fs.readFileSync(certPath);
-    const key = fs.readFileSync(keyPath);
+  if (process.env.AZURE_CERT_THUMBPRINT) {
+    // Azure Web App path (Linux example)
+    const certPath = `/var/ssl/private/${process.env.AZURE_CERT_THUMBPRINT}.pfx`;
+    const pfx = fs.readFileSync(certPath);
 
     httpsAgent = new https.Agent({
-      cert,
-      key,
+      pfx,
+      passphrase: process.env.CLIENT_PFX_PASSWORD, // same password as when uploaded
       rejectUnauthorized: true,
     });
-
-    console.log('Loaded cert and key for HTTPS agent');
+    console.log('Loaded PFX from Azure Web App');
   } else {
-    throw new Error('CLIENT_CERT_PATH or CLIENT_KEY_PATH not set');
+    // Local dev fallback
+    const pfxPath = process.env.CLIENT_PFX_PATH;
+    const pfxPassword = process.env.CLIENT_PFX_PASSWORD;
+    if (!pfxPath || !pfxPassword) throw new Error('Missing local PFX');
+
+    const pfx = fs.readFileSync(pfxPath);
+    httpsAgent = new https.Agent({
+      pfx,
+      passphrase: pfxPassword,
+      rejectUnauthorized: true,
+    });
+    console.log('Loaded local PFX');
   }
 } catch (err) {
-  console.warn('Cert or key file missing or failed to load, falling back to default HTTPS agent.', err);
-  httpsAgent = new https.Agent({
-    rejectUnauthorized: true,
-  });
+  console.warn('Falling back to default HTTPS agent', err);
+  httpsAgent = new https.Agent({ rejectUnauthorized: true });
 }
+
 
 class MMLHuoneistotIJService {
   constructor() {
