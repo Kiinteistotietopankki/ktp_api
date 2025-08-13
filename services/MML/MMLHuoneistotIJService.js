@@ -6,33 +6,19 @@ const axios = require('axios');
 let httpsAgent;
 
 try {
-  if (process.env.AZURE_CERT_THUMBPRINT) {
-    // Azure Web App path (Linux example)
-    const certPath = `/var/ssl/private/${process.env.AZURE_CERT_THUMBPRINT}.pfx`;
-    const pfx = fs.readFileSync(certPath);
-
+  if (process.env.CLIENT_PFX_BASE64) {
     httpsAgent = new https.Agent({
-      pfx,
-      passphrase: process.env.CLIENT_PFX_PASSWORD, // same password as when uploaded
+      pfx: Buffer.from(process.env.CLIENT_PFX_BASE64, 'base64'),
+      passphrase: process.env.CLIENT_PFX_PASSWORD,
       rejectUnauthorized: true,
     });
-    console.log('Loaded PFX from Azure Web App');
+    console.log('Loaded PFX from environment variable');
   } else {
-    // Local dev fallback
-    const pfxPath = process.env.CLIENT_PFX_PATH;
-    const pfxPassword = process.env.CLIENT_PFX_PASSWORD;
-    if (!pfxPath || !pfxPassword) throw new Error('Missing local PFX');
-
-    const pfx = fs.readFileSync(pfxPath);
-    httpsAgent = new https.Agent({
-      pfx,
-      passphrase: pfxPassword,
-      rejectUnauthorized: true,
-    });
-    console.log('Loaded local PFX');
+    httpsAgent = new https.Agent({ rejectUnauthorized: true });
+    console.warn('No client certificate found in environment, using default HTTPS agent');
   }
 } catch (err) {
-  console.warn('Falling back to default HTTPS agent', err);
+  console.warn('Failed to create HTTPS agent, falling back to default', err);
   httpsAgent = new https.Agent({ rejectUnauthorized: true });
 }
 
