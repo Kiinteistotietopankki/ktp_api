@@ -1,14 +1,8 @@
 // AUTO-GENERATED CONTROLLER for MMLHuoneistotIJService from MMLHuoneistotIJService.js
 
-const {MMLHuoneistotIJService, initHttpsAgent} = require('../services/MML/MMLHuoneistotIJService.js');
+const MMLHuoneistotIJService = require('../services/MML/MMLHuoneistotIJService.js');
+const mMLHuoneistotIJService = new MMLHuoneistotIJService();
 const { handleServiceError } = require('../utils/utils.js')
-
-let mMLHuoneistotIJService;
-
-(async () => {
-  await initHttpsAgent();
-  mMLHuoneistotIJService = new MMLHuoneistotIJService();
-})();
 
 exports.haeKunnossapitoselvitykset = async (req, res) => {
   try {
@@ -182,4 +176,3 @@ exports.haeHallintakohteetJaOsakeryhmat = async (req, res) => {
     handleServiceError(res, error);
   }
 };
-
