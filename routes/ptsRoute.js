@@ -125,10 +125,38 @@ const ptsController = require('../controllers/ptsController');
  *         description: List of PTS projects
  */
 
+/**
+ * @swagger
+ * /api/pts/by/get-labels-by-category-and-section:
+ *   get:
+ *     summary: getLabelsByCategoryAndSection (auto-generated route)
+ *     tags: [PTS]
+ *     parameters:
+ *       - in: query
+ *         name: category
+ *         required: false
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: section
+ *         required: false
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: JSON data returned
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ */
+router.get('/by/get-labels-by-category-and-section', ptsController.getLabelsByCategoryAndSection);
+router.get('/by/kiinteistotunnus/:kiinteistotunnus', ptsController.getByKiinteistotunnus);
+
 router.post('/', ptsController.create);
 router.get('/:id', ptsController.getById);
 router.put('/:id', ptsController.update);
 router.delete('/:id', ptsController.remove);
-router.get('/by/kiinteistotunnus/:kiinteistotunnus', ptsController.getByKiinteistotunnus);
+
 
 module.exports = router;

@@ -1,6 +1,9 @@
+const { Sequelize, Op } = require('sequelize');   // <-- add this
 const sequelize = require('../config/dbConfig');
 const initModels = require('../models/init-models');
 const { PTSProject, PTSEntry } = initModels(sequelize);
+
+
 
 class PTSService {
  async create({ kiinteistotunnus, title, created_by, entries }) {
@@ -87,6 +90,52 @@ class PTSService {
     await project.destroy();
 
     return true;
+  }
+
+  async getLabelsByCategoryAndSection(category, section) {
+    // Check if any entries exist for this category
+    const categoryExists = await PTSEntry.count({
+      where: { category },
+    });
+
+    if (categoryExists === 0) {
+      return { searchedCategory: category, categoryExists: false, searchedSection:section, sectionExists: false, labels: [] };
+    }
+
+    // Check if any entries exist for this category + section
+    const sectionExists = await PTSEntry.count({
+      where: { category, section },
+    });
+
+    if (sectionExists === 0) {
+      return { searchedCategory:category ,categoryExists: true, searchedSection:section , sectionExists: false, labels: [] };
+    }
+
+    // Now fetch distinct non-empty labels
+    const labels = await PTSEntry.findAll({
+      attributes: [
+        [Sequelize.fn("DISTINCT", Sequelize.col("label")), "label"]
+      ],
+      where: {
+        category,
+        section,
+        label: {
+          [Op.and]: [
+            { [Op.ne]: null },
+            { [Op.ne]: "" }
+          ]
+        }
+      },
+      raw: true
+    });
+
+    return {
+      searchedCategory: category,
+      categoryExists: true,
+      searchedSection: section,
+      sectionExists: true,
+      labels: labels.map(l => l.label)
+    };
   }
 }
 

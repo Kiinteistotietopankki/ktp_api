@@ -46,3 +46,15 @@ exports.remove = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getLabelsByCategoryAndSection = async (req, res) => {
+  try {
+    const category = req.query.category || '';
+    const section = req.query.section || '';
+
+    const result = await ptsService.getLabelsByCategoryAndSection(category, section);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
