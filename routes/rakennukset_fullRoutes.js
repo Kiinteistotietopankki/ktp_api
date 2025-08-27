@@ -188,6 +188,42 @@ router.get('/by/id_kiinteisto/:id', rakennukset_fullController.getById_kiinteist
  */
 router.get('/by/id_kiinteisto_with_metadata/:id_kiinteisto', rakennukset_fullController.getById_kiinteistoWithMetadata);
 
+
+/**
+ * @swagger
+ * /api/rakennukset_full/by/mainbuilding/{id_rakennus}:
+ *   patch:
+ *     summary: Update isMainBuilding flag for a building
+ *     tags: [Rakennukset_full]
+ *     parameters:
+ *       - in: path
+ *         name: id_rakennus
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID of the building to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               value:
+ *                 type: boolean
+ *                 description: Whether this building is the main building
+ *             required:
+ *               - value
+ *     responses:
+ *       200:
+ *         description: Building updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Rakennukset_full'
+ */
+router.patch('/by/mainbuilding/:id_rakennus', rakennukset_fullController.setMainBuilding);
+
 /**
  * @swagger
  * /api/rakennukset_full:

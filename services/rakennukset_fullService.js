@@ -45,6 +45,18 @@ class Rakennukset_fullService {
   return rakennuksetWithMetadata;
   }
 
+  async setMainBuilding(id_rakennus, value) {
+    const building = await rakennukset_full.findByPk(id_rakennus);
+    if (!building) {
+      throw new Error('Rakennus not found');
+    }
+
+    building.isMainBuilding = value;
+    await building.save();
+
+    return building;
+  }
+
   
   async create(data, userid='') {
     // 1. Create the rakennus row

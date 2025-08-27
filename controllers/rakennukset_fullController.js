@@ -85,6 +85,26 @@ exports.update = async (req, res) => {
   }
 };
 
+exports.setMainBuilding = async (req, res) => {
+  try {
+    const id_rakennus = parseInt(req.params.id_rakennus);
+    const { value } = req.body; // true/false
+
+    if (typeof value !== 'boolean') {
+      return res.status(400).json({ error: 'value must be a boolean' });
+    }
+
+    const updated = await Rakennukset_fullService.setMainBuilding(id_rakennus, value);
+
+    res.json(updated);
+  } catch (error) {
+    if (error.message === 'Rakennus not found') {
+      return res.status(404).json({ error: error.message });
+    }
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.remove = async (req, res) => {
   try {
     const deleted = await Rakennukset_fullService.remove(req.params.id);

@@ -86,6 +86,11 @@ module.exports = function(sequelize, DataTypes) {
     rakennusaine: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    isMainBuilding: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize,
