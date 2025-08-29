@@ -91,7 +91,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    }
+    },
+    huoneistoja: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'rakennukset_full',

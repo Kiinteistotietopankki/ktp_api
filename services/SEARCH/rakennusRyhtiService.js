@@ -32,6 +32,7 @@ class RakennusRyhtiService {
         this.Huoneistoala = p.floor_area || null;
         this.Tilavuus = p.volume || null;
         this.Kerroksia = p.number_of_storeys || null;
+        this.Huoneistoja = p.apartment_count || null;
     
         const getCode = uri => uri?.split("/").pop() || null;
         this.Rakennusluokitus = rakennusKoodit.rakennusluokitus[getCode(p.main_purpose)] || null;
@@ -41,6 +42,7 @@ class RakennusRyhtiService {
         this.Lammitystapa = rakennusKoodit.lammitystapa[getCode(p.heating_method)] || null;
         this.Lammitysenergianlahde = rakennusKoodit.lammitysenergialahde[getCode(p.heating_energy_source)] || null;
         this.KantavanRakenteenRakennusaine = rakennusKoodit.rakennusaine[getCode(p.material_of_load_bearing_structures)] || null;
+
     
         // Placeholder fields
         this.Tulvariski = null;
@@ -114,6 +116,7 @@ class RakennusRyhtiService {
           Huoneistoala: this.Huoneistoala,
           Tilavuus: this.Tilavuus,
           Kerroksia: this.Kerroksia,
+          Huoneistoja: this.Huoneistoja,
           Rakennusluokitus: this.Rakennusluokitus,
           Runkotapa: this.Runkotapa,
           Kaytossaolotilanne: this.Kaytossaolotilanne,
@@ -148,6 +151,7 @@ class RakennusRyhtiService {
             "Huoneistoala (m²)": { value: this.Huoneistoala,  source: sourceYmparistofi  },
             "Tilavuus (m³)": { value: this.Tilavuus,  source: sourceYmparistofi },
             "Kerroksia": { value: this.Kerroksia, source: sourceYmparistofi  },
+            "Huoneistojen lukumäärä" : {value: this.Huoneistoja, source: sourceYmparistofi}
           },
           rakennustiedot: {
             "Rakennusluokitus": { value: this.Rakennusluokitus,  source: sourceYmparistofi  },
