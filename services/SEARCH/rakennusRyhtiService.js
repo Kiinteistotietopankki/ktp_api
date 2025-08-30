@@ -8,7 +8,7 @@ const nearestPointOnLine = require('@turf/nearest-point-on-line').default;
 const proj4 = require('proj4');
 
 class RakennusRyhtiService {
-    constructor(feature, addreskey='') { // Initial feature is always building data
+    constructor(feature, addreskey='', area=null) { // Initial feature is always building data
         const p = feature.properties || {};
         const rawId = feature.id || null;
 
@@ -24,7 +24,18 @@ class RakennusRyhtiService {
         this.Rakennustunnus = p.permanent_building_identifier || null;
         this.Kiinteistotunnus = p.property_identifier || null;
         this.KiinteistotunnusEsitysmuoto = ktEsitysmuotoon(p.property_identifier) || null
-        this.KohteenNimi = null;
+        if (area !== null && area !== undefined) {
+            // Ensure it’s a number first
+            const numericArea = Number(area*1.0065);
+
+            // Round to 2 decimals
+            const rounded = Math.round(numericArea * 100) / 100;
+
+            // Convert back to string with 2 fixed decimals
+            this.KiinteistonPinta_ala = rounded.toFixed(2); // "1234.50"
+        } else {
+            this.KiinteistonPinta_ala = null;
+        }
         this.KohteenOsoite = p.address_fin || []; // Osoite hausta
         this.Postinumero = p.postal_code || null; // Osoite hausta
         this.Toimipaikka = p.postal_office_fin || null; // Osoite hausta
@@ -321,7 +332,7 @@ async checkTulvariski() {
           buildingkey: this.id,
           Rakennustunnus: this.Rakennustunnus,
           Kiinteistotunnus: this.Kiinteistotunnus,
-          KohteenNimi: this.KohteenNimi,
+          KiinteistonPinta_ala: this.KiinteistonPinta_ala,
           KohteenOsoite: this.KohteenOsoite,
           Postinumero: this.Postinumero,
           Toimipaikka: this.Toimipaikka,
@@ -347,6 +358,7 @@ async checkTulvariski() {
 
       toCategoriesJSON() {
         const sourceYmparistofi = "Ympäristö.fi";
+        const MML = "MML palstatiedot"
 
 
         return {
@@ -354,7 +366,7 @@ async checkTulvariski() {
             "Rakennustunnus": { value: this.Rakennustunnus, source: sourceYmparistofi },
             "Kiinteistötunnus": { value: this.KiinteistotunnusEsitysmuoto, source: sourceYmparistofi },
             "Kiinteistötunnus kokonainen": { value: this.Kiinteistotunnus, source: sourceYmparistofi },
-            "Kohteen nimi": { value: null, source: null },
+            "Kiinteistön laskettu pinta-ala (m²)": { value: this.KiinteistonPinta_ala, source: MML },
             "Kohteen osoitteet": { value: this.KohteenOsoite, source: sourceYmparistofi },
             "Postinumero": { value: this.Postinumero, source: sourceYmparistofi },
             "Toimipaikka": { value: this.Toimipaikka, source: sourceYmparistofi },
