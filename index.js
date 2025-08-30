@@ -77,8 +77,8 @@ app.use(uploadRoutes);
 
 
 // Protected API routes (COMMENTED OUT ON DEV!!!!!!!!!)
-// app.use('/api', authenticateAzure);
-// app.use('/me', authenticateAzure);
+app.use('/api', authenticateAzure);
+app.use('/me', authenticateAzure);
 
 app.use('/api/pts', ptsRoutes);
 app.use('/api/kiinteistot', kiinteistotRoutes);
