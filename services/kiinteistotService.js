@@ -11,63 +11,71 @@ class KiinteistotService {
     return kiinteistot.findAll();
   }
 
-  async getAllWithRakennukset(page = 1, limit = 20, orderBy = 'id_kiinteisto', orderDir = 'ASC', searchTerm = '') {
+async getAllWithRakennukset(page = 1, limit = 20, orderBy = 'id_kiinteisto', orderDir = 'ASC', searchTerm = '') {
     const cappedLimit = Math.min(limit, 100);
     const offset = (page - 1) * cappedLimit;
-
     const orderDirection = orderDir.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
 
     let count, rows;
 
     if (searchTerm.includes('-')) {
-      // Search by kiinteistotunnus
-      ({ count, rows } = await kiinteistot.findAndCountAll({
-        limit: cappedLimit,
-        offset,
-        order: [[orderBy, orderDirection]],
-        where: {
-          kiinteistotunnus: searchTerm,
-        },
-        include: [
-          {
-            model: rakennukset_full,
-            as: 'rakennukset_fulls',
-          },
-        ],
-        distinct: true,
-      }));
+        // Search by kiinteistotunnus
+        ({ count, rows } = await kiinteistot.findAndCountAll({
+            limit: cappedLimit,
+            offset,
+            order: [[orderBy, orderDirection]],
+            where: { kiinteistotunnus: searchTerm },
+            include: [
+                {
+                    model: rakennukset_full,
+                    as: 'rakennukset_fulls',
+                },
+            ],
+            distinct: true,
+        }));
     } else {
-      // Search in associated rakennukset_fulls fields
-      ({ count, rows } = await kiinteistot.findAndCountAll({
-        limit: cappedLimit,
-        offset,
-        order: [[orderBy, orderDirection]],
-        include: [
-          {
-            model: rakennukset_full,
-            as: 'rakennukset_fulls',
-            where: {
-              [Op.or]: [
-                { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
-                { osoite: { [Op.like]: `%${searchTerm}%` } },
-                { postinumero: { [Op.like]: `%${searchTerm}%` } },
-              ],
-            },
-            required: true, // Ensures filtering works correctly
-          },
-        ],
-        distinct: true,
-      }));
+        // Search in associated rakennukset_fulls fields
+        ({ count, rows } = await kiinteistot.findAndCountAll({
+            limit: cappedLimit,
+            offset,
+            order: [[orderBy, orderDirection]],
+            include: [
+                {
+                    model: rakennukset_full,
+                    as: 'rakennukset_fulls',
+                    where: {
+                        [Op.or]: [
+                            { toimipaikka: { [Op.like]: `%${searchTerm}%` } },
+                            { osoite: { [Op.like]: `%${searchTerm}%` } },
+                            { postinumero: { [Op.like]: `%${searchTerm}%` } },
+                        ],
+                    },
+                    required: true,
+                },
+            ],
+            distinct: true,
+        }));
     }
 
+    // Sort each rakennukset_fulls array by isMainBuilding descending
+    rows.forEach(kiinteisto => {
+        if (Array.isArray(kiinteisto.rakennukset_fulls)) {
+            kiinteisto.rakennukset_fulls.sort((a, b) => {
+                return (b.isMainBuilding === true ? 1 : 0) - (a.isMainBuilding === true ? 1 : 0);
+            });
+        }
+    });
+
     return {
-      data: rows,
-      page,
-      limit: cappedLimit,
-      totalItems: count,
-      totalPages: Math.ceil(count / cappedLimit),
+        data: rows,
+        page,
+        limit: cappedLimit,
+        totalItems: count,
+        totalPages: Math.ceil(count / cappedLimit),
     };
-  }
+}
+
+
 
 
 async createWithRakennukset(kiinteisto) {
