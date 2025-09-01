@@ -2,33 +2,26 @@ const https = require('https');
 const fs = require('fs');
 const axios = require('axios');
 
-// Load cert + key from files (paths from env)
-const certPath = process.env.CLIENT_CERT_PATH;
-const keyPath = process.env.CLIENT_KEY_PATH;
 
 let httpsAgent;
 
 try {
-  if (certPath && keyPath) {
-    const cert = fs.readFileSync(certPath);
-    const key = fs.readFileSync(keyPath);
-
+  if (process.env.CLIENT_PFX_BASE64) {
     httpsAgent = new https.Agent({
-      cert,
-      key,
+      pfx: Buffer.from(process.env.CLIENT_PFX_BASE64, 'base64'),
+      passphrase: process.env.CLIENT_PFX_PASSWORD,
       rejectUnauthorized: true,
     });
-
-    console.log('Loaded cert and key for HTTPS agent');
+    console.log('Loaded PFX from environment variable');
   } else {
-    throw new Error('CLIENT_CERT_PATH or CLIENT_KEY_PATH not set');
+    httpsAgent = new https.Agent({ rejectUnauthorized: true });
+    console.warn('No client certificate found in environment, using default HTTPS agent');
   }
 } catch (err) {
-  console.warn('Cert or key file missing or failed to load, falling back to default HTTPS agent.', err);
-  httpsAgent = new https.Agent({
-    rejectUnauthorized: true,
-  });
+  console.warn('Failed to create HTTPS agent, falling back to default', err);
+  httpsAgent = new https.Agent({ rejectUnauthorized: true });
 }
+
 
 class MMLHuoneistotIJService {
   constructor() {

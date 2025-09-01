@@ -86,7 +86,16 @@ module.exports = function(sequelize, DataTypes) {
     rakennusaine: {
       type: DataTypes.STRING(255),
       allowNull: true
-    }
+    },
+    isMainBuilding: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    huoneistoja: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
   }, {
     sequelize,
     tableName: 'rakennukset_full',

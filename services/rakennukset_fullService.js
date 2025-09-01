@@ -19,12 +19,13 @@ class Rakennukset_fullService {
     });
   }
 
-  async getById_kiinteistoWithMetadata(id_kiinteisto) {
+async getById_kiinteistoWithMetadata(id_kiinteisto) {
   // 1. Get all rakennukset_full for kiinteisto
   const rakennukset = await rakennukset_full.findAll({
     where: { id_kiinteisto },
   });
 
+  // 2. Add metadata
   const rakennuksetWithMetadata = await Promise.all(
     rakennukset.map(async (rakennus) => {
       const metadata = await row_metadata.findOne({
@@ -34,7 +35,6 @@ class Rakennukset_fullService {
         },
       });
 
-      // Return combined object
       return {
         ...rakennus.toJSON(),
         metadata: metadata ? metadata.metadata : null,
@@ -42,7 +42,25 @@ class Rakennukset_fullService {
     })
   );
 
+  // 3. Sort so that isMainBuilding === true comes first
+  rakennuksetWithMetadata.sort((a, b) => {
+    if (a.isMainBuilding === b.isMainBuilding) return 0;
+    return a.isMainBuilding ? -1 : 1; // true first
+  });
+
   return rakennuksetWithMetadata;
+}
+
+  async setMainBuilding(id_rakennus, value) {
+    const building = await rakennukset_full.findByPk(id_rakennus);
+    if (!building) {
+      throw new Error('Rakennus not found');
+    }
+
+    building.isMainBuilding = value;
+    await building.save();
+
+    return building;
   }
 
   

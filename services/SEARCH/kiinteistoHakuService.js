@@ -26,18 +26,19 @@ class KiinteistoHakuService {
         const osoiteData = await this.fetchOsoiteData(osoite, kaupunki);
         const buildingKeys = this.extractBuildingKeys(osoiteData);
         const addressKeys = this.extractAddressKeys(osoiteData);
-        const kiinteistotunnukset = await this.haeKiinteistotunnukset(buildingKeys);
+        const ktFromAddress = await this.haeKiinteistotunnukset(buildingKeys);
 
-        if (kiinteistotunnukset.has(kiinteistotunnus)) {
-        const data = await this.createKiinteistot(kiinteistotunnukset, addressKeys, osoite);
-        return { status: 200, data: data.map(k => k.toGeoJSON()), error: null };
-        } else {
-          return {
-            status: 404,
-            data: null,
-            error: 'Annettu kiinteistötunnus ei vastaa rakennusten tunnuksia.'
-          };
-        }
+        // Always include direct kiinteistötunnus result
+        const directResult = await this.createKiinteistotWithoutAddress(kiinteistotunnus);
+        const addressResult = await this.createKiinteistot(ktFromAddress, addressKeys, osoite);
+
+        // Merge & deduplicate
+        const combined = [...directResult, ...addressResult].reduce((acc, k) => {
+          if (!acc.find(x => x.id === k.id)) acc.push(k);
+          return acc;
+        }, []);
+
+        return { status: 200, data: combined.map(k => k.toGeoJSON()), error: null };
       }
 
       if (osoite) {

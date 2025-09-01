@@ -176,4 +176,3 @@ exports.haeHallintakohteetJaOsakeryhmat = async (req, res) => {
     handleServiceError(res, error);
   }
 };
-

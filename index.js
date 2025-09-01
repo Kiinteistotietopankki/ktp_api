@@ -55,17 +55,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow list for credentials
-    const allowedOrigins = ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net', 'https://ktp.waativa.fi'];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: ['http://localhost:3000', 'https://yellow-tree-07bb64803.6.azurestaticapps.net', 'https://ktp.waativa.fi'],
   credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS','PUT'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 }));
 
 
